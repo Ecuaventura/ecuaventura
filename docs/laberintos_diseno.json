@@ -1,0 +1,65 @@
+{
+ "leyenda": {
+  "W": "muro",
+  ".": "suelo",
+  "P": "inicio del personaje",
+  "D": "puerta (reto)",
+  "A": "puerta activa",
+  "O": "puerta abierta",
+  "G": "meta/bandera",
+  "C": "cono (decoración, se puede pisar)"
+ },
+ "tile_px": 64,
+ "orden_tiles": [
+  "suelo",
+  "suelo_sombra",
+  "muro",
+  "puerta_cerrada",
+  "puerta_activa",
+  "puerta_abierta",
+  "meta",
+  "cono"
+ ],
+ "mapas": {
+  "mercado": [
+   "WWWWWWWWWWWWWWWWW",
+   "WP...W.....W....W",
+   "W.WW.W.WWW.W.WW.W",
+   "W.W..A..W....W..W",
+   "W.W.WWWWW.WWWW.WW",
+   "W...W.....D.....W",
+   "WWW.W.WWWWWWW.W.G",
+   "WWWWWWWWWWWWWWWWW"
+  ],
+  "estacion": [
+   "WWWWWWWWWWWWWWWWW",
+   "W....W...W......W",
+   "W.WW.W.W.W.WWWW.W",
+   "W.W....WPO..W...W",
+   "W.WWWW.WWWW.W.WWW",
+   "W......W....D...W",
+   "WWWWW.WW.WWWWWW.G",
+   "WWWWWWWWWWWWWWWWW"
+  ],
+  "puerto": [
+   "WWWWWWWWWWWWWWWWW",
+   "W......W....W...W",
+   "W.WWWW.W.WW.W.W.W",
+   "W.W..W...W..PA..W",
+   "W.W.WWWWWW.WWWW.W",
+   "W.W....D......W.W",
+   "W...WW.WWWWWW...G",
+   "WWWWWWWWWWWWWWWWW"
+  ],
+  "construccion": [
+   "WWWWWWWWWWWWWWWWW",
+   "W...C..W.......GW",
+   "W.WWWW.W.WWWWW.DW",
+   "W.W....W.W...W..W",
+   "W.W.WWWW.W.W.WW.W",
+   "W.W......PA.C...W",
+   "W...WWWWWWWWWWW.W",
+   "WWWWWWWWWWWWWWWWW"
+  ]
+ }
+}

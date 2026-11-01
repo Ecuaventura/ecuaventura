@@ -1,0 +1,155 @@
+{
+  "_ayuda": "nombre: como lo llaman en los textos; etiqueta: cartel sobre el mapa (opcional); placa: nombre bajo el retrato (Press Start 2P); temas: historias que cuenta en los retos de términos semejantes (historias.json). jugables: los 4 personajes que puede elegir el alumno.",
+  "jugador": {
+    "sprite": "sprite_ana",
+    "spriteArriba": "sprite_ana_arriba",
+    "retrato": "retrato_ana"
+  },
+  "ecu": {
+    "nombre": "Ecu",
+    "sprite": "sprite_ecu",
+    "retrato": "mascota",
+    "retratoFeliz": "mascota_feliz"
+  },
+  "vecinos": {
+    "dona_rosa": {
+      "nombre": "Doña Rosa",
+      "sprite": "sprite_dona_rosa",
+      "retrato": "retrato_dona_rosa",
+      "producto": "papa",
+      "temas": [
+        "balanza",
+        "canastas"
+      ]
+    },
+    "don_lucho": {
+      "nombre": "Don Lucho",
+      "sprite": "sprite_don_lucho",
+      "retrato": "retrato_don_lucho",
+      "producto": "choclo",
+      "temas": [
+        "soles",
+        "balanza"
+      ]
+    },
+    "carmen": {
+      "nombre": "Carmen",
+      "sprite": "sprite_carmen",
+      "retrato": "retrato_carmen",
+      "producto": "naranja",
+      "temas": [
+        "canastas",
+        "soles"
+      ]
+    },
+    "nino": {
+      "nombre": "Pepito",
+      "sprite": "sprite_nino",
+      "retrato": "retrato_nino",
+      "producto": "cebolla"
+    },
+    "jhon": {
+      "nombre": "Jhon",
+      "etiqueta": "Jhon, el cobrador",
+      "sprite": "sprite_jhon",
+      "retrato": "retrato_jhon",
+      "temas": [
+        "buses",
+        "maletas"
+      ]
+    },
+    "marina": {
+      "nombre": "Doña Marina",
+      "etiqueta": "Doña Marina",
+      "sprite": "sprite_marina",
+      "retrato": "retrato_marina",
+      "temas": [
+        "maletas",
+        "pasajes"
+      ]
+    },
+    "julia": {
+      "nombre": "Julia",
+      "etiqueta": "Julia, la boletera",
+      "sprite": "sprite_julia",
+      "retrato": "retrato_julia",
+      "temas": [
+        "pasajes",
+        "buses"
+      ],
+      "placa": "SEÑORA JULIA"
+    },
+    "teofilo": {
+      "nombre": "Don Teófilo",
+      "etiqueta": "Don Teófilo, el chofer",
+      "placa": "DON TEOFILO",
+      "sprite": "sprite_teofilo",
+      "retrato": "retrato_teofilo",
+      "temas": [
+        "pasajes"
+      ]
+    },
+    "jugos": {
+      "nombre": "Señora Paula",
+      "sprite": "sprite_jugos",
+      "retrato": "retrato_jugos"
+    },
+    "flores": {
+      "nombre": "Doña Flor",
+      "sprite": "sprite_flores",
+      "retrato": "retrato_flores"
+    },
+    "emoliente": {
+      "nombre": "Don Ernesto",
+      "sprite": "sprite_emoliente",
+      "retrato": "retrato_emoliente"
+    },
+    "compradora": {
+      "nombre": "Compradora",
+      "sprite": "sprite_compradora"
+    },
+    "senor": {
+      "nombre": "Señor",
+      "sprite": "sprite_senor"
+    },
+    "nina": {
+      "nombre": "Niña",
+      "sprite": "sprite_nina"
+    },
+    "taxista": {
+      "nombre": "Don Pedro",
+      "etiqueta": "Don Pedro, el taxista",
+      "sprite": "sprite_taxista",
+      "retrato": "retrato_taxista"
+    },
+    "canillita": {
+      "nombre": "Rubén",
+      "sprite": "sprite_canillita",
+      "retrato": "retrato_canillita"
+    },
+    "pasajero1": {
+      "nombre": "Pasajero",
+      "sprite": "sprite_pasajero1",
+      "retrato": "retrato_pasajero1"
+    },
+    "pasajera2": {
+      "nombre": "Pasajera",
+      "sprite": "sprite_pasajera2",
+      "retrato": "retrato_pasajera2"
+    }
+  },
+  "jugables": {
+    "p1": {
+      "nombre": "Personaje 1"
+    },
+    "p2": {
+      "nombre": "Personaje 2"
+    },
+    "p3": {
+      "nombre": "Personaje 3"
+    },
+    "p4": {
+      "nombre": "Personaje 4"
+    }
+  }
+}

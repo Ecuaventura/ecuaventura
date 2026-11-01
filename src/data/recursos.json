@@ -1,0 +1,108 @@
+{
+  "_ayuda": "Imágenes que carga Boot. La clave es el nombre del archivo sin .png; carpeta = subcarpeta de public/assets/img ('' = raíz). Las claves deben ser únicas. 'hojas' = hojas de animación (cuadros de 64×88; 3 columnas × 4 filas: abajo, izquierda, derecha, arriba).",
+  "imagenes": {
+    "": [
+      "fondo_inicio",
+      "fondo_menu",
+      "mascota",
+      "mascota_feliz",
+      "condor",
+      "estrella",
+      "estrella_off",
+      "candado"
+    ],
+    "personajes": [
+      "p1_sprite",
+      "p2_sprite",
+      "p3_sprite",
+      "p4_sprite",
+      "p1_retrato",
+      "p2_retrato",
+      "p3_retrato",
+      "p4_retrato",
+      "p1_lado",
+      "p2_lado",
+      "p3_lado",
+      "p4_lado"
+    ],
+    "inicio": [
+      "mini_mundo1",
+      "mini_mundo2",
+      "mini_mundo3",
+      "mini_mundo4",
+      "mini_mundo5"
+    ],
+    "mundo1": [
+      "sprite_ecu",
+      "retrato_ana",
+      "condor_posado",
+      "condor_vuelo",
+      "monedero"
+    ],
+    "mundo1v2": [
+      "sprite_ana",
+      "sprite_ana_arriba",
+      "sprite_carmen",
+      "sprite_dona_rosa",
+      "sprite_don_lucho",
+      "sprite_nino",
+      "sprite_compradora",
+      "sprite_emoliente",
+      "sprite_flores",
+      "sprite_jugos",
+      "sprite_nina",
+      "sprite_senor",
+      "retrato_carmen",
+      "retrato_dona_rosa",
+      "retrato_don_lucho",
+      "retrato_nino",
+      "retrato_emoliente",
+      "retrato_flores",
+      "retrato_jugos",
+      "mapa_mercado_fondo_x4",
+      "mapa_mercado_completo",
+      "tileset_laberinto_mercado"
+    ],
+    "mundo2": [
+      "bus_reto",
+      "bus_lleno",
+      "bus_sobran"
+    ],
+    "mundo2v2": [
+      "sprite_jhon",
+      "sprite_marina",
+      "sprite_julia",
+      "sprite_teofilo",
+      "sprite_taxista",
+      "sprite_canillita",
+      "sprite_pasajero1",
+      "sprite_pasajera2",
+      "retrato_jhon",
+      "retrato_marina",
+      "retrato_julia",
+      "retrato_teofilo",
+      "retrato_taxista",
+      "retrato_canillita",
+      "retrato_pasajero1",
+      "retrato_pasajera2",
+      "mapa_terminal_fondo_x4",
+      "mapa_terminal_completo",
+      "tileset_laberinto_terminal",
+      "buses_muro_terminal"
+    ]
+  },
+  "hojas": {
+    "personajes": [
+      "p1_hoja",
+      "p2_hoja",
+      "p3_hoja",
+      "p4_hoja"
+    ]
+  },
+  "personajes": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+  ]
+}

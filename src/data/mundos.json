@@ -1,0 +1,462 @@
+{
+  "_ayuda": "Zona de cada mundo. grado/tema: lo que se aprende. Zona grande (Mundo 1): mapa con cámara; npc.px = posición exacta del dibujo en cuadros (x, y de mapa_mercado.json); insignia = [centro x, arriba y] en píxeles del mundo si insigniasEnMundo. consejeros: vecinos con «?» que dan consejos. mapaCompleto: tecla M.",
+  "mundos": [
+    {
+      "id": 1,
+      "nombre": "Mercado",
+      "nombreCorto": "Mercado",
+      "titulo": "MUNDO 1 · MERCADO",
+      "subtitulo": "Ayuda a los vecinos del mercado para abrir la salida",
+      "ayudaZona": "<span><span class=\"key\">FLECHAS</span> o <span class=\"key\">WASD</span> moverte</span><span><span class=\"key\">ESPACIO</span> hablar</span><span><span class=\"key\">M</span> mapa</span><span>Cada puesto es un nivel · <b style=\"color:#f2b632\">!</b> = reto nuevo</span>",
+      "retoVisual": "terminos",
+      "insignias": {
+        "nuevo": "¡NUEVO NIVEL!",
+        "textoBloqueo": false,
+        "salida": "RETO · Salida"
+      },
+      "mapa": "zona_mercado",
+      "inicio": [36, 12],
+      "ecu": [35, 12],
+      "bloqueos": [
+        [45, 11],
+        [45, 12],
+        [45, 13],
+        [45, 14]
+      ],
+      "condor": true,
+      "ambientales": [
+        {
+          "personaje": "jugos",
+          "pos": [32, 15],
+          "px": [
+            32.4,
+            14
+          ],
+          "consejo": true,
+          "dialogo": "¡Jugo de naranja, jugo de papaya! ¿Sabías que si vendo <b>3 jugos</b> y gano <b>S/ 12</b>, cada jugo cuesta <b>S/ 4</b>?<br><br>¡Eso es una <b class=\"c-azul\">ecuación</b>: 3x = 12! Doña Rosa tiene un problema parecido con su balanza."
+        },
+        {
+          "personaje": "flores",
+          "pos": [14, 15],
+          "px": [
+            14.4,
+            14.2
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Cuando armo ramos junto las flores iguales: <b>2 rosas + 3 rosas = 5 rosas</b>.<br><br>Con la x es igual: <b>2x + 3x = 5x</b>. ¡Se llaman <b class=\"c-azul\">términos semejantes</b>!"
+        },
+        {
+          "personaje": "emoliente",
+          "pos": [21, 8],
+          "px": [
+            21.2,
+            7.6
+          ],
+          "consejo": true,
+          "dialogo": "¡Emoliente calientito! Yo separo los vasos llenos de los vacíos antes de contar.<br><br>En una ecuación igual: <b>junta las x por un lado y los números por otro</b>, y después despeja."
+        },
+        {
+          "personaje": "nino",
+          "pos": [24, 19],
+          "px": [
+            24,
+            18.6
+          ],
+          "consejo": true,
+          "dialogo": "¡{nombre}! Dicen que el cóndor de la salida lleva volando a quien ayuda a todos los vecinos. ¡Tú puedes!"
+        },
+        {
+          "personaje": "compradora",
+          "pos": [27, 15],
+          "px": [
+            27,
+            14.6
+          ]
+        },
+        {
+          "personaje": "senor",
+          "pos": [17, 13],
+          "px": [
+            17.4,
+            12.4
+          ]
+        },
+        {
+          "personaje": "nina",
+          "pos": [30, 22],
+          "px": [30, 21]
+        }
+      ],
+      "puestos": [
+        {
+          "nivel": 1,
+          "color": "puesto guinda",
+          "anfitrion": {
+            "personaje": "don_lucho",
+            "pos": [7, 11],
+            "px": [
+              6.5,
+              10.4
+            ]
+          },
+          "zona": [
+            [5, 10],
+            [6, 10],
+            [7, 10],
+            [8, 10]
+          ],
+          "regreso": [7, 12],
+          "insignia": [448, 537],
+          "invitacion": "¡Hola, {nombre}! En mi puesto tengo bolsas y sacos iguales. ¿Me ayudas a <b>juntar las x</b>?"
+        },
+        {
+          "nivel": 2,
+          "color": "puesto azul",
+          "anfitrion": {
+            "personaje": "carmen",
+            "pos": [7, 19],
+            "px": [
+              6.5,
+              18.4
+            ]
+          },
+          "zona": [
+            [5, 18],
+            [6, 18],
+            [7, 18],
+            [8, 18]
+          ],
+          "regreso": [7, 20],
+          "insignia": [448, 1049],
+          "invitacion": "¡{nombre}! Ahora hay <b>x y números sueltos</b>. Junta las x, quita los números y verás."
+        },
+        {
+          "nivel": 3,
+          "color": "puesto naranja",
+          "anfitrion": {
+            "personaje": "dona_rosa",
+            "pos": [39, 11],
+            "px": [
+              38.5,
+              10.4
+            ]
+          },
+          "zona": [
+            [37, 10],
+            [38, 10],
+            [39, 10],
+            [40, 10]
+          ],
+          "regreso": [39, 12],
+          "insignia": [2496, 537],
+          "invitacion": "¡Hola, {nombre}! En mi balanza hay <b>números a los dos lados</b>. ¿Me ayudas a equilibrarla?"
+        },
+        {
+          "nivel": 4,
+          "color": "puesto verde",
+          "zona": [
+            [37, 18],
+            [38, 18],
+            [39, 18],
+            [40, 18]
+          ],
+          "regreso": [39, 19],
+          "insignia": [2496, 1049],
+          "invitacion": "En el puesto verde también se <b>restan x</b>: 5x − 2x = 3x. ¡Vamos, {nombre}!"
+        },
+        {
+          "nivel": 5,
+          "zona": [
+            [45, 12],
+            [45, 13]
+          ],
+          "regreso": [43, 13],
+          "insignia": [2963, 450],
+          "esSalida": true,
+          "invitacion": "¡La salida del mercado! Los vecinos tienen <b>problemas de la vida real</b>. Ayúdalos y el cóndor nos llevará volando."
+        }
+      ],
+      "textoCompletado": "Los vecinos del <b style=\"color:#f2b632\">Mercado</b> ya están felices.",
+      "textoViaje": "El cóndor te lleva volando a la <b style=\"color:#8cc8ff\">Terminal de buses</b>.",
+      "textoVolver": "VOLVER AL MERCADO",
+      "siguienteMundo": 2,
+      "siguienteNombre": "Terminal de buses",
+      "grado": "1.° de secundaria",
+      "etiquetaGrado": "1.° SEC",
+      "tema": "Términos semejantes",
+      "colorGrado": "#e8572a",
+      "insigniasEnMundo": true,
+      "mapaCompleto": {
+        "titulo": "MAPA DEL MERCADO",
+        "subtitulo": "5 puestos = 5 niveles",
+        "etiquetas": [
+          [
+            "Emoliente",
+            21,
+            10
+          ],
+          [
+            "Flores",
+            14,
+            18.2
+          ],
+          [
+            "Pileta",
+            24,
+            16.2
+          ],
+          [
+            "Jugos",
+            32,
+            18
+          ]
+        ],
+        "cartel": [
+          "MERCADO CENTRAL",
+          24,
+          1.4
+        ]
+      },
+      "condorPos": [2919, 548],
+      "tituloReto": "RETO · TERMINOS SEMEJANTES"
+    },
+    {
+      "id": 2,
+      "nombre": "Terminal de buses",
+      "nombreCorto": "Terminal",
+      "titulo": "MUNDO 2 · TERMINAL",
+      "subtitulo": "Ayuda a pasajeros y choferes para abrir la salida al Puerto",
+      "ayudaZona": "<span><span class=\"key\">FLECHAS</span> o <span class=\"key\">WASD</span> moverte</span><span><span class=\"key\">ESPACIO</span> hablar</span><span><span class=\"key\">M</span> mapa</span><span>Cada andén es un nivel · <b style=\"color:#f2b632\">!</b> = reto nuevo</span>",
+      "retoVisual": "parentesis",
+      "insignias": {
+        "nuevo": "¡NUEVO NIVEL!",
+        "textoBloqueo": false,
+        "salida": "RETO · Salida"
+      },
+      "mapa": "zona_terminal",
+      "inicio": [19, 14],
+      "ecu": [19, 15],
+      "bloqueos": [
+        [43, 16],
+        [44, 16],
+        [45, 16]
+      ],
+      "condor": true,
+      "ambientales": [
+        {
+          "personaje": "julia",
+          "pos": [20, 8],
+          "px": [
+            20.4,
+            7.6
+          ],
+          "consejo": true,
+          "dialogo": "¡Mira el tablero, {nombre}! Si un bus sale cada <b>x minutos</b> y en <b>4 viajes</b> más <b>5 minutos</b> de espera pasan <b>25 minutos</b>…<br><br>¡Eso es <b class=\"c-azul\">4x + 5 = 25</b>! Primero quitas lo que sobra y luego repartes."
+        },
+        {
+          "personaje": "marina",
+          "pos": [5, 22],
+          "px": [
+            4.6,
+            21.6
+          ],
+          "consejo": true,
+          "dialogo": "¡Anticuchos calientitos, {nombre}! Si vendo <b>3 platos de (x + 2) palitos</b>, reparto el 3 a cada parte: <b>3x + 6</b>.<br><br>¡Así se <b class=\"c-azul\">multiplica un paréntesis</b>!"
+        },
+        {
+          "personaje": "taxista",
+          "pos": [7, 14],
+          "px": [
+            6.6,
+            13.2
+          ],
+          "consejo": true,
+          "dialogo": "Cuando llevo <b>2 viajes de (x + 4) soles</b>, cobro 2 veces todo lo de adentro: <b>2x + 8</b>.<br><br>Después ya es fácil: quita el número y reparte."
+        },
+        {
+          "personaje": "teofilo",
+          "pos": [35, 18],
+          "px": [
+            34.6,
+            17.2
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Mi bus sale al Puerto cuando todos los andenes estén listos. ¡Te espero en la salida!"
+        },
+        {
+          "personaje": "pasajero1",
+          "pos": [14, 9],
+          "px": [
+            14.2,
+            8
+          ]
+        },
+        {
+          "personaje": "pasajera2",
+          "pos": [32, 8],
+          "px": [
+            31.6,
+            7.8
+          ]
+        },
+        {
+          "personaje": "canillita",
+          "pos": [42, 25],
+          "px": [
+            41.6,
+            24.4
+          ]
+        }
+      ],
+      "puestos": [
+        {
+          "nivel": 6,
+          "color": "andén azul",
+          "quien": "los pasajeros",
+          "zona": [
+            [10, 16],
+            [11, 16]
+          ],
+          "regreso": [12, 15],
+          "insignia": [707, 820],
+          "invitacion": "¡Hola, {nombre}! En el <b>andén azul</b> los buses llevan grupos iguales: <b>2(x + 3)</b>. ¿Nos ayudas a contar?"
+        },
+        {
+          "nivel": 7,
+          "color": "andén naranja",
+          "anfitrion": {
+            "personaje": "jhon",
+            "pos": [17, 17],
+            "px": [
+              17.2,
+              16.4
+            ]
+          },
+          "zona": [
+            [16, 16],
+            [17, 16]
+          ],
+          "regreso": [18, 15],
+          "insignia": [1091, 820],
+          "invitacion": "¡{nombre}! Soy Jhon, el cobrador del <b>andén naranja</b>. En cada bus bajan pasajeros: <b>3(x − 2)</b>. ¿Me ayudas?"
+        },
+        {
+          "nivel": 8,
+          "color": "andén verde",
+          "quien": "los pasajeros",
+          "zona": [
+            [22, 16],
+            [23, 16]
+          ],
+          "regreso": [24, 15],
+          "insignia": [1475, 820],
+          "invitacion": "En el <b>andén verde</b> hay paréntesis y además un número afuera: <b>2(x + 4) + 3</b>. ¡Vamos, {nombre}!"
+        },
+        {
+          "nivel": 9,
+          "color": "andén guinda",
+          "quien": "los pasajeros",
+          "zona": [
+            [28, 16],
+            [29, 16]
+          ],
+          "regreso": [30, 15],
+          "insignia": [1859, 820],
+          "invitacion": "En el <b>andén guinda</b> se mezclan restas afuera y x con número adentro: <b>4(x − 1) − 2</b> y <b>2(3x + 1)</b>."
+        },
+        {
+          "nivel": 10,
+          "zona": [
+            [43, 16],
+            [44, 16],
+            [45, 16]
+          ],
+          "regreso": [44, 17],
+          "insignia": [2856, 720],
+          "esSalida": true,
+          "invitacion": "¡La salida al Puerto! Don Teófilo y los pasajeros tienen <b>problemas de la vida real</b> con pasajes. Ayúdalos y el cóndor nos llevará volando."
+        }
+      ],
+      "textoCompletado": "Todos los buses de la <b style=\"color:#f2b632\">Terminal</b> salieron a tiempo.",
+      "textoViaje": "El cóndor te lleva volando al <b style=\"color:#8cc8ff\">Puerto</b>.",
+      "textoVolver": "VOLVER A LA TERMINAL",
+      "siguienteMundo": 3,
+      "siguienteNombre": "Puerto",
+      "grado": "2.° de secundaria",
+      "etiquetaGrado": "2.° SEC",
+      "tema": "Paréntesis",
+      "colorGrado": "#2c6fb5",
+      "tituloReto": "RETO · PARENTESIS",
+      "insigniasEnMundo": true,
+      "condorPos": [2812, 800],
+      "mapaCompleto": {
+        "titulo": "MAPA DE LA TERMINAL",
+        "subtitulo": "5 andenes = 5 niveles",
+        "etiquetas": [
+          [
+            "Boletería",
+            15,
+            7.5
+          ],
+          [
+            "Taxis",
+            4,
+            19
+          ],
+          [
+            "Anticuchos",
+            5,
+            26
+          ],
+          [
+            "Paradero",
+            28.5,
+            25.4
+          ],
+          [
+            "Periódicos",
+            41,
+            25.8
+          ]
+        ]
+      },
+      "textosZona": {
+        "bloqueadoDetalle": "El bus del <b class=\"c-verde-claro\">andén {n}</b> todavía no sale, {nombre}.<br><br>Primero ayuda a <b>{anterior}</b> en el {color} (nivel {previo}) y se abrirá el nivel {n}.",
+        "bloqueado": "El bus del <b class=\"c-verde-claro\">andén {n}</b> todavía no sale, {nombre}.<br><br>Primero ayuda a <b>{anterior}</b> y se abrirá el nivel {n}."
+      }
+    },
+    {
+      "id": 3,
+      "nombre": "Puerto",
+      "nombreCorto": "Puerto",
+      "titulo": "MUNDO 3 · PUERTO",
+      "grado": "3.° de secundaria",
+      "etiquetaGrado": "3.° SEC",
+      "tema": "Paréntesis en ambos lados",
+      "colorGrado": "#1fa36b",
+      "pendiente": true
+    },
+    {
+      "id": 4,
+      "nombre": "Construcción",
+      "nombreCorto": "Construcción",
+      "titulo": "MUNDO 4 · CONSTRUCCION",
+      "grado": "4.° de secundaria",
+      "etiquetaGrado": "4.° SEC",
+      "tema": "Fracciones y paréntesis",
+      "colorGrado": "#f2b632",
+      "pendiente": true
+    },
+    {
+      "id": 5,
+      "nombre": "Feria",
+      "nombreCorto": "Feria",
+      "titulo": "MUNDO 5 · FERIA",
+      "grado": "5.° de secundaria",
+      "etiquetaGrado": "5.° SEC",
+      "tema": "Fracción sobre fracción",
+      "colorGrado": "#d9406a",
+      "pendiente": true
+    }
+  ]
+}

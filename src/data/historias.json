@@ -1,0 +1,167 @@
+{
+  "_ayuda": "Historias de los retos de términos semejantes. Se arman con los números generados: cada término se cuenta con una frase del tema. {c} = cuántos (coeficiente), {n} = número. Cada vecino rota entre sus temas (personajes.json → temas). {saludo} = «¡Hola, {nombre}!» o el saludo especial del reto final. Con el número 1 se usa la versión terminada en 1 (num1, numMas1, restaNum1) si existe.",
+  "temas": {
+    "balanza": {
+      "x1": "1 saco de x kg",
+      "xN": "{c} sacos de x kg",
+      "xMas1": "1 saco más igual",
+      "xMasN": "{c} sacos más iguales",
+      "num": "{n} kg de papa",
+      "numMas": "{n} kg más",
+      "restaNum": "Luego quité {n} kg.",
+      "restaX1": "Luego saqué 1 saco.",
+      "restaXN": "Luego saqué {c} sacos.",
+      "intro": [
+        "{saludo} En mi balanza puse {lista}.",
+        "{saludo} En un platillo de mi balanza coloqué {lista}."
+      ],
+      "igual1": [
+        "Ahora pesa lo mismo que mi pesa de <b>{der} kg</b>.",
+        "La balanza quedó equilibrada con una pesa de <b>{der} kg</b>."
+      ],
+      "igualN": [
+        "Ahora pesa lo mismo que mis pesas de {der}.",
+        "En el otro platillo puse pesas de {der} y quedó equilibrada."
+      ],
+      "unidadDer": "<b>{n} kg</b>",
+      "pregunta": "¿Cuánto pesa cada saco?",
+      "respuesta": "Cada saco pesa <b>{x} kg</b>"
+    },
+    "soles": {
+      "x1": "1 bolsa con x soles",
+      "xN": "{c} bolsas con x soles",
+      "xMas1": "1 bolsa más igual",
+      "xMasN": "{c} bolsas más iguales",
+      "num": "S/ {n} sueltos",
+      "numMas": "S/ {n} más",
+      "restaNum": "Luego gasté S/ {n}.",
+      "restaX1": "Luego regalé 1 bolsa.",
+      "restaXN": "Luego regalé {c} bolsas.",
+      "intro": [
+        "{saludo} Hoy en mi caja junté {lista}.",
+        "{saludo} Mira mi monedero: tengo {lista}."
+      ],
+      "igual1": [
+        "Ahora tengo lo mismo que un billete de <b>S/ {der}</b>.",
+        "Al final tengo justo <b>S/ {der}</b>."
+      ],
+      "igualN": [
+        "Ahora tengo lo mismo que mi vecina, que juntó {der}.",
+        "Eso es igual a lo que cobré en la tarde: {der}."
+      ],
+      "unidadDer": "<b>S/ {n}</b>",
+      "pregunta": "¿Cuántos soles hay en cada bolsa?",
+      "respuesta": "Cada bolsa tiene <b>S/ {x}</b>",
+      "num1": "S/ 1 suelto"
+    },
+    "canastas": {
+      "x1": "1 canasta de x naranjas",
+      "xN": "{c} canastas de x naranjas",
+      "xMas1": "1 canasta más igual",
+      "xMasN": "{c} canastas más iguales",
+      "num": "{n} naranjas sueltas",
+      "numMas": "{n} naranjas más",
+      "restaNum": "Luego vendí {n} naranjas.",
+      "restaX1": "Luego vendí 1 canasta.",
+      "restaXN": "Luego vendí {c} canastas.",
+      "intro": [
+        "{saludo} En mi puesto tengo {lista}.",
+        "{saludo} Esta mañana acomodé {lista}."
+      ],
+      "igual1": [
+        "En total me quedan <b>{der} naranjas</b>.",
+        "Contándolas todas, son <b>{der} naranjas</b>."
+      ],
+      "igualN": [
+        "Eso es lo mismo que {der} naranjas que me pidieron dos clientes.",
+        "Son tantas como las de dos cajas: {der} naranjas."
+      ],
+      "unidadDer": "<b>{n}</b>",
+      "pregunta": "¿Cuántas naranjas hay en cada canasta?",
+      "respuesta": "Cada canasta tiene <b>{x} naranjas</b>",
+      "num1": "1 naranja suelta",
+      "numMas1": "1 naranja más",
+      "restaNum1": "Luego vendí 1 naranja."
+    }
+  },
+  "saludo": "<b class=\"c-guinda\">¡Hola, {nombre}!</b>",
+  "saludoFinal": "<b class=\"c-guinda\">¡{nombre}, último reto del mercado!</b>",
+  "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> {respuesta}: {comprobacion}.",
+  "parentesis": {
+    "_ayuda": "Historias de los retos con paréntesis a(kx + b) + c = d. dentro: lo que va dentro del paréntesis según la forma (mas: x + b, menos: x − b, k: kx + b); fuera: el número de afuera (mas: + c, menos: − c). {n|singular|plural} elige la palabra según el número.",
+    "saludo": "<b class=\"c-guinda\">¡{nombre}, ayúdame!</b>",
+    "saludoFinal": "<b class=\"c-guinda\">¡{nombre}, último reto de la terminal!</b>",
+    "correcto": "<b class=\"c-verde\">¡Exacto, {nombre}!</b> {respuesta}: {comprobacion}.",
+    "temas": {
+      "buses": {
+        "intro": "{saludo} Salen <b>{a} buses</b>. {dentro}{fuera}",
+        "dentro": {
+          "mas": "En cada uno subieron <b>x escolares</b> y <b>{b|profesor|profesores}</b>.",
+          "menos": "En cada uno subieron <b>x pasajeros</b>, pero en el paradero bajaron <b>{b}</b> de cada bus.",
+          "k": "En cada uno subieron <b>{k} grupos de x escolares</b> y <b>{b|profesor|profesores}</b>."
+        },
+        "fuera": {
+          "mas": " Además hay <b>{c|chofer|choferes}</b> de reemplazo.",
+          "menos": " Al final, <b>{c|pasajero se quedó|pasajeros se quedaron}</b> en Abancay."
+        },
+        "total": "En total viajan <b>{d} pasajeros</b>.",
+        "pregunta": {
+          "mas": "¿Cuántos escolares van en cada bus?",
+          "menos": "¿Cuántos pasajeros subieron a cada bus?",
+          "k": "¿Cuántos escolares hay en cada grupo?"
+        },
+        "respuesta": {
+          "mas": "En cada bus van <b>{x} escolares</b>",
+          "menos": "A cada bus subieron <b>{x} pasajeros</b>",
+          "k": "Cada grupo tiene <b>{x} escolares</b>"
+        }
+      },
+      "maletas": {
+        "intro": "{saludo} Cargué <b>{a} buses</b> con equipaje. {dentro}{fuera}",
+        "dentro": {
+          "mas": "En cada uno puse <b>x maletas</b> y <b>{b|mochila|mochilas}</b>.",
+          "menos": "En cada uno puse <b>x maletas</b>, pero saqué <b>{b}</b> de cada bus porque pesaban mucho.",
+          "k": "En cada uno puse <b>{k} filas de x maletas</b> y <b>{b|mochila|mochilas}</b>."
+        },
+        "fuera": {
+          "mas": " También subí <b>{c|caja|cajas}</b> al último bus.",
+          "menos": " Después, <b>{c|pasajero recogió su maleta|pasajeros recogieron sus maletas}</b>."
+        },
+        "total": "En total quedaron <b>{d} bultos</b> en los buses.",
+        "pregunta": {
+          "mas": "¿Cuántas maletas puse en cada bus?",
+          "menos": "¿Cuántas maletas puse al principio en cada bus?",
+          "k": "¿Cuántas maletas hay en cada fila?"
+        },
+        "respuesta": {
+          "mas": "En cada bus hay <b>{x} maletas</b>",
+          "menos": "Al principio había <b>{x} maletas</b> en cada bus",
+          "k": "Cada fila tiene <b>{x} maletas</b>"
+        }
+      },
+      "pasajes": {
+        "intro": "{saludo} Compré <b>{a} pasajes</b>. {dentro}{fuera}",
+        "dentro": {
+          "mas": "Cada uno costó <b>x soles</b> más <b>S/ {b}</b> de recargo.",
+          "menos": "Cada uno costó <b>x soles</b> con <b>S/ {b}</b> de descuento.",
+          "k": "Cada uno costó <b>{k} tramos de x soles</b> más <b>S/ {b}</b> de recargo."
+        },
+        "fuera": {
+          "mas": " Además pagué <b>S/ {c}</b> por la maleta.",
+          "menos": " Me devolvieron <b>S/ {c}</b> por un asiento sin usar."
+        },
+        "total": "En total pagué <b>S/ {d}</b>.",
+        "pregunta": {
+          "mas": "¿Cuánto es x, el precio sin recargo?",
+          "menos": "¿Cuánto es x, el precio sin descuento?",
+          "k": "¿Cuántos soles cuesta cada tramo?"
+        },
+        "respuesta": {
+          "mas": "El pasaje sin recargo cuesta <b>S/ {x}</b>",
+          "menos": "El pasaje sin descuento cuesta <b>S/ {x}</b>",
+          "k": "Cada tramo cuesta <b>S/ {x}</b>"
+        }
+      }
+    }
+  }
+}

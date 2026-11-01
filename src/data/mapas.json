@@ -1,0 +1,789 @@
+{
+  "_leyenda": {
+    "R": "techo (muro)",
+    "w W D": "pared, pared con ventana, pared con puerta (muro)",
+    "#": "cajón de verduras (muro)",
+    ".": "suelo",
+    ",": "suelo de la plaza",
+    "o": "pasillo donde se para un vecino",
+    "B": "bandera de meta",
+    "g f": "pasto y flores (borde, no se camina)",
+    "objetos": "coordenadas en píxeles base (1 cuadro = 16 px; en pantalla se dibuja x4)",
+    "estilo": "mercado (Mundo 1 antiguo), tileset (laberintos del Mundo 1 con tileset_laberinto_mercado.png: suelo, techo, puestos de 4 colores, canasta n, bandera B), imagen (zona con fondo ya dibujado: suelo g/f no caminable, solidos y puestos en rectángulos [c0, r0, c1, r1]) o terminal (Mundo 2). En los laberintos de la terminal (muros: \"buses\") cada tramo de # se arma con buses de 4 cuadros (buses_muro_terminal.png) y lo que sobra son postes; las columnas de los bordes son postes y la última fila es el borde del andén. Zona de la terminal: v vereda, c borde, a asfalto, l carril, z cruce peatonal, . camino; g y f no se caminan."
+  },
+  "plaza_mercado": {
+    "estilo": "mercado",
+    "semilla": 3,
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "wWwDwWwwWwDwWwwWwDwWwW",
+      "gf....................",
+      "g.....................",
+      "g.....................",
+      "f.......,,,,,.........",
+      "g.......,,,,,.........",
+      "g.......,,,,,.........",
+      "g.....................",
+      "f.....................",
+      "g.....................",
+      "ggfggggfgggggffggggfgg"
+    ],
+    "objetos": [
+      {
+        "tipo": "puesto",
+        "x": 24,
+        "y": 32,
+        "ancho": 4,
+        "toldo": [
+          "7a1f3d",
+          "fff8ec"
+        ],
+        "productos": [
+          "papa",
+          "choclo",
+          "papa"
+        ]
+      },
+      {
+        "tipo": "puesto",
+        "x": 24,
+        "y": 112,
+        "ancho": 4,
+        "toldo": [
+          "2c6fb5",
+          "fff8ec"
+        ],
+        "productos": [
+          "naranja",
+          "palta"
+        ]
+      },
+      {
+        "tipo": "puesto",
+        "x": 224,
+        "y": 32,
+        "ancho": 4,
+        "toldo": [
+          "e8572a",
+          "f2b632"
+        ],
+        "productos": [
+          "papa",
+          "tomate",
+          "cebolla"
+        ]
+      },
+      {
+        "tipo": "puesto",
+        "x": 224,
+        "y": 112,
+        "ancho": 4,
+        "toldo": [
+          "1fa36b",
+          "fff8ec"
+        ],
+        "productos": [
+          "tomate",
+          "palta"
+        ]
+      },
+      {
+        "tipo": "fuente",
+        "x": 144,
+        "y": 80
+      },
+      {
+        "tipo": "sacos",
+        "x": 100,
+        "y": 54
+      },
+      {
+        "tipo": "sacos",
+        "x": 192,
+        "y": 148
+      },
+      {
+        "tipo": "arco",
+        "x": 294,
+        "y": 64
+      },
+      {
+        "tipo": "arbol",
+        "x": 312,
+        "y": 134
+      }
+    ]
+  },
+  "pasillos_1": {
+    "estilo": "tileset",
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#...B................#",
+      "######o###############",
+      "#....................#",
+      "#...####.....####....#",
+      "#....................#",
+      "##############o#######",
+      "#....................#",
+      "#######o##############",
+      "#....................#",
+      "#..####......####....#",
+      "######################"
+    ],
+    "objetos": [],
+    "tileset": {
+      "imagen": "tileset_laberinto_mercado",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "puestos": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "canasta": 6,
+        "bandera": 7
+      }
+    }
+  },
+  "pasillos_2": {
+    "estilo": "tileset",
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#..................B.#",
+      "#..####.....####.....#",
+      "#....................#",
+      "###o##################",
+      "#....................#",
+      "#....####....####....#",
+      "##################o###",
+      "#....................#",
+      "##########o###########",
+      "#....................#",
+      "######################"
+    ],
+    "objetos": [],
+    "tileset": {
+      "imagen": "tileset_laberinto_mercado",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "puestos": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "canasta": 6,
+        "bandera": 7
+      }
+    }
+  },
+  "pasillos_3": {
+    "estilo": "tileset",
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#...............B....#",
+      "###############o######",
+      "#....................#",
+      "#..####.......####...#",
+      "#....................#",
+      "######o###############",
+      "#....................#",
+      "############o#########",
+      "#....................#",
+      "#...####.......####..#",
+      "######################"
+    ],
+    "objetos": [],
+    "tileset": {
+      "imagen": "tileset_laberinto_mercado",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "puestos": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "canasta": 6,
+        "bandera": 7
+      }
+    }
+  },
+  "pasillos_4": {
+    "estilo": "tileset",
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#.B..................#",
+      "#......####.....###..#",
+      "##############o#######",
+      "#....................#",
+      "#.......###....####..#",
+      "####o#################",
+      "#....................#",
+      "#.....####.....####..#",
+      "###########o##########",
+      "#....................#",
+      "######################"
+    ],
+    "objetos": [],
+    "tileset": {
+      "imagen": "tileset_laberinto_mercado",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "puestos": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "canasta": 6,
+        "bandera": 7
+      }
+    }
+  },
+  "andenes_6": {
+    "estilo": "tileset",
+    "muros": "buses",
+    "tileset": {
+      "imagen": "tileset_laberinto_terminal",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "canasta": 2,
+        "poste": 3,
+        "bandera": 4
+      },
+      "buses": {
+        "imagen": "buses_muro_terminal",
+        "colores": 6
+      }
+    },
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#...............B....#",
+      "#.....nnnn...........#",
+      "#############o########",
+      "#....................#",
+      "#...nnnn.....nnnn....#",
+      "#....................#",
+      "##########o###########",
+      "#....................#",
+      "##o###################",
+      "#....................#",
+      "######################"
+    ],
+    "objetos": []
+  },
+  "andenes_7": {
+    "estilo": "tileset",
+    "muros": "buses",
+    "tileset": {
+      "imagen": "tileset_laberinto_terminal",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "canasta": 2,
+        "poste": 3,
+        "bandera": 4
+      },
+      "buses": {
+        "imagen": "buses_muro_terminal",
+        "colores": 6
+      }
+    },
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#....B...............#",
+      "######o###############",
+      "#....................#",
+      "#.nnnn......nnnn.....#",
+      "#....................#",
+      "###############o######",
+      "#....................#",
+      "#####o################",
+      "#....................#",
+      "#..nnnn.......nnnn...#",
+      "######################"
+    ],
+    "objetos": []
+  },
+  "andenes_8": {
+    "estilo": "tileset",
+    "muros": "buses",
+    "tileset": {
+      "imagen": "tileset_laberinto_terminal",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "canasta": 2,
+        "poste": 3,
+        "bandera": 4
+      },
+      "buses": {
+        "imagen": "buses_muro_terminal",
+        "colores": 6
+      }
+    },
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#..B.................#",
+      "#.........nnnn.......#",
+      "#####o################",
+      "#....................#",
+      "#..nnnn......nnnn....#",
+      "#################o####",
+      "#....................#",
+      "#....nnnn....nnnn....#",
+      "#########o############",
+      "#....................#",
+      "######################"
+    ],
+    "objetos": []
+  },
+  "andenes_9": {
+    "estilo": "tileset",
+    "muros": "buses",
+    "tileset": {
+      "imagen": "tileset_laberinto_terminal",
+      "orden": {
+        "suelo": 0,
+        "techo": 1,
+        "canasta": 2,
+        "poste": 3,
+        "bandera": 4
+      },
+      "buses": {
+        "imagen": "buses_muro_terminal",
+        "colores": 6
+      }
+    },
+    "filas": [
+      "RRRRRRRRRRRRRRRRRRRRRR",
+      "#.................B..#",
+      "#...nnnn.....nnnn....#",
+      "##########o###########",
+      "#....................#",
+      "#.....nnnn......nnnn.#",
+      "###o##################",
+      "#....................#",
+      "#..nnnn..........nnnn#",
+      "##############o#######",
+      "#....................#",
+      "######################"
+    ],
+    "objetos": []
+  },
+  "zona_mercado": {
+    "estilo": "imagen",
+    "fondo": "mapa_mercado_fondo_x4",
+    "_origen": "suelo copiado de public/assets/img/mundo1v2/mapa_mercado.json; rectángulos medidos sobre mapa_mercado_fondo_x4.png",
+    "filas": [
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+      "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+      "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+      "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+      "................................................",
+      "ffffffffffffffffffffff....ffffffffffffffffffffff",
+      "fggggggggggggggggggggf....fggggfgggggggggggggggf",
+      "fggggggggggggggggggggf....fggggggggggggggfgggggf",
+      "ffffffffffffffffffffff....ffffffffffffffffffffff"
+    ],
+    "puestos": [
+      [
+        5,
+        9,
+        8,
+        10
+      ],
+      [
+        5,
+        17,
+        8,
+        18
+      ],
+      [
+        37,
+        9,
+        40,
+        10
+      ],
+      [
+        37,
+        17,
+        40,
+        18
+      ],
+      [
+        13,
+        16,
+        15,
+        17
+      ],
+      [
+        31,
+        16,
+        33,
+        17
+      ],
+      [
+        20,
+        9,
+        21,
+        9
+      ]
+    ],
+    "solidos": [
+      [
+        22,
+        12,
+        25,
+        14
+      ],
+      [
+        10,
+        14,
+        11,
+        14
+      ],
+      [
+        35,
+        20,
+        36,
+        20
+      ],
+      [
+        10,
+        22,
+        11,
+        22
+      ],
+      [
+        29,
+        12,
+        30,
+        12
+      ],
+      [
+        15,
+        11,
+        15,
+        11
+      ],
+      [
+        32,
+        11,
+        32,
+        11
+      ],
+      [
+        15,
+        21,
+        15,
+        21
+      ],
+      [
+        32,
+        21,
+        32,
+        21
+      ],
+      [
+        18,
+        20,
+        19,
+        20
+      ],
+      [
+        27,
+        20,
+        28,
+        20
+      ],
+      [
+        11,
+        10,
+        12,
+        10
+      ],
+      [
+        34,
+        21,
+        35,
+        21
+      ],
+      [
+        11,
+        20,
+        12,
+        20
+      ],
+      [
+        41,
+        13,
+        42,
+        13
+      ],
+      [
+        4,
+        13,
+        5,
+        13
+      ],
+      [
+        42,
+        22,
+        43,
+        22
+      ]
+    ]
+  },
+  "zona_terminal": {
+    "estilo": "imagen",
+    "fondo": "mapa_terminal_fondo_x4",
+    "_origen": "suelo copiado de public/assets/img/mundo2v2/mapa_terminal.json; rectángulos medidos sobre mapa_terminal_fondo_x4.png",
+    "filas": [
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "gggggggggggggggggggggggggggggggggggggggggggggggg",
+      "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+      "cccccccccccccccccccccccccccccccccccccccccccccccc",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "aaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "llllllllllllllllllllzzllllllllllllllllllllllllll",
+      "aaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+      "ggfggggggggggfgggggggg....gggggggggggggggggfgggg",
+      "ggggggggggggffgggggggg....gggggggggggggggggggggg",
+      "gggggggggggfggggfggggg....gfggggggfggggggggggggg",
+      "fggggggggfgggggggggggg....gggggggggggggggggggggg"
+    ],
+    "puestos": [
+      [
+        10,
+        11,
+        11,
+        16
+      ],
+      [
+        16,
+        11,
+        17,
+        16
+      ],
+      [
+        22,
+        11,
+        23,
+        16
+      ],
+      [
+        28,
+        11,
+        29,
+        16
+      ],
+      [
+        22,
+        8,
+        24,
+        9
+      ],
+      [
+        3,
+        23,
+        5,
+        24
+      ],
+      [
+        40,
+        23,
+        41,
+        24
+      ],
+      [
+        27,
+        23,
+        29,
+        23
+      ]
+    ],
+    "solidos": [
+      [
+        2,
+        12,
+        2,
+        13
+      ],
+      [
+        4,
+        12,
+        4,
+        13
+      ],
+      [
+        2,
+        17,
+        2,
+        18
+      ],
+      [
+        6,
+        19,
+        9,
+        19
+      ],
+      [
+        34,
+        19,
+        37,
+        19
+      ],
+      [
+        13,
+        8,
+        14,
+        8
+      ],
+      [
+        34,
+        9,
+        35,
+        9
+      ],
+      [
+        18,
+        8,
+        18,
+        8
+      ],
+      [
+        30,
+        8,
+        31,
+        8
+      ],
+      [
+        7,
+        9,
+        8,
+        9
+      ],
+      [
+        37,
+        9,
+        38,
+        9
+      ],
+      [
+        25,
+        25,
+        25,
+        25
+      ],
+      [
+        4,
+        8,
+        4,
+        8
+      ],
+      [
+        12,
+        8,
+        12,
+        8
+      ],
+      [
+        36,
+        8,
+        36,
+        8
+      ],
+      [
+        44,
+        8,
+        44,
+        8
+      ],
+      [
+        26,
+        8,
+        26,
+        8
+      ],
+      [
+        9,
+        8,
+        9,
+        8
+      ],
+      [
+        40,
+        11,
+        40,
+        11
+      ],
+      [
+        40,
+        16,
+        40,
+        16
+      ],
+      [
+        42,
+        13,
+        46,
+        13
+      ],
+      [
+        42,
+        14,
+        42,
+        19
+      ],
+      [
+        46,
+        14,
+        46,
+        19
+      ]
+    ]
+  }
+}

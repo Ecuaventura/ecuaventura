@@ -1,0 +1,677 @@
+{
+  "_ayuda": "Cada nivel: mapa (ver mapas.json), inicio y ecu (cuadro [columna, fila]), meta, tipo de ecuación, rangos y vecinos ordenados desde el inicio. orden 'secuencial' = solo el primer vecino sin ayudar tiene '!'; 'libre' = todos los disponibles. requiereTodos = el vecino habla solo cuando los demás ya fueron ayudados. Al ser ayudado, el vecino sigue las reglas de los mapas (CLAUDE.md): pierde la colisión, da un paso atrás hacia su puesto o, si no hay puesto, se aleja y se desvanece. Comprobar con npm run validar-niveles.",
+  "niveles": [
+    {
+      "id": 1,
+      "mundo": 1,
+      "numero": 1,
+      "esRetoMundo": false,
+      "tipo": "terminos",
+      "etiquetaTipo": "Términos semejantes",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "mapa": "pasillos_1",
+      "inicio": [
+        12,
+        9
+      ],
+      "ecu": [
+        11,
+        9
+      ],
+      "meta": [
+        4,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Cada vecino bloquea un pasillo. Ayúdalo y te dejará pasar hasta la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "carmen",
+          "pos": [
+            7,
+            8
+          ]
+        },
+        {
+          "personaje": "don_lucho",
+          "pos": [
+            14,
+            6
+          ]
+        },
+        {
+          "personaje": "dona_rosa",
+          "pos": [
+            6,
+            2
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_don_lucho",
+        "texto": "Primer reto: en el <b class=\"c-oro\">puesto guinda</b> se juntan las x…"
+      },
+      "forma": "n1",
+      "ejemploForma": "x + 2x = 9",
+      "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
+    },
+    {
+      "id": 2,
+      "mundo": 1,
+      "numero": 2,
+      "esRetoMundo": false,
+      "tipo": "terminos",
+      "etiquetaTipo": "Términos semejantes",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "mapa": "pasillos_2",
+      "inicio": [
+        5,
+        10
+      ],
+      "ecu": [
+        4,
+        10
+      ],
+      "meta": [
+        19,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Cada vecino bloquea un pasillo. Ayúdalo y te dejará pasar hasta la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "don_lucho",
+          "pos": [
+            10,
+            9
+          ]
+        },
+        {
+          "personaje": "carmen",
+          "pos": [
+            18,
+            7
+          ]
+        },
+        {
+          "personaje": "dona_rosa",
+          "pos": [
+            3,
+            4
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_carmen",
+        "texto": "Próximo: en el <b class=\"c-celeste\">puesto azul</b> se juntan x y números…"
+      },
+      "forma": "n2",
+      "ejemploForma": "x + 3x + 2 = 14",
+      "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
+    },
+    {
+      "id": 3,
+      "mundo": 1,
+      "numero": 3,
+      "esRetoMundo": false,
+      "tipo": "terminos",
+      "etiquetaTipo": "Términos semejantes",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "mapa": "pasillos_3",
+      "inicio": [
+        12,
+        9
+      ],
+      "ecu": [
+        11,
+        9
+      ],
+      "meta": [
+        16,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Cada vecino bloquea un pasillo. Ayúdalo y te dejará pasar hasta la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "dona_rosa",
+          "pos": [
+            12,
+            8
+          ]
+        },
+        {
+          "personaje": "don_lucho",
+          "pos": [
+            6,
+            6
+          ]
+        },
+        {
+          "personaje": "carmen",
+          "pos": [
+            15,
+            2
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_dona_rosa",
+        "texto": "Próximo: en el <b class=\"c-naranja\">puesto naranja</b> hay números a los dos lados…"
+      },
+      "forma": "n3",
+      "ejemploForma": "3 + x + 4x − 1 = 2 + 10",
+      "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
+    },
+    {
+      "id": 4,
+      "mundo": 1,
+      "numero": 4,
+      "esRetoMundo": false,
+      "tipo": "terminos",
+      "etiquetaTipo": "Términos semejantes",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "mapa": "pasillos_4",
+      "inicio": [
+        17,
+        10
+      ],
+      "ecu": [
+        16,
+        10
+      ],
+      "meta": [
+        2,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Cada vecino bloquea un pasillo. Ayúdalo y te dejará pasar hasta la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "carmen",
+          "pos": [
+            11,
+            9
+          ]
+        },
+        {
+          "personaje": "dona_rosa",
+          "pos": [
+            4,
+            6
+          ]
+        },
+        {
+          "personaje": "don_lucho",
+          "pos": [
+            14,
+            3
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_carmen",
+        "texto": "Próximo: en el <b class=\"c-verde-claro\">puesto verde</b> también se restan x…"
+      },
+      "forma": "n4",
+      "ejemploForma": "5x − 2x + 4 = 19",
+      "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
+    },
+    {
+      "id": 5,
+      "mundo": 1,
+      "numero": 5,
+      "esRetoMundo": true,
+      "tipo": "terminos",
+      "etiquetaTipo": "Términos semejantes",
+      "mapa": "zona_mercado",
+      "inicio": [
+        36,
+        12
+      ],
+      "ecu": [
+        35,
+        12
+      ],
+      "meta": [
+        46,
+        12
+      ],
+      "orden": "libre",
+      "ayuda": "Ayuda a los 3 vecinos. <b class=\"c-oro\">Don Lucho</b> te espera en la salida, donde está el cóndor.",
+      "vecinos": [
+        {
+          "personaje": "carmen",
+          "pos": [
+            7,
+            19
+          ]
+        },
+        {
+          "personaje": "dona_rosa",
+          "pos": [
+            39,
+            11
+          ]
+        },
+        {
+          "personaje": "don_lucho",
+          "pos": [
+            44,
+            13
+          ],
+          "requiereTodos": true
+        }
+      ],
+      "ambientales": [
+        {
+          "personaje": "jugos",
+          "pos": [
+            32,
+            15
+          ],
+          "dialogo": "¡Ánimo, {nombre}! Junta las x, junta los números y despeja."
+        },
+        {
+          "personaje": "nino",
+          "pos": [
+            24,
+            19
+          ],
+          "dialogo": "¡Vamos, {nombre}! Si ayudas a todos, el cóndor te llevará volando."
+        }
+      ],
+      "condor": true,
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 180
+      },
+      "adelanto": {
+        "retrato": "retrato_don_lucho",
+        "texto": "Próximo: el <b class=\"c-oro\">reto del mercado</b>. Don Lucho te espera en la salida con problemas de la vida real…"
+      },
+      "forma": "n3",
+      "ejemploForma": "vida real",
+      "etiquetaHud": "Mundo 1 · 1.° de secundaria · Reto de la vida real",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "vidaReal": true
+    },
+    {
+      "id": 6,
+      "mundo": 2,
+      "numero": 6,
+      "esRetoMundo": false,
+      "tipo": "parentesis",
+      "etiquetaTipo": "Paréntesis",
+      "mapa": "andenes_6",
+      "inicio": [
+        8,
+        10
+      ],
+      "ecu": [
+        7,
+        10
+      ],
+      "meta": [
+        16,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Los buses bloquean los andenes. Ayuda a cada pasajero y llega a la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "marina",
+          "pos": [
+            2,
+            9
+          ]
+        },
+        {
+          "personaje": "jhon",
+          "pos": [
+            10,
+            7
+          ]
+        },
+        {
+          "personaje": "julia",
+          "pos": [
+            13,
+            3
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_jhon",
+        "texto": "Próximo: en el <b class=\"c-celeste\">andén azul</b> los buses llevan grupos iguales con paréntesis…"
+      },
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "forma": "mas"
+    },
+    {
+      "id": 7,
+      "mundo": 2,
+      "numero": 7,
+      "esRetoMundo": false,
+      "tipo": "parentesis",
+      "etiquetaTipo": "Paréntesis",
+      "mapa": "andenes_7",
+      "inicio": [
+        5,
+        9
+      ],
+      "ecu": [
+        4,
+        9
+      ],
+      "meta": [
+        5,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Los buses bloquean los andenes. Ayuda a cada pasajero y llega a la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "jhon",
+          "pos": [
+            5,
+            8
+          ]
+        },
+        {
+          "personaje": "marina",
+          "pos": [
+            15,
+            6
+          ]
+        },
+        {
+          "personaje": "julia",
+          "pos": [
+            6,
+            2
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_jhon",
+        "texto": "Próximo: en el <b class=\"c-naranja\">andén naranja</b> se resta dentro del paréntesis…"
+      },
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "forma": "menos"
+    },
+    {
+      "id": 8,
+      "mundo": 2,
+      "numero": 8,
+      "esRetoMundo": false,
+      "tipo": "parentesis",
+      "etiquetaTipo": "Paréntesis",
+      "mapa": "andenes_8",
+      "inicio": [
+        14,
+        10
+      ],
+      "ecu": [
+        13,
+        10
+      ],
+      "meta": [
+        3,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Los buses bloquean los andenes. Ayuda a cada pasajero y llega a la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "julia",
+          "pos": [
+            9,
+            9
+          ]
+        },
+        {
+          "personaje": "teofilo",
+          "pos": [
+            17,
+            6
+          ]
+        },
+        {
+          "personaje": "marina",
+          "pos": [
+            5,
+            3
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_julia",
+        "texto": "Próximo: en el <b class=\"c-verde-claro\">andén verde</b> hay un número fuera del paréntesis…"
+      },
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "forma": "masC"
+    },
+    {
+      "id": 9,
+      "mundo": 2,
+      "numero": 9,
+      "esRetoMundo": false,
+      "tipo": "parentesis",
+      "etiquetaTipo": "Paréntesis",
+      "mapa": "andenes_9",
+      "inicio": [
+        5,
+        10
+      ],
+      "ecu": [
+        4,
+        10
+      ],
+      "meta": [
+        18,
+        1
+      ],
+      "orden": "secuencial",
+      "ayuda": "Los buses bloquean los andenes. Ayuda a cada pasajero y llega a la <b class=\"c-oro\">bandera</b>.",
+      "vecinos": [
+        {
+          "personaje": "teofilo",
+          "pos": [
+            14,
+            9
+          ]
+        },
+        {
+          "personaje": "julia",
+          "pos": [
+            3,
+            6
+          ]
+        },
+        {
+          "personaje": "jhon",
+          "pos": [
+            10,
+            3
+          ]
+        }
+      ],
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 120
+      },
+      "adelanto": {
+        "retrato": "retrato_teofilo",
+        "texto": "Próximo: en el <b class=\"c-crema\">andén guinda</b> se mezclan los paréntesis…"
+      },
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "formas": [
+        "menosC",
+        "k"
+      ]
+    },
+    {
+      "id": 10,
+      "mundo": 2,
+      "numero": 10,
+      "esRetoMundo": true,
+      "tipo": "parentesis",
+      "etiquetaTipo": "Paréntesis",
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Reto de la vida real",
+      "mapa": "zona_terminal",
+      "inicio": [
+        19,
+        18
+      ],
+      "ecu": [
+        18,
+        18
+      ],
+      "meta": [
+        44,
+        14
+      ],
+      "orden": "libre",
+      "ayuda": "Ayuda a los 3 pasajeros. <b class=\"c-oro\">Don Teófilo</b> te espera en la salida, donde está el cóndor.",
+      "vecinos": [
+        {
+          "personaje": "marina",
+          "pos": [
+            5,
+            22
+          ]
+        },
+        {
+          "personaje": "julia",
+          "pos": [
+            23,
+            10
+          ]
+        },
+        {
+          "personaje": "teofilo",
+          "pos": [
+            44,
+            16
+          ],
+          "requiereTodos": true
+        }
+      ],
+      "ambientales": [
+        {
+          "personaje": "jhon",
+          "pos": [
+            17,
+            17
+          ],
+          "dialogo": "¡Vamos, {nombre}! Don Teófilo ya calentó el motor. Ayuda a todos y saldrás al Puerto."
+        }
+      ],
+      "condor": true,
+      "estrellas": {
+        "erroresMax": 3,
+        "tiempoMax": 180
+      },
+      "adelanto": {
+        "retrato": "retrato_teofilo",
+        "texto": "Próximo: el <b class=\"c-oro\">reto de la terminal</b>. Don Teófilo te espera en la salida con pasajes y maletas…"
+      },
+      "rangos": {
+        "x": [
+          1,
+          12
+        ]
+      },
+      "forma": "masC",
+      "vidaReal": true,
+      "bloqueos": [
+        [
+          43,
+          16
+        ],
+        [
+          45,
+          16
+        ]
+      ]
+    }
+  ]
+}

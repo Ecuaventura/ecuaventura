@@ -1,0 +1,43 @@
+{
+  "_ayuda": "Pistas de Ecu por tipo de ecuación. 'conRespuesta' se usa cuando ya hubo una respuesta equivocada ({r} = lo que escribió, {lado} = cuánto da con ese número, {estado}/{estadoSaco}/{estadoNumero} = muy chico o muy grande). 'paso' orienta el procedimiento. Nunca se muestra el valor de x.",
+  "x+a=b": {
+    "sinRespuesta": "El saco y la pesa de <b>{a} kg</b> juntos pesan lo mismo que <b>{b} kg</b>.",
+    "conRespuesta": "Mira la balanza: <b>{r} + {a} = {lado}</b>, y las pesas marcan <b>{b}</b>. El saco quedó {estadoSaco}.",
+    "paso": "Quita la pesa de <b>{a} kg</b> de los dos lados: ¿cuántos kilos quedan para el saco?"
+  },
+  "x-a=b": {
+    "sinRespuesta": "Al saco le sacaste <b>{a} kg</b> y la balanza marca <b>{b} kg</b>.",
+    "conRespuesta": "Mira: <b>{r} − {a} = {lado}</b>, pero la balanza marca <b>{b}</b>. Tu número es muy {estadoNumero}.",
+    "paso": "Devuelve al saco los <b>{a} kg</b> que sacaste: junta lo que quedó con lo que sacaste."
+  },
+  "ax=b": {
+    "sinRespuesta": "Hay <b>{a} sacos</b> iguales y entre todos pesan <b>{b} kg</b>.",
+    "conRespuesta": "Mira la balanza: <b>{a} × {r} = {lado}</b>, y las pesas marcan <b>{b}</b>. Los sacos quedaron {estado}.",
+    "paso": "Reparte los <b>{b} kg</b> entre los <b>{a} sacos</b>: ¿cuántos kilos le tocan a cada uno?"
+  },
+  "estados": {
+    "liviano": {
+      "estado": "livianos",
+      "estadoSaco": "liviano",
+      "estadoNumero": "pequeño"
+    },
+    "pesado": {
+      "estado": "pesados",
+      "estadoSaco": "pesado",
+      "estadoNumero": "grande"
+    }
+  },
+  "terminos": {
+    "_ayuda": "Pistas de términos semejantes, con los números del reto: {juntaX} x + 4x = 5x, {coef} 5x, {numsIzq} 3 − 1, {izq} su resultado, {numsDer} 2 + 10, {d} lado sin x.",
+    "conRespuesta": "Con x = {r} el lado de las x da <b>{lado}</b>, pero debe dar <b>{d}</b>: tu número es muy {estadoNumero}.",
+    "numeros": "Junta las x (<b>{juntaX}</b>) y los números (<b>{numsIzq} = {izq}</b>). Luego pasa el {izq} restando al otro lado: <b>{coef} = …</b>",
+    "numerosDosLados": "Junta las x (<b>{juntaX}</b>), los números de un lado (<b>{numsIzq} = {izq}</b>) y los del otro (<b>{numsDer} = {d}</b>). Pasa el {izq} restando: <b>{coef} = …</b>",
+    "dividir": "Junta las x: <b>{juntaX}</b>. Ahora tienes <b>{coef} = {d}</b>: ¿qué número multiplicado por {a} da {d}?"
+  },
+  "parentesis": {
+    "_ayuda": "Pistas de paréntesis con los números del reto: {expansion} 2(x + 3) = 2x + 6, {junta} juntar con el número de afuera, {n} número que se pasa, {como} restando/sumando, {coefx} 2x, {coef} 2.",
+    "conRespuesta": "Con x = {r} el lado del paréntesis da <b>{lado}</b>, pero debe dar <b>{d}</b>: tu número es muy {estadoNumero}.",
+    "pasos": "Multiplica el paréntesis: <b>{expansion}</b>.{junta} Luego pasa el <b>{n}</b> {como} al otro lado: <b>{coefx} = …</b> y reparte entre {coef}.",
+    "junta": " Junta los números: <b>{ab} {signo} {c} = {n}</b>."
+  }
+}
