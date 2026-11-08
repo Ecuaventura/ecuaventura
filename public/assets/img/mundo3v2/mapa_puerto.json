@@ -1,0 +1,1088 @@
+{
+ "tile_px": 16,
+ "escala_juego": 4,
+ "ancho": 80,
+ "alto": 48,
+ "leyenda": {
+  "g": "pasto",
+  "h": "pasto alto (decorativo, se puede caminar)",
+  "f": "flores",
+  ".": "camino",
+  ",": "plaza",
+  "s": "arena",
+  "S": "orilla (no caminable)",
+  "w": "agua baja (no caminable)",
+  "~": "mar (no caminable)",
+  "r": "río (no caminable)",
+  "b": "puente",
+  "=": "muelle",
+  "M": "roca alta (no caminable)",
+  "K": "acantilado (no caminable)",
+  "C": "entrada de cueva",
+  "E": "escalera al faro",
+  "F": "cascada (no caminable)"
+ },
+ "suelo": [
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMMFFMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMKKKKKKKKKKKKKKKKKKMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMFFMMMMMMMMMMMMMMMMMMMMMMMM....MMMMMMMMMM",
+  "KKKKKKKKKKKKKKCKKKKKKKKKKKKKKKKKKKKKKKKKFFKKKKKKKKKKKKKKKKKKKKMMMM.MMMMMMMMMMMMM",
+  "gggggggggggggg.gggggggggggggggggggggggggrrggggggggggggggggggggMMMM.MMMMMMMMMMMMM",
+  "gggggggggggggf.gggggggggggggggggggggggggrrggggggggggggggggggggMMMM.MMMMMMMMMMMMM",
+  "gggggggggggggg.gggggggggggggggggggggggggrrggggggggggggggggggggMMMM.MMMMMMMMMMMMM",
+  "gggggggfgggggg.gggggggggggggggggggggggggrrggfgggggggggggggfgggKKKKEKKKKKKKKKKKKK",
+  "gggggggggggggg........ggggfgggggggggggggrrggggggggggggggggffgggggg.ggggggggggggg",
+  "gggggggggggggggggggg..ggggggggggggggggggbbgg.......................ggggggggggggg",
+  "ggggggggggggfggggggg..ggggggggggfgggggggbbgg.......................ggggggggggggg",
+  "ggggggggfggggggggggg..ggggggggggfgggggggrrgggggggggggggg..gggggggg.gggggggggfggg",
+  "gggggggggggggggggggg..gggggg.gggggggggggrrggggggggggfggg..gggggggg.ggggggggggggg",
+  "gggggggg...gggg,,,,,,,,,,,,g.gggggggggggrrgggggggggggggg..gggggggg.ggggggggggggg",
+  "gggggfgg...gggg,,,,,,,,,,,,g.gggggggggggrrgggggggggggggf..gggggggg.ggggggggggfgg",
+  "ggggggggggggggg,,,,,,,,,,,,gggggggggggggrrggggggfggggggg..gggggggg.ggggggggggggg",
+  "ggggggggggggffg,,,,,,,,,,,,gggggggggggggrrgggggggggggggg..ggfggggg.ggggggggfgggg",
+  "ggggggggggggggg,,,,,,,,,,,,gggggggggggggrrgggggggggggggf..gggfgggg.gggfgggggfggg",
+  "ggggggggggggggg,,,,,,,,,,,,gggggggggggggrrgggggggggggggg..gggggggg.ggggggggggggg",
+  "ggggggggggggggg,,,,,,,,,,,,gggggggggggggrrgghhhhhhhhgggg..gggggggg.ggggggggggggg",
+  "ggggggggggggggg,,,,,,,,,,,,gggggggggggggrrgghhhhhhhhgggg..ggfggggg.ggggggggggggg",
+  "ggggggggggggggg,,,,,,,,,,,,gfgggggggggggrrgghhhhhhhhgggg..gggfgggg.ggggggggggggg",
+  "gggggggg.ggggggggggg..ggggggggggggggggggrrgghhhhhhhhgggg..gggggggg.gggggggfggggg",
+  "gggggggg.ggggggggggg..gggggggg.gggggggggrrgghhhhhhhhgggf..gggggggg.gfggggggggggg",
+  "gggggggg.ggggggggggg..gggggggg.gggggggggrrgggggggggggggg..gggggggg.ggggggggggggg",
+  "gg......................................bb.........................ggggggggggggg",
+  "gh......................................bb.........................ggggggfgggggg",
+  "ghhhhhhggggggggggggg..ggggggggggggggggggrrgggggggggggggg..gggggggggggfgggggggggg",
+  "ghhhhhhggggggggggggg..ggggggfgggghhhhhhgrrgggggggggggggg..gggggggggggfgggggggggg",
+  "ghhhhhhggggggggggggg..ggggggggggghhhhhhgrrgggggggggggggg..gggggggggggggggggggggg",
+  "ssssssssssssssssssss..sssssssssssssssssswwssssssssssssss..ssssssssssssssssssssss",
+  "ssssssssssssssssssss..ssssssssssssssssssbbssssssssssssss..ssssssssssssssssssssss",
+  "ssssssssssssssssssss..sssssssssssssssssswwssssssssssssss..ssssssssssssssssssssss",
+  "SSSSSSSSSSSSSSSSSSSS==SSSSSSSSSSSSSSSSSSwwSSSSSSSSSSSSSS==SSSSSSSSSSSSSSSSSSSSSS",
+  "wwwwwwwwwwwwwwwwwwww==wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww==wwwwwwwwwwwwwwwwwwwwww",
+  "wwwwwwwwwwwwwwwwwwww==wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww==wwwwwwwwwwwwwwwwwwwwww",
+  "~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~wwssssww~~",
+  "~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~========~~~~~~wwssssww~~",
+  "~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~wwssssww~~",
+  "~~~~~~~~~~~~~~~~===========~~~~~~~~~~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~wwssssww~~",
+  "~~~~~~~~~~~~~~~~~~~~==~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~wwwwwwww~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+  "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+ ],
+ "objetos": [
+  {
+   "tipo": "house",
+   "x": 6,
+   "y": 13,
+   "id": "almacen_elena"
+  },
+  {
+   "tipo": "house",
+   "x": 25,
+   "y": 12,
+   "id": "casa_pancho"
+  },
+  {
+   "tipo": "house",
+   "x": 4,
+   "y": 22,
+   "id": "casa_verde"
+  },
+  {
+   "tipo": "house",
+   "x": 28,
+   "y": 21,
+   "id": "tienda"
+  },
+  {
+   "tipo": "fountain",
+   "x": 19,
+   "y": 20,
+   "id": null
+  },
+  {
+   "tipo": "lamp",
+   "x": 15,
+   "y": 17,
+   "id": null
+  },
+  {
+   "tipo": "lamp",
+   "x": 26,
+   "y": 17,
+   "id": null
+  },
+  {
+   "tipo": "lamp",
+   "x": 15,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "lamp",
+   "x": 26,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "bench",
+   "x": 17,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "bench",
+   "x": 23,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "well",
+   "x": 10,
+   "y": 24,
+   "id": null
+  },
+  {
+   "tipo": "sign",
+   "x": 22,
+   "y": 29,
+   "id": null
+  },
+  {
+   "tipo": "sign",
+   "x": 13,
+   "y": 10,
+   "id": null
+  },
+  {
+   "tipo": "sign",
+   "x": 55,
+   "y": 29,
+   "id": null
+  },
+  {
+   "tipo": "sign",
+   "x": 65,
+   "y": 29,
+   "id": null
+  },
+  {
+   "tipo": "flowerbed",
+   "x": 4,
+   "y": 17,
+   "id": null
+  },
+  {
+   "tipo": "flowerbed",
+   "x": 12,
+   "y": 17,
+   "id": null
+  },
+  {
+   "tipo": "flowerbed",
+   "x": 25,
+   "y": 16,
+   "id": null
+  },
+  {
+   "tipo": "flowerbed",
+   "x": 31,
+   "y": 16,
+   "id": null
+  },
+  {
+   "tipo": "fence_h",
+   "x": 2,
+   "y": 20,
+   "id": null
+  },
+  {
+   "tipo": "fence_h",
+   "x": 32,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 0,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 2,
+   "y": 10,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 0,
+   "y": 12,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 1,
+   "y": 15,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 0,
+   "y": 18,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 1,
+   "y": 26,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 0,
+   "y": 28,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 6,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 18,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 22,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 30,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 33,
+   "y": 10,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 36,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 35,
+   "y": 13,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 36,
+   "y": 18,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 35,
+   "y": 23,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 37,
+   "y": 27,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 12,
+   "y": 27,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 24,
+   "y": 28,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 2,
+   "y": 33,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 43,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 46,
+   "y": 10,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 50,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 53,
+   "y": 10,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 59,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 43,
+   "y": 19,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 45,
+   "y": 29,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 61,
+   "y": 18,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 63,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 68,
+   "y": 21,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 71,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 74,
+   "y": 21,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 77,
+   "y": 14,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 77,
+   "y": 24,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 76,
+   "y": 29,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 52,
+   "y": 30,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 60,
+   "y": 32,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 7,
+   "y": 31,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 31,
+   "y": 32,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 47,
+   "y": 22,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 69,
+   "y": 30,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 11,
+   "y": 12,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 49,
+   "y": 30,
+   "id": null
+  },
+  {
+   "tipo": "bush",
+   "x": 64,
+   "y": 20,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 8,
+   "y": 33,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 39,
+   "y": 11,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 42,
+   "y": 26,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 60,
+   "y": 12,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 75,
+   "y": 32,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 3,
+   "y": 29,
+   "id": null
+  },
+  {
+   "tipo": "stall",
+   "x": 46,
+   "y": 16,
+   "id": null
+  },
+  {
+   "tipo": "stall",
+   "x": 51,
+   "y": 16,
+   "id": null
+  },
+  {
+   "tipo": "stall",
+   "x": 46,
+   "y": 20,
+   "id": null
+  },
+  {
+   "tipo": "nets",
+   "x": 59,
+   "y": 21,
+   "id": null
+  },
+  {
+   "tipo": "nets",
+   "x": 59,
+   "y": 25,
+   "id": null
+  },
+  {
+   "tipo": "crates",
+   "x": 52,
+   "y": 21,
+   "id": null
+  },
+  {
+   "tipo": "barrels",
+   "x": 54,
+   "y": 26,
+   "id": null
+  },
+  {
+   "tipo": "boathouse",
+   "x": 45,
+   "y": 31,
+   "id": null
+  },
+  {
+   "tipo": "lighthouse",
+   "x": 68,
+   "y": 1,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 63,
+   "y": 2,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 75,
+   "y": 3,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 73,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "umbrella",
+   "x": 5,
+   "y": 35,
+   "id": null
+  },
+  {
+   "tipo": "umbrella",
+   "x": 13,
+   "y": 35,
+   "id": null
+  },
+  {
+   "tipo": "umbrella",
+   "x": 31,
+   "y": 35,
+   "id": null
+  },
+  {
+   "tipo": "umbrella",
+   "x": 49,
+   "y": 35,
+   "id": null
+  },
+  {
+   "tipo": "umbrella",
+   "x": 67,
+   "y": 35,
+   "id": null
+  },
+  {
+   "tipo": "towel",
+   "x": 6,
+   "y": 36,
+   "id": null
+  },
+  {
+   "tipo": "towel",
+   "x": 14,
+   "y": 36,
+   "id": null
+  },
+  {
+   "tipo": "towel",
+   "x": 32,
+   "y": 36,
+   "id": null
+  },
+  {
+   "tipo": "crab",
+   "x": 25,
+   "y": 36,
+   "id": null
+  },
+  {
+   "tipo": "crab",
+   "x": 45,
+   "y": 37,
+   "id": null
+  },
+  {
+   "tipo": "crab",
+   "x": 63,
+   "y": 36,
+   "id": null
+  },
+  {
+   "tipo": "crab",
+   "x": 74,
+   "y": 42,
+   "id": null
+  },
+  {
+   "tipo": "sandcastle",
+   "x": 9,
+   "y": 37,
+   "id": null
+  },
+  {
+   "tipo": "sandcastle",
+   "x": 52,
+   "y": 36,
+   "id": null
+  },
+  {
+   "tipo": "palm",
+   "x": 1,
+   "y": 33,
+   "id": null
+  },
+  {
+   "tipo": "palm",
+   "x": 36,
+   "y": 33,
+   "id": null
+  },
+  {
+   "tipo": "palm",
+   "x": 60,
+   "y": 33,
+   "id": null
+  },
+  {
+   "tipo": "palm",
+   "x": 78,
+   "y": 33,
+   "id": null
+  },
+  {
+   "tipo": "palm",
+   "x": 73,
+   "y": 39,
+   "id": null
+  },
+  {
+   "tipo": "rowboat",
+   "x": 17,
+   "y": 40,
+   "id": null
+  },
+  {
+   "tipo": "rowboat",
+   "x": 23,
+   "y": 41,
+   "id": null
+  },
+  {
+   "tipo": "rowboat",
+   "x": 18,
+   "y": 45,
+   "id": null
+  },
+  {
+   "tipo": "rowboat",
+   "x": 25,
+   "y": 45,
+   "id": null
+  },
+  {
+   "tipo": "rowboat",
+   "x": 54,
+   "y": 40,
+   "id": null
+  },
+  {
+   "tipo": "rowboat",
+   "x": 59,
+   "y": 43,
+   "id": null
+  },
+  {
+   "tipo": "ship",
+   "x": 62,
+   "y": 43,
+   "id": null
+  },
+  {
+   "tipo": "buoy",
+   "x": 12,
+   "y": 42,
+   "id": null
+  },
+  {
+   "tipo": "buoy",
+   "x": 34,
+   "y": 43,
+   "id": null
+  },
+  {
+   "tipo": "buoy",
+   "x": 45,
+   "y": 41,
+   "id": null
+  },
+  {
+   "tipo": "buoy",
+   "x": 78,
+   "y": 40,
+   "id": null
+  },
+  {
+   "tipo": "gull",
+   "x": 8,
+   "y": 41,
+   "id": null
+  },
+  {
+   "tipo": "gull",
+   "x": 30,
+   "y": 46,
+   "id": null
+  },
+  {
+   "tipo": "gull",
+   "x": 50,
+   "y": 44,
+   "id": null
+  },
+  {
+   "tipo": "gull",
+   "x": 69,
+   "y": 38,
+   "id": null
+  },
+  {
+   "tipo": "gull",
+   "x": 36,
+   "y": 40,
+   "id": null
+  },
+  {
+   "tipo": "crates",
+   "x": 22,
+   "y": 37,
+   "id": null
+  },
+  {
+   "tipo": "barrels",
+   "x": 58,
+   "y": 37,
+   "id": null
+  },
+  {
+   "tipo": "corral",
+   "x": 68,
+   "y": 15,
+   "id": null
+  },
+  {
+   "tipo": "llama",
+   "x": 70,
+   "y": 16,
+   "id": null
+  },
+  {
+   "tipo": "llama",
+   "x": 72.0,
+   "y": 17.0,
+   "id": null
+  },
+  {
+   "tipo": "llama",
+   "x": 74,
+   "y": 15.0,
+   "id": null
+  },
+  {
+   "tipo": "llama",
+   "x": 69.0,
+   "y": 18.0,
+   "id": null
+  },
+  {
+   "tipo": "chicken",
+   "x": 11,
+   "y": 20,
+   "id": null
+  },
+  {
+   "tipo": "chicken",
+   "x": 13,
+   "y": 21,
+   "id": null
+  },
+  {
+   "tipo": "chicken",
+   "x": 5,
+   "y": 27,
+   "id": null
+  },
+  {
+   "tipo": "pond",
+   "x": 61,
+   "y": 27.0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 2,
+   "y": 0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 7,
+   "y": 1,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 12,
+   "y": 0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 19,
+   "y": 1,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 26,
+   "y": 0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 31,
+   "y": 1,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 35,
+   "y": 0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 45,
+   "y": 1,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 50,
+   "y": 0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 56,
+   "y": 2,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 60,
+   "y": 0,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 3,
+   "y": 5,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 16,
+   "y": 5,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 28,
+   "y": 5,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 47,
+   "y": 6,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 58,
+   "y": 6,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 75,
+   "y": 5,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 63,
+   "y": 6,
+   "id": null
+  },
+  {
+   "tipo": "tree",
+   "x": 77,
+   "y": 9,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 9,
+   "y": 2,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 23,
+   "y": 6,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 33,
+   "y": 6,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 53,
+   "y": 1,
+   "id": null
+  },
+  {
+   "tipo": "rock",
+   "x": 65,
+   "y": 3,
+   "id": null
+  }
+ ],
+ "puertas": {
+  "almacen_elena": [
+   8,
+   16
+  ],
+  "casa_pancho": [
+   27,
+   15
+  ],
+  "casa_verde": [
+   6,
+   25
+  ],
+  "tienda": [
+   30,
+   24
+  ],
+  "cueva": [
+   14,
+   8
+  ],
+  "faro": [
+   69,
+   7
+  ]
+ },
+ "npc": {
+  "pancho": [
+   20.5,
+   37
+  ],
+  "elena": [
+   9,
+   18
+  ],
+  "ernesto": [
+   67,
+   6
+  ],
+  "mateo": [
+   23,
+   22
+  ],
+  "lucia": [
+   12,
+   30
+  ],
+  "nino_playa": [
+   8,
+   36
+  ],
+  "pescador2": [
+   50,
+   19
+  ]
+ },
+ "objetos_mision": {
+  "remo": [
+   37,
+   36
+  ],
+  "linterna": "la entrega Don Pancho (misión 12)",
+  "llave": "cofre de la cueva (misión 13)",
+  "mapa": "almacén de Doña Elena (misión 14)"
+ },
+ "camaras_plantillas": {
+  "pueblo": [
+   8.0,
+   15.5
+  ],
+  "playa": [
+   17.0,
+   32.0
+  ],
+  "rio": [
+   11.0,
+   6.5625
+  ],
+  "faro": [
+   55.0,
+   1.0
+  ],
+  "mercado": [
+   43.0,
+   16.0
+  ]
+ }
+}

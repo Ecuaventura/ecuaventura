@@ -15,19 +15,40 @@
         "salida": "RETO · Salida"
       },
       "mapa": "zona_mercado",
-      "inicio": [36, 12],
-      "ecu": [35, 12],
+      "inicio": [
+        36,
+        12
+      ],
+      "ecu": [
+        35,
+        12
+      ],
       "bloqueos": [
-        [45, 11],
-        [45, 12],
-        [45, 13],
-        [45, 14]
+        [
+          45,
+          11
+        ],
+        [
+          45,
+          12
+        ],
+        [
+          45,
+          13
+        ],
+        [
+          45,
+          14
+        ]
       ],
       "condor": true,
       "ambientales": [
         {
           "personaje": "jugos",
-          "pos": [32, 15],
+          "pos": [
+            32,
+            15
+          ],
           "px": [
             32.4,
             14
@@ -37,7 +58,10 @@
         },
         {
           "personaje": "flores",
-          "pos": [14, 15],
+          "pos": [
+            14,
+            15
+          ],
           "px": [
             14.4,
             14.2
@@ -47,7 +71,10 @@
         },
         {
           "personaje": "emoliente",
-          "pos": [21, 8],
+          "pos": [
+            21,
+            8
+          ],
           "px": [
             21.2,
             7.6
@@ -57,7 +84,10 @@
         },
         {
           "personaje": "nino",
-          "pos": [24, 19],
+          "pos": [
+            24,
+            19
+          ],
           "px": [
             24,
             18.6
@@ -67,7 +97,10 @@
         },
         {
           "personaje": "compradora",
-          "pos": [27, 15],
+          "pos": [
+            27,
+            15
+          ],
           "px": [
             27,
             14.6
@@ -75,7 +108,10 @@
         },
         {
           "personaje": "senor",
-          "pos": [17, 13],
+          "pos": [
+            17,
+            13
+          ],
           "px": [
             17.4,
             12.4
@@ -83,8 +119,14 @@
         },
         {
           "personaje": "nina",
-          "pos": [30, 22],
-          "px": [30, 21]
+          "pos": [
+            30,
+            22
+          ],
+          "px": [
+            30,
+            21
+          ]
         }
       ],
       "puestos": [
@@ -93,20 +135,41 @@
           "color": "puesto guinda",
           "anfitrion": {
             "personaje": "don_lucho",
-            "pos": [7, 11],
+            "pos": [
+              7,
+              11
+            ],
             "px": [
               6.5,
               10.4
             ]
           },
           "zona": [
-            [5, 10],
-            [6, 10],
-            [7, 10],
-            [8, 10]
+            [
+              5,
+              10
+            ],
+            [
+              6,
+              10
+            ],
+            [
+              7,
+              10
+            ],
+            [
+              8,
+              10
+            ]
           ],
-          "regreso": [7, 12],
-          "insignia": [448, 537],
+          "regreso": [
+            7,
+            12
+          ],
+          "insignia": [
+            448,
+            537
+          ],
           "invitacion": "¡Hola, {nombre}! En mi puesto tengo bolsas y sacos iguales. ¿Me ayudas a <b>juntar las x</b>?"
         },
         {
@@ -114,20 +177,41 @@
           "color": "puesto azul",
           "anfitrion": {
             "personaje": "carmen",
-            "pos": [7, 19],
+            "pos": [
+              7,
+              19
+            ],
             "px": [
               6.5,
               18.4
             ]
           },
           "zona": [
-            [5, 18],
-            [6, 18],
-            [7, 18],
-            [8, 18]
+            [
+              5,
+              18
+            ],
+            [
+              6,
+              18
+            ],
+            [
+              7,
+              18
+            ],
+            [
+              8,
+              18
+            ]
           ],
-          "regreso": [7, 20],
-          "insignia": [448, 1049],
+          "regreso": [
+            7,
+            20
+          ],
+          "insignia": [
+            448,
+            1049
+          ],
           "invitacion": "¡{nombre}! Ahora hay <b>x y números sueltos</b>. Junta las x, quita los números y verás."
         },
         {
@@ -135,43 +219,94 @@
           "color": "puesto naranja",
           "anfitrion": {
             "personaje": "dona_rosa",
-            "pos": [39, 11],
+            "pos": [
+              39,
+              11
+            ],
             "px": [
               38.5,
               10.4
             ]
           },
           "zona": [
-            [37, 10],
-            [38, 10],
-            [39, 10],
-            [40, 10]
+            [
+              37,
+              10
+            ],
+            [
+              38,
+              10
+            ],
+            [
+              39,
+              10
+            ],
+            [
+              40,
+              10
+            ]
           ],
-          "regreso": [39, 12],
-          "insignia": [2496, 537],
+          "regreso": [
+            39,
+            12
+          ],
+          "insignia": [
+            2496,
+            537
+          ],
           "invitacion": "¡Hola, {nombre}! En mi balanza hay <b>números a los dos lados</b>. ¿Me ayudas a equilibrarla?"
         },
         {
           "nivel": 4,
           "color": "puesto verde",
           "zona": [
-            [37, 18],
-            [38, 18],
-            [39, 18],
-            [40, 18]
+            [
+              37,
+              18
+            ],
+            [
+              38,
+              18
+            ],
+            [
+              39,
+              18
+            ],
+            [
+              40,
+              18
+            ]
           ],
-          "regreso": [39, 19],
-          "insignia": [2496, 1049],
+          "regreso": [
+            39,
+            19
+          ],
+          "insignia": [
+            2496,
+            1049
+          ],
           "invitacion": "En el puesto verde también se <b>restan x</b>: 5x − 2x = 3x. ¡Vamos, {nombre}!"
         },
         {
           "nivel": 5,
           "zona": [
-            [45, 12],
-            [45, 13]
+            [
+              45,
+              12
+            ],
+            [
+              45,
+              13
+            ]
           ],
-          "regreso": [43, 13],
-          "insignia": [2963, 450],
+          "regreso": [
+            43,
+            13
+          ],
+          "insignia": [
+            2963,
+            450
+          ],
           "esSalida": true,
           "invitacion": "¡La salida del mercado! Los vecinos tienen <b>problemas de la vida real</b>. Ayúdalos y el cóndor nos llevará volando."
         }
@@ -217,7 +352,10 @@
           1.4
         ]
       },
-      "condorPos": [2919, 548],
+      "condorPos": [
+        2919,
+        548
+      ],
       "tituloReto": "RETO · TERMINOS SEMEJANTES"
     },
     {
@@ -234,18 +372,36 @@
         "salida": "RETO · Salida"
       },
       "mapa": "zona_terminal",
-      "inicio": [19, 14],
-      "ecu": [19, 15],
+      "inicio": [
+        19,
+        14
+      ],
+      "ecu": [
+        19,
+        15
+      ],
       "bloqueos": [
-        [43, 16],
-        [44, 16],
-        [45, 16]
+        [
+          43,
+          16
+        ],
+        [
+          44,
+          16
+        ],
+        [
+          45,
+          16
+        ]
       ],
       "condor": true,
       "ambientales": [
         {
           "personaje": "julia",
-          "pos": [20, 8],
+          "pos": [
+            20,
+            8
+          ],
           "px": [
             20.4,
             7.6
@@ -255,7 +411,10 @@
         },
         {
           "personaje": "marina",
-          "pos": [5, 22],
+          "pos": [
+            5,
+            22
+          ],
           "px": [
             4.6,
             21.6
@@ -265,7 +424,10 @@
         },
         {
           "personaje": "taxista",
-          "pos": [7, 14],
+          "pos": [
+            7,
+            14
+          ],
           "px": [
             6.6,
             13.2
@@ -275,7 +437,10 @@
         },
         {
           "personaje": "teofilo",
-          "pos": [35, 18],
+          "pos": [
+            35,
+            18
+          ],
           "px": [
             34.6,
             17.2
@@ -285,7 +450,10 @@
         },
         {
           "personaje": "pasajero1",
-          "pos": [14, 9],
+          "pos": [
+            14,
+            9
+          ],
           "px": [
             14.2,
             8
@@ -293,7 +461,10 @@
         },
         {
           "personaje": "pasajera2",
-          "pos": [32, 8],
+          "pos": [
+            32,
+            8
+          ],
           "px": [
             31.6,
             7.8
@@ -301,7 +472,10 @@
         },
         {
           "personaje": "canillita",
-          "pos": [42, 25],
+          "pos": [
+            42,
+            25
+          ],
           "px": [
             41.6,
             24.4
@@ -314,11 +488,23 @@
           "color": "andén azul",
           "quien": "los pasajeros",
           "zona": [
-            [10, 16],
-            [11, 16]
+            [
+              10,
+              16
+            ],
+            [
+              11,
+              16
+            ]
           ],
-          "regreso": [12, 15],
-          "insignia": [707, 820],
+          "regreso": [
+            12,
+            15
+          ],
+          "insignia": [
+            707,
+            820
+          ],
           "invitacion": "¡Hola, {nombre}! En el <b>andén azul</b> los buses llevan grupos iguales: <b>2(x + 3)</b>. ¿Nos ayudas a contar?"
         },
         {
@@ -326,18 +512,33 @@
           "color": "andén naranja",
           "anfitrion": {
             "personaje": "jhon",
-            "pos": [17, 17],
+            "pos": [
+              17,
+              17
+            ],
             "px": [
               17.2,
               16.4
             ]
           },
           "zona": [
-            [16, 16],
-            [17, 16]
+            [
+              16,
+              16
+            ],
+            [
+              17,
+              16
+            ]
           ],
-          "regreso": [18, 15],
-          "insignia": [1091, 820],
+          "regreso": [
+            18,
+            15
+          ],
+          "insignia": [
+            1091,
+            820
+          ],
           "invitacion": "¡{nombre}! Soy Jhon, el cobrador del <b>andén naranja</b>. En cada bus bajan pasajeros: <b>3(x − 2)</b>. ¿Me ayudas?"
         },
         {
@@ -345,11 +546,23 @@
           "color": "andén verde",
           "quien": "los pasajeros",
           "zona": [
-            [22, 16],
-            [23, 16]
+            [
+              22,
+              16
+            ],
+            [
+              23,
+              16
+            ]
           ],
-          "regreso": [24, 15],
-          "insignia": [1475, 820],
+          "regreso": [
+            24,
+            15
+          ],
+          "insignia": [
+            1475,
+            820
+          ],
           "invitacion": "En el <b>andén verde</b> hay paréntesis y además un número afuera: <b>2(x + 4) + 3</b>. ¡Vamos, {nombre}!"
         },
         {
@@ -357,22 +570,49 @@
           "color": "andén guinda",
           "quien": "los pasajeros",
           "zona": [
-            [28, 16],
-            [29, 16]
+            [
+              28,
+              16
+            ],
+            [
+              29,
+              16
+            ]
           ],
-          "regreso": [30, 15],
-          "insignia": [1859, 820],
+          "regreso": [
+            30,
+            15
+          ],
+          "insignia": [
+            1859,
+            820
+          ],
           "invitacion": "En el <b>andén guinda</b> se mezclan restas afuera y x con número adentro: <b>4(x − 1) − 2</b> y <b>2(3x + 1)</b>."
         },
         {
           "nivel": 10,
           "zona": [
-            [43, 16],
-            [44, 16],
-            [45, 16]
+            [
+              43,
+              16
+            ],
+            [
+              44,
+              16
+            ],
+            [
+              45,
+              16
+            ]
           ],
-          "regreso": [44, 17],
-          "insignia": [2856, 720],
+          "regreso": [
+            44,
+            17
+          ],
+          "insignia": [
+            2856,
+            720
+          ],
           "esSalida": true,
           "invitacion": "¡La salida al Puerto! Don Teófilo y los pasajeros tienen <b>problemas de la vida real</b> con pasajes. Ayúdalos y el cóndor nos llevará volando."
         }
@@ -388,7 +628,10 @@
       "colorGrado": "#2c6fb5",
       "tituloReto": "RETO · PARENTESIS",
       "insigniasEnMundo": true,
-      "condorPos": [2812, 800],
+      "condorPos": [
+        2812,
+        800
+      ],
       "mapaCompleto": {
         "titulo": "MAPA DE LA TERMINAL",
         "subtitulo": "5 andenes = 5 niveles",
@@ -430,33 +673,1378 @@
       "nombre": "Puerto",
       "nombreCorto": "Puerto",
       "titulo": "MUNDO 3 · PUERTO",
+      "subtitulo": "Explora el puerto, busca objetos y cumple las misiones",
       "grado": "3.° de secundaria",
       "etiquetaGrado": "3.° SEC",
       "tema": "Paréntesis en ambos lados",
       "colorGrado": "#1fa36b",
-      "pendiente": true
+      "tituloReto": "RETO · PARENTESIS EN AMBOS LADOS",
+      "retoVisual": "ambos",
+      "mundoAbierto": true,
+      "insigniasEnMundo": true,
+      "ayudaZona": "<span><span class=\"key\">FLECHAS</span> o <span class=\"key\">WASD</span> moverte</span><span><span class=\"key\">ESPACIO</span> hablar</span><span><span class=\"key\">M</span> mapa</span><span><b style=\"color:#f2b632\">✦</b> = objeto · <b style=\"color:#f2b632\">!</b> = misión</span>",
+      "mapa": "zona_puerto",
+      "inicio": [
+        20,
+        24
+      ],
+      "ecu": [
+        19,
+        24
+      ],
+      "bloqueos": [],
+      "lugares": {
+        "cueva": {
+          "mapa": "cueva_puerto",
+          "titulo": "MUNDO 3 · CUEVA DE LA PLAYA",
+          "inicio": [
+            12,
+            8
+          ],
+          "ecu": [
+            11,
+            8
+          ],
+          "salidas": [
+            [
+              11,
+              9
+            ],
+            [
+              12,
+              9
+            ]
+          ],
+          "volverA": [
+            14,
+            9
+          ],
+          "oscuro": true,
+          "ayuda": "<span>Con la <b style=\"color:#f2b632\">linterna</b> ves alrededor de ti · los cristales también dan luz</span>"
+        },
+        "almacen": {
+          "mapa": "almacen_elena",
+          "titulo": "MUNDO 3 · ALMACÉN",
+          "inicio": [
+            10,
+            10
+          ],
+          "ecu": [
+            11,
+            10
+          ],
+          "salidas": [
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "volverA": [
+            8,
+            17
+          ],
+          "ayuda": "<span><span class=\"key\">ESPACIO</span> hablar</span><span>Sal por la puerta de abajo</span>"
+        }
+      },
+      "puertas": [
+        {
+          "pos": [
+            14,
+            8
+          ],
+          "lugar": "cueva",
+          "requiere": "linterna",
+          "accion": "Entrar",
+          "bloqueo": "¡Uy, está muy oscuro ahí dentro, {nombre}! No se ve nada…<br><br>Necesitamos una <b class=\"c-guinda\">LINTERNA</b>. Tal vez Don Pancho tenga una si lo ayudamos con su bote."
+        },
+        {
+          "pos": [
+            8,
+            16
+          ],
+          "lugar": "almacen",
+          "requiere": "llave",
+          "accion": "Entrar",
+          "bloqueo": "El almacén de Doña Elena está <b class=\"c-guinda\">cerrado con llave</b>, {nombre}.<br><br>Dicen que la <b>LLAVE</b> quedó en un cofre de la cueva de la playa."
+        },
+        {
+          "pos": [
+            27,
+            15
+          ],
+          "accion": "Tocar",
+          "texto": "Es la casa de Don Pancho. Él pasa todo el día en la playa, ¡búscalo en el muelle!"
+        },
+        {
+          "pos": [
+            6,
+            25
+          ],
+          "accion": "Tocar",
+          "texto": "Toc, toc… No hay nadie en la casa verde. ¡Todos están en la plaza y en la playa!"
+        },
+        {
+          "pos": [
+            30,
+            24
+          ],
+          "accion": "Mirar",
+          "texto": "La tienda está cerrada. Un cartel dice: «Volvemos después de la pesca»."
+        }
+      ],
+      "objetos": [
+        {
+          "clave": "remo",
+          "nombre": "REMO",
+          "imagen": "obj_remo",
+          "pos": [
+            37,
+            36
+          ],
+          "apareceTras": 11,
+          "desbloquea": 12,
+          "texto": "Don Pancho lo necesita para sacar su bote. Llévaselo al <b style=\"color:#f2b632\">muelle este</b>, junto a la casa de botes."
+        },
+        {
+          "clave": "linterna",
+          "nombre": "LINTERNA",
+          "imagen": "obj_linterna",
+          "otorgaNivel": 12,
+          "desbloquea": 13,
+          "texto": "Don Pancho te regala su linterna. Con ella podrás entrar a la <b style=\"color:#f2b632\">cueva de la playa</b>."
+        },
+        {
+          "clave": "llave",
+          "nombre": "LLAVE",
+          "imagen": "obj_llave",
+          "otorgaNivel": 13,
+          "desbloquea": 14,
+          "texto": "¡Estaba en el cofre! Es la llave del <b style=\"color:#f2b632\">almacén de Doña Elena</b>."
+        },
+        {
+          "clave": "mapa",
+          "nombre": "MAPA",
+          "imagen": "obj_mapa",
+          "otorgaNivel": 14,
+          "desbloquea": 15,
+          "texto": "El mapa del faro. Llévaselo a <b style=\"color:#f2b632\">Don Ernesto</b>, arriba en el acantilado."
+        }
+      ],
+      "ambientales": [
+        {
+          "personaje": "mateo",
+          "pos": [
+            23,
+            23
+          ],
+          "px": [
+            23,
+            22
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Mi abuelo Ernesto cuida el faro, allá arriba en el acantilado.<br><br>Dicen que <b>Don Pancho</b> perdió su <b>remo</b> en la playa… ¡a lo mejor brilla en la arena!"
+        },
+        {
+          "personaje": "elena",
+          "pos": [
+            9,
+            19
+          ],
+          "px": [
+            9,
+            18
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Cuando hay paréntesis en los dos lados, primero multiplica cada uno: <b class=\"c-azul\">3(x − 2) = 3x − 6</b>.<br><br>¡Y cuida el signo de adentro!"
+        },
+        {
+          "personaje": "lucia",
+          "pos": [
+            12,
+            31
+          ],
+          "px": [
+            12,
+            30
+          ],
+          "consejo": true,
+          "dialogo": "Mi profe dice: <b>las x a un lado y los números al otro</b>.<br><br>Si tengo <b class=\"c-azul\">2x + 6 = x + 10</b>, quito una x de cada lado: <b>x + 6 = 10</b>."
+        },
+        {
+          "personaje": "nino_playa",
+          "pos": [
+            8,
+            37
+          ],
+          "px": [
+            8,
+            36
+          ],
+          "consejo": true,
+          "dialogo": "¡Mira mi castillo de arena, {nombre}! Con un <b class=\"c-azul\">−</b> delante del paréntesis, todo lo de adentro cambia de signo: <b>−(x + 2) = −x − 2</b>."
+        },
+        {
+          "personaje": "pescador2",
+          "pos": [
+            50,
+            20
+          ],
+          "px": [
+            50,
+            19
+          ],
+          "consejo": true,
+          "dialogo": "¡Buen día, {nombre}! Un bote se equilibra cuando los dos lados pesan igual.<br><br>Lo que quitas de un lado, quítalo también del otro."
+        }
+      ],
+      "puestos": [
+        {
+          "nivel": 11,
+          "mision": "Ayuda a Don Pancho",
+          "etiqueta": "Muelle oeste",
+          "anfitrion": {
+            "personaje": "pancho",
+            "pos": [
+              21,
+              38
+            ],
+            "px": [
+              20.5,
+              37
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            21,
+            37
+          ],
+          "insignia": [
+            1344,
+            2170
+          ],
+          "enMapa": [
+            21,
+            35.6
+          ],
+          "objetivo": "ayuda a Don Pancho en el muelle oeste",
+          "invitacion": "¡Hola, {nombre}! Soy Don Pancho. Mis cajas de pescado tienen <b>paréntesis en los dos lados</b>: <b>2(x + 3) = x + 10</b>. ¿Me ayudas a contarlas?"
+        },
+        {
+          "nivel": 12,
+          "mision": "Equilibra el bote",
+          "etiqueta": "Bote de Don Pancho",
+          "requiere": "remo",
+          "anfitrion": {
+            "personaje": "pancho",
+            "pos": [
+              57,
+              38
+            ],
+            "px": [
+              56.5,
+              37
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            57,
+            37
+          ],
+          "insignia": [
+            3648,
+            2170
+          ],
+          "enMapa": [
+            57,
+            35.6
+          ],
+          "buscar": "busca el remo de Don Pancho",
+          "objetivo": "lleva el remo al muelle este",
+          "bloqueo": "Don Pancho no puede sacar su bote sin su <b class=\"c-guinda\">REMO</b>, {nombre}.<br><br>Dicen que se le cayó en la playa… ¡a lo mejor brilla en la arena!",
+          "invitacion": "¡Gracias por el remo, {nombre}! Para que mi bote no se voltee, los dos lados deben pesar igual: <b>3(x − 2) = 2(x + 1)</b>."
+        },
+        {
+          "nivel": 13,
+          "mision": "Cofre de la cueva",
+          "etiqueta": "Cueva",
+          "lugar": "cueva",
+          "requiere": "linterna",
+          "anfitrion": {
+            "personaje": "cofre",
+            "pos": [
+              15,
+              4
+            ],
+            "px": [
+              15,
+              1.9
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            15,
+            5
+          ],
+          "enMapa": [
+            14,
+            6.4
+          ],
+          "buscar": "consigue una linterna",
+          "objetivo": "abre el cofre de la cueva",
+          "bloqueo": "¡Uy, está muy oscuro ahí dentro, {nombre}! Necesitamos una <b class=\"c-guinda\">LINTERNA</b>.",
+          "invitacion": "<b class=\"c-guinda\">Ecu:</b> ¡Un cofre viejo con un candado de números! Tiene grabadas ecuaciones con <b>paréntesis y un número afuera</b>. Adentro está la <b>LLAVE</b> del almacén."
+        },
+        {
+          "nivel": 14,
+          "mision": "Almacén cerrado",
+          "etiqueta": "Almacén",
+          "lugar": "almacen",
+          "requiere": "llave",
+          "anfitrion": {
+            "personaje": "elena",
+            "pos": [
+              9,
+              5
+            ],
+            "px": [
+              9,
+              3.42
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            9,
+            6
+          ],
+          "enMapa": [
+            8.5,
+            11.4
+          ],
+          "buscar": "busca la llave del almacén",
+          "objetivo": "abre el depósito de Doña Elena",
+          "bloqueo": "El almacén de Doña Elena está <b class=\"c-guinda\">cerrado con llave</b>, {nombre}.",
+          "invitacion": "¡Encontraste mi llave en la cueva! Gracias, {nombre}.<br><br>Pero el candado del depósito es especial: tiene ecuaciones con un <b>signo menos delante del paréntesis</b>. Resuélvelas y adentro está el <b>MAPA</b> del faro."
+        },
+        {
+          "nivel": 15,
+          "mision": "RETO: El faro",
+          "etiqueta": "RETO · Faro",
+          "esSalida": true,
+          "requiere": "mapa",
+          "anfitrion": {
+            "personaje": "ernesto",
+            "pos": [
+              67,
+              7
+            ],
+            "px": [
+              67,
+              6
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            66,
+            7
+          ],
+          "insignia": [
+            4640,
+            380
+          ],
+          "enMapa": [
+            71.5,
+            9
+          ],
+          "buscar": "consigue el mapa del faro",
+          "objetivo": "lleva el mapa a Don Ernesto en el faro",
+          "bloqueo": "Don Ernesto necesita el <b class=\"c-guinda\">MAPA</b> del faro para encenderlo, {nombre}.<br><br>Lo guarda Doña Elena en el depósito de su almacén.",
+          "invitacion": "¡{nombre}, trajiste el mapa! Para encender el faro te tengo <b>3 problemas de la vida real</b> con pescados y plata. ¡Y después el cóndor te lleva a la Construcción!"
+        }
+      ],
+      "mapaCompleto": {
+        "titulo": "MAPA DEL PUERTO",
+        "subtitulo": "Explora: entra a casas y cuevas, busca objetos ✦ y habla con todos",
+        "imagen": "mapa_puerto_completo",
+        "etiquetas": [
+          [
+            "Cascada",
+            40.8,
+            0.4
+          ],
+          [
+            "Plaza",
+            21,
+            26.4
+          ],
+          [
+            "Mercado de pescado",
+            52.2,
+            22.2
+          ],
+          [
+            "Casa de botes",
+            52,
+            29.4
+          ],
+          [
+            "Corral de llamas",
+            71.6,
+            20.6
+          ]
+        ]
+      },
+      "textoCompletado": "Los pescadores del <b style=\"color:#f2b632\">Puerto</b> ya tienen su faro encendido.",
+      "textoViaje": "El cóndor te lleva volando a la <b style=\"color:#8cc8ff\">Construcción</b>.",
+      "textoVolver": "VOLVER AL PUERTO",
+      "siguienteMundo": 4,
+      "siguienteNombre": "Construcción",
+      "textosZona": {
+        "bloqueadoMision": "Todavía no, {nombre}. Primero cumple la <b class=\"c-guinda\">misión {previo}</b> y se abrirá esta.",
+        "misionesCumplidas": "¡Misiones cumplidas! El faro ya alumbra"
+      },
+      "centroFondo": [
+        1350,
+        1500
+      ]
     },
     {
       "id": 4,
       "nombre": "Construcción",
       "nombreCorto": "Construcción",
       "titulo": "MUNDO 4 · CONSTRUCCION",
+      "subtitulo": "Ayuda a terminar el nuevo local del colegio",
+      "tituloSalir": "¿SALIR DE LA OBRA?",
       "grado": "4.° de secundaria",
       "etiquetaGrado": "4.° SEC",
       "tema": "Fracciones y paréntesis",
       "colorGrado": "#f2b632",
-      "pendiente": true
+      "tituloReto": "RETO · FRACCIONES Y PARENTESIS",
+      "tituloDesafio": "DESAFIO FINAL · TODO LO QUE APRENDISTE",
+      "retoVisual": "fracciones",
+      "mundoAbierto": true,
+      "insigniasEnMundo": true,
+      "ayudaZona": "<span><span class=\"key\">FLECHAS</span> moverte</span><span><span class=\"key\">ESPACIO</span> hablar / recoger / entrar</span><span><span class=\"key\">M</span> mapa</span><span>Los objetos brillan <b style=\"color:#f2b632\">✦</b></span>",
+      "mapa": "zona_obra",
+      "inicio": [
+        34,
+        36
+      ],
+      "ecu": [
+        35,
+        36
+      ],
+      "bloqueos": [],
+      "lugares": {
+        "taller": {
+          "mapa": "taller_sofia",
+          "titulo": "MUNDO 4 · TALLER DE SOFIA",
+          "inicio": [
+            10,
+            10
+          ],
+          "ecu": [
+            11,
+            10
+          ],
+          "salidas": [
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "volverA": [
+            63,
+            17
+          ],
+          "ayuda": "<span><span class=\"key\">ESPACIO</span> hablar</span><span>Sal por la puerta de abajo</span>"
+        },
+        "tunel": {
+          "mapa": "tunel_cantera",
+          "titulo": "MUNDO 4 · TUNEL DE LA CANTERA",
+          "inicio": [
+            11,
+            10
+          ],
+          "ecu": [
+            12,
+            10
+          ],
+          "salidas": [
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              11
+            ],
+            [
+              13,
+              11
+            ]
+          ],
+          "volverA": [
+            15,
+            4
+          ],
+          "ayuda": "<span><span class=\"key\">ESPACIO</span> hablar</span><span>Sal por el túnel de abajo</span>"
+        }
+      },
+      "puertas": [
+        {
+          "pos": [
+            63,
+            16
+          ],
+          "lugar": "taller",
+          "accion": "Entrar"
+        },
+        {
+          "pos": [
+            15,
+            3
+          ],
+          "lugar": "tunel",
+          "requiere": "martillo",
+          "habla": "tomas",
+          "accion": "Entrar",
+          "bloqueo": "¡Cuidado, {nombre}! Hubo un derrumbe y las <b>rocas</b> tapan la entrada del túnel.<br><br>Necesitas un <b class=\"c-guinda\">MARTILLO</b> para romperlas. La arquitecta Sofía tiene uno en su taller."
+        },
+        {
+          "pos": [
+            73,
+            16
+          ],
+          "accion": "Mirar",
+          "texto": "El almacén de herramientas está cerrado. Un cartel dice: «Las herramientas se piden a la arquitecta Sofía»."
+        },
+        {
+          "pos": [
+            66,
+            7
+          ],
+          "accion": "Mirar",
+          "texto": "Es la capilla del barrio. Desde aquí arriba se ve toda la obra del colegio."
+        },
+        {
+          "pos": [
+            31,
+            29
+          ],
+          "accion": "Tocar",
+          "texto": "Es la caseta de Don Julio. Adentro hay cascos colgados… pero son de los obreros. ¡Busca uno que brille!"
+        }
+      ],
+      "objetos": [
+        {
+          "clave": "casco",
+          "nombre": "CASCO",
+          "imagen": "obj_casco",
+          "pos": [
+            34,
+            30
+          ],
+          "apareceTras": 16,
+          "desbloquea": 17,
+          "texto": "Sin casco no se entra a la obra. Ahora ya puedes ayudar a la <b style=\"color:#f2b632\">señora Rosa</b> con las torres de ladrillo."
+        },
+        {
+          "clave": "plano",
+          "nombre": "PLANO",
+          "imagen": "obj_plano",
+          "otorgaNivel": 17,
+          "desbloquea": 18,
+          "texto": "Es el plano del nuevo colegio. Llévaselo a la <b style=\"color:#f2b632\">arquitecta Sofía</b>, en su taller del barrio este."
+        },
+        {
+          "clave": "martillo",
+          "nombre": "MARTILLO",
+          "imagen": "obj_martillo",
+          "otorgaNivel": 18,
+          "desbloquea": 19,
+          "texto": "Sofía te presta su martillo. Con él podrás romper las rocas del <b style=\"color:#f2b632\">túnel de la cantera</b>."
+        },
+        {
+          "clave": "llave_grua",
+          "nombre": "LLAVE DE LA GRÚA",
+          "imagen": "obj_llave_grua",
+          "otorgaNivel": 19,
+          "desbloquea": 20,
+          "texto": "La llave que enciende la grúa. Llévasela a <b style=\"color:#f2b632\">Don Julio</b>, en la base de la grúa."
+        }
+      ],
+      "ambientales": [
+        {
+          "personaje": "nino_pelota",
+          "pos": [
+            10,
+            16
+          ],
+          "px": [
+            10,
+            15
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Esta losa mide <b>28 metros</b> de largo… ¡así que la <b>mitad</b> de la cancha son <b>28 ÷ 2 = 14 metros</b>!<br><br>En la obra usan <b class=\"c-azul\">fracciones</b> todo el tiempo. Ah, y sin <b>casco</b> no te dejan entrar."
+        },
+        {
+          "personaje": "nina_parque",
+          "pos": [
+            7,
+            25
+          ],
+          "px": [
+            7,
+            24
+          ],
+          "consejo": true,
+          "dialogo": "Mi profe dice: para quitar un denominador, <b>multiplica los dos lados</b> por ese número.<br><br>Si <b class=\"c-azul\">(x + 4)/3 = 5</b>, entonces <b>x + 4 = 3 · 5 = 15</b>."
+        },
+        {
+          "personaje": "senora_kiosko",
+          "pos": [
+            18,
+            33
+          ],
+          "px": [
+            18,
+            32
+          ],
+          "consejo": true,
+          "dialogo": "¡Buen día, {nombre}! Cuando hay una fracción a cada lado, se <b>multiplica en cruz</b>.<br><br><b class=\"c-azul\">(x + 2)/3 = (x + 6)/5</b> se vuelve <b>5(x + 2) = 3(x + 6)</b>."
+        },
+        {
+          "personaje": "sofia",
+          "pos": [
+            64,
+            18
+          ],
+          "px": [
+            63.5,
+            17
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Soy la arquitecta Sofía. Se me perdió el <b>plano</b> del nuevo colegio…<br><br>Creo que lo dejé con la <b>señora Rosa</b>, en las torres de ladrillo. Si lo traes, ¡ven a mi taller!"
+        },
+        {
+          "personaje": "tomas",
+          "pos": [
+            16,
+            11
+          ],
+          "px": [
+            16.4,
+            10
+          ],
+          "consejo": true,
+          "dialogo": "¡Cuidado con la cantera, {nombre}! Hubo un derrumbe y las rocas tapan el túnel.<br><br>Con un <b>martillo</b> podríamos abrirlo. Adentro está la caja de la <b>llave de la grúa</b>."
+        }
+      ],
+      "puestos": [
+        {
+          "nivel": 16,
+          "mision": "Ayuda a Don Julio",
+          "etiqueta": "Entrada",
+          "anfitrion": {
+            "personaje": "julio",
+            "pos": [
+              31,
+              36
+            ],
+            "px": [
+              31,
+              35
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            32,
+            36
+          ],
+          "insignia": [
+            2016,
+            2042
+          ],
+          "enMapa": [
+            31,
+            34.2
+          ],
+          "objetivo": "ayuda a Don Julio en la entrada de la obra",
+          "invitacion": "¡Hola, {nombre}! Soy Don Julio, el maestro de obra. Aquí construimos el <b>nuevo local de la I.E. Micaela Bastidas</b>.<br><br>Para cortar los fierros uso <b>fracciones</b>: <b>(x + 4)/3 = 5</b>. ¿Me ayudas con mis cuentas?"
+        },
+        {
+          "nivel": 17,
+          "mision": "Las dos torres",
+          "etiqueta": "Las dos torres",
+          "requiere": "casco",
+          "anfitrion": {
+            "personaje": "rosa_m",
+            "pos": [
+              36,
+              27
+            ],
+            "px": [
+              36,
+              26
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            36,
+            28
+          ],
+          "insignia": [
+            2336,
+            1466
+          ],
+          "enMapa": [
+            39.7,
+            23.2
+          ],
+          "buscar": "busca un casco para entrar a la obra",
+          "objetivo": "ayuda a la señora Rosa con las torres",
+          "bloqueo": "Sin <b class=\"c-guinda\">CASCO</b> no se puede trabajar en la obra, {nombre}.<br><br>Busca uno: ¡a lo mejor brilla cerca de la caseta de Don Julio!",
+          "invitacion": "¡Qué bien, {nombre}, ya tienes casco! Estoy levantando las <b>torres de ladrillo</b> y reparto los ladrillos con <b>fracciones y paréntesis</b>: <b>2(x + 1)/3 = 6</b>.<br><br>Si me ayudas, te doy el <b>PLANO</b> que dejó la arquitecta Sofía."
+        },
+        {
+          "nivel": 18,
+          "mision": "Planos de Sofía",
+          "etiqueta": "Taller de Sofía",
+          "lugar": "taller",
+          "requiere": "plano",
+          "anfitrion": {
+            "personaje": "sofia",
+            "pos": [
+              8,
+              4
+            ],
+            "px": [
+              7.56,
+              3.97
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            8,
+            5
+          ],
+          "enMapa": [
+            63.4,
+            12.2
+          ],
+          "buscar": "consigue el plano de Sofía",
+          "objetivo": "ayuda a la arquitecta Sofía",
+          "bloqueo": "La arquitecta Sofía no puede trabajar sin su <b class=\"c-guinda\">PLANO</b>, {nombre}.<br><br>Lo tiene la señora Rosa, en las torres de ladrillo.",
+          "invitacion": "<b class=\"c-guinda\">¡Mi plano! Gracias, {nombre}.</b> Mira la maqueta: así quedará el nuevo local de la I.E. Micaela Bastidas.<br><br>Pero me faltan unas medidas del plano… ¿me ayudas? Si lo logras, te presto mi <b>MARTILLO</b> para abrir el túnel de la cantera."
+        },
+        {
+          "nivel": 19,
+          "mision": "Túnel bloqueado",
+          "etiqueta": "Túnel",
+          "lugar": "tunel",
+          "requiere": "martillo",
+          "anfitrion": {
+            "personaje": "tomas",
+            "pos": [
+              17,
+              5
+            ],
+            "px": [
+              16.53,
+              4.6
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            17,
+            6
+          ],
+          "enMapa": [
+            19.4,
+            7.4
+          ],
+          "buscar": "consigue un martillo",
+          "objetivo": "abre la puerta de engranajes del túnel",
+          "bloqueo": "Sin un <b class=\"c-guinda\">MARTILLO</b> no se pueden romper las rocas del túnel, {nombre}.",
+          "invitacion": "<b class=\"c-guinda\">Don Tomás:</b> ¡Rompiste las rocas, {nombre}! Al fondo está la caja de la <b>LLAVE DE LA GRÚA</b>, pero la protege esta <b>puerta de engranajes</b>.<br><br>Mezcla paréntesis y fracciones: ¡ve paso a paso!"
+        },
+        {
+          "nivel": 20,
+          "mision": "DESAFÍO FINAL",
+          "etiqueta": "DESAFÍO FINAL · Grúa",
+          "esSalida": true,
+          "requiere": "llave_grua",
+          "anfitrion": {
+            "personaje": "julio",
+            "pos": [
+              52,
+              22
+            ],
+            "px": [
+              52,
+              21
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            51,
+            22
+          ],
+          "insignia": [
+            3360,
+            1146
+          ],
+          "enMapa": [
+            52.5,
+            20.4
+          ],
+          "buscar": "consigue la llave de la grúa",
+          "objetivo": "lleva la llave a Don Julio en la grúa",
+          "bloqueo": "La grúa no arranca sin su <b class=\"c-guinda\">LLAVE</b>, {nombre}.<br><br>Dicen que quedó en una caja dentro del túnel de la cantera.",
+          "invitacion": "¡{nombre}, trajiste la llave de la grúa! Antes de subir la <b>última viga</b> te tengo el <b>desafío final</b>: 3 problemas de la obra con todo lo que aprendiste.<br><br>¡Y después el cóndor te lleva a la <b>Feria del pueblo</b>!"
+        }
+      ],
+      "mapaCompleto": {
+        "titulo": "MAPA DE LA OBRA",
+        "subtitulo": "Ayuda a terminar el nuevo local de la I.E. N° 54037 Micaela Bastidas",
+        "imagen": "mapa_obra_completo",
+        "etiquetas": [
+          [
+            "Cantera",
+            9.5,
+            7.2
+          ],
+          [
+            "Río",
+            24.5,
+            14.6
+          ],
+          [
+            "Losa deportiva",
+            11,
+            18.5
+          ],
+          [
+            "Parque",
+            9,
+            27.7
+          ],
+          [
+            "I.E. Micaela Bastidas",
+            42,
+            17.7
+          ],
+          [
+            "Capilla",
+            65.6,
+            7.7
+          ]
+        ]
+      },
+      "textoCompletado": "La obra del <b style=\"color:#f2b632\">colegio</b> sigue avanzando.",
+      "textoViaje": "El cóndor te lleva volando a la <b style=\"color:#8cc8ff\">Feria del pueblo</b>.",
+      "textoVolver": "VOLVER A LA OBRA",
+      "siguienteMundo": 5,
+      "siguienteNombre": "Feria",
+      "textosZona": {
+        "bloqueadoMision": "Todavía no, {nombre}. Primero cumple la <b class=\"c-guinda\">misión {previo}</b> y se abrirá esta.",
+        "misionesCumplidas": "¡Misiones cumplidas! La grúa subió la última viga"
+      },
+      "centroFondo": [
+        2700,
+        1500
+      ]
     },
     {
       "id": 5,
       "nombre": "Feria",
       "nombreCorto": "Feria",
       "titulo": "MUNDO 5 · FERIA",
+      "subtitulo": "La Feria del pueblo",
+      "tituloSalir": "¿SALIR DE LA FERIA?",
       "grado": "5.° de secundaria",
       "etiquetaGrado": "5.° SEC",
       "tema": "Fracción sobre fracción",
       "colorGrado": "#d9406a",
-      "pendiente": true
+      "tituloReto": "RETO · FRACCION SOBRE FRACCION",
+      "retoVisual": "fraccionFraccion",
+      "mundoAbierto": true,
+      "insigniasEnMundo": true,
+      "ayudaZona": "<span><span class=\"key\">FLECHAS</span> moverte</span><span><span class=\"key\">ESPACIO</span> hablar / recoger / entrar</span><span><span class=\"key\">M</span> mapa</span><span>Los objetos brillan <b style=\"color:#f2b632\">✦</b></span>",
+      "mapa": "zona_feria",
+      "inicio": [
+        38,
+        38
+      ],
+      "ecu": [
+        39,
+        38
+      ],
+      "bloqueos": [],
+      "areas": [
+        {
+          "titulo": "MUNDO 5 · PUESTOS DE COMIDA",
+          "rect": [
+            8,
+            24,
+            27,
+            30
+          ]
+        },
+        {
+          "titulo": "MUNDO 5 · JUEGOS",
+          "rect": [
+            8,
+            10,
+            27,
+            23
+          ]
+        },
+        {
+          "titulo": "MUNDO 5 · JUEGOS",
+          "rect": [
+            8,
+            31,
+            27,
+            40
+          ]
+        },
+        {
+          "titulo": "MUNDO 5 · PLAZA DE LA FIESTA",
+          "rect": [
+            28,
+            15,
+            50,
+            30
+          ]
+        },
+        {
+          "titulo": "MUNDO 5 · TOMBOLA",
+          "rect": [
+            51,
+            24,
+            68,
+            40
+          ]
+        },
+        {
+          "titulo": "MUNDO 5 · DANZAS",
+          "rect": [
+            51,
+            10,
+            68,
+            23
+          ]
+        }
+      ],
+      "lugares": {
+        "carpa": {
+          "mapa": "carpa_tombola",
+          "titulo": "MUNDO 5 · CARPA DE LA TOMBOLA",
+          "inicio": [
+            10,
+            10
+          ],
+          "ecu": [
+            11,
+            10
+          ],
+          "salidas": [
+            [
+              10,
+              11
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "volverA": [
+            55,
+            31
+          ],
+          "ayuda": "<span>Dentro de la carpa: la ruleta, los premios y la señora Rufina</span><span><span class=\"key\">ESPACIO</span> hablar</span><span>Sal por abajo</span>"
+        }
+      },
+      "puertas": [
+        {
+          "pos": [
+            55,
+            30
+          ],
+          "lugar": "carpa",
+          "requiere": "cupon",
+          "accion": "Entrar",
+          "bloqueo": "La tómbola solo deja entrar con un <b class=\"c-guinda\">CUPÓN</b>, {nombre}.<br><br>Don Ramón, el de la <b>rueda de la fortuna</b>, regala cupones a quien resuelve su reto."
+        },
+        {
+          "pos": [
+            56,
+            30
+          ],
+          "lugar": "carpa",
+          "requiere": "cupon",
+          "accion": "Entrar",
+          "bloqueo": "La tómbola solo deja entrar con un <b class=\"c-guinda\">CUPÓN</b>, {nombre}.<br><br>Don Ramón, el de la <b>rueda de la fortuna</b>, regala cupones a quien resuelve su reto."
+        },
+        {
+          "pos": [
+            60,
+            30
+          ],
+          "accion": "Mirar",
+          "texto": "Es la carpa de los disfraces. Adentro hay máscaras de danzantes y sombreros de colores."
+        },
+        {
+          "pos": [
+            15,
+            34
+          ],
+          "accion": "Mirar",
+          "texto": "Es la carpa de los títeres. ¡La función empieza cuando se prenda el castillo!"
+        },
+        {
+          "pos": [
+            71,
+            6
+          ],
+          "accion": "Mirar",
+          "texto": "Es la capilla del pueblo. Hoy celebran la fiesta patronal con la Feria."
+        }
+      ],
+      "objetos": [
+        {
+          "clave": "boleto",
+          "nombre": "BOLETO",
+          "articulo": "el BOLETO",
+          "imagen": "obj_boleto",
+          "pos": [
+            27,
+            34
+          ],
+          "apareceTras": 21,
+          "desbloquea": 22,
+          "texto": "Es el boleto que perdió <b style=\"color:#f2b632\">Pepe</b>. Llévaselo al tiro al blanco."
+        },
+        {
+          "clave": "ficha",
+          "nombre": "FICHA",
+          "articulo": "la FICHA",
+          "imagen": "obj_ficha",
+          "otorgaNivel": 22,
+          "desbloquea": 23,
+          "texto": "Con esta ficha puedes subir a la <b style=\"color:#f2b632\">rueda de la fortuna</b>. Don Ramón te espera."
+        },
+        {
+          "clave": "cupon",
+          "nombre": "CUPÓN",
+          "articulo": "el CUPÓN",
+          "imagen": "obj_cupon",
+          "otorgaNivel": 23,
+          "desbloquea": 24,
+          "texto": "Con el cupón te dejan entrar a la <b style=\"color:#f2b632\">carpa de la tómbola</b>. La señora Rufina te espera adentro."
+        },
+        {
+          "clave": "mecha",
+          "nombre": "MECHA",
+          "articulo": "la MECHA",
+          "imagen": "obj_mecha",
+          "otorgaNivel": 24,
+          "desbloquea": 25,
+          "texto": "La mecha del castillo de fuegos artificiales. Llévasela a <b style=\"color:#f2b632\">Don Aurelio</b>, en la plaza."
+        }
+      ],
+      "ambientales": [
+        {
+          "personaje": "danzante",
+          "pos": [
+            60,
+            17
+          ],
+          "px": [
+            60.4,
+            16.4
+          ],
+          "consejo": true,
+          "dialogo": "¡Hola, {nombre}! Bailamos en la Feria del pueblo.<br><br>Mi profe dice: <b>dividir entre una fracción</b> es lo mismo que <b>multiplicar por la fracción invertida</b>. Si divides entre <b class=\"c-azul\">2/3</b>, multiplicas por <b class=\"c-azul\">3/2</b>."
+        },
+        {
+          "personaje": "gente0",
+          "pos": [
+            60,
+            32
+          ],
+          "px": [
+            60.2,
+            31
+          ],
+          "consejo": true,
+          "dialogo": "La carpa roja es la <b>tómbola</b> de la señora Rufina. Solo dejan entrar con un <b>cupón</b>.<br><br>Dicen que Don Ramón, el de la rueda de la fortuna, regala cupones."
+        },
+        {
+          "personaje": "gente5",
+          "pos": [
+            15,
+            23
+          ],
+          "px": [
+            15.2,
+            22.6
+          ],
+          "consejo": true,
+          "dialogo": "¡{nombre}! Si ves <b class=\"c-azul\">6 ÷ (1/2)</b>, piensa: ¿cuántas mitades caben en 6? ¡<b>12</b>!<br><br>Dividir entre 1/2 es lo mismo que multiplicar por 2."
+        },
+        {
+          "personaje": "gente1",
+          "pos": [
+            44,
+            19
+          ],
+          "px": [
+            44.2,
+            18.2
+          ],
+          "dialogo": "¡Esta noche prenden el <b>castillo</b> de fuegos artificiales! Don Aurelio necesita una mecha."
+        },
+        {
+          "personaje": "gente2",
+          "pos": [
+            35,
+            25
+          ],
+          "px": [
+            35.2,
+            24.8
+          ],
+          "dialogo": "Los anticuchos de Doña Feliza son los más ricos de Abancay, {nombre}."
+        },
+        {
+          "personaje": "gente4",
+          "pos": [
+            56,
+            24
+          ],
+          "px": [
+            56.4,
+            23
+          ],
+          "dialogo": "Después de la Feria inauguran el <b>nuevo local</b> del colegio Micaela Bastidas. ¡Todos vamos a ir!"
+        }
+      ],
+      "puestos": [
+        {
+          "nivel": 21,
+          "mision": "Anticuchos",
+          "etiqueta": "Anticuchos de Doña Feliza",
+          "anfitrion": {
+            "personaje": "feliza",
+            "pos": [
+              17,
+              29
+            ],
+            "px": [
+              17.2,
+              28.6
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            17,
+            30
+          ],
+          "insignia": [
+            1133,
+            1694
+          ],
+          "enMapa": [
+            18.5,
+            26.4
+          ],
+          "objetivo": "ayuda a Doña Feliza con sus anticuchos",
+          "invitacion": "¡Hola, {nombre}! ¡Qué bueno verte en la <b class=\"c-guinda\">Feria del pueblo</b>! Hoy vendo anticuchos, pero se me enredaron las cuentas.<br><br>Si me ayudas, te cuento dónde está el <b>boleto</b> para los juegos."
+        },
+        {
+          "nivel": 22,
+          "mision": "Tiro al blanco",
+          "etiqueta": "Tiro al blanco",
+          "requiere": "boleto",
+          "anfitrion": {
+            "personaje": "nino_globo",
+            "pos": [
+              24,
+              34
+            ],
+            "px": [
+              24,
+              33.2
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            25,
+            34
+          ],
+          "insignia": [
+            1568,
+            1989
+          ],
+          "enMapa": [
+            22,
+            31.4
+          ],
+          "buscar": "busca el boleto perdido junto al tiro al blanco",
+          "objetivo": "lleva el boleto a Pepe, en el tiro al blanco",
+          "bloqueo": "Pepe perdió su <b class=\"c-guinda\">BOLETO</b> y sin él no puede jugar, {nombre}.<br><br>Doña Feliza vio dónde cayó: ayúdala con sus anticuchos y búscalo. ¡Brilla en el suelo!",
+          "invitacion": "¡Encontraste mi boleto, {nombre}! Ahora puedo jugar al <b>tiro al blanco</b>.<br><br>Mi tablero tiene <b>fracción sobre fracción</b>. Si me ayudas, te regalo una <b>FICHA</b> para la rueda de la fortuna."
+        },
+        {
+          "nivel": 23,
+          "mision": "Rueda de la fortuna",
+          "etiqueta": "Rueda de la fortuna",
+          "requiere": "ficha",
+          "anfitrion": {
+            "personaje": "ramon",
+            "pos": [
+              21,
+              21
+            ],
+            "px": [
+              21,
+              20.2
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            21,
+            22
+          ],
+          "insignia": [
+            1376,
+            1157
+          ],
+          "enMapa": [
+            17.5,
+            12.2
+          ],
+          "buscar": "consigue la ficha para subir a la rueda",
+          "objetivo": "sube a la rueda con Don Ramón",
+          "bloqueo": "¡Qué alta la rueda, {nombre}! Pero para subir necesitas una <b class=\"c-guinda\">FICHA</b>.<br><br>Pepe te la da si resuelves su reto del <b>tiro al blanco</b> (nivel 22).",
+          "invitacion": "¡Tienes una ficha, {nombre}! Soy Don Ramón y manejo la <b>rueda de la fortuna</b>.<br><br>Antes de subir, ayúdame con las cuentas de los viajes. Si aciertas, te regalo un <b>CUPÓN</b> para la tómbola."
+        },
+        {
+          "nivel": 24,
+          "mision": "Tómbola",
+          "etiqueta": "Tómbola",
+          "lugar": "carpa",
+          "requiere": "cupon",
+          "anfitrion": {
+            "personaje": "tombolera",
+            "pos": [
+              7,
+              7
+            ],
+            "px": [
+              7.37,
+              4.55
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            7,
+            8
+          ],
+          "enMapa": [
+            58,
+            26.4
+          ],
+          "buscar": "consigue un cupón para la tómbola",
+          "objetivo": "habla con la señora de la tómbola",
+          "bloqueo": "La tómbola solo deja entrar con un <b class=\"c-guinda\">CUPÓN</b>, {nombre}.",
+          "invitacion": "¡Pasa, {nombre}! Soy la señora Rufina y esta es la <b>tómbola</b>.<br><br>Gira la ruleta y resuelve mis premios. Si aciertas, te doy la <b>MECHA</b> del castillo de fuegos artificiales."
+        },
+        {
+          "nivel": 25,
+          "mision": "RETO: El castillo",
+          "etiqueta": "RETO · Castillo",
+          "esSalida": true,
+          "requiere": "mecha",
+          "anfitrion": {
+            "personaje": "aurelio",
+            "pos": [
+              41,
+              28
+            ],
+            "px": [
+              41.4,
+              27.2
+            ]
+          },
+          "zona": [],
+          "regreso": [
+            41,
+            29
+          ],
+          "insignia": [
+            2682,
+            1605
+          ],
+          "enMapa": [
+            41.5,
+            15
+          ],
+          "buscar": "consigue la mecha del castillo",
+          "objetivo": "lleva la mecha a Don Aurelio",
+          "bloqueo": "El castillo no se puede prender sin una <b class=\"c-guinda\">MECHA</b>, {nombre}.<br><br>La señora Rufina la tiene en la carpa de la tómbola.",
+          "invitacion": "¡{nombre}, trajiste la mecha! Soy Don Aurelio y armé el <b>castillo de fuegos artificiales</b>.<br><br>Para prenderlo te tengo el <b>reto final</b>: 3 ecuaciones con todo lo que aprendiste. ¡Y después, la gran inauguración del colegio!"
+        }
+      ],
+      "mapaCompleto": {
+        "titulo": "MAPA DE LA FERIA",
+        "subtitulo": "Mundo 5 · 5.° de secundaria · Fracción sobre fracción",
+        "imagen": "mapa_feria_completo",
+        "etiquetas": [
+          [
+            "Capilla",
+            72,
+            7.6
+          ],
+          [
+            "Danzas",
+            61.5,
+            21.3
+          ],
+          [
+            "Plaza de la fiesta",
+            41.5,
+            31.6
+          ]
+        ]
+      },
+      "textoCompletado": "Los fuegos artificiales iluminan la <b style=\"color:#f2b632\">Feria</b>.",
+      "textoViaje": "¡Resolviste los <b style=\"color:#8cc8ff\">25 niveles</b>! El cóndor te lleva a la gran inauguración.",
+      "textoVolver": "VOLVER A LA FERIA",
+      "final": true,
+      "textosZona": {
+        "bloqueadoMision": "Todavía no, {nombre}. Primero cumple la <b class=\"c-guinda\">misión {previo}</b> y se abrirá esta.",
+        "misionesCumplidas": "¡Misiones cumplidas! El castillo ilumina la Feria",
+        "chipFalta": "Falta {objeto}"
+      },
+      "centroFondo": [
+        2500,
+        1650
+      ]
     }
   ]
 }

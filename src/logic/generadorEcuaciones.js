@@ -3,9 +3,15 @@
 // Cada ecuación es { tipo, x, a, b, c?, d } donde d es el lado derecho.
 // El tipo 'terminos' (Mundo 1) vive en terminos.js: lado de las x + otro lado con números.
 // El tipo 'parentesis' (Mundo 2) vive en parentesis.js: a(kx + b) + c = d.
+// El tipo 'ambos' (Mundo 3) vive en ambosLados.js: paréntesis y x en los dos lados.
+// El tipo 'fracciones' (Mundo 4) vive en fracciones.js: fracciones con paréntesis.
+// El tipo 'fraccionFraccion' (Mundo 5) vive en fraccionFraccion.js: fracción sobre fracción.
 
 import { generarTerminos, valor as valorTerminos, textoTerminos, comprobacionTerminos, claveTerminos } from './terminos.js';
 import { generarParentesis, valorParentesis, textoParentesis, comprobacionParentesis, claveParentesis } from './parentesis.js';
+import { generarAmbos, valorLado, textoAmbos, comprobacionAmbos, claveAmbos } from './ambosLados.js';
+import { generarFracciones, valorLado as valorLadoFracciones, textoFracciones, comprobacionFracciones, claveFracciones } from './fracciones.js';
+import { generarFraccionFraccion, ladoIzquierdo, textoFraccionFraccion, comprobacionFraccionFraccion, claveFraccionFraccion } from './fraccionFraccion.js';
 
 export function enteroAlAzar(min, max) {
   return min + Math.floor(Math.random() * (max - min + 1));
@@ -23,11 +29,17 @@ export function mezclar(lista) {
 const rango = (r, porDefecto) => r || porDefecto;
 
 // Tipos de ecuación disponibles
-export const TIPOS = ['x+a=b', 'x-a=b', 'ax=b', 'terminos', 'parentesis'];
+export const TIPOS = ['x+a=b', 'x-a=b', 'ax=b', 'terminos', 'parentesis', 'ambos', 'fracciones', 'fraccionFraccion'];
+
+// Tipos que se generan por forma (rangos.forma) y llevan historia armada con sus números
+export const TIPOS_CON_FORMA = ['terminos', 'parentesis', 'ambos', 'fracciones', 'fraccionFraccion'];
 
 export function generarEcuacion(tipo, rangos) {
   if (tipo === 'terminos') return generarTerminos(rangos.forma, rangos);
   if (tipo === 'parentesis') return generarParentesis(rangos.forma, rangos);
+  if (tipo === 'ambos') return generarAmbos(rangos.forma, rangos);
+  if (tipo === 'fracciones') return generarFracciones(rangos.forma, rangos);
+  if (tipo === 'fraccionFraccion') return generarFraccionFraccion(rangos.forma, rangos);
   const [xMin, xMax] = rango(rangos.x, [1, 10]);
   const [aMin, aMax] = rango(rangos.a, [2, 5]);
   const [bMin, bMax] = rango(rangos.b, [1, 10]);
@@ -54,6 +66,9 @@ export function generarEcuacion(tipo, rangos) {
 // Clave para comparar ecuaciones (no repetir)
 export function claveEcuacion(ec) {
   if (ec.tipo === 'parentesis') return claveParentesis(ec);
+  if (ec.tipo === 'ambos') return claveAmbos(ec);
+  if (ec.tipo === 'fracciones') return claveFracciones(ec);
+  if (ec.tipo === 'fraccionFraccion') return claveFraccionFraccion(ec);
   return ec.tipo === 'terminos' ? claveTerminos(ec) : `${ec.tipo}|${ec.a}|${ec.b}|${ec.d}`;
 }
 
@@ -81,6 +96,10 @@ export function evaluarIzquierda(ecuacion, valor) {
   const { tipo, a, b } = ecuacion;
   if (tipo === 'terminos') return valorTerminos(ecuacion.ladoX, valor);
   if (tipo === 'parentesis') return valorParentesis(ecuacion, valor);
+  // en 'ambos' el lado derecho también tiene x: con la solución los dos dan d
+  if (tipo === 'ambos') return valorLado(ecuacion.izq, valor);
+  if (tipo === 'fracciones') return valorLadoFracciones(ecuacion.izq, valor);
+  if (tipo === 'fraccionFraccion') return ladoIzquierdo(ecuacion, valor);
   if (tipo === 'x+a=b') return valor + a;
   if (tipo === 'x-a=b') return valor - a;
   if (tipo === 'ax=b') return a * valor;
@@ -98,6 +117,9 @@ export function textoEcuacion(ec) {
   const { tipo, a, b, d } = ec;
   if (tipo === 'terminos') return textoTerminos(ec);
   if (tipo === 'parentesis') return textoParentesis(ec);
+  if (tipo === 'ambos') return textoAmbos(ec);
+  if (tipo === 'fracciones') return textoFracciones(ec);
+  if (tipo === 'fraccionFraccion') return textoFraccionFraccion(ec);
   if (tipo === 'x+a=b') return `x + ${a} = ${d}`;
   if (tipo === 'x-a=b') return `x − ${a} = ${d}`;
   return `${a}x = ${d}`;
@@ -108,6 +130,9 @@ export function textoComprobacion(ecuacion, valor) {
   const { tipo, a, b } = ecuacion;
   if (tipo === 'terminos') return comprobacionTerminos(ecuacion, valor, formatoNumero);
   if (tipo === 'parentesis') return comprobacionParentesis(ecuacion, valor, formatoNumero);
+  if (tipo === 'ambos') return comprobacionAmbos(ecuacion, valor, formatoNumero);
+  if (tipo === 'fracciones') return comprobacionFracciones(ecuacion, valor, formatoNumero);
+  if (tipo === 'fraccionFraccion') return comprobacionFraccionFraccion(ecuacion, valor, formatoNumero);
   const v = formatoNumero(valor);
   const lado = formatoNumero(evaluarIzquierda(ecuacion, valor));
   if (tipo === 'x+a=b') return `${v} + ${a} = ${lado}`;

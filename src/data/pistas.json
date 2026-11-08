@@ -39,5 +39,44 @@
     "conRespuesta": "Con x = {r} el lado del paréntesis da <b>{lado}</b>, pero debe dar <b>{d}</b>: tu número es muy {estadoNumero}.",
     "pasos": "Multiplica el paréntesis: <b>{expansion}</b>.{junta} Luego pasa el <b>{n}</b> {como} al otro lado: <b>{coefx} = …</b> y reparte entre {coef}.",
     "junta": " Junta los números: <b>{ab} {signo} {c} = {n}</b>."
+  },
+  "ambos": {
+    "_ayuda": "Pistas de paréntesis en ambos lados con los números del reto: {expansion} 3x − 6 = 2x + 2 (sin paréntesis), {xs} 3x − 2x (las x juntas en un lado), {nums} 2 + 6 (los números al otro lado), {coefx} x o 2x (lo que queda), {lado} izquierda/derecha. Nunca se da el valor de x.",
+    "conRespuesta": "Con x = {r} un lado da <b>{L}</b> y el otro da <b>{R}</b>: no son iguales.",
+    "quitar": "1. Quita los paréntesis (multiplica lo de adentro y cuida el signo −): <b>{expansion}</b>.",
+    "juntar": "2. Las x a la {lado}: <b>{xs}</b>. 3. Los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+  },
+  "fracciones": {
+    "_ayuda": "Pistas de fracciones y paréntesis con los números del reto: {cruz} 3(x + 1) = 2(x + 4) (sin denominadores), {sinPar} 3x + 3 = 2x + 8 (sin paréntesis), {xs} 3x − 2x (las x en un lado), {nums} 8 − 3 (los números al otro), {coefx} lo que queda, {lado} izquierda/derecha. Nunca se da el valor de x.",
+    "conRespuesta": "Con x = {r} un lado da <b>{L}</b> y el otro da <b>{R}</b>: no son iguales.",
+    "quitar": "1. Quita los denominadores (multiplica en cruz): <b>{cruz}</b>.",
+    "parentesis": "2. Quita los paréntesis: <b>{sinPar}</b>.",
+    "juntar": "Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+  },
+  "fraccionFraccion": {
+    "_ayuda": "Pistas de fracción sobre fracción (Mundo 5, diseño 505) con los números del reto, una lista por forma. {frac} la fracción entre la que se divide, {inv} su invertida, {arriba} lo que debe dar arriba, {queda} lo que queda, {multiplica} la ecuación sin la división, {cruz} en cruz, {sinPar} sin paréntesis, {xs} las x en un lado, {nums} los números al otro, {coefx} lo que queda, {lado} izquierda/derecha. Con respuesta: {r}, {L}, {R}. Nunca se da el valor de x.",
+    "conRespuesta": "Con x = {r} un lado da <b>{L}</b> y el otro da <b>{R}</b>: no son iguales.",
+    "formas": {
+      "sobreNumero": [
+        "Dividir entre <b>{frac}</b> es lo mismo que multiplicar por <b>{inv}</b>. Haz el camino al revés:",
+        "Arriba debe quedar <b>{arriba}</b>. Entonces <b>{queda}</b>. Pasa el {b} restando y multiplica por {a}. ¿Cuánto es x?"
+      ],
+      "sobreParen": [
+        "Dividir entre <b>{frac}</b> es lo mismo que multiplicar por <b>{inv}</b>: <b>{multiplica}</b>.",
+        "Quita los paréntesis: <b>{sinPar}</b>. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ],
+      "sobreFrac": [
+        "Dividir entre <b>{frac}</b> es lo mismo que multiplicar por <b>{inv}</b>: <b>{multiplica}</b>.",
+        "Multiplica en cruz: <b>{cruz}</b>. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ],
+      "simplifica": [
+        "Dividir entre <b>{frac}</b> es multiplicar por <b>{inv}</b>, y ese {c} se simplifica con el denominador: <b>{multiplica}</b>.",
+        "Quita el paréntesis: <b>{sinPar}</b>. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ],
+      "final": [
+        "Primero arriba: <b>{arriba}</b>. Dividir entre 1/{d} es multiplicar por {d}, y multiplica por {b} para quitar el denominador: <b>{multiplica}</b>.",
+        "Quita los paréntesis. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ]
+    }
   }
 }

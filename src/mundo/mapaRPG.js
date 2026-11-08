@@ -3,11 +3,17 @@
 
 import { T, ESCALA } from '../arte/mercado.js';
 import { dibujarMapa } from '../arte/mapas.js';
+import { relievesMapa } from './reglasMapa.js';
 import MAPAS from '../data/mapas.json';
 
 export const CUADRO = T * ESCALA;  // 64 px en pantalla
 const PIES = 0.72;                 // altura de los pies dentro del cuadro
 const DURACION_PASO = 150;
+// Barra superior (.rpg .hud: 72 px + borde de 4 px). En los mapas de 22×12 el mapa baja
+// MARGEN_HUD px: así la fila 1 y la cabeza de quien está en ella quedan debajo del HUD
+// (de la última fila, que siempre es borde, solo queda una franja).
+export const ALTO_HUD = 76;
+const MARGEN_HUD = 58;
 
 // Los mapas de 22 columnas (1408 px) se corren 21 px para centrarse en 1366 (como en las
 // plantillas). Los mapas grandes (zona con cámara) empiezan en 0.
@@ -18,8 +24,9 @@ export class MapaRPG {
     this.escena = escena;
     const def = MAPAS[idMapa];
     if (!def) throw new Error(`No existe el mapa ${idMapa}`);
-    const clave = def.fondo || `mapa_${idMapa}`;
     const dibujo = dibujarMapa(def, bloqueosExtra, escena);
+    // fondo de imagen tal cual, o el canvas dibujado (con parches, el fondo retocado)
+    const clave = dibujo.canvas ? (def.fondo ? `${def.fondo}_limpio` : `mapa_${idMapa}`) : def.fondo;
     if (dibujo.canvas && !escena.textures.exists(clave)) escena.textures.addCanvas(clave, dibujo.canvas);
     // Misma cuadrícula que usa herramientas/validarNiveles.mjs (src/mundo/reglasMapa.js)
     this.cuadricula = dibujo.cuadricula;
@@ -30,21 +37,90 @@ export class MapaRPG {
     this.grande = this.ancho > 1408 || this.alto > 768;
     desfaseX = this.grande ? 0 : -21;
     this.desfaseX = desfaseX;
-    this.imagen = escena.add.image(desfaseX, 0, clave).setOrigin(0, 0).setScale(dibujo.escala ?? ESCALA).setDepth(-1000);
+    const escala = dibujo.escala ?? ESCALA;
+    // El suelo siempre al fondo
+    this.imagen = escena.add.image(desfaseX, 0, clave).setOrigin(0, 0).setScale(escala).setDepth(-1000);
+    this.crearRelieves(def, clave, escala);
     this.personajes = [];
+    // Mapas de 22×12: la barra superior (HUD) no tapa la primera fila ni a quien está en ella
+    if (!this.grande) escena.cameras.main.setScroll(0, -MARGEN_HUD);
   }
 
-  // Mapas grandes: la cámara sigue al jugador sin salirse del mapa
+  // Orden por profundidad (y-sorting): la parte alta de cada objeto con altura (copa de un árbol,
+  // farol, sombrilla, cabina de un camión…) es un trozo del mismo fondo con profundidad = borde
+  // inferior de su base. Los personajes usan la altura de sus pies, así quedan detrás o delante
+  // según dónde pisen. Del trozo se quita el suelo (se compara con una casilla libre cercana del
+  // mismo tipo de suelo), así solo el objeto tapa al personaje y no un rectángulo de pasto.
+  crearRelieves(def, clave, escala) {
+    this.relieves = [];
+    const lista = escala === 1 && def.filas ? relievesMapa(def) : [];
+    if (!lista.length) return;
+    const fuente = this.escena.textures.get(clave).getSourceImage();
+    // casillas que no sirven de muestra de suelo: sólidas o tapadas por la parte alta de algo
+    const ocupada = new Set();
+    for (const r of lista) {
+      for (let f = Math.floor(r.arriba); f < r.base; f++) for (let c = r.c0; c <= r.c1; c++) ocupada.add(`${c},${f}`);
+    }
+    const letra = (c, f) => (def.filas[f] || '')[c];
+    const muestras = new Map();
+    const muestraSuelo = (c, f) => {
+      const k = `${c},${f}`;
+      if (muestras.has(k)) return muestras.get(k);
+      let datos = null;
+      // la casilla libre más cercana con la misma letra de suelo
+      for (let d = 1; d <= 8 && !datos; d++) {
+        for (let dy = -d; dy <= d && !datos; dy++) {
+          for (const dx of [-d, d, ...(Math.abs(dy) === d ? range(-d + 1, d - 1) : [])]) {
+            const cc = c + dx, ff = f + dy;
+            if (letra(cc, ff) !== letra(c, f) || ocupada.has(`${cc},${ff}`) || this.cuadricula.esSolido(cc, ff)) continue;
+            datos = leerPixeles(fuente, cc * CUADRO, ff * CUADRO, CUADRO, CUADRO);
+            break;
+          }
+        }
+      }
+      muestras.set(k, datos);
+      return datos;
+    };
+    lista.forEach((r, i) => {
+      const x = r.c0 * CUADRO;
+      const arriba = Math.max(0, Math.round(r.arriba * CUADRO));
+      const abajo = Math.round(r.desde * CUADRO);
+      const ancho = (r.c1 - r.c0 + 1) * CUADRO, alto = abajo - arriba;
+      if (alto <= 0) return;
+      // la textura se arma una vez y se reutiliza al volver a entrar al mapa
+      const claveTrozo = `${clave}_relieve_${i}`;
+      if (!this.escena.textures.exists(claveTrozo)) {
+        const lienzo = document.createElement('canvas');
+        lienzo.width = ancho;
+        lienzo.height = alto;
+        const ctx = lienzo.getContext('2d');
+        ctx.drawImage(fuente, x, arriba, ancho, alto, 0, 0, ancho, alto);
+        const img = ctx.getImageData(0, 0, ancho, alto);
+        quitarSuelo(img, x, arriba, muestraSuelo);
+        ctx.putImageData(img, 0, 0);
+        this.escena.textures.addCanvas(claveTrozo, lienzo);
+      }
+      this.relieves.push(this.escena.add.image(desfaseX + x, arriba, claveTrozo).setOrigin(0, 0).setDepth(r.base * CUADRO - 1));
+    });
+  }
+
+  // Profundidad de todos los personajes según sus pies (se llama en cada update)
+  ordenarProfundidad() {
+    for (const p of this.personajes) p.actualizarProfundidad();
+  }
+
+  // Mapas grandes: la cámara sigue al jugador sin salirse del mapa. Arriba deja el alto de la
+  // barra superior, para que la primera fila del mapa se vea entera debajo del HUD.
   seguir(personaje) {
     if (!this.grande) return;
     const cam = this.escena.cameras.main;
-    cam.setBounds(0, 0, this.ancho, this.alto);
+    cam.setBounds(0, -ALTO_HUD, this.ancho, this.alto + ALTO_HUD);
     cam.startFollow(personaje.sprite, true, 0.18, 0.18);
     cam.setFollowOffset(0, -20);
     cam.setRoundPixels(true);
   }
 
-  // Posición en pantalla de un punto del mundo (para las etiquetas DOM)
+  // Posición en pantalla de un punto del mundo (para las etiquetas DOM; considera el scroll de la cámara)
   aPantalla(x, y) {
     const cam = this.escena.cameras.main;
     return [x - cam.scrollX, y - cam.scrollY];
@@ -65,6 +141,54 @@ export class MapaRPG {
   agregar(personaje) {
     this.personajes.push(personaje);
     return personaje;
+  }
+}
+
+const range = (a, b) => Array.from({ length: Math.max(0, b - a + 1) }, (_, i) => a + i);
+
+function leerPixeles(fuente, x, y, w, h) {
+  const lienzo = document.createElement('canvas');
+  lienzo.width = w;
+  lienzo.height = h;
+  const ctx = lienzo.getContext('2d');
+  ctx.drawImage(fuente, x, y, w, h, 0, 0, w, h);
+  return ctx.getImageData(0, 0, w, h).data;
+}
+
+// Deja transparente lo que es suelo: el pixel art va en bloques de 4×4 px (16 px base × 4);
+// un bloque es objeto si se aleja del suelo de muestra, y los bloques sueltos (briznas de pasto)
+// se descartan.
+function quitarSuelo(img, x0, y0, muestraSuelo) {
+  const { width: w, height: h, data } = img;
+  const bw = Math.ceil(w / 4), bh = Math.ceil(h / 4);
+  const objeto = new Uint8Array(bw * bh);
+  for (let by = 0; by < bh; by++) {
+    for (let bx = 0; bx < bw; bx++) {
+      let distintos = 0, total = 0;
+      for (let y = by * 4; y < Math.min(h, by * 4 + 4); y++) {
+        for (let x = bx * 4; x < Math.min(w, bx * 4 + 4); x++) {
+          const gx = x0 + x, gy = y0 + y;
+          const suelo = muestraSuelo(Math.floor(gx / CUADRO), Math.floor(gy / CUADRO));
+          const i = (y * w + x) * 4;
+          total++;
+          if (!suelo) { distintos++; continue; }
+          const j = ((gy % CUADRO) * CUADRO + (gx % CUADRO)) * 4;
+          if (Math.abs(data[i] - suelo[j]) + Math.abs(data[i + 1] - suelo[j + 1]) + Math.abs(data[i + 2] - suelo[j + 2]) > 48) distintos++;
+        }
+      }
+      objeto[by * bw + bx] = distintos * 2 > total ? 1 : 0;
+    }
+  }
+  const es = (bx, by) => bx >= 0 && by >= 0 && bx < bw && by < bh && objeto[by * bw + bx];
+  for (let by = 0; by < bh; by++) {
+    for (let bx = 0; bx < bw; bx++) {
+      const vecinos = es(bx - 1, by) + es(bx + 1, by) + es(bx, by - 1) + es(bx, by + 1);
+      const queda = es(bx, by) && vecinos > 0;
+      if (queda) continue;
+      for (let y = by * 4; y < Math.min(h, by * 4 + 4); y++) {
+        for (let x = bx * 4; x < Math.min(w, bx * 4 + 4); x++) data[(y * w + x) * 4 + 3] = 0;
+      }
+    }
   }
 }
 

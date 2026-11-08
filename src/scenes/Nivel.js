@@ -1,14 +1,17 @@
 import Phaser from 'phaser';
 import { crearPantalla, conectarBotones, confirmar, escribirTexto, rellenar, rutaImagen, escaparHtml } from './ui.js';
-import { MapaRPG, Personaje, ControlMovimiento, pasoJugador, estaJunto, crearJugador } from '../mundo/mapaRPG.js';
+import { MapaRPG, Personaje, ControlMovimiento, pasoJugador, estaJunto, crearJugador, CUADRO } from '../mundo/mapaRPG.js';
 import { calcularRetirada } from '../mundo/reglasMapa.js';
-import { crearElemento, colocar, colocarEnMundo, colocarAviso, mostrar, htmlChip, htmlDialogo } from '../mundo/interfazRPG.js';
+import { crearElemento, colocar, colocarEnMundo, colocarAviso, mostrar, htmlChip, htmlDialogo, apartarAyuda } from '../mundo/interfazRPG.js';
 import { BOTON_EJEMPLO, PanelEjemplo, claveEjemplo } from '../mundo/ejemplo.js';
 import { armarHistoria } from '../logic/historias.js';
 import { valor as valorTerminos, juntarX as juntarXTexto } from '../logic/terminos.js';
 import { expandir } from '../logic/parentesis.js';
+import { reducirLado, quitarParentesis, valorLado, ladosVisibles } from '../logic/ambosLados.js';
+import { datosPista as datosPistaFracciones } from '../logic/fracciones.js';
+import { datosPistaFraccionFraccion } from '../logic/fraccionFraccion.js';
 import { PANELES, panelVidaReal } from '../mundo/panelesReto.js';
-import { generarEcuacion, generarVarias, mezclar, evaluarIzquierda, textoComprobacion, formatoNumero, claveEcuacion } from '../logic/generadorEcuaciones.js';
+import { generarEcuacion, generarVarias, mezclar, evaluarIzquierda, textoComprobacion, formatoNumero, claveEcuacion, TIPOS_CON_FORMA } from '../logic/generadorEcuaciones.js';
 import { leerNumero, esCorrecta } from '../logic/validacion.js';
 import { PUNTOS, puntosReto, bonoRacha, calcularEstrellas, formatoTiempo } from '../logic/puntaje.js';
 import * as almacen from '../db/almacen.js';
@@ -26,6 +29,9 @@ const CONFETI = [
 ];
 
 // Nivel de cualquier mundo — diseños: diseño/2_mundo1_mercado/12–16, diseño/8_cambios_entrevista/01 y 07, diseño/3_mundo2_terminal/22–26
+// Misiones del mundo abierto (Mundo 3, nivel.mision): un solo anfitrión da los 3 retos seguidos
+// (diseño/4_mundo3_puerto/308–313 con el panel de 8_cambios_entrevista/03); no hay meta: al
+// resolver el último reto se completa la misión.
 export default class Nivel extends Phaser.Scene {
   constructor() {
     super('Nivel');
@@ -53,6 +59,8 @@ export default class Nivel extends Phaser.Scene {
     this.crearDom();
     this.crearPersonajes();
     this.actualizarHud();
+    // misión: se acaba de aceptar la invitación del anfitrión, el primer reto se abre solo
+    if (this.nivel.mision) this.time.delayedCall(250, () => { if (this.estado === 'explorar') this.abrirReto(this.vecinos[0]); });
 
     this.control = new ControlMovimiento(this);
     this.input.keyboard.on('keydown-SPACE', () => this.accion());
@@ -65,7 +73,7 @@ export default class Nivel extends Phaser.Scene {
 
   // ------------------------------------------------------------------ retos
   crearRetos(vecinos) {
-    if (['terminos', 'parentesis'].includes(this.nivel.tipo)) {
+    if (TIPOS_CON_FORMA.includes(this.nivel.tipo)) {
       // nunca la misma ecuación que ya vio este estudiante en el nivel ni la del «Ver ejemplo»
       const evitar = almacen.ecuacionesMostradas(this.estudiante.id, this.nivel.id);
       const ejemplo = claveEjemplo(this.mundo.id);
@@ -78,9 +86,15 @@ export default class Nivel extends Phaser.Scene {
       return ecuaciones.map((ecuacion, i) => {
         const def = PERSONAJES.vecinos[vecinos[i].personaje];
         const temas = def.temas || ['balanza'];
-        const tema = temas[Math.floor(Math.random() * temas.length)];
-        const texto = armarHistoria(ecuacion, tema, this.estudiante.nombre, { final: !!vecinos[i].requiereTodos });
-        return { ecuacion, vidaReal: !!this.nivel.vidaReal, conHistoria: true, tema, ...texto };
+        // en una misión el mismo anfitrión da los 3 retos: los temas rotan sin repetirse seguidos
+        const tema = this.nivel.mision ? temas[(i + this.temaInicial(temas)) % temas.length] : temas[Math.floor(Math.random() * temas.length)];
+        // Mundo 3: la historia compara lo del vecino con lo de otro personaje (personajes.json → otros)
+        const otros = def.otros || [];
+        const otro = otros.length ? otros[Math.floor(Math.random() * otros.length)] : null;
+        const final = !!vecinos[i].requiereTodos || (!!this.nivel.mision && !!this.nivel.esRetoMundo && i === vecinos.length - 1);
+        const texto = armarHistoria(ecuacion, tema, this.estudiante.nombre, { final, otro: otro ? PERSONAJES.vecinos[otro].nombre : undefined });
+        const personas = otro ? [{ sprite: def.sprite, nombre: def.nombre }, { sprite: PERSONAJES.vecinos[otro].sprite, nombre: PERSONAJES.vecinos[otro].nombre }] : null;
+        return { ecuacion, vidaReal: !!this.nivel.vidaReal, conHistoria: true, tema, personas, ...texto };
       });
     }
     if (this.nivel.tipo === 'vida-real') {
@@ -95,16 +109,21 @@ export default class Nivel extends Phaser.Scene {
     return generarVarias(tipos, this.nivel.rangos).map((ecuacion) => ({ ecuacion, vidaReal: false }));
   }
 
+  temaInicial(temas) {
+    if (this.primerTema === undefined) this.primerTema = Math.floor(Math.random() * temas.length);
+    return this.primerTema;
+  }
+
   // ------------------------------------------------------------------ DOM
   crearDom() {
     const n = this.nivel;
-    const titulo = n.esRetoMundo ? `NIVEL ${n.numero} · RETO` : `NIVEL ${n.numero}`;
+    const titulo = n.tituloHud || (n.esRetoMundo ? `NIVEL ${n.numero} · RETO` : `NIVEL ${n.numero}`);
     this.raiz = crearPantalla(this, `
 <div class="capa-etiquetas"></div>
 <div class="capa-fondo-reto"></div>
 <div class="hud">${htmlChip(this.estudiante.nombre, `${this.estudiante.personaje || 'p1'}_sprite`)}
 <div style="display:flex;flex-direction:column;gap:6px;white-space:nowrap"><span style="font-size:16px;font-weight:800;color:#ffe9b8">${n.etiquetaHud || `Mundo ${this.mundo.id} · ${this.mundo.nombre} · ${n.etiquetaTipo}`}</span><span class="px" style="font-size:15px;color:#f2b632">${titulo}</span></div>
-<div style="display:flex;flex-direction:column;gap:6px;width:230px;margin-left:10px"><span class="ayudados" style="font-size:16px;font-weight:800;white-space:nowrap"></span>
+<div style="display:flex;flex-direction:column;gap:6px;width:190px;margin-left:6px"><span class="ayudados" style="font-size:15px;font-weight:800;white-space:nowrap"></span>
 <div style="height:14px;background:#4e1027;border:3px solid #1b1430"><div class="barra" style="width:3%;height:100%;background:#1fa36b"></div></div></div>
 <div style="margin-left:auto;display:flex;gap:10px;align-items:center">
 <div class="stat stat-racha" style="display:none"><b>RACHA</b><span class="racha" style="color:#ff9f43">x2</span></div>
@@ -132,15 +151,8 @@ export default class Nivel extends Phaser.Scene {
   }
 
   crearPersonajes() {
-    const defs = this.nivel.vecinos;
-    const retos = this.crearRetos(defs);
-    this.vecinos = defs.map((cfg, i) => {
-      const def = PERSONAJES.vecinos[cfg.personaje];
-      const p = this.mapa.agregar(new Personaje(this, def.sprite, cfg.pos[0], cfg.pos[1]));
-      Object.assign(p, { def, cfg, indice: i, reto: { ...retos[i], resuelto: false, usoPista: false, erroresSeguidos: 0, intentos: 0, ultima: null } });
-      p.bangEl = crearElemento(this.etiquetas, '<div class="bang">!</div>');
-      return p;
-    });
+    if (this.nivel.mision) this.crearMision();
+    else this.crearVecinos();
     this.ambientales = (this.nivel.ambientales || []).map((amb) => {
       const def = PERSONAJES.vecinos[amb.personaje];
       const p = this.mapa.agregar(new Personaje(this, def.sprite, amb.pos[0], amb.pos[1]));
@@ -154,10 +166,53 @@ export default class Nivel extends Phaser.Scene {
     }
     const [c, r] = this.nivel.inicio;
     this.jugador = this.mapa.agregar(crearJugador(this, c, r));
-    this.jugador.mirar('arriba');
+    this.jugador.mirar(this.nivel.mision ? this.direccionHacia(this.vecinos[0]) : 'arriba');
     this.mapa.seguir(this.jugador);
     const [ec, er] = this.nivel.ecu;
     this.ecu = this.mapa.agregar(new Personaje(this, 'sprite_ecu', ec, er, { bloquea: false, pies: 0.92 }));
+  }
+
+  // Dibujo en la posición exacta del mapa (px en cuadros, como en mapa_*.json)
+  ponerEnPx(p, px) {
+    if (px) p.colocarEn(px[0] * CUADRO + CUADRO / 2 + this.mapa.desfaseX, (px[1] + 1) * CUADRO);
+  }
+
+  direccionHacia(v) {
+    const [c, r] = this.nivel.inicio;
+    if (v.c > c) return 'derecha';
+    if (v.c < c) return 'izquierda';
+    return v.r < r ? 'arriba' : 'abajo';
+  }
+
+  // Misión: un anfitrión con N retos. Cada reto es un objeto que hereda del anfitrión
+  // (posición, sprite, def) y guarda su propio reto; en el mapa solo está el anfitrión.
+  crearMision() {
+    const cfg = this.nivel.vecinos[0];
+    const def = PERSONAJES.vecinos[cfg.personaje];
+    const anfitrion = this.mapa.agregar(new Personaje(this, def.sprite, cfg.pos[0], cfg.pos[1]));
+    this.ponerEnPx(anfitrion, cfg.px);
+    if (def.invisible) anfitrion.sprite.setVisible(false);
+    const cfgs = Array.from({ length: this.nivel.retos || 3 }, () => cfg);
+    const retos = this.crearRetos(cfgs);
+    this.vecinos = cfgs.map((_, i) => {
+      const p = Object.create(anfitrion);
+      Object.assign(p, { def, cfg, indice: i, reto: { ...retos[i], resuelto: false, usoPista: false, erroresSeguidos: 0, intentos: 0, ultima: null } });
+      p.bangEl = crearElemento(this.etiquetas, '<div class="bang">!</div>');
+      return p;
+    });
+  }
+
+  crearVecinos() {
+    const defs = this.nivel.vecinos;
+    const retos = this.crearRetos(defs);
+    this.vecinos = defs.map((cfg, i) => {
+      const def = PERSONAJES.vecinos[cfg.personaje];
+      const p = this.mapa.agregar(new Personaje(this, def.sprite, cfg.pos[0], cfg.pos[1]));
+      this.ponerEnPx(p, cfg.px);
+      Object.assign(p, { def, cfg, indice: i, reto: { ...retos[i], resuelto: false, usoPista: false, erroresSeguidos: 0, intentos: 0, ultima: null } });
+      p.bangEl = crearElemento(this.etiquetas, '<div class="bang">!</div>');
+      return p;
+    });
   }
 
   pendientes() {
@@ -167,6 +222,7 @@ export default class Nivel extends Phaser.Scene {
   // ¿El vecino ya puede dar su reto? (secuencial: solo el primero pendiente)
   disponible(v) {
     if (v.reto.resuelto) return false;
+    if (this.nivel.mision) return this.pendientes()[0] === v;
     if (v.cfg.requiereTodos) return this.pendientes().every((o) => o === v);
     if (this.nivel.orden === 'libre') return true;
     return this.pendientes()[0] === v;
@@ -187,7 +243,9 @@ export default class Nivel extends Phaser.Scene {
       const dir = this.control.direccion();
       if (dir) pasoJugador(this.mapa, this.jugador, this.ecu, dir, (c, r) => this.alPisar(c, r));
     }
+    this.mapa.ordenarProfundidad();
     this.actualizarEtiquetas();
+    apartarAyuda(this.hint, this.mapa, this.mapa.personajes);
   }
 
   actualizarEtiquetas() {
@@ -197,7 +255,8 @@ export default class Nivel extends Phaser.Scene {
 
     let conTag = null;
     for (const v of this.vecinos) {
-      const visible = !v.reto.resuelto;
+      // en una misión solo lleva «!» el reto que sigue (todos comparten al anfitrión)
+      const visible = !v.reto.resuelto && (!this.nivel.mision || v === this.pendientes()[0]);
       mostrar(v.bangEl, visible);
       if (!visible) continue;
       const listo = this.disponible(v);
@@ -229,7 +288,7 @@ export default class Nivel extends Phaser.Scene {
   actualizarHud() {
     const total = this.vecinos.length;
     const hechos = total - this.pendientes().length;
-    this.raiz.querySelector('.ayudados').textContent = `Retos ${hechos} de ${total}`;
+    this.raiz.querySelector('.ayudados').textContent = this.nivel.mision ? `Retos de la misión ${hechos} de ${total}` : `Retos ${hechos} de ${total}`;
     this.raiz.querySelector('.barra').style.width = `${Math.max(3, Math.round((hechos / total) * 100))}%`;
     this.raiz.querySelector('.puntaje').textContent = String(this.stats.puntaje).padStart(4, '0');
     const racha = this.raiz.querySelector('.stat-racha');
@@ -277,6 +336,7 @@ export default class Nivel extends Phaser.Scene {
   }
 
   alPisar(c, r) {
+    if (!this.nivel.meta) return;   // misiones: se completan al resolver el último reto
     const [mc, mr] = this.nivel.meta;
     if (c === mc && r === mr && this.pendientes().length === 0) this.completar();
   }
@@ -408,8 +468,13 @@ export default class Nivel extends Phaser.Scene {
       return;
     }
     // balanza (Mundo 1), bus (Mundo 2)… según mundos.json → retoVisual
-    PANELES[this.mundo.retoVisual || 'balanza'](r.panel, { ec, modo, valor, valores: this.valoresTexto(v), color: v.indice, vidaReal: v.reto.vidaReal, mundo: this.mundo });
+    PANELES[this.mundo.retoVisual || 'balanza'](r.panel, { ec, modo, valor, valores: this.valoresTexto(v), color: v.indice, vidaReal: v.reto.vidaReal, mundo: this.mundo, nivel: this.nivel, reto: v.reto });
     this.ponerBotonEjemplo(r);
+    // desafío final del mundo abierto (diseño 411): tarjeta con el objeto que se usa (niveles.json → tarjeta)
+    if (this.nivel.tarjeta && !modo && !r.ejemplo.abierto) {
+      const t = this.nivel.tarjeta;
+      r.extras.innerHTML = `<div class="tarjeta" style="left:1098px;top:104px;width:250px;padding:12px;background:#4e1027;color:#fff;display:flex;gap:10px;align-items:center;font-size:17px;font-weight:800;line-height:1.3"><img src="${rutaImagen(t.imagen)}" alt="" style="width:60px;image-rendering:pixelated">${t.texto}</div>`;
+    }
     if (v.reto.conHistoria && v.reto.vidaReal && this.nivel.condor && v.cfg.requiereTodos && !modo) {
       r.extras.innerHTML = `<div style="position:absolute;left:1098px;top:96px;width:250px;padding:12px;background:#4e1027;border:3px solid #1b1430;display:flex;gap:10px;align-items:center;font-size:17px;font-weight:800;line-height:1.3;color:#fff"><img src="${rutaImagen('condor_posado')}" alt="" style="width:70px;image-rendering:pixelated">El cóndor te espera en la salida</div>`;
     }
@@ -502,6 +567,13 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
 
   textoSiguiente(v) {
     const quedan = this.pendientes();
+    if (this.nivel.mision) {
+      const total = this.vecinos.length;
+      // niveles.json → textoFinal: lo que cuenta el anfitrión al terminar (p. ej. dónde está el boleto)
+      return quedan.length
+        ? rellenar(this.textos.misionSiguiente, { n: total - quedan.length + 1, total })
+        : rellenar(this.nivel.textoFinal || this.textos.misionUltimo, { nombre: this.estudiante.nombre });
+    }
     if (quedan.length === 0) {
       return this.nivel.condor ? this.textos.ultimoSalida : this.textos.ultimo;
     }
@@ -522,7 +594,7 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
     r.campo.classList.add('mal');
     this.dibujarPanel(valor);
     let banner = this.textos.bannerError;
-    if (reto.conHistoria) banner = this.textos.bannerErrorTerminos;
+    if (reto.conHistoria) banner = reto.bannerError || this.textos.bannerErrorTerminos;
     else if (reto.vidaReal) banner = this.textos.bannerErrorVidaReal;
     const ofrece = reto.erroresSeguidos >= PUNTOS.erroresParaPista;
     r.extras.innerHTML = `<div class="banner anim" style="top:74px;background:#b8401a;color:#fff">${banner}</div>
@@ -569,6 +641,9 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
   lineasPista(v) {
     const reto = v.reto;
     const ec = reto.ecuacion;
+    if (reto.conHistoria && ec.tipo === 'ambos') return this.lineasPistaAmbos(reto);
+    if (reto.conHistoria && ec.tipo === 'fracciones') return this.lineasPistaFracciones(reto);
+    if (reto.conHistoria && ec.tipo === 'fraccionFraccion') return this.lineasPistaFraccionFraccion(reto);
     if (reto.conHistoria) return ec.tipo === 'parentesis' ? this.lineasPistaParentesis(reto) : this.lineasPistaTerminos(reto);
     const base = { a: formatoNumero(ec.a), b: formatoNumero(ec.b), c: formatoNumero(ec.c ?? ec.d), d: formatoNumero(ec.d) };
     if (reto.vidaReal) {
@@ -610,6 +685,50 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
     return lineas;
   }
 
+  // Pista de paréntesis en ambos lados (Mundo 3): con los números del reto, nunca da x
+  lineasPistaAmbos(reto) {
+    const ec = reto.ecuacion;
+    const p = PISTAS.ambos;
+    const [ladoA, ladoB] = ladosVisibles(ec);
+    const a = reducirLado(ladoA);
+    const b = reducirLado(ladoB);
+    // las x van al lado que tiene más x (así el coeficiente queda positivo)
+    const [conX, sinX, lado] = a.A > b.A ? [a, b, 'izquierda'] : [b, a, 'derecha'];
+    const xs = (n) => (n === 1 ? 'x' : `${n}x`);
+    const restaX = sinX.A === 0 ? xs(conX.A) : `${xs(conX.A)} ${sinX.A < 0 ? '+' : '−'} ${xs(Math.abs(sinX.A))}`;
+    const nums = `${formatoNumero(sinX.B)} ${conX.B < 0 ? '+' : '−'} ${Math.abs(conX.B)}`;
+    const lineas = [];
+    if (reto.ultima !== null) {
+      lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), L: formatoNumero(valorLado(ladoA, reto.ultima)), R: formatoNumero(valorLado(ladoB, reto.ultima)) }));
+    }
+    lineas.push(rellenar(p.quitar, { expansion: `${quitarParentesis(ladoA)} = ${quitarParentesis(ladoB)}` }));
+    lineas.push(rellenar(p.juntar, { lado, xs: restaX, nums, coefx: xs(conX.A - sinX.A) }));
+    return lineas;
+  }
+
+  // Pista de fracciones y paréntesis (Mundo 4): quitar denominadores, quitar paréntesis y juntar,
+  // con los números del reto; nunca da x
+  lineasPistaFracciones(reto) {
+    const p = PISTAS.fracciones;
+    const datos = datosPistaFracciones(reto.ecuacion, reto.ultima);
+    const lineas = [];
+    if (reto.ultima !== null) lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), L: formatoNumero(datos.L), R: formatoNumero(datos.R) }));
+    lineas.push(rellenar(p.quitar, datos));
+    lineas.push(`${datos.mismo ? '' : `${rellenar(p.parentesis, datos)} `}${rellenar(p.juntar, datos)}`);
+    return lineas;
+  }
+
+  // Pista de fracción sobre fracción (Mundo 5, diseño 505): dividir entre una fracción es multiplicar por
+  // la invertida; luego quitar la fracción de x y despejar, con los números del reto. Nunca da x.
+  lineasPistaFraccionFraccion(reto) {
+    const p = PISTAS.fraccionFraccion;
+    const datos = datosPistaFraccionFraccion(reto.ecuacion, reto.ultima);
+    const lineas = [];
+    if (reto.ultima !== null) lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), L: datos.L, R: datos.R }));
+    for (const linea of p.formas[datos.clave]) lineas.push(rellenar(linea, datos));
+    return lineas;
+  }
+
   // Pista de términos semejantes: usa los números del reto del alumno, nunca da x
   lineasPistaTerminos(reto) {
     const ec = reto.ecuacion;
@@ -647,6 +766,13 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
   async continuarTrasAcierto() {
     const v = this.retoAbierto.vecino;
     this.cerrarReto();
+    if (this.nivel.mision) {
+      // el anfitrión se queda en su lugar: sigue el próximo reto o termina la misión
+      const siguiente = this.pendientes()[0];
+      if (siguiente) this.abrirReto(siguiente);
+      else this.completar();
+      return;
+    }
     this.estado = 'animacion';
     // Regla de los mapas (src/mundo/reglasMapa.js): un paso atrás hacia su puesto,
     // o, si no hay puesto, unos pasos alejándose y se desvanece
@@ -693,8 +819,14 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
     };
     // RF-12: se guarda de inmediato y se desbloquea el siguiente nivel
     const guardado = almacen.registrarNivelCompletado(this.estudiante.id, this.nivel.id, resultado);
+    // mundo abierto: la misión regala un objeto que abre la siguiente (mundos.json → objetos)
+    let objetoNuevo = null;
+    if (this.nivel.otorga && !almacen.objetosEstudiante(this.estudiante.id).has(this.nivel.otorga)) {
+      almacen.agregarObjeto(this.estudiante.id, this.nivel.otorga);
+      objetoNuevo = this.nivel.otorga;
+    }
 
-    crearElemento(this.capaReto, '<div class="banner anim" style="top:300px;background:#157a4f;font-size:22px">¡LLEGASTE A LA META!</div>');
+    crearElemento(this.capaReto, `<div class="banner anim" style="top:300px;background:#157a4f;font-size:22px">${this.nivel.mision ? '¡MISIÓN CUMPLIDA!' : '¡LLEGASTE A LA META!'}</div>`);
     this.tweens.add({ targets: this.ecu.sprite, y: this.ecu.sprite.y - 24, duration: 180, yoyo: true, repeat: 2 });
     if (this.condor) {
       this.tweens.add({ targets: this.condor, x: this.jugador.x - 44, y: this.jugador.yCabeza - 70, duration: 700, ease: 'Sine.easeInOut' });
@@ -704,7 +836,8 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
         nivel: this.nivel.id,
         resultado,
         guardado,
-        ayudados: this.vecinos.map((v) => v.def.retrato)
+        objetoNuevo,
+        ayudados: [...new Set(this.vecinos.map((v) => v.def.retrato))]
       });
     });
   }

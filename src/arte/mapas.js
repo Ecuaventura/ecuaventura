@@ -5,9 +5,19 @@ import { crearCuadricula, tramosTerminal } from '../mundo/reglasMapa.js';
 
 const CUADRO = 64;
 
-// Estilo "imagen": el fondo ya viene dibujado (mapa_*_fondo_x4.png); solo se arma la cuadrícula
-function dibujarMapaImagen(def, bloqueosExtra) {
-  return { canvas: null, cuadricula: crearCuadricula(def, bloqueosExtra), escala: 1 };
+// Estilo "imagen": el fondo ya viene dibujado (mapa_*_fondo_x4.png); solo se arma la cuadrícula.
+// parches: [sx, sy, ancho, alto, dx, dy] copian un trozo del mismo fondo encima de otro (en px de
+// la imagen); sirven para borrar personajes que vienen pintados en los interiores del Puerto.
+function dibujarMapaImagen(def, bloqueosExtra, escena) {
+  let canvas = null;
+  if (def.parches && escena) {
+    const imagen = escena.textures.get(def.fondo).getSourceImage();
+    canvas = crearCanvas(imagen.width, imagen.height);
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(imagen, 0, 0);
+    for (const [sx, sy, w, h, dx, dy] of def.parches) ctx.drawImage(imagen, sx, sy, w, h, dx, dy, w, h);
+  }
+  return { canvas, cuadricula: crearCuadricula(def, bloqueosExtra), escala: 1 };
 }
 
 // Borde inferior del andén (última fila de la terminal): concreto gris y franja de peligro

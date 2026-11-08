@@ -65,6 +65,9 @@ export function cuadrosObjeto(o) {
 // Cuadrícula lógica de un mapa de mapas.json.
 // solidos: no se camina. puestos: subconjunto de sólidos que son cajones o
 // puestos de venta (allí se puede parar un vecino ya ayudado).
+// letrasSolidas: letras de 'filas' que no se caminan (si el mapa trae su propia leyenda,
+// como la zona del Puerto: S w ~ r M K C F). objetosCuadros: objetos en cuadros ({ tipo, x, y },
+// como en mapa_puerto.json) que tapan los cuadros de su huella: huellas[tipo] = [dc0, dr0, dc1, dr1].
 export function crearCuadricula(def, bloqueosExtra = []) {
   const filas = def.filas.length;
   const columnas = def.filas[0].length;
@@ -72,10 +75,11 @@ export function crearCuadricula(def, bloqueosExtra = []) {
   const puestos = new Set();
   // terminal: estilo antiguo o laberintos con muros de buses (Mundo 2 v2)
   const terminal = def.estilo === 'terminal' || def.muros === 'buses';
+  const letrasSolidas = def.letrasSolidas ?? SOLIDOS;
   def.filas.forEach((fila, r) => {
     const tramos = terminal ? tramosTerminal(fila) : null;
     [...fila].forEach((ch, c) => {
-      if (SOLIDOS.includes(ch)) solidos.add(clave(c, r));
+      if (letrasSolidas.includes(ch)) solidos.add(clave(c, r));
       // mercado: toda la fila de cajones es puesto; terminal: las maletas y maceteros
       // junto a los buses (sobre un bus no se para nadie), y las bancas
       const esPuesto = terminal ? (ch === '#' && tramos[c] !== 'bus') || 'npm'.includes(ch) : ch === '#';
@@ -93,6 +97,12 @@ export function crearCuadricula(def, bloqueosExtra = []) {
     for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) conjuntos.forEach((s) => s.add(clave(c, r)));
   };
   for (const rc of def.solidos || []) rect(rc, solidos);
+  for (const o of def.objetosCuadros || []) {
+    const h = huellaObjeto(def, o);
+    if (!h) continue;
+    const [x, y] = cuadroObjeto(def, o);
+    rect([x + h[0], y + h[1], x + h[2], y + h[3]], solidos);
+  }
   for (const rc of def.puestos || []) rect(rc, solidos, puestos);
   for (const [c, r] of bloqueosExtra) solidos.add(clave(c, r));
 
@@ -103,6 +113,41 @@ export function crearCuadricula(def, bloqueosExtra = []) {
     esSolido: (c, r) => !dentro(c, r) || solidos.has(clave(c, r)),
     esPuesto: (c, r) => dentro(c, r) && puestos.has(clave(c, r))
   };
+}
+
+// Huella de un objeto de objetosCuadros: la suya propia (o.huella) o la de su tipo.
+// La huella es solo la BASE del objeto (lo que toca el suelo): la parte alta se camina por detrás.
+function huellaObjeto(def, o) {
+  return o.huella || (def.huellas || {})[o.tipo] || null;
+}
+
+// Cuadro desde el que se cuenta la huella. redondear: tipos dibujados a media fila o columna
+// (carros, barreras…) cuyo dibujo cae en el cuadro redondeado y no en el de abajo-izquierda.
+function cuadroObjeto(def, o) {
+  const f = (def.redondear || []).includes(o.tipo) ? Math.round : Math.floor;
+  return [f(o.x), f(o.y)];
+}
+
+// Partes altas de los objetos (copa de un árbol, techo, farol, toldo…) que tapan a quien camina
+// detrás. El juego copia ese trozo del fondo y lo dibuja con profundidad = borde inferior de la
+// base, así el personaje queda detrás si sus pies están más arriba y delante si están más abajo.
+// altos[tipo] (u o.alto) = cuántos cuadros sube el dibujo sobre la huella; en los rectángulos
+// [c0, r0, c1, r1, alto] de solidos/puestos es el quinto número.
+// Devuelve [{ c0, c1, arriba, desde, base }] en cuadros (arriba puede ser fraccionario).
+export function relievesMapa(def) {
+  const lista = [];
+  for (const o of def.objetosCuadros || []) {
+    const h = huellaObjeto(def, o);
+    const alto = o.alto ?? (def.altos || {})[o.tipo];
+    if (!h || !alto) continue;
+    const [x, y] = cuadroObjeto(def, o);
+    lista.push({ c0: x + h[0], c1: x + h[2], arriba: y + h[1] - alto, desde: y + h[1], base: y + h[3] + 1 });
+  }
+  for (const rc of [...(def.solidos || []), ...(def.puestos || [])]) {
+    if (!rc[4]) continue;
+    lista.push({ c0: rc[0], c1: rc[2], arriba: rc[1] - rc[4], desde: rc[1], base: rc[3] + 1 });
+  }
+  return lista;
 }
 
 const signo = (n) => (n > 0 ? 1 : n < 0 ? -1 : 0);

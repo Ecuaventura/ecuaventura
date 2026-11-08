@@ -4,7 +4,8 @@ import * as almacen from '../db/almacen.js';
 import NIVELES from '../data/niveles.json';
 import MUNDOS from '../data/mundos.json';
 
-// Mundo completado: el cóndor vuela con el jugador y Ecu — diseños: diseno/html/mundo1/18 y mundo2/28
+// Mundo completado: el cóndor vuela con el jugador y Ecu — diseños: diseno/html/mundo1/18 y mundo2/28.
+// El último mundo (mundos.json → final, diseño 9_mundo5_feria/514) cambia SIGUIENTE MUNDO por VER EL FINAL.
 export default class MundoCompletado extends Phaser.Scene {
   constructor() {
     super('MundoCompletado');
@@ -19,6 +20,9 @@ export default class MundoCompletado extends Phaser.Scene {
     const mundo = MUNDOS.mundos.find((m) => m.id === this.idMundo);
     const niveles = NIVELES.niveles.filter((n) => n.mundo === mundo.id);
     const siguienteMundo = MUNDOS.mundos.find((m) => m.id === mundo.siguienteMundo && !m.pendiente);
+    const final = !!mundo.final;
+    const textoBoton = final ? 'VER EL FINAL ▶' : siguienteMundo ? 'SIGUIENTE MUNDO ▶' : 'SIGUIENTE MUNDO · PRONTO';
+    const activo = final || !!siguienteMundo;
     this.add.image(683, 384, 'fondo_menu');
 
     const estrella = (on) => `<img src="${rutaImagen(on ? 'estrella' : 'estrella_off')}" alt="" style="width:22px;image-rendering:pixelated">`;
@@ -39,12 +43,12 @@ ${(estudiante.personaje || 'p1') !== 'p1' ? `<img src="${rutaImagen(`${estudiant
 <h1 class="px" style="margin:0;font-size:26px;color:#f2b632;text-shadow:3px 3px 0 #1b1430">¡MUNDO ${mundo.id} COMPLETADO!</h1>
 <span style="font-size:21px;font-weight:800;text-align:center;line-height:1.4">${rellenar('¡Gracias, {nombre}!', { nombre: estudiante.nombre })} ${mundo.textoCompletado}<br>${mundo.textoViaje}</span>
 <div style="display:flex;gap:10px;align-items:center">${tarjetas}<div style="padding:10px 14px;background:#f2b632;color:#1b1430;border:3px solid #1b1430;font-family:'Press Start 2P';font-size:13px">★ ${total} / ${niveles.length * 3}</div></div>
-<div style="width:100%;display:flex;gap:14px;margin-top:4px;align-items:center"><button type="button" class="boton btn" data-accion="zona" style="flex:1;height:58px;background:#4e1027">${mundo.textoVolver}</button><button type="button" class="boton btn oro" data-accion="siguiente" style="flex:1.5;height:64px;font-size:15px${siguienteMundo ? '' : ';opacity:.55;cursor:default'}"${siguienteMundo ? '' : ' disabled'}>${siguienteMundo ? 'SIGUIENTE MUNDO ▶' : 'SIGUIENTE MUNDO · PRONTO'}</button></div></section>`, { clase: 'rpg' });
+<div style="width:100%;display:flex;gap:14px;margin-top:4px;align-items:center"><button type="button" class="boton btn" data-accion="zona" style="flex:1;height:58px;background:#4e1027">${mundo.textoVolver}</button><button type="button" class="boton btn oro" data-accion="siguiente" style="flex:1.5;height:64px;font-size:15px${activo ? '' : ';opacity:.55;cursor:default'}"${activo ? '' : ' disabled'}>${textoBoton}</button></div></section>`, { clase: 'rpg' });
 
     conectarBotones(raiz, {
       zona: () => this.scene.start('Zona', { mundo: mundo.id, regresoNivel: niveles[niveles.length - 1].id }),
       // el cóndor lleva al jugador al mundo siguiente (si ya existe en mundos.json)
-      siguiente: siguienteMundo ? () => this.scene.start('Zona', { mundo: siguienteMundo.id }) : null
+      siguiente: final ? () => this.scene.start('Final') : siguienteMundo ? () => this.scene.start('Zona', { mundo: siguienteMundo.id }) : null
     });
 
     // El cóndor entra volando desde la izquierda hasta su lugar del diseño (left: 363px)

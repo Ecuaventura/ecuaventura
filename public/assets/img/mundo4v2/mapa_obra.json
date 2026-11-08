@@ -1,0 +1,774 @@
+{
+ "tile_px": 16,
+ "escala_juego": 4,
+ "ancho": 80,
+ "alto": 48,
+ "leyenda": {
+  "g": "pasto",
+  "h": "pasto alto",
+  "f": "flores",
+  ".": "camino",
+  ",": "plaza",
+  "d": "tierra de la obra",
+  "q": "ripio",
+  "a": "pista",
+  "l": "pista con línea",
+  "z": "paso de cebra",
+  "v": "vereda",
+  "c": "sardinel (no caminable)",
+  "k": "losa deportiva",
+  "u": "piso de juegos",
+  "Q": "piso de cantera",
+  "L": "rieles",
+  "m": "túnel (entrada a la mina)",
+  "r": "río (no caminable)",
+  "b": "puente",
+  "M": "roca alta (no caminable)",
+  "K": "acantilado (no caminable)",
+  "E": "escalera"
+ },
+ "suelo": [
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "MMMMMMKKKKKKKKKmKKKKKKKKKMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+  "KKKKKKQQQQQQQQQLQQQQQQQQQMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.MMMMMMMMMMMMM",
+  "MMMMMMQQQQQQQQQLQQQQQQQQQMMMKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMMMMMMM.MMMMMMMMMMMMM",
+  "MMMMMMQQQQQQQQQLQQQQQQQQQMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.MMMMMMMMMMMMM",
+  "MMMMMMQQQQQQQQQLQQQQQQQQQMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.MMMMMMMMMMMMM",
+  "MMMMMMQQQQQQQQQLQQQQQQQQQMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.MMMMMMMMMMMMM",
+  "KKKKKKQQQQQQQQQLQQQQQQQQQKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKMMMMMM.MMMMMMMMMMMMM",
+  "ggggggggggggggg.ggggggggrrggggggggggggggggggggggggggggggggggMMMMMM.MMMMMMMMMMMMM",
+  "ggggggggggggggg.ggggggggrrggdddddqqddddddddddddddddddddddddgMMMMMM.MMMMMMMMMMMMM",
+  "ggggggggggggggg.ggggggggrrggdddddqqddddddddddddddddddddddddgKKKKKKEKKKKKKKKKKKKK",
+  "ggggggkkkkkkkkkkkgggggggrrggdddddqqddddddddddddddddddddddddggggggg.ggfgfgggggggg",
+  "ggggggkkkkkkkkkkk.......rrggdddddqqddddddddddddddddddddddddggggggg.ggggggggggggg",
+  "ggggggkkkkkkkkkkkggggg..rrggdddddqqddddddddddddddddddddddddggggggg.ggggggggggggg",
+  "ggggggkkkkkkkkkkkggggg..rrggdddddqqddddddddddddddddddddddddggfgggg.ggggggggggggg",
+  "ggfgggkkkkkkkkkkkgfggg..rrfgdddddqqddddddddddddddddddddddddggggggg.ggggggggggggg",
+  "ggggggkkkkkkkkkkkggggg..rrggdddddqqddddddddddddddddddddddddggggggg.gggfggggggggg",
+  "ggggggkkkkkkkkkkkggggg..rrggdddddqqdddddddddddddddddddddddd...................gg",
+  "gggggggggggggggggggggg..rrggdddddqqdddddddddddddddddddddddd...................gg",
+  "gggggggggggggggggggggg..bb..dddddqqddddddddddddddddddddddddggggggggggg.ggghhhhhg",
+  "gggguuuuuuuuuuuggggggg..rrggqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqggggggggggg.ggghhhhhg",
+  "gggguuuuuuuuuuuggggggg..rrggqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqggggggggggg.ggghhhhhg",
+  "gggguuuuuuuuuuuggggggg..rrggdddddqqddddddddddddddddddddddddggggggggggg.ggghhhhhg",
+  "gggguuuuuuuuuuuggggggg..rrggdddddqqddddddddddddddddddddddddggg...........ghhfhhg",
+  "gggguuuuuuuuuuuggggggg..rrggdddddqqddddddddddddddddddddddddggggggggggg.ggghhhhhg",
+  "gggguuuuuuuuuuuggggggg..rrggdddddqqddddddddddddddddddddddddghhhhhhhggg.ggghhhhhg",
+  "gggguuuuuuuuuuuggggggg..rrggdddddqqddddddddddddddddddddddddghhhhhhhggg.ggggggggg",
+  "gggggggggggggggggggggg..rrggdddddqqddddddddddddddddddddddddghhhhhhhggg.ggggggggg",
+  "gggggggggggggggggggggg..rrggdddddqqddddddddddddddddddddddddghhhhhhhggg.ggggggggg",
+  "gg......................rrgfdddddqqddddddddddddddddddddddddghhhhhhhggg.ggggggggg",
+  "gg......................rrggdddddqqddddddddddddddddddddddddggggggggggg.ggggggggg",
+  "gggfggfggggggggggggggg..rrggdddddqqddddddddddddddddddddddddggggggggggg.ggggggggg",
+  "gggggggggggggggggggggg..rrggddqqqqqddddddddddddddddddddddddggggggfgggg.ggggggggg",
+  "gggggggggggggggggggggg..rrggggqqqggggggggggggggggggggggggggggggggggggg.ggggggggg",
+  "gggggggggggggggggggggg..rr......................................................",
+  "gfgggggggggggggggggggg..rr......................................................",
+  "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+  "aaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaa",
+  "llllllllllzzllllllllllllllllllllllllllllllllzzllllllllllllllllllllzzllllllllllll",
+  "aaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaa",
+  "aaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaa",
+  "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "ffffffffffffffffffffffffrrgggggggg,,,,,,,,,,,,,,,,,,,ggggggggggggggggggggggggggg",
+  "ffggggggggggggggggggggffrrgggggggg,,,,,,,,,,,,,,,,,,,ghhhhhhhggggggggggggggggggg",
+  "ffggggggggggggggggggggffrrgggggggg,,,,,,,,,,,,,,,,,,,ghhhhhhhggggggggggggggggggg",
+  "ffggggggggggggggggggggffrrgggggggg,,,,,,,,,,,,,,,,,,,ghhhhhhhggggggggggggggggggg",
+  "ffffffffffffffffffffffffrrgggggggg,,,,,,,,,,,,,,,,,,,ggggggggggggggggggggggggggg"
+ ],
+ "objetos": [
+  {
+   "tipo": "mine_frame",
+   "x": 15.0,
+   "y": 2.0
+  },
+  {
+   "tipo": "boulders",
+   "x": 14.31,
+   "y": 2.19
+  },
+  {
+   "tipo": "minecart",
+   "x": 15.0,
+   "y": 6.0
+  },
+  {
+   "tipo": "excavator",
+   "x": 20.0,
+   "y": 5.19
+  },
+  {
+   "tipo": "boulders",
+   "x": 8.0,
+   "y": 5.5
+  },
+  {
+   "tipo": "boulders",
+   "x": 22.0,
+   "y": 3.38
+  },
+  {
+   "tipo": "tree",
+   "x": 2.0,
+   "y": 1.0
+  },
+  {
+   "tipo": "tree",
+   "x": 4.0,
+   "y": 5.0
+  },
+  {
+   "tipo": "tree",
+   "x": 27.0,
+   "y": 1.0
+  },
+  {
+   "tipo": "tree",
+   "x": 31.0,
+   "y": 6.0
+  },
+  {
+   "tipo": "tree",
+   "x": 37.0,
+   "y": 1.0
+  },
+  {
+   "tipo": "tree",
+   "x": 45.0,
+   "y": 6.0
+  },
+  {
+   "tipo": "tree",
+   "x": 52.0,
+   "y": 2.0
+  },
+  {
+   "tipo": "tree",
+   "x": 57.0,
+   "y": 6.0
+  },
+  {
+   "tipo": "rock",
+   "x": 26.0,
+   "y": 6.0
+  },
+  {
+   "tipo": "rock",
+   "x": 42.0,
+   "y": 2.0
+  },
+  {
+   "tipo": "rock",
+   "x": 55.0,
+   "y": 5.0
+  },
+  {
+   "tipo": "chapel",
+   "x": 63.0,
+   "y": 3.5
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 61.0,
+   "y": 1.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 71.0,
+   "y": 1.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 74.0,
+   "y": 6.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 77.0,
+   "y": 2.0
+  },
+  {
+   "tipo": "court_lines",
+   "x": 6.0,
+   "y": 12.0
+  },
+  {
+   "tipo": "house",
+   "x": 1.0,
+   "y": 9.62
+  },
+  {
+   "tipo": "house",
+   "x": 17.0,
+   "y": 21.0
+  },
+  {
+   "tipo": "house",
+   "x": 1.0,
+   "y": 32.0
+  },
+  {
+   "tipo": "swing",
+   "x": 4.5,
+   "y": 22.0
+  },
+  {
+   "tipo": "slide",
+   "x": 9.5,
+   "y": 22.19
+  },
+  {
+   "tipo": "seesaw",
+   "x": 5.0,
+   "y": 25.5
+  },
+  {
+   "tipo": "bench",
+   "x": 11.0,
+   "y": 26.0
+  },
+  {
+   "tipo": "tree",
+   "x": 0.0,
+   "y": 18.0
+  },
+  {
+   "tipo": "tree",
+   "x": 0.0,
+   "y": 26.0
+  },
+  {
+   "tipo": "tree",
+   "x": 15.0,
+   "y": 26.0
+  },
+  {
+   "tipo": "tree",
+   "x": 19.0,
+   "y": 15.0
+  },
+  {
+   "tipo": "tree",
+   "x": 14.0,
+   "y": 33.0
+  },
+  {
+   "tipo": "tree",
+   "x": 2.0,
+   "y": 29.0
+  },
+  {
+   "tipo": "tree",
+   "x": 20.0,
+   "y": 10.0
+  },
+  {
+   "tipo": "kiosk",
+   "x": 17.0,
+   "y": 30.19
+  },
+  {
+   "tipo": "dog",
+   "x": 12.0,
+   "y": 28.62
+  },
+  {
+   "tipo": "lamp",
+   "x": 3.0,
+   "y": 28.5
+  },
+  {
+   "tipo": "lamp",
+   "x": 15.0,
+   "y": 19.5
+  },
+  {
+   "tipo": "flowerbed",
+   "x": 17.0,
+   "y": 25.0
+  },
+  {
+   "tipo": "building",
+   "x": 37.0,
+   "y": 10.38
+  },
+  {
+   "tipo": "crane",
+   "x": 53.5,
+   "y": 6.5
+  },
+  {
+   "tipo": "mesh_fence",
+   "x": 28.0,
+   "y": 33.38
+  },
+  {
+   "tipo": "mesh_fence",
+   "x": 33.0,
+   "y": 33.38
+  },
+  {
+   "tipo": "mesh_fence_v",
+   "x": 27.88,
+   "y": 10.0
+  },
+  {
+   "tipo": "mesh_fence_v",
+   "x": 58.88,
+   "y": 10.0
+  },
+  {
+   "tipo": "banner_sign",
+   "x": 29.5,
+   "y": 31.62
+  },
+  {
+   "tipo": "hut",
+   "x": 28.62,
+   "y": 26.81
+  },
+  {
+   "tipo": "toilet",
+   "x": 32.62,
+   "y": 28.5
+  },
+  {
+   "tipo": "table_plans",
+   "x": 43.0,
+   "y": 23.62
+  },
+  {
+   "tipo": "brick_tower",
+   "x": 39.0,
+   "y": 23.62
+  },
+  {
+   "tipo": "brick_tower",
+   "x": 41.0,
+   "y": 23.62
+  },
+  {
+   "tipo": "bricks",
+   "x": 35.0,
+   "y": 24.0
+  },
+  {
+   "tipo": "bricks",
+   "x": 37.31,
+   "y": 25.0
+  },
+  {
+   "tipo": "bricks",
+   "x": 46.0,
+   "y": 26.0
+  },
+  {
+   "tipo": "bricks",
+   "x": 49.0,
+   "y": 27.0
+  },
+  {
+   "tipo": "cement",
+   "x": 44.0,
+   "y": 23.38
+  },
+  {
+   "tipo": "cement",
+   "x": 51.0,
+   "y": 30.0
+  },
+  {
+   "tipo": "sandpile",
+   "x": 39.0,
+   "y": 28.62
+  },
+  {
+   "tipo": "sandpile",
+   "x": 55.0,
+   "y": 29.0
+  },
+  {
+   "tipo": "rebar",
+   "x": 47.0,
+   "y": 30.62
+  },
+  {
+   "tipo": "wheelbarrow",
+   "x": 43.0,
+   "y": 28.5
+  },
+  {
+   "tipo": "wheelbarrow",
+   "x": 36.0,
+   "y": 31.0
+  },
+  {
+   "tipo": "mixer_truck",
+   "x": 50.0,
+   "y": 23.38
+  },
+  {
+   "tipo": "dump_truck",
+   "x": 29.0,
+   "y": 18.38
+  },
+  {
+   "tipo": "cone",
+   "x": 30.0,
+   "y": 24.0
+  },
+  {
+   "tipo": "cone",
+   "x": 33.0,
+   "y": 25.0
+  },
+  {
+   "tipo": "cone",
+   "x": 49.0,
+   "y": 32.0
+  },
+  {
+   "tipo": "cone",
+   "x": 57.0,
+   "y": 26.0
+  },
+  {
+   "tipo": "cone",
+   "x": 29.0,
+   "y": 14.0
+  },
+  {
+   "tipo": "barrier",
+   "x": 34.38,
+   "y": 22.81
+  },
+  {
+   "tipo": "barrier",
+   "x": 52.0,
+   "y": 21.62
+  },
+  {
+   "tipo": "house",
+   "x": 61.0,
+   "y": 12.62
+  },
+  {
+   "tipo": "house",
+   "x": 71.0,
+   "y": 12.62
+  },
+  {
+   "tipo": "car",
+   "x": 62.19,
+   "y": 24.62
+  },
+  {
+   "tipo": "car",
+   "x": 64.62,
+   "y": 24.62
+  },
+  {
+   "tipo": "dump_truck",
+   "x": 67.19,
+   "y": 23.81
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 60.0,
+   "y": 19.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 74.0,
+   "y": 20.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 77.0,
+   "y": 27.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 60.0,
+   "y": 30.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 76.0,
+   "y": 32.0
+  },
+  {
+   "tipo": "eucalyptus",
+   "x": 68.0,
+   "y": 32.0
+  },
+  {
+   "tipo": "bush",
+   "x": 63.0,
+   "y": 21.0
+  },
+  {
+   "tipo": "bush",
+   "x": 72.0,
+   "y": 29.0
+  },
+  {
+   "tipo": "bush",
+   "x": 66.0,
+   "y": 32.0
+  },
+  {
+   "tipo": "car",
+   "x": 5.0,
+   "y": 38.0
+  },
+  {
+   "tipo": "car",
+   "x": 31.0,
+   "y": 40.0
+  },
+  {
+   "tipo": "car",
+   "x": 52.0,
+   "y": 38.0
+  },
+  {
+   "tipo": "car",
+   "x": 70.0,
+   "y": 40.0
+  },
+  {
+   "tipo": "<lambda>",
+   "x": 24.0,
+   "y": 36.88
+  },
+  {
+   "tipo": "bus_stop",
+   "x": 38.0,
+   "y": 36.0
+  },
+  {
+   "tipo": "lamp2",
+   "x": 4.0,
+   "y": 35.38
+  },
+  {
+   "tipo": "lamp2",
+   "x": 16.0,
+   "y": 35.38
+  },
+  {
+   "tipo": "lamp2",
+   "x": 30.0,
+   "y": 35.38
+  },
+  {
+   "tipo": "lamp2",
+   "x": 46.0,
+   "y": 35.38
+  },
+  {
+   "tipo": "lamp2",
+   "x": 60.0,
+   "y": 35.38
+  },
+  {
+   "tipo": "lamp2",
+   "x": 74.0,
+   "y": 35.38
+  },
+  {
+   "tipo": "stage",
+   "x": 38.0,
+   "y": 43.19
+  },
+  {
+   "tipo": "fountain",
+   "x": 48.0,
+   "y": 43.19
+  },
+  {
+   "tipo": "bench",
+   "x": 35.0,
+   "y": 44.0
+  },
+  {
+   "tipo": "bench",
+   "x": 51.62,
+   "y": 46.19
+  },
+  {
+   "tipo": "pigeon",
+   "x": 44.0,
+   "y": 46.38
+  },
+  {
+   "tipo": "pigeon",
+   "x": 46.0,
+   "y": 45.81
+  },
+  {
+   "tipo": "pigeon",
+   "x": 36.38,
+   "y": 46.19
+  },
+  {
+   "tipo": "tree",
+   "x": 27.0,
+   "y": 42.0
+  },
+  {
+   "tipo": "tree",
+   "x": 31.0,
+   "y": 43.0
+  },
+  {
+   "tipo": "tree",
+   "x": 55.0,
+   "y": 42.0
+  },
+  {
+   "tipo": "tree",
+   "x": 61.0,
+   "y": 43.0
+  },
+  {
+   "tipo": "tree",
+   "x": 66.0,
+   "y": 42.0
+  },
+  {
+   "tipo": "tree",
+   "x": 72.0,
+   "y": 44.0
+  },
+  {
+   "tipo": "tree",
+   "x": 77.0,
+   "y": 42.0
+  },
+  {
+   "tipo": "tree",
+   "x": 2.0,
+   "y": 42.0
+  },
+  {
+   "tipo": "tree",
+   "x": 8.0,
+   "y": 43.0
+  },
+  {
+   "tipo": "tree",
+   "x": 14.0,
+   "y": 42.0
+  },
+  {
+   "tipo": "tree",
+   "x": 20.0,
+   "y": 43.0
+  }
+ ],
+ "puertas": {
+  "taller_sofia": [
+   63.5,
+   16
+  ],
+  "almacen_herramientas": [
+   73.5,
+   16
+  ],
+  "tunel": [
+   15,
+   2
+  ],
+  "capilla": [
+   64.5,
+   7.5
+  ],
+  "caseta": [
+   31.2,
+   29.5
+  ]
+ },
+ "npc": {
+  "julio": [
+   31,
+   35
+  ],
+  "sofia": [
+   63.5,
+   17
+  ],
+  "tomas": [
+   16.4,
+   10
+  ],
+  "rosa_m": [
+   36,
+   26
+  ],
+  "nina_parque": [
+   7,
+   24
+  ],
+  "nino_pelota": [
+   10,
+   15
+  ],
+  "senora_kiosko": [
+   18,
+   32
+  ]
+ },
+ "mision": {
+  "16": "entrada de la obra (31,34)",
+  "17": "torres de ladrillo (40,24)",
+  "18": "taller de Sofía",
+  "19": "túnel de la cantera",
+  "20": "base de la grúa (52,22)"
+ },
+ "objetos_mision": {
+  "casco": [
+   34.6,
+   29.6
+  ],
+  "plano": "recompensa misión 17",
+  "martillo": "recompensa misión 18",
+  "llave_grua": "recompensa misión 19"
+ },
+ "camaras_plantillas": {
+  "barrio": [
+   0.0,
+   14.0
+  ],
+  "caseta": [
+   25.0,
+   21.0
+  ],
+  "obra": [
+   29.0,
+   17.0
+  ],
+  "cantera": [
+   5.0,
+   0.5625
+  ],
+  "taller_ext": [
+   55.0,
+   12.0
+  ],
+  "grua": [
+   37.0,
+   12.5
+  ],
+  "plaza": [
+   33.0,
+   36.0
+  ],
+  "final": [
+   31.0,
+   9.5625
+  ]
+ }
+}

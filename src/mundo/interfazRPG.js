@@ -36,6 +36,22 @@ export function mostrar(el, visible) {
   el.style.display = visible ? '' : 'none';
 }
 
+// La ayuda de abajo (.hint, centrada a 16 px del borde) se vuelve casi transparente mientras
+// tapa a un personaje, para que nadie quede oculto en la última fila del mapa.
+export function apartarAyuda(hint, mapa, personajes) {
+  if (!hint || hint.style.display === 'none') return;
+  const ancho = hint.offsetWidth, alto = hint.offsetHeight;
+  const izq = 683 - ancho / 2, der = 683 + ancho / 2, arriba = 768 - 16 - alto;
+  const tapa = personajes.some((p) => {
+    if (!p || !p.sprite.visible) return false;
+    const [x, pies] = mapa.aPantalla(p.x, p.yPiesActual);
+    const mitad = p.sprite.displayWidth / 2;
+    const cabeza = pies - p.sprite.displayHeight;
+    return pies > arriba && cabeza < 768 && x + mitad > izq && x - mitad < der;
+  });
+  hint.style.opacity = tapa ? '0.18' : '';
+}
+
 // Chip con el sprite y el nombre del jugador (barra superior)
 export function htmlChip(nombre, sprite = 'p1_sprite') {
   return `<div class="chip"><img src="${rutaImagen(sprite)}" alt="">${escaparHtml(nombre)}</div>`;

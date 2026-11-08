@@ -7,6 +7,7 @@ import Zona from './scenes/Zona.js';
 import Nivel from './scenes/Nivel.js';
 import NivelCompletado from './scenes/NivelCompletado.js';
 import MundoCompletado from './scenes/MundoCompletado.js';
+import Final from './scenes/Final.js';
 
 // Todas las pantallas se diseñaron a 1366×768; FIT las escala a otras resoluciones
 const config = {
@@ -24,7 +25,7 @@ const config = {
   dom: {
     createContainer: true
   },
-  scene: [Boot, Inicio, Jugador, Instrucciones, Zona, Nivel, NivelCompletado, MundoCompletado]
+  scene: [Boot, Inicio, Jugador, Instrucciones, Zona, Nivel, NivelCompletado, MundoCompletado, Final]
 };
 
 const juego = new Phaser.Game(config);

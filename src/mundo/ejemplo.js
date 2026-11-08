@@ -14,6 +14,19 @@ export function claveEjemplo(idMundo) {
   return e ? e.ecuacion.replace(/\s+/g, '') : null;
 }
 
+// Fracciones escritas «2(x + 1)/3» → numerador arriba, raya y denominador abajo (Mundo 4)
+export function fraccionesApiladas(texto) {
+  return texto.replace(/(\d*\([^()]*\))\/(\d+)/g, '<span class="frac-t"><span>$1</span><span>$2</span></span>');
+}
+
+// Fracción sobre fracción «(x/3 + 1) ÷ (1/2) = 6» → fracción grande con «x/3 + 1» arriba y «1/2» abajo,
+// y las fracciones chicas también apiladas (Mundo 5). Sin «÷», como el Mundo 4.
+export function ecuacionApilada(texto) {
+  const chica = (t) => t.replace(/(\w+)\/(\d+)/g, '<span class="frac-t"><span>$1</span><span>$2</span></span>');
+  const conDivision = texto.replace(/\(([^()]*)\) ÷ \(([^()]*)\)/g, (_, arriba, abajo) => `<span class="frac-t frac-grande"><span>${chica(arriba)}</span><span>${chica(abajo)}</span></span>`);
+  return conDivision === texto ? fraccionesApiladas(texto) : conDivision;
+}
+
 // HTML del botón (va dentro del panel del reto, arriba a la derecha)
 export const BOTON_EJEMPLO = '<button type="button" class="boton btn azul ver-ejemplo" data-r="ejemplo"><span class="libro">📖</span> VER EJEMPLO</button>';
 
@@ -41,7 +54,7 @@ export class PanelEjemplo {
     this.panelReto.classList.add('con-ejemplo');
     this.el = crearElemento(this.capa, `<section class="panel-ejemplo">
 <div class="ej-cabecera"><span class="ej-chip"><span class="libro">📖</span> EJEMPLO</span><span class="ej-nota">Otros números · no resta puntos</span><button type="button" class="boton ej-cerrar" aria-label="Cerrar ejemplo">✕</button></div>
-<div class="ej-ecuacion">${this.ejemplo.ecuacion}</div>
+<div class="ej-ecuacion">${ecuacionApilada(this.ejemplo.ecuacion)}</div>
 <div class="ej-pasos"></div>
 <div class="ej-pie"><span class="px ej-contador"></span><span class="ej-cuadros"></span><button type="button" class="boton btn azul ej-siguiente">SIGUIENTE PASO ▶</button></div>
 </section>`);

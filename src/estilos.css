@@ -235,3 +235,89 @@ html, body {
 .rpg .etiqueta-bus { position: static; transform: none; font-size: 17px; color: #2a5aa8; }
 .rpg .ficha-chica { height: 46px; min-width: 40px; font-size: 26px; padding: 0 10px; }
 .rpg .op-chica { font-size: 30px; }
+
+/* Mundo 3 · paréntesis en ambos lados (diseño 8_cambios_entrevista/03) */
+.rpg .ficha-ambos { min-width: 50px; height: 62px; padding: 0 10px; font-size: 36px; }
+.rpg .ficha-paren.ambos { font-size: 74px; margin: 0 -3px; }
+.rpg .ficha-op.ambos { font-size: 34px; margin: 0 2px; }
+.rpg .tarjeta-lado { width: 300px; padding: 8px 12px; display: flex; flex-direction: column; align-items: center; gap: 5px; background: #fff8ec; border: 4px solid #1b1430; }
+.rpg .tarjeta-lado img { width: 44px; image-rendering: pixelated; }
+.rpg .tarjeta-lado span { font-size: 18px; font-weight: 800; color: #1b1430; }
+.rpg .tarjeta-lado b { padding: 8px 14px; border: 4px solid #1b1430; font-size: 30px; font-weight: 900; color: #1b1430; white-space: nowrap; }
+/* qué significa x: debajo de las dos tarjetas, centrado y sin tocar ningún borde */
+.rpg .significado-x { margin-top: 8px; padding: 0 16px; font-size: 17px; font-weight: 800; color: #4e1027; text-align: center; white-space: nowrap; }
+
+/* Mundo 3 · mundo abierto (diseño/4_mundo3_puerto/301, 302, 304, 309) */
+.rpg .slot-objeto { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #4e1027; border: 3px solid #1b1430; box-sizing: border-box; }
+.rpg .slot-objeto img { width: 34px; image-rendering: pixelated; opacity: .22; filter: grayscale(1); }
+.rpg .slot-objeto.tiene { background: #fff8ec; box-shadow: 0 0 0 3px #f2b632; }
+.rpg .slot-objeto.tiene img { opacity: 1; filter: none; }
+.rpg .mapa-abierto { position: absolute; left: 43px; top: 60px; width: 1280px; height: 708px; overflow: hidden; }
+.rpg .mapa-abierto > img { position: absolute; left: 0; top: 0; }
+.rpg .brillo-mapa { position: absolute; transform: translate(-50%, -50%); width: 34px; height: 34px; border: 3px dashed #f2b632; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.rpg .brillo-mapa img { width: 24px; image-rendering: pixelated; }
+.rpg .barra-misiones { position: absolute; left: 18px; top: 650px; width: 1330px; height: 108px; padding: 8px 10px 8px 46px; display: flex; gap: 10px; background: #7a1f3d; border: 4px solid #f2b632; box-sizing: border-box; }
+.rpg .titulo-misiones { position: absolute; left: 6px; top: 50%; transform: translate(0, -50%) rotate(-90deg); transform-origin: center; width: 30px; font-size: 10px; color: #f2b632; white-space: nowrap; display: flex; justify-content: center; }
+.rpg .tarjeta-mision { flex: 1; display: flex; align-items: center; gap: 12px; padding: 0 12px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; border-left-width: 10px; font-size: 16px; line-height: 1.2; }
+.rpg .capa-objeto { position: absolute; inset: 0; z-index: 45; pointer-events: auto; }
+.rpg .ventana-objeto { position: absolute; left: 385px; top: 142px; width: 596px; padding: 22px 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; background: #7a1f3d; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #f2b632, 0 8px 0 #1b1430; text-align: center; }
+.rpg .ventana-objeto h1 { margin: 0; font-size: 22px; color: #f2b632; text-shadow: 3px 3px 0 #1b1430; }
+.rpg .ventana-objeto p { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.4; color: #fff; }
+.rpg .marco-objeto { width: 164px; height: 164px; display: flex; align-items: center; justify-content: center; background: #f2b632; border: 4px solid #1b1430; }
+.rpg .marco-objeto img { width: 140px; image-rendering: pixelated; }
+.rpg .chip-guardado { padding: 8px 16px; background: #157a4f; border: 3px solid #1b1430; font-size: 17px; font-weight: 900; }
+.rpg .oscuridad { position: absolute; inset: 0; pointer-events: none; }
+
+/* Mundo 4 · fracciones de verdad (diseño 8_cambios_entrevista/04): numerador arriba, raya, denominador abajo */
+.rpg .ecuacion-frac { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 16px; }
+.rpg .frac { display: inline-flex; flex-direction: column; align-items: center; margin: 0 4px; }
+.rpg .frac-num { display: flex; align-items: center; gap: 2px; padding: 0 6px 12px; }
+.rpg .frac-den { align-self: stretch; display: flex; justify-content: center; padding-top: 14px; border-top: 6px solid #1b1430; }
+.rpg .ficha-frac { min-width: 46px; height: 54px; padding: 0 9px; font-size: 32px; box-shadow: 0 4px 0 #1b1430; }
+.rpg .ficha-paren.frac-p { font-size: 62px; margin: 0 -1px; transform: translateY(-3px); }
+.rpg .ficha-op.frac-o { font-size: 32px; margin: 0 4px; }
+.rpg .ficha-op.igual-frac { font-size: 48px; margin: 0 8px; }
+.rpg .frac-t { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 4px; line-height: 1.15; }
+.rpg .frac-t > span:first-child { padding: 0 4px 2px; border-bottom: 3px solid currentColor; }
+.rpg .frac-t > span:last-child { padding-top: 2px; }
+
+/* Mundo 5 · fracción sobre fracción (diseños 9_mundo5_feria/503–512 y 8_cambios_entrevista/05):
+   fracción grande (raya gruesa) con fracciones chicas (raya doble) arriba y/o abajo */
+.rpg .ff-zona { position: absolute; left: 0; right: 0; top: 54px; bottom: 66px; display: flex; align-items: center; justify-content: center; }
+.rpg .ff-ecuacion { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 16px; }
+.rpg .ff-ficha { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 38px; padding: 0 7px; border: 3px solid #1b1430; box-shadow: 0 4px 0 #1b1430; font-size: 24px; font-weight: 900; line-height: 1; box-sizing: border-box; }
+.rpg .ff-x { background: #d4e3fb; color: #2a5aa8; }
+.rpg .ff-n { background: #fde6a6; color: #8a5a00; }
+.rpg .ff-op { font-size: 28px; font-weight: 900; color: #1b1430; margin: 0 3px; }
+.rpg .ff-paren { font-size: 48px; font-weight: 300; line-height: 1; color: #1b1430; margin: 0 -1px; transform: translateY(-3px); }
+.rpg .ff-frac { display: inline-flex; flex-direction: column; align-items: center; margin: 0 3px; }
+.rpg .ff-arriba { display: flex; align-items: center; gap: 2px; padding: 0 4px 5px; }
+.rpg .ff-abajo { align-self: stretch; display: flex; justify-content: center; align-items: center; padding-top: 6px; border-top: 7px double #1b1430; }
+.rpg .ff-frac.ff-grande > .ff-arriba { padding: 0 8px 7px; }
+.rpg .ff-frac.ff-grande > .ff-abajo { padding-top: 8px; border-top: 5px solid #1b1430; }
+.rpg .ff-frac.ff-media > .ff-abajo { border-top: 5px solid #1b1430; }
+.rpg .ff-medio { display: inline-flex; align-items: center; gap: 2px; }
+.rpg .ff-medio .ff-ficha { min-width: 48px; height: 56px; padding: 0 10px; font-size: 34px; box-shadow: 0 5px 0 #1b1430; }
+.rpg .ff-medio .ff-paren { font-size: 70px; }
+.rpg .ff-medio .ff-op { font-size: 34px; }
+.rpg .ff-medio .ff-frac.ff-media .ff-ficha { min-width: 42px; height: 46px; font-size: 28px; }
+.rpg .ff-medio .ff-frac.ff-media .ff-paren { font-size: 56px; }
+.rpg .ff-igual { font-size: 46px; font-weight: 900; color: #1b1430; margin: 0 8px; }
+.rpg .ff-igual.ok { color: #157a4f; }
+.rpg .ff-igual.mal { color: #e8572a; }
+.rpg .ff-marca { font-size: 44px; font-weight: 900; color: #157a4f; margin-left: 8px; }
+.rpg .ff-pie { position: absolute; left: 22px; bottom: 20px; right: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
+.rpg .ff-chip { font-size: 15px; padding: 6px 9px; white-space: nowrap; }
+.rpg .panel.con-ejemplo .ff-chip { font-size: 14px; padding: 5px 7px; }
+/* «Ver ejemplo» del Mundo 5: fracción grande con fracciones chicas adentro */
+.rpg .frac-t.frac-grande > span:first-child { display: inline-flex; align-items: center; gap: 4px; padding: 0 8px 4px; border-bottom-width: 4px; }
+.rpg .frac-t.frac-grande > span:last-child { padding-top: 4px; }
+.rpg .frac-t.frac-grande .frac-t { font-size: .82em; }
+
+/* Final del juego (diseño 9_mundo5_feria/515): vecinos que saltan, confeti que cae sin parar y panel de resultados */
+.rpg .pj-final { position: absolute; width: 64px; height: 88px; image-rendering: pixelated; animation: rebote 1.2s ease-in-out infinite; }
+.rpg .conf-final { animation: caer 3.2s ease-in infinite; }
+.rpg .panel-final { position: absolute; left: 18px; top: 604px; width: 1330px; height: 150px; box-sizing: border-box; padding: 14px 20px; display: flex; flex-direction: column; gap: 12px; background: #7a1f3d; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #f2b632, 0 6px 0 #1b1430; color: #fff; }
+.rpg .dato-final { min-width: 100px; padding: 6px 12px; display: flex; flex-direction: column; gap: 6px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; }
+.rpg .dato-final > span { font-size: 15px; font-weight: 800; color: #4e1027; white-space: nowrap; }
+.rpg .dato-final > b { font-size: 16px; white-space: nowrap; }

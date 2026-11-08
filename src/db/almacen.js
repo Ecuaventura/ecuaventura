@@ -1,5 +1,7 @@
 // Guardado del progreso. ETAPA TEMPORAL: usa localStorage del navegador.
 // En la etapa de base de datos esta misma interfaz se implementará con sql.js (ecuaventura.db).
+// Además de estudiantes, progreso, intentos y ecuaciones mostradas guarda los objetos del
+// inventario de los mundos abiertos (d.objetos[idEstudiante] = ['remo', …]).
 
 import NIVELES from '../data/niveles.json';
 
@@ -177,6 +179,20 @@ export function registrarEcuaciones(idEstudiante, idNivel, claves) {
   guardar();
 }
 
+// Objetos encontrados en los mundos abiertos (Mundo 3: remo, linterna, llave, mapa)
+export function objetosEstudiante(idEstudiante) {
+  return new Set(((cargar().objetos || {})[idEstudiante]) || []);
+}
+
+export function agregarObjeto(idEstudiante, clave) {
+  const d = cargar();
+  d.objetos = d.objetos || {};
+  const lista = new Set(d.objetos[idEstudiante] || []);
+  lista.add(clave);
+  d.objetos[idEstudiante] = [...lista];
+  guardar();
+}
+
 export function estrellasTotales(idEstudiante) {
   const p = cargar().progreso[idEstudiante] || {};
   return Object.values(p).reduce((suma, n) => suma + (n.estrellas || 0), 0);
@@ -191,4 +207,19 @@ export function estrellasDeNiveles(idEstudiante, idsNiveles) {
 export function resumenEstudiante(estudiante) {
   const nivel = NIVELES.niveles.find((n) => n.id === estudiante.nivelActual) || NIVELES.niveles[0];
   return { mundo: nivel.mundo, nivel: nivel.id, estrellas: estrellasTotales(estudiante.id) };
+}
+
+// Resumen del final del juego (diseño 515): niveles completados, estrellas, puntaje total (suma de los
+// mejores puntajes), mejor racha de todos los intentos y minutos jugados (suma de los intentos completados)
+export function resumenFinal(idEstudiante) {
+  const d = cargar();
+  const progreso = Object.values(d.progreso[idEstudiante] || {});
+  const intentos = d.intentos.filter((i) => i.idEstudiante === idEstudiante);
+  return {
+    niveles: progreso.filter((p) => p.completado).length,
+    estrellas: progreso.reduce((s, p) => s + (p.estrellas || 0), 0),
+    puntaje: progreso.reduce((s, p) => s + (p.mejorPuntaje || 0), 0),
+    mejorRacha: intentos.reduce((m, i) => Math.max(m, i.mejorRacha || 0), 0),
+    minutos: Math.round(intentos.reduce((s, i) => s + (i.tiempoSeg || 0), 0) / 60)
+  };
 }
