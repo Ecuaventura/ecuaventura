@@ -13,7 +13,7 @@ Cliente: I.E. N° 54037 Micaela Bastidas Puyucahua – Tamburco, Abancay.
 25 niveles · 75 retos aleatorios · botón "Ver ejemplo" paso a paso · funciona sin internet.
 
 ## Tecnologías
-Phaser 3 · Vite · JavaScript · SQLite (sql.js) · Electron (instalador .exe)
+Phaser 3 · Vite · JavaScript · Electron (instalador .exe) · almacenamiento local (sin internet)
 
 ## Cómo ejecutarlo
     npm install
