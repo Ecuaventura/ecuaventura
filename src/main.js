@@ -17,6 +17,7 @@ const config = {
   parent: 'juego',
   backgroundColor: '#2f5fc4',
   pixelArt: true,
+  roundPixels: true,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
