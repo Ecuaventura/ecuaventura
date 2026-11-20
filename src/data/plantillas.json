@@ -1,0 +1,96 @@
+{
+  "_ayuda": "Problemas de la vida real (deben ser revisados por el cliente). tipo: x+a=b, x-a=b, ax=b, x+a=b, x-a=b o ax=b (Mundo 1 anterior; el Mundo 2 arma sus historias en historias.json). rangos: se elige primero la solución. visual: lo que dibuja el panel (icono, chips; repetir=true repite el ícono de x a veces; d/pieD = lado derecho). {v} = número escrito por el alumno.",
+  "plantillas": {
+    "carmen_naranjas": {
+      "tipo": "ax=b",
+      "rangos": {
+        "x": [
+          2,
+          8
+        ],
+        "a": [
+          2,
+          6
+        ]
+      },
+      "intro": "<b class=\"c-guinda\">¡Hola, {nombre}!</b> Vendí <b>{a} kilos de naranja</b> y cobré <b>S/ {b}</b> en total. Cada kilo cuesta lo mismo.",
+      "pregunta": "¿Cuántos soles cuesta cada kilo?",
+      "significado": "x = precio de 1 kilo de naranja, en soles",
+      "visual": {
+        "icono": "monedero",
+        "x": "x soles",
+        "pieX": "cada kilo",
+        "a": "{a} kg",
+        "pieA": "naranjas",
+        "b": "S/ {b}",
+        "pieB": "en total",
+        "valorX": "S/ {v}"
+      },
+      "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> Cada kilo cuesta <b>S/ {x}</b>: {comprobacion}. ¡Las cuentas cuadran!",
+      "pista": [
+        "Plantea la ecuación: <b>{a}x = {b}</b>.",
+        "Si {a} kilos cuestan S/ {b}, reparte los <b>S/ {b}</b> en <b>{a}</b> partes iguales."
+      ]
+    },
+    "rosa_ventas": {
+      "tipo": "x+a=b",
+      "rangos": {
+        "x": [
+          10,
+          40
+        ],
+        "a": [
+          5,
+          30
+        ]
+      },
+      "intro": "<b class=\"c-guinda\">¡Hola, {nombre}!</b> En la mañana tenía algunos soles en mi monedero. Vendí papas por <b>S/ {a}</b> y ahora tengo <b>S/ {b}</b>.",
+      "pregunta": "¿Cuántos soles tenía en la mañana?",
+      "significado": "x = soles que tenía Doña Rosa en la mañana",
+      "visual": {
+        "icono": "monedero",
+        "x": "x soles",
+        "a": "S/ {a}",
+        "pieA": "vendí papas",
+        "b": "S/ {b}",
+        "pieB": "tengo ahora",
+        "valorX": "S/ {v}"
+      },
+      "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> En la mañana tenía <b>S/ {x}</b>: {comprobacion}. ¡Las cuentas cuadran!",
+      "pista": [
+        "Plantea la ecuación: <b>x + {a} = {b}</b>.",
+        "Lo que tenía más lo que ganó da <b>S/ {b}</b>: quita los <b>S/ {a}</b> que ganó vendiendo."
+      ]
+    },
+    "lucho_choclos": {
+      "tipo": "x-a=b",
+      "rangos": {
+        "x": [
+          20,
+          60
+        ],
+        "a": [
+          5,
+          19
+        ]
+      },
+      "intro": "<b class=\"c-guinda\">¡{nombre}, último reto del mercado!</b> Hoy salí con <b>x soles</b>. Compré choclos por <b>S/ {a}</b> y me quedaron <b>S/ {b}</b>.",
+      "pregunta": "¿Con cuántos soles salí de casa?",
+      "significado": "x = soles con los que salió Don Lucho",
+      "visual": {
+        "icono": "monedero",
+        "x": "x soles",
+        "a": "S/ {a}",
+        "pieA": "choclos",
+        "b": "S/ {b}",
+        "pieB": "le quedó",
+        "valorX": "S/ {v}"
+      },
+      "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> Salí con <b>S/ {x}</b>: {comprobacion}. ¡Las cuentas cuadran!",
+      "pista": [
+        "Plantea la ecuación: <b>x − {a} = {b}</b>.",
+        "Lo que tenía al salir es lo que gastó en choclos <b>más</b> lo que le quedó."
+      ]
+    }
+  }
+}

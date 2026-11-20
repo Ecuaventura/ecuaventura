@@ -1,0 +1,402 @@
+{
+  "_ayuda": "nombre: como lo llaman en los textos; etiqueta: cartel sobre el mapa (opcional); placa: nombre bajo el retrato (Press Start 2P); temas: historias que cuenta en los retos de términos semejantes (historias.json). jugables: los 4 personajes que puede elegir el alumno.",
+  "jugador": {
+    "sprite": "sprite_ana",
+    "spriteArriba": "sprite_ana_arriba",
+    "retrato": "retrato_ana"
+  },
+  "ecu": {
+    "nombre": "Ecu",
+    "sprite": "sprite_ecu",
+    "retrato": "mascota",
+    "retratoFeliz": "mascota_feliz"
+  },
+  "vecinos": {
+    "dona_rosa": {
+      "nombre": "Doña Rosa",
+      "sprite": "sprite_dona_rosa",
+      "retrato": "retrato_dona_rosa",
+      "producto": "papa",
+      "temas": [
+        "balanza",
+        "canastas"
+      ]
+    },
+    "don_lucho": {
+      "nombre": "Don Lucho",
+      "sprite": "sprite_don_lucho",
+      "retrato": "retrato_don_lucho",
+      "producto": "choclo",
+      "temas": [
+        "soles",
+        "balanza"
+      ]
+    },
+    "carmen": {
+      "nombre": "Carmen",
+      "sprite": "sprite_carmen",
+      "retrato": "retrato_carmen",
+      "producto": "naranja",
+      "temas": [
+        "canastas",
+        "soles"
+      ]
+    },
+    "nino": {
+      "nombre": "Pepito",
+      "sprite": "sprite_nino",
+      "retrato": "retrato_nino",
+      "producto": "cebolla"
+    },
+    "jhon": {
+      "nombre": "Jhon",
+      "etiqueta": "Jhon, el cobrador",
+      "sprite": "sprite_jhon",
+      "retrato": "retrato_jhon",
+      "temas": [
+        "buses",
+        "maletas"
+      ]
+    },
+    "marina": {
+      "nombre": "Doña Marina",
+      "etiqueta": "Doña Marina",
+      "sprite": "sprite_marina",
+      "retrato": "retrato_marina",
+      "temas": [
+        "maletas",
+        "pasajes"
+      ]
+    },
+    "julia": {
+      "nombre": "Julia",
+      "etiqueta": "Julia, la boletera",
+      "sprite": "sprite_julia",
+      "retrato": "retrato_julia",
+      "temas": [
+        "pasajes",
+        "buses"
+      ],
+      "placa": "SEÑORA JULIA"
+    },
+    "teofilo": {
+      "nombre": "Don Teófilo",
+      "etiqueta": "Don Teófilo, el chofer",
+      "placa": "DON TEOFILO",
+      "sprite": "sprite_teofilo",
+      "retrato": "retrato_teofilo",
+      "temas": [
+        "pasajes"
+      ]
+    },
+    "jugos": {
+      "nombre": "Señora Paula",
+      "sprite": "sprite_jugos",
+      "retrato": "retrato_jugos"
+    },
+    "flores": {
+      "nombre": "Doña Flor",
+      "sprite": "sprite_flores",
+      "retrato": "retrato_flores"
+    },
+    "emoliente": {
+      "nombre": "Don Ernesto",
+      "sprite": "sprite_emoliente",
+      "retrato": "retrato_emoliente"
+    },
+    "compradora": {
+      "nombre": "Compradora",
+      "sprite": "sprite_compradora"
+    },
+    "senor": {
+      "nombre": "Señor",
+      "sprite": "sprite_senor"
+    },
+    "nina": {
+      "nombre": "Niña",
+      "sprite": "sprite_nina"
+    },
+    "taxista": {
+      "nombre": "Don Pedro",
+      "etiqueta": "Don Pedro, el taxista",
+      "sprite": "sprite_taxista",
+      "retrato": "retrato_taxista"
+    },
+    "canillita": {
+      "nombre": "Rubén",
+      "sprite": "sprite_canillita",
+      "retrato": "retrato_canillita"
+    },
+    "pasajero1": {
+      "nombre": "Pasajero",
+      "sprite": "sprite_pasajero1",
+      "retrato": "retrato_pasajero1"
+    },
+    "pasajera2": {
+      "nombre": "Pasajera",
+      "sprite": "sprite_pasajera2",
+      "retrato": "retrato_pasajera2"
+    },
+    "pancho": {
+      "nombre": "Don Pancho",
+      "etiqueta": "Don Pancho, el pescador",
+      "placa": "DON PANCHO",
+      "sprite": "sprite_pancho",
+      "retrato": "retrato_pancho",
+      "temas": [
+        "pescados",
+        "hielo"
+      ],
+      "otros": [
+        "mateo",
+        "pescador2",
+        "lucia"
+      ]
+    },
+    "elena": {
+      "nombre": "Doña Elena",
+      "etiqueta": "Doña Elena",
+      "placa": "DOÑA ELENA",
+      "sprite": "sprite_elena",
+      "retrato": "retrato_elena",
+      "temas": [
+        "soles",
+        "pescados"
+      ],
+      "otros": [
+        "lucia",
+        "pancho",
+        "mateo"
+      ]
+    },
+    "ernesto": {
+      "nombre": "Don Ernesto",
+      "etiqueta": "Don Ernesto, el del faro",
+      "placa": "DON ERNESTO",
+      "sprite": "sprite_ernesto",
+      "retrato": "retrato_ernesto",
+      "temas": [
+        "pescados",
+        "soles",
+        "hielo"
+      ],
+      "otros": [
+        "mateo"
+      ]
+    },
+    "mateo": {
+      "nombre": "Mateo",
+      "etiqueta": "Mateo",
+      "placa": "MATEO",
+      "sprite": "sprite_mateo",
+      "retrato": "retrato_mateo"
+    },
+    "lucia": {
+      "nombre": "Lucía",
+      "etiqueta": "Lucía",
+      "placa": "LUCIA",
+      "sprite": "sprite_lucia",
+      "retrato": "retrato_lucia"
+    },
+    "nino_playa": {
+      "nombre": "Rodrigo",
+      "etiqueta": "Rodrigo",
+      "placa": "RODRIGO",
+      "sprite": "sprite_nino_playa",
+      "retrato": "retrato_nino_playa"
+    },
+    "pescador2": {
+      "nombre": "Don Julio",
+      "etiqueta": "Don Julio, el pescador",
+      "placa": "DON JULIO",
+      "sprite": "sprite_pescador2",
+      "retrato": "retrato_pescador2"
+    },
+    "cofre": {
+      "nombre": "Cofre",
+      "etiqueta": "Cofre con candado",
+      "placa": "COFRE",
+      "sprite": "sprite_ecu",
+      "retrato": "retrato_cofre",
+      "invisible": true,
+      "temas": [
+        "monedas"
+      ],
+      "otros": [
+        "mateo"
+      ]
+    },
+    "julio": {
+      "nombre": "Don Julio",
+      "etiqueta": "Don Julio, maestro de obra",
+      "placa": "DON JULIO",
+      "sprite": "sprite_julio",
+      "retrato": "retrato_julio",
+      "temas": [
+        "fierro",
+        "ladrillos",
+        "soles"
+      ]
+    },
+    "rosa_m": {
+      "nombre": "Señora Rosa",
+      "etiqueta": "Señora Rosa · obrera",
+      "placa": "SEÑORA ROSA",
+      "sprite": "sprite_rosa_m",
+      "retrato": "retrato_rosa_m",
+      "temas": [
+        "ladrillos",
+        "cemento"
+      ]
+    },
+    "sofia": {
+      "nombre": "Arq. Sofía",
+      "etiqueta": "Arquitecta Sofía",
+      "placa": "ARQ. SOFIA",
+      "sprite": "sprite_sofia",
+      "retrato": "retrato_sofia",
+      "temas": [
+        "plano",
+        "pintura"
+      ]
+    },
+    "tomas": {
+      "nombre": "Don Tomás",
+      "etiqueta": "Don Tomás, el de la cantera",
+      "placa": "DON TOMAS",
+      "sprite": "sprite_tomas",
+      "retrato": "retrato_tomas",
+      "temas": [
+        "engranajes",
+        "rieles"
+      ]
+    },
+    "nino_pelota": {
+      "nombre": "Bruno",
+      "etiqueta": "Bruno",
+      "placa": "BRUNO",
+      "sprite": "sprite_nino_pelota",
+      "retrato": "retrato_nino_pelota"
+    },
+    "nina_parque": {
+      "nombre": "Camila",
+      "etiqueta": "Camila",
+      "placa": "CAMILA",
+      "sprite": "sprite_nina_parque",
+      "retrato": "retrato_nina_parque"
+    },
+    "senora_kiosko": {
+      "nombre": "Doña Maruja",
+      "etiqueta": "Doña Maruja, la del kiosko",
+      "placa": "DOÑA MARUJA",
+      "sprite": "sprite_senora_kiosko",
+      "retrato": "retrato_senora_kiosko"
+    },
+    "feliza": {
+      "nombre": "Doña Feliza",
+      "etiqueta": "Doña Feliza",
+      "placa": "DOÑA FELIZA",
+      "sprite": "sprite_feliza",
+      "retrato": "retrato_feliza",
+      "temas": [
+        "anticuchos",
+        "picarones"
+      ]
+    },
+    "nino_globo": {
+      "nombre": "Pepe",
+      "etiqueta": "Pepe, el del tiro al blanco",
+      "placa": "PEPE",
+      "sprite": "sprite_nino_globo",
+      "retrato": "retrato_nino_globo",
+      "temas": [
+        "tablero",
+        "globos"
+      ]
+    },
+    "ramon": {
+      "nombre": "Don Ramón",
+      "etiqueta": "Don Ramón, el de la rueda",
+      "placa": "DON RAMON",
+      "sprite": "sprite_gente3",
+      "retrato": "sprite_gente3",
+      "temas": [
+        "rueda",
+        "boletos"
+      ]
+    },
+    "tombolera": {
+      "nombre": "Señora Rufina",
+      "etiqueta": "Señora Rufina",
+      "placa": "SEÑORA RUFINA",
+      "sprite": "sprite_tombolera",
+      "retrato": "retrato_tombolera",
+      "temas": [
+        "premios",
+        "caramelos"
+      ]
+    },
+    "aurelio": {
+      "nombre": "Don Aurelio",
+      "etiqueta": "Don Aurelio, el del castillo",
+      "placa": "DON AURELIO",
+      "sprite": "sprite_aurelio",
+      "retrato": "retrato_aurelio",
+      "temas": [
+        "castillo",
+        "cohetes"
+      ]
+    },
+    "danzante": {
+      "nombre": "Rosita",
+      "etiqueta": "Rosita, la danzante",
+      "placa": "ROSITA",
+      "sprite": "sprite_danzante",
+      "retrato": "retrato_danzante"
+    },
+    "gente0": {
+      "nombre": "Don Pedro",
+      "placa": "DON PEDRO",
+      "sprite": "sprite_gente0",
+      "retrato": "sprite_gente0"
+    },
+    "gente1": {
+      "nombre": "Lucía",
+      "placa": "LUCIA",
+      "sprite": "sprite_gente1",
+      "retrato": "sprite_gente1"
+    },
+    "gente2": {
+      "nombre": "Señora Juana",
+      "placa": "SEÑORA JUANA",
+      "sprite": "sprite_gente2",
+      "retrato": "sprite_gente2"
+    },
+    "gente4": {
+      "nombre": "Martín",
+      "placa": "MARTIN",
+      "sprite": "sprite_gente4",
+      "retrato": "sprite_gente4"
+    },
+    "gente5": {
+      "nombre": "Carla",
+      "placa": "CARLA",
+      "sprite": "sprite_gente5",
+      "retrato": "sprite_gente5"
+    }
+  },
+  "jugables": {
+    "p1": {
+      "nombre": "Personaje 1"
+    },
+    "p2": {
+      "nombre": "Personaje 2"
+    },
+    "p3": {
+      "nombre": "Personaje 3"
+    },
+    "p4": {
+      "nombre": "Personaje 4"
+    }
+  }
+}
