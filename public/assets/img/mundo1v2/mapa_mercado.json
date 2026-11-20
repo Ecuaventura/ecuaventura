@@ -1,0 +1,446 @@
+{
+ "tile_px": 16,
+ "escala_juego": 4,
+ "zona": {
+  "ancho": 48,
+  "alto": 28,
+  "leyenda": {
+   "g": "pasto",
+   "f": "flores",
+   ".": "camino",
+   ",": "plaza"
+  },
+  "suelo": [
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+   "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+   "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+   "...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,...",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "ggg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,ggg",
+   "................................................",
+   "ffffffffffffffffffffff....ffffffffffffffffffffff",
+   "fggggggggggggggggggggf....fggggfgggggggggggggggf",
+   "fggggggggggggggggggggf....fggggggggggggggfgggggf",
+   "ffffffffffffffffffffff....ffffffffffffffffffffff"
+  ],
+  "objetos": [
+   {
+    "tipo": "market_hall",
+    "x": 12.0,
+    "y": 0.0
+   },
+   {
+    "tipo": "colonial",
+    "x": 1.0,
+    "y": 0.62
+   },
+   {
+    "tipo": "colonial",
+    "x": 6.0,
+    "y": 0.62
+   },
+   {
+    "tipo": "colonial",
+    "x": 37.0,
+    "y": 0.62
+   },
+   {
+    "tipo": "colonial",
+    "x": 42.0,
+    "y": 0.62
+   },
+   {
+    "tipo": "stall2",
+    "x": 5.0,
+    "y": 8.62
+   },
+   {
+    "tipo": "stall2",
+    "x": 5.0,
+    "y": 16.62
+   },
+   {
+    "tipo": "stall2",
+    "x": 37.0,
+    "y": 8.62
+   },
+   {
+    "tipo": "stall2",
+    "x": 37.0,
+    "y": 16.62
+   },
+   {
+    "tipo": "arch_exit",
+    "x": 44.62,
+    "y": 9.38
+   },
+   {
+    "tipo": "plaza_ring",
+    "x": 22.5,
+    "y": 12.38
+   },
+   {
+    "tipo": "fountain",
+    "x": 22.5,
+    "y": 12.38
+   },
+   {
+    "tipo": "pennants",
+    "x": 15.5,
+    "y": 9.62
+   },
+   {
+    "tipo": "pennants",
+    "x": 15.5,
+    "y": 19.62
+   },
+   {
+    "tipo": "planter",
+    "x": 10.0,
+    "y": 13.19
+   },
+   {
+    "tipo": "planter",
+    "x": 35.38,
+    "y": 19.38
+   },
+   {
+    "tipo": "planter",
+    "x": 10.38,
+    "y": 21.0
+   },
+   {
+    "tipo": "planter",
+    "x": 29.0,
+    "y": 11.62
+   },
+   {
+    "tipo": "lamp",
+    "x": 15.0,
+    "y": 9.38
+   },
+   {
+    "tipo": "lamp",
+    "x": 32.0,
+    "y": 9.38
+   },
+   {
+    "tipo": "lamp",
+    "x": 15.0,
+    "y": 19.38
+   },
+   {
+    "tipo": "lamp",
+    "x": 32.0,
+    "y": 19.38
+   },
+   {
+    "tipo": "bench",
+    "x": 18.0,
+    "y": 20.38
+   },
+   {
+    "tipo": "bench",
+    "x": 27.0,
+    "y": 20.38
+   },
+   {
+    "tipo": "flower_stand",
+    "x": 13.0,
+    "y": 15.62
+   },
+   {
+    "tipo": "juice_stand",
+    "x": 31.0,
+    "y": 15.38
+   },
+   {
+    "tipo": "emoliente",
+    "x": 20.0,
+    "y": 8.38
+   },
+   {
+    "tipo": "sacks",
+    "x": 11.0,
+    "y": 10.0
+   },
+   {
+    "tipo": "sacks",
+    "x": 34.0,
+    "y": 21.0
+   },
+   {
+    "tipo": "baskets",
+    "x": 11.0,
+    "y": 19.62
+   },
+   {
+    "tipo": "baskets",
+    "x": 41.0,
+    "y": 13.19
+   },
+   {
+    "tipo": "crates",
+    "x": 4.19,
+    "y": 13.0
+   },
+   {
+    "tipo": "barrels",
+    "x": 42.38,
+    "y": 21.62
+   },
+   {
+    "tipo": "balloons",
+    "x": 26.0,
+    "y": 17.62
+   },
+   {
+    "tipo": "tree",
+    "x": 0.0,
+    "y": 7.0
+   },
+   {
+    "tipo": "tree",
+    "x": 0.0,
+    "y": 15.0
+   },
+   {
+    "tipo": "tree",
+    "x": 0.0,
+    "y": 20.0
+   },
+   {
+    "tipo": "tree",
+    "x": 45.62,
+    "y": 6.38
+   },
+   {
+    "tipo": "tree",
+    "x": 45.62,
+    "y": 17.0
+   },
+   {
+    "tipo": "tree",
+    "x": 3.0,
+    "y": 23.62
+   },
+   {
+    "tipo": "tree",
+    "x": 12.0,
+    "y": 23.81
+   },
+   {
+    "tipo": "tree",
+    "x": 18.0,
+    "y": 23.62
+   },
+   {
+    "tipo": "tree",
+    "x": 29.0,
+    "y": 23.62
+   },
+   {
+    "tipo": "tree",
+    "x": 36.0,
+    "y": 23.81
+   },
+   {
+    "tipo": "tree",
+    "x": 44.0,
+    "y": 23.62
+   },
+   {
+    "tipo": "bush",
+    "x": 8.0,
+    "y": 24.62
+   },
+   {
+    "tipo": "bush",
+    "x": 40.0,
+    "y": 24.81
+   },
+   {
+    "tipo": "bush",
+    "x": 33.0,
+    "y": 25.62
+   },
+   {
+    "tipo": "cat",
+    "x": 17.0,
+    "y": 22.38
+   },
+   {
+    "tipo": "cat",
+    "x": 40.5,
+    "y": 12.19
+   },
+   {
+    "tipo": "pigeon",
+    "x": 21.0,
+    "y": 17.19
+   },
+   {
+    "tipo": "pigeon",
+    "x": 22.0,
+    "y": 17.62
+   },
+   {
+    "tipo": "pigeon",
+    "x": 26.5,
+    "y": 11.62
+   },
+   {
+    "tipo": "pigeon",
+    "x": 25.0,
+    "y": 21.38
+   },
+   {
+    "tipo": "flowerbed",
+    "x": 9.0,
+    "y": 25.0
+   },
+   {
+    "tipo": "flowerbed",
+    "x": 38.0,
+    "y": 25.0
+   }
+  ],
+  "puestos_niveles": {
+   "1": [
+    7,
+    11
+   ],
+   "2": [
+    7,
+    19
+   ],
+   "3": [
+    39,
+    11
+   ],
+   "4": [
+    39,
+    19
+   ],
+   "5": [
+    46,
+    13
+   ]
+  },
+  "npc": {
+   "compradora": [
+    27,
+    14.6
+   ],
+   "senor": [
+    17.4,
+    12.4
+   ],
+   "nina": [
+    30,
+    21.0
+   ],
+   "dona_rosa": [
+    38.5,
+    10.4
+   ],
+   "don_lucho": [
+    6.5,
+    10.4
+   ],
+   "carmen": [
+    6.5,
+    18.4
+   ],
+   "nino": [
+    24,
+    18.6
+   ],
+   "flores": [
+    14.4,
+    14.2
+   ],
+   "jugos": [
+    32.4,
+    14.0
+   ],
+   "emoliente": [
+    21.2,
+    7.6
+   ]
+  }
+ },
+ "laberinto_ejemplo_nivel3": {
+  "leyenda": {
+   "R": "techo interior (no caminable)",
+   "#": "mostrador con productos (no caminable)",
+   "n": "canasta decorativa (no caminable)",
+   ".": "piso de losetas",
+   "o": "paso que bloquea un vecino",
+   "B": "bandera/meta"
+  },
+  "mapa": [
+   "RRRRRRRRRRRRRRRRRRRRRR",
+   "#...............B....#",
+   "###############o######",
+   "#....................#",
+   "#..nnnn.......nnnn...#",
+   "#....................#",
+   "######o###############",
+   "#....................#",
+   "############o#########",
+   "#....................#",
+   "#...nnnn.......nnnn..#",
+   "######################"
+  ],
+  "vecinos": {
+   "carmen": [
+    15,
+    1.6
+   ],
+   "don_lucho": [
+    6,
+    5.6
+   ],
+   "dona_rosa": [
+    12,
+    7.6
+   ]
+  }
+ },
+ "camaras_plantillas": {
+  "zona": [
+   22.0,
+   7.0
+  ],
+  "zona_bloq": [
+   25.0,
+   9.0
+  ],
+  "salida": [
+   26.0,
+   7.0
+  ],
+  "fin": [
+   13.0,
+   6.0
+  ]
+ }
+}

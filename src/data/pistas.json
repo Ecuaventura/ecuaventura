@@ -1,0 +1,82 @@
+{
+  "_ayuda": "Pistas de Ecu por tipo de ecuación. 'conRespuesta' se usa cuando ya hubo una respuesta equivocada ({r} = lo que escribió, {lado} = cuánto da con ese número, {estado}/{estadoSaco}/{estadoNumero} = muy chico o muy grande). 'paso' orienta el procedimiento. Nunca se muestra el valor de x.",
+  "x+a=b": {
+    "sinRespuesta": "El saco y la pesa de <b>{a} kg</b> juntos pesan lo mismo que <b>{b} kg</b>.",
+    "conRespuesta": "Mira la balanza: <b>{r} + {a} = {lado}</b>, y las pesas marcan <b>{b}</b>. El saco quedó {estadoSaco}.",
+    "paso": "Quita la pesa de <b>{a} kg</b> de los dos lados: ¿cuántos kilos quedan para el saco?"
+  },
+  "x-a=b": {
+    "sinRespuesta": "Al saco le sacaste <b>{a} kg</b> y la balanza marca <b>{b} kg</b>.",
+    "conRespuesta": "Mira: <b>{r} − {a} = {lado}</b>, pero la balanza marca <b>{b}</b>. Tu número es muy {estadoNumero}.",
+    "paso": "Devuelve al saco los <b>{a} kg</b> que sacaste: junta lo que quedó con lo que sacaste."
+  },
+  "ax=b": {
+    "sinRespuesta": "Hay <b>{a} sacos</b> iguales y entre todos pesan <b>{b} kg</b>.",
+    "conRespuesta": "Mira la balanza: <b>{a} × {r} = {lado}</b>, y las pesas marcan <b>{b}</b>. Los sacos quedaron {estado}.",
+    "paso": "Reparte los <b>{b} kg</b> entre los <b>{a} sacos</b>: ¿cuántos kilos le tocan a cada uno?"
+  },
+  "estados": {
+    "liviano": {
+      "estado": "livianos",
+      "estadoSaco": "liviano",
+      "estadoNumero": "pequeño"
+    },
+    "pesado": {
+      "estado": "pesados",
+      "estadoSaco": "pesado",
+      "estadoNumero": "grande"
+    }
+  },
+  "terminos": {
+    "_ayuda": "Pistas de términos semejantes, con los números del reto: {juntaX} x + 4x = 5x, {coef} 5x, {numsIzq} 3 − 1, {izq} su resultado, {numsDer} 2 + 10, {d} lado sin x.",
+    "conRespuesta": "Con x = {r} el lado de las x da <b>{lado}</b>, pero debe dar <b>{d}</b>: tu número es muy {estadoNumero}.",
+    "numeros": "Junta las x (<b>{juntaX}</b>) y los números (<b>{numsIzq} = {izq}</b>). Luego pasa el {izq} restando al otro lado: <b>{coef} = …</b>",
+    "numerosDosLados": "Junta las x (<b>{juntaX}</b>), los números de un lado (<b>{numsIzq} = {izq}</b>) y los del otro (<b>{numsDer} = {d}</b>). Pasa el {izq} restando: <b>{coef} = …</b>",
+    "dividir": "Junta las x: <b>{juntaX}</b>. Ahora tienes <b>{coef} = {d}</b>: ¿qué número multiplicado por {a} da {d}?"
+  },
+  "parentesis": {
+    "_ayuda": "Pistas de paréntesis con los números del reto: {expansion} 2(x + 3) = 2x + 6, {junta} juntar con el número de afuera, {n} número que se pasa, {como} restando/sumando, {coefx} 2x, {coef} 2.",
+    "conRespuesta": "Con x = {r} el lado del paréntesis da <b>{lado}</b>, pero debe dar <b>{d}</b>: tu número es muy {estadoNumero}.",
+    "pasos": "Multiplica el paréntesis: <b>{expansion}</b>.{junta} Luego pasa el <b>{n}</b> {como} al otro lado: <b>{coefx} = …</b> y reparte entre {coef}.",
+    "junta": " Junta los números: <b>{ab} {signo} {c} = {n}</b>."
+  },
+  "ambos": {
+    "_ayuda": "Pistas de paréntesis en ambos lados con los números del reto: {expansion} 3x − 6 = 2x + 2 (sin paréntesis), {xs} 3x − 2x (las x juntas en un lado), {nums} 2 + 6 (los números al otro lado), {coefx} x o 2x (lo que queda), {lado} izquierda/derecha. Nunca se da el valor de x.",
+    "conRespuesta": "Con x = {r} un lado da <b>{L}</b> y el otro da <b>{R}</b>: no son iguales.",
+    "quitar": "1. Quita los paréntesis (multiplica lo de adentro y cuida el signo −): <b>{expansion}</b>.",
+    "juntar": "2. Las x a la {lado}: <b>{xs}</b>. 3. Los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+  },
+  "fracciones": {
+    "_ayuda": "Pistas de fracciones y paréntesis con los números del reto: {cruz} 3(x + 1) = 2(x + 4) (sin denominadores), {sinPar} 3x + 3 = 2x + 8 (sin paréntesis), {xs} 3x − 2x (las x en un lado), {nums} 8 − 3 (los números al otro), {coefx} lo que queda, {lado} izquierda/derecha. Nunca se da el valor de x.",
+    "conRespuesta": "Con x = {r} un lado da <b>{L}</b> y el otro da <b>{R}</b>: no son iguales.",
+    "quitar": "1. Quita los denominadores (multiplica en cruz): <b>{cruz}</b>.",
+    "parentesis": "2. Quita los paréntesis: <b>{sinPar}</b>.",
+    "juntar": "Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+  },
+  "fraccionFraccion": {
+    "_ayuda": "Pistas de fracción sobre fracción (Mundo 5, diseño 505) con los números del reto, una lista por forma. {frac} la fracción entre la que se divide, {inv} su invertida, {arriba} lo que debe dar arriba, {queda} lo que queda, {multiplica} la ecuación sin la división, {cruz} en cruz, {sinPar} sin paréntesis, {xs} las x en un lado, {nums} los números al otro, {coefx} lo que queda, {lado} izquierda/derecha. Con respuesta: {r}, {L}, {R}. Nunca se da el valor de x.",
+    "conRespuesta": "Con x = {r} un lado da <b>{L}</b> y el otro da <b>{R}</b>: no son iguales.",
+    "formas": {
+      "sobreNumero": [
+        "Dividir entre <b>{frac}</b> es lo mismo que multiplicar por <b>{inv}</b>. Haz el camino al revés:",
+        "Arriba debe quedar <b>{arriba}</b>. Entonces <b>{queda}</b>. Pasa el {b} restando y multiplica por {a}. ¿Cuánto es x?"
+      ],
+      "sobreParen": [
+        "Dividir entre <b>{frac}</b> es lo mismo que multiplicar por <b>{inv}</b>: <b>{multiplica}</b>.",
+        "Quita los paréntesis: <b>{sinPar}</b>. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ],
+      "sobreFrac": [
+        "Dividir entre <b>{frac}</b> es lo mismo que multiplicar por <b>{inv}</b>: <b>{multiplica}</b>.",
+        "Multiplica en cruz: <b>{cruz}</b>. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ],
+      "simplifica": [
+        "Dividir entre <b>{frac}</b> es multiplicar por <b>{inv}</b>, y ese {c} se simplifica con el denominador: <b>{multiplica}</b>.",
+        "Quita el paréntesis: <b>{sinPar}</b>. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ],
+      "final": [
+        "Primero arriba: <b>{arriba}</b>. Dividir entre 1/{d} es multiplicar por {d}, y multiplica por {b} para quitar el denominador: <b>{multiplica}</b>.",
+        "Quita los paréntesis. Las x a la {lado}: <b>{xs}</b>, y los números al otro lado: <b>{nums}</b>. Te queda <b>{coefx} = …</b>"
+      ]
+    }
+  }
+}

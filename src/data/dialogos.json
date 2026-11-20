@@ -1,0 +1,272 @@
+{
+  "_ayuda": "Textos de los retos con balanza. Marcadores: {nombre} jugador, {vecino}, {producto}, {a}, {b}, {x} solución, {comprobacion}, {siguiente}. Se permite <b>.",
+  "retos": {
+    "x+a=b": {
+      "titulo": "BALANZA DE {VECINO}",
+      "intro": "<b class=\"c-guinda\">¡Hola, {nombre}!</b> En mi balanza puse <b>un saco de {producto}</b> y una pesa de <b>{a} kg</b>. Al otro lado, las pesas marcan <b>{b} kg</b>.",
+      "pregunta": "¿Cuántos kilos pesa el saco?",
+      "nota": "El saco pesa <b>x</b> kg",
+      "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> El saco pesa <b>{x} kg</b>: {comprobacion}. ¡La balanza quedó perfecta!"
+    },
+    "x-a=b": {
+      "titulo": "BALANZA DE {VECINO}",
+      "intro": "<b class=\"c-guinda\">¡Hola, {nombre}!</b> Tenía un saco de {producto}. Le saqué <b>{a} kg</b> para vender y ahora la balanza marca <b>{b} kg</b>.",
+      "pregunta": "¿Cuántos kilos pesaba el saco al principio?",
+      "nota": "Al principio el saco pesaba <b>x</b> kg",
+      "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> El saco pesaba <b>{x} kg</b>: {comprobacion}. ¡La balanza quedó perfecta!"
+    },
+    "ax=b": {
+      "titulo": "BALANZA DE {VECINO}",
+      "intro": "<b class=\"c-guinda\">¡Hola, {nombre}!</b> Puse <b>{a} sacos iguales de {producto}</b> en mi balanza y entre todos pesan <b>{b} kg</b>.",
+      "pregunta": "¿Cuántos kilos pesa cada saco?",
+      "nota": "Cada saco pesa <b>x</b> kg",
+      "correcto": "<b class=\"c-verde\">¡Gracias, {nombre}!</b> Cada saco pesa <b>{x} kg</b>: {comprobacion}. ¡La balanza quedó perfecta!"
+    }
+  },
+  "comun": {
+    "instruccion": "Escribe tu respuesta y presiona Enter o COMPROBAR.",
+    "pasos": [
+      "1. Plantea la ecuación",
+      "2. Resuélvela",
+      "3. Escribe solo el número"
+    ],
+    "siguiente": "Pasa nomás, te dejo el camino libre. Más allá está <b>{siguiente}</b>, creo que también necesita ayuda.",
+    "ultimo": "Pasa nomás, te dejo el camino libre. ¡La <b>bandera</b> ya está muy cerca!",
+    "ultimoSalida": "¡Ya puedes salir del mercado! El <b>cóndor</b> te espera en el arco.",
+    "otroVecino": "¡Gracias! Todavía falta ayudar a <b>{siguiente}</b>.",
+    "error": "Mmm… la balanza se inclina. Revisa tu cuenta e inténtalo otra vez.",
+    "errorVidaReal": "Mmm… esa cuenta no me sale. Revisa tu ecuación e inténtalo otra vez.",
+    "bannerError": "¡CASI! LA BALANZA SE INCLINA",
+    "bannerErrorVidaReal": "¡CASI! REVISA LA CUENTA",
+    "invalido": "Ingrese un número válido",
+    "esperaTodos": "¡Hola, {nombre}! Primero ayuda a <b>{faltan}</b>. Después te espero aquí, en la salida.",
+    "yaAyudado": "¡Gracias otra vez, {nombre}! Sigue adelante.",
+    "pistaCierre": "La pista no te da el resultado: ¡tú puedes!",
+    "errorTerminos": "Mmm… así no cuadra. Revisa: junta las x, junta los números y vuelve a intentarlo.",
+    "bannerErrorTerminos": "¡CASI! NO CUADRA"
+  },
+  "ayudados": {
+    "_ayuda": "Frases de un vecino ya ayudado (no vuelve a plantear el reto ni cambia el puntaje). 'consejos' se usan si queda algún vecino por ayudar ({siguiente}); 'gracias' cuando ya no queda ninguno.",
+    "burbuja": "¡Gracias, {nombre}!",
+    "vecinos": {
+      "carmen": {
+        "gracias": [
+          "¡Gracias otra vez, {nombre}! Mis naranjas ya están bien pesadas.",
+          "Con tu ayuda la balanza quedó perfecta. ¡Vuelve cuando quieras!"
+        ],
+        "consejos": [
+          "Un consejo para ayudar a <b>{siguiente}</b>: lo que haces a un lado de la balanza, hazlo también al otro.",
+          "Antes de responder a <b>{siguiente}</b>, revisa tu número en la ecuación: si las dos partes dan lo mismo, ¡acertaste!"
+        ]
+      },
+      "don_lucho": {
+        "gracias": [
+          "¡Gracias, {nombre}! Ya cuadré mis cuentas de choclo.",
+          "Eres muy bueno con los números. ¡Sigue así!"
+        ],
+        "consejos": [
+          "<b>{siguiente}</b> te espera. Recuerda: si a x le quitaron algo, devuélveselo para saber cuánto había.",
+          "Para el reto de <b>{siguiente}</b>, escribe solo el número en la caja, sin «kg» ni «S/»."
+        ]
+      },
+      "dona_rosa": {
+        "gracias": [
+          "¡Gracias, {nombre}! Mis sacos de papa ya pesan lo justo.",
+          "¡Qué bien me ayudaste! Mi balanza nunca estuvo tan equilibrada."
+        ],
+        "consejos": [
+          "Ve con <b>{siguiente}</b>. Si hay varios sacos iguales, reparte el peso total entre todos.",
+          "Si te equivocas con <b>{siguiente}</b>, mira hacia dónde se inclina la balanza: te dice si tu número es muy grande o muy chico."
+        ]
+      },
+      "jhon": {
+        "gracias": [
+          "¡Gracias, {nombre}! Mi bus salió a la hora exacta.",
+          "Con tus cuentas ya no se queda nadie de pie. ¡Bien hecho!"
+        ],
+        "consejos": [
+          "Para ayudar a <b>{siguiente}</b>: primero separa a los pasajeros sueltos y luego reparte el resto entre los grupos.",
+          "Antes de responder a <b>{siguiente}</b>, cuenta: si llenas justo los asientos, ¡acertaste!"
+        ]
+      },
+      "marina": {
+        "gracias": [
+          "¡Gracias, {nombre}! Invítate un emoliente calientito cuando quieras.",
+          "Todos mis pasajeros quedaron bien sentados. ¡Gracias!"
+        ],
+        "consejos": [
+          "<b>{siguiente}</b> te espera. Si los pasajeros se reparten en partes iguales, piensa cuántos hay en total.",
+          "Un consejo para <b>{siguiente}</b>: si bajaron pasajeros, súmalos de vuelta para saber cuántos había."
+        ]
+      },
+      "julia": {
+        "gracias": [
+          "¡Gracias, {nombre}! Ya cuadré la caja de la boletería.",
+          "Los pasajes y los asientos ya cuadran. ¡Buen viaje!"
+        ],
+        "consejos": [
+          "Ve con <b>{siguiente}</b>. Escribe solo el número en la caja, sin «S/» ni «pasajeros».",
+          "Si te equivocas con <b>{siguiente}</b>, mira el bus: si alguien queda de pie, tu número es muy grande."
+        ]
+      },
+      "teofilo": {
+        "gracias": [
+          "¡Gracias, {nombre}! Con mi bus lleno ya podemos salir.",
+          "¡Eres un gran ayudante de la terminal!"
+        ],
+        "consejos": [
+          "<b>{siguiente}</b> necesita ayuda. Recuerda: lo que haces a un lado de la ecuación, hazlo también al otro.",
+          "Para el reto de <b>{siguiente}</b>, primero quita lo que está suelto y después reparte."
+        ]
+      },
+      "pancho": {
+        "gracias": [
+          "¡Gracias, {nombre}! Mis cajas ya están contadas.",
+          "¡Con tu ayuda el bote sale derechito!"
+        ],
+        "consejos": [
+          "Primero quita los paréntesis: multiplica el número de afuera por todo lo de adentro."
+        ]
+      },
+      "cofre": {
+        "gracias": [
+          "El cofre ya está abierto."
+        ],
+        "consejos": [
+          "Ecu: Quita los paréntesis y junta las x de un solo lado."
+        ]
+      },
+      "elena": {
+        "gracias": [
+          "¡Gracias, {nombre}! Mi depósito ya está abierto."
+        ],
+        "consejos": [
+          "Cuidado con el menos delante del paréntesis: cambia el signo de todo lo de adentro."
+        ]
+      },
+      "ernesto": {
+        "gracias": [
+          "¡Gracias, {nombre}! El faro ya alumbra a los pescadores."
+        ],
+        "consejos": [
+          "Escribe lo de cada persona a un lado del igual y resuelve."
+        ]
+      },
+      "julio": {
+        "gracias": [
+          "¡Gracias, {nombre}! Con tu ayuda la obra avanza rapidito.",
+          "¡Buen trabajo, {nombre}! Ya pareces maestro de obra."
+        ],
+        "consejos": [
+          "Primero quita los denominadores: multiplica los dos lados por el número de abajo."
+        ]
+      },
+      "rosa_m": {
+        "gracias": [
+          "¡Gracias, {nombre}! Las torres quedaron parejitas."
+        ],
+        "consejos": [
+          "Si hay un número delante del paréntesis, multiplícalo por todo lo de adentro."
+        ]
+      },
+      "sofia": {
+        "gracias": [
+          "¡Gracias, {nombre}! Mi plano ya tiene todas sus medidas."
+        ],
+        "consejos": [
+          "Con una fracción a cada lado, multiplica en cruz: el de abajo de un lado pasa arriba del otro."
+        ]
+      },
+      "tomas": {
+        "gracias": [
+          "¡Gracias, {nombre}! Los engranajes ya giran."
+        ],
+        "consejos": [
+          "Ve paso a paso: denominadores, paréntesis y al final despeja x."
+        ]
+      },
+      "feliza": {
+        "gracias": [
+          "¡Gracias, {nombre}! Mis cuentas de anticuchos ya cuadran.",
+          "¡Qué rico huele la Feria! Gracias por tu ayuda, {nombre}."
+        ],
+        "consejos": [
+          "Recuerda: dividir entre 3/4 es multiplicar por 4/3. ¡Así reparto mis porciones!"
+        ]
+      },
+      "nino_globo": {
+        "gracias": [
+          "¡Gracias por mi boleto, {nombre}! Con la ficha puedes subir a la rueda.",
+          "¡Le di al centro del tablero! Gracias, {nombre}."
+        ],
+        "consejos": [
+          "Dividir entre 1/2 es lo mismo que multiplicar por 2. ¡Facilito!"
+        ]
+      },
+      "ramon": {
+        "gracias": [
+          "¡Disfruta la vista desde la rueda, {nombre}!",
+          "Gracias, {nombre}. Con tu cupón te dejan entrar a la tómbola."
+        ],
+        "consejos": [
+          "Primero da vuelta a la fracción de abajo y multiplica. ¡Después es como en la obra!"
+        ]
+      },
+      "tombolera": {
+        "gracias": [
+          "¡Gracias, {nombre}! La mecha es para el castillo de Don Aurelio.",
+          "¡Qué buena suerte tienes con los números, {nombre}!"
+        ],
+        "consejos": [
+          "Si divides entre 1/5 y hay un 5 abajo, ¡se simplifican y desaparecen!"
+        ]
+      },
+      "aurelio": {
+        "gracias": [
+          "¡Mira los fuegos artificiales, {nombre}! Lo lograste.",
+          "¡Gracias, {nombre}! La Feria nunca brilló tanto."
+        ],
+        "consejos": [
+          "Primero junta lo de arriba en una sola fracción y luego multiplica."
+        ]
+      }
+    }
+  },
+  "zona": {
+    "bloqueado": "Este puesto todavía está <b class=\"c-guinda\">cerrado</b>, {nombre}.<br><br>Primero ayuda a <b>{anterior}</b> y se abrirá el nivel {n}.",
+    "bloqueadoSalida": "La salida todavía está <b class=\"c-guinda\">cerrada</b>, {nombre}.<br><br>Primero ayuda a los vecinos de los <b>4 puestos</b>. ¡El cóndor te espera!",
+    "repetir": "¡Hola otra vez, {nombre}! ¿Quieres jugar de nuevo el <b>nivel {n}</b>? Puedes mejorar tu récord.",
+    "empezar": "ESPACIO ▼ empezar",
+    "continuar": "ESPACIO ▼ continuar",
+    "cancelar": "ESC cancelar",
+    "bloqueadoDetalle": "Este puesto todavía está <b class=\"c-guinda\">cerrado</b>, {nombre}.<br><br>Primero ayuda a <b>{anterior}</b> en el {color} (nivel {previo}) y se abrirá el nivel {n}."
+  },
+  "porMundo": {
+    "2": {
+      "siguiente": "¡Ya podemos salir! Te dejo pasar. <b>{siguiente}</b> está más allá, creo que también necesita ayuda.",
+      "ultimo": "¡Ya podemos salir! Te dejo pasar. ¡La <b>bandera</b> ya está muy cerca!",
+      "ultimoSalida": "¡Ya puedes salir al Puerto! El <b>cóndor</b> te espera en el arco.",
+      "error": "Mmm… así no cuadra. Multiplica el paréntesis, pasa el número y vuelve a intentarlo.",
+      "esperaTodos": "¡Hola, {nombre}! Primero ayuda a <b>{faltan}</b>. Después te espero aquí, en la salida al Puerto."
+    },
+    "3": {
+      "misionSiguiente": "¡Muy bien! Vamos con el <b>reto {n} de {total}</b>.",
+      "misionUltimo": "¡Misión cumplida, {nombre}! Lo lograste.",
+      "errorTerminos": "Mmm… los dos lados no dan lo mismo. Quita los paréntesis, junta las x de un lado y los números del otro.",
+      "bannerErrorTerminos": "¡CASI! LOS LADOS NO SON IGUALES"
+    },
+    "4": {
+      "misionSiguiente": "¡Muy bien! Vamos con el <b>reto {n} de {total}</b>.",
+      "misionUltimo": "¡Misión cumplida, {nombre}! La obra sigue avanzando.",
+      "errorTerminos": "Mmm… los dos lados no dan lo mismo. Quita los denominadores, luego los paréntesis y despeja x.",
+      "bannerErrorTerminos": "¡CASI! LOS LADOS NO SON IGUALES"
+    },
+    "5": {
+      "misionSiguiente": "¡Muy bien! Vamos con el <b>reto {n} de {total}</b>.",
+      "misionUltimo": "¡Misión cumplida, {nombre}! La Feria sigue de fiesta.",
+      "errorTerminos": "Mmm… los dos lados no dan lo mismo. Recuerda: dividir entre una fracción es multiplicar por la invertida.",
+      "bannerErrorTerminos": "¡CASI! LOS LADOS NO SON IGUALES"
+    },
+    "_ayuda": "Textos comunes propios de cada mundo (reemplazan a los de comun)."
+  }
+}
