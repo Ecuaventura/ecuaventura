@@ -29,6 +29,7 @@ function probar(nivel, tipo, rangos) {
     else if (tipo === 'fracciones' && !fraccionesExactas(ec)) problemas.push(`división no exacta o entre 0/1: ${textoEcuacion(ec)}`);
     else if (tipo === 'fraccionFraccion' && (!divisionesExactas(ec) || !unaSolucion(ec))) problemas.push(`división no exacta, entre 0 o más de una solución: ${textoEcuacion(ec)}`);
     else if (tipo === 'terminos' && ec.a === 0) problemas.push(`sin x (división entre cero): ${textoEcuacion(ec)}`);
+    else if (/(^|[^0-9])0x/.test(textoEcuacion(ec))) problemas.push(`aparece «0x» en la ecuación: ${textoEcuacion(ec)}`);
     if (ejemplo && clave === ejemplo) problemas.push(`igual al ejemplo: ${textoEcuacion(ec)} (el juego la descarta y genera otra)`);
   }
   return { distintas: distintas.size, problemas };
