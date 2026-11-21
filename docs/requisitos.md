@@ -215,4 +215,3 @@ Criterios de aceptación:
 - La configuración de mundos y niveles, las plantillas de problemas y las pistas se mantendrán en archivos JSON separados de la lógica del juego.
 - Agregar un nivel o un mundo nuevo no requerirá modificar el código, solo añadir su configuración JSON y sus recursos gráficos.
 - Se contará con documentación técnica que explique el procedimiento para agregar nuevos contenidos matemáticos.
-
