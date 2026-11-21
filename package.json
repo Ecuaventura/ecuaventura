@@ -1,8 +1,14 @@
+
 {
   "name": "ecuaventura",
   "version": "1.0.1",
   "description": "Videojuego para aprender ecuaciones de primer grado (1.° a 5.° de secundaria)",
   "author": "Equipo EcuAventura – UNAMBA",
+  "homepage": "https://github.com/Ecuaventura/ecuaventura",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ecuaventura/ecuaventura.git"
+  },
   "private": true,
   "type": "module",
   "scripts": {
@@ -67,6 +73,7 @@
       "installerHeaderIcon": "build/icon.ico",
       "uninstallDisplayName": "EcuAventura",
       "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
       "artifactName": "${productName} Setup ${version}.${ext}"
     },
     "portable": {
@@ -74,6 +81,3 @@
     }
   }
 }
-
-
-
