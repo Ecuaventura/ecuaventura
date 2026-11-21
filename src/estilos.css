@@ -1,4 +1,4 @@
-/* Tipografías locales (RNF-01: nada de Google Fonts) */
+x/* Tipografías locales (RNF-01: nada de Google Fonts) */
 @font-face {
   font-family: 'Press Start 2P';
   src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
@@ -38,9 +38,15 @@ html, body {
   cursor: pointer;
   user-select: none;
 }
-.boton:hover {
-  filter: brightness(1.08);
+.boton:hover,
+.rpg .btn:hover {
+  filter: brightness(1.12);
 }
+.boton:active,
+.rpg .btn:active {
+  transform: translateY(3px);
+}
+
 .boton:focus {
   outline: none;
 }
