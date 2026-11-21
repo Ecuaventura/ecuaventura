@@ -21,7 +21,7 @@ const HTML = `
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <h2 style="${TITULO}">1 · MUÉVETE</h2>
-<p style="${TEXTO}">Lleva a Ecu por el laberinto con las flechas del teclado o con las teclas W, A, S y D.</p>
+<p style="${TEXTO}">Mueve a tu personaje por el mapa con las flechas o con las teclas W, A, S y D. Ecu te acompaña.</p>
 </div>
 </article>
 <article style="${TARJETA}">
@@ -29,15 +29,15 @@ const HTML = `
 <div style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #f2b632; border: 4px solid #1b1430; box-shadow: inset -4px -4px 0 #c98a14; font-family: 'Press Start 2P', monospace; font-size: 22px; color: #7a1f3d">x</div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
-<h2 style="${TITULO}">2 · ABRE LAS PUERTAS</h2>
-<p style="${TEXTO}">Cada puerta dorada guarda una ecuación. Escribe el valor de x y pulsa COMPROBAR o la tecla Enter.</p>
+<h2 style="${TITULO}">2 · AYUDA A LOS VECINOS</h2>
+<p style="${TEXTO}">Cada vecino te plantea un reto con una ecuación. Escribe el valor de x y pulsa COMPROBAR o la tecla Enter.</p>
 </div>
 </article>
 <article style="${TARJETA}">
 <div aria-hidden="true" style="flex: none; width: 92px; height: 92px; display: flex; align-items: center; justify-content: center; background: #2c3e7a; border: 4px solid #1b1430; box-shadow: inset -4px -4px 0 #1d2b58, inset 4px 4px 0 #4a5fa3; font-family: 'Press Start 2P', monospace; font-size: 34px; color: #ffffff">?</div>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <h2 style="${TITULO}">3 · PIDE UNA PISTA</h2>
-<p style="${TEXTO}">¿Te trabaste? Pulsa PISTA: te orienta sin darte la respuesta, pero descuenta puntos. Si fallas 3 veces, Ecu te ofrece una.</p>
+<p style="${TEXTO}">¿Te trabaste? VER EJEMPLO muestra uno resuelto (gratis) y PISTA te orienta (−50 puntos). Si fallas 3 veces, Ecu te ofrece una.</p>
 </div>
 </article>
 <article style="${TARJETA}">
@@ -55,7 +55,7 @@ const HTML = `
 <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap">
 <span style="${ETIQUETA}">✔ Acierto: <b style="color: #f2b632">+100</b></span>
 <span style="${ETIQUETA}">? Con pista: <b style="color: #f2b632">+50</b></span>
-<span style="${ETIQUETA}">20 niveles · 4 mundos</span>
+<span style="${ETIQUETA}">25 niveles · 5 mundos</span>
 <span style="${ETIQUETA}">Tu avance se guarda solo</span>
 </div>
 <div style="margin-top: auto; display: flex; justify-content: center; gap: 24px">
