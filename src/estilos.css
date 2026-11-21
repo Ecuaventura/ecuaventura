@@ -1,0 +1,329 @@
+x/* Tipografías locales (RNF-01: nada de Google Fonts) */
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+  font-display: block;
+}
+@font-face {
+  font-family: 'Nunito';
+  src: url('/assets/fonts/Nunito-Variable.ttf') format('truetype');
+  font-weight: 200 1000;
+  font-display: block;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1b1430;
+}
+
+#juego {
+  width: 100%;
+  height: 100%;
+}
+
+/* Botones: los diseños usan <a>; aquí son <button> con el mismo aspecto */
+.boton {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  user-select: none;
+}
+.boton:hover,
+.rpg .btn:hover {
+  filter: brightness(1.12);
+}
+.boton:active,
+.rpg .btn:active {
+  transform: translateY(3px);
+}
+
+.boton:focus {
+  outline: none;
+}
+.boton:focus-visible {
+  outline: 3px dashed #fff8ec;
+  outline-offset: 4px;
+}
+.boton:disabled {
+  cursor: default;
+  opacity: 0.55;
+  filter: grayscale(0.4);
+}
+
+.pantalla input::placeholder {
+  color: #8a8178;
+  opacity: 1;
+}
+.pantalla input:focus {
+  outline: none;
+}
+
+/* ==========================================================================
+   Mundo 1 (RPG vista desde arriba): CSS copiado de diseno/html/mundo1/*.html
+   ========================================================================== */
+.rpg, .rpg *, .rpg .boton { box-sizing: border-box; }
+.rpg { color: #fff; }
+.rpg .px { font-family: 'Press Start 2P', monospace; }
+.rpg .dim { position: absolute; inset: 0; background: rgba(27, 20, 48, .55); }
+.rpg .hud { position: absolute; left: 0; top: 0; width: 1366px; height: 72px; padding: 0 16px; display: flex; align-items: center; gap: 18px; background: #7a1f3d; border-bottom: 4px solid #1b1430; box-shadow: inset 0 -4px 0 #f2b632; }
+.rpg .chip { display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 14px; background: #fff8ec; color: #1b1430; border: 4px solid #1b1430; font-weight: 900; font-size: 19px; white-space: nowrap; max-width: 240px; overflow: hidden; flex: none; }
+.rpg .chip img { width: 30px; image-rendering: pixelated; }
+.rpg .stat { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; padding: 5px 12px; background: #4e1027; border: 3px solid #1b1430; }
+.rpg .stat b { font-size: 14px; font-weight: 800; color: #ffe9b8; }
+.rpg .stat span { font-family: 'Press Start 2P'; font-size: 16px; }
+.rpg .btn { display: flex; align-items: center; justify-content: center; height: 48px; padding: 0 14px; background: #7a1f3d; color: #fff; border: 4px solid #1b1430; box-shadow: inset -4px -4px 0 #4e1027, inset 4px 4px 0 #a8345a, 0 5px 0 #1b1430; font-family: 'Press Start 2P'; font-size: 12px; }
+.rpg .btn.oro { background: #f2b632; color: #1b1430; box-shadow: inset -4px -4px 0 #c98a14, inset 4px 4px 0 #ffd877, 0 6px 0 #1b1430; }
+.rpg .btn.verde { background: #157a4f; box-shadow: inset -4px -4px 0 #0e5a3a, inset 4px 4px 0 #2ea06c, 0 6px 0 #1b1430; }
+.rpg .btn.azul { background: #2c3e7a; box-shadow: inset -4px -4px 0 #1d2b58, inset 4px 4px 0 #4a5fa3, 0 5px 0 #1b1430; }
+.rpg .tag { position: absolute; transform: translateX(-50%); padding: 4px 10px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; font-weight: 900; font-size: 17px; white-space: nowrap; pointer-events: none; }
+.rpg .tag.yo { background: #f2b632; }
+.rpg .bang { position: absolute; transform: translateX(-50%); width: 40px; height: 44px; display: flex; align-items: center; justify-content: center; background: #fff; border: 4px solid #1b1430; font-family: 'Press Start 2P'; font-size: 20px; color: #d9324a; box-shadow: 0 4px 0 #1b1430; pointer-events: none; }
+.rpg .bang.espera { color: #8d93a3; }
+.rpg .badge { position: absolute; display: flex; align-items: center; gap: 8px; padding: 6px 10px; border: 4px solid #1b1430; box-shadow: 0 5px 0 #1b1430; font-weight: 900; font-size: 16px; white-space: nowrap; pointer-events: none; }
+.rpg .badge .n { font-family: 'Press Start 2P'; font-size: 16px; }
+.rpg .badge img { width: 26px; image-rendering: pixelated; }
+.rpg .dlg { position: absolute; left: 16px; top: 470px; width: 1334px; height: 282px; display: flex; gap: 20px; padding: 18px 22px; background: #fff8ec; color: #1b1430; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #7a1f3d, inset 0 0 0 8px #fff8ec, inset 0 0 0 11px #f2b632, 0 6px 0 #1b1430; }
+.rpg .ret { flex: none; width: 170px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.rpg .ret .fr { width: 150px; height: 186px; background: #efe4cc; border: 4px solid #1b1430; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+.rpg .ret .fr img { width: 116px; margin-bottom: 4px; image-rendering: pixelated; }
+.rpg .ret .nm { padding: 5px 10px; background: #7a1f3d; color: #fff; border: 3px solid #1b1430; font-family: 'Press Start 2P'; font-size: 11px; white-space: nowrap; }
+.rpg .txt { flex: 1; display: flex; flex-direction: column; gap: 12px; font-size: 25px; font-weight: 800; line-height: 1.38; }
+.rpg .resp { flex: none; width: 300px; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding-left: 20px; border-left: 4px dashed #d8c9a8; }
+.rpg .inp { width: 150px; height: 72px; text-align: center; background: #fff; border: 4px solid #1b1430; box-shadow: inset 4px 4px 0 #e6dccb; font-size: 40px; font-weight: 900; color: #1b1430; font-family: 'Nunito', sans-serif; padding: 0; caret-color: #1b1430; }
+.rpg .inp:focus { outline: none; }
+.rpg .inp.ok { background: #e3f6ea; border-color: #157a4f; color: #0e5a3a; box-shadow: 0 0 0 4px #1b1430; }
+.rpg .inp.mal { background: #fde8df; border-color: #e8572a; color: #8a2c0e; box-shadow: 0 0 0 4px #1b1430; }
+.rpg .panel { position: absolute; left: 283px; top: 92px; width: 800px; height: 360px; background: #fdf3df; color: #1b1430; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #f2b632, 0 8px 0 #1b1430; }
+.rpg .ptitle { position: absolute; left: -4px; top: -4px; padding: 8px 14px; background: #7a1f3d; color: #fff; border: 4px solid #1b1430; font-family: 'Press Start 2P'; font-size: 12px; }
+.rpg .eq { position: absolute; padding: 6px 18px; background: #fff; border: 4px solid #1b1430; font-size: 44px; font-weight: 900; letter-spacing: 1px; white-space: nowrap; }
+.rpg .eq.ok { border-color: #157a4f; color: #157a4f; }
+.rpg .eq.mal { border-color: #e8572a; color: #b8401a; }
+.rpg .k { position: absolute; transform: translate(-50%, -50%); min-width: 38px; padding: 3px 7px; text-align: center; background: #fff8ec; border: 3px solid #1b1430; font-size: 20px; font-weight: 900; color: #7a1f3d; white-space: nowrap; }
+.rpg .k.resta { color: #b8401a; border-color: #b8401a; }
+.rpg .banner { position: absolute; left: 50%; transform: translateX(-50%); padding: 10px 20px; border: 4px solid #1b1430; box-shadow: 0 5px 0 #1b1430; font-family: 'Press Start 2P'; font-size: 16px; white-space: nowrap; }
+.rpg .conf { position: absolute; width: 12px; height: 12px; }
+.rpg .hint { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); display: flex; gap: 18px; align-items: center; padding: 10px 18px; background: rgba(27, 20, 48, .88); border: 3px solid #f2b632; font-size: 18px; font-weight: 800; white-space: nowrap; }
+.rpg .key { display: inline-block; padding: 3px 8px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; box-shadow: 0 3px 0 #1b1430; font-family: 'Press Start 2P'; font-size: 11px; }
+.rpg .aviso { position: absolute; padding: 10px 14px; background: #fff8ec; color: #1b1430; border: 4px solid #1b1430; box-shadow: 0 5px 0 #1b1430; font-size: 19px; font-weight: 900; white-space: nowrap; pointer-events: none; }
+.rpg .tarjeta { position: absolute; left: 1100px; top: 120px; width: 220px; padding: 12px; background: #4e1027; border: 3px solid #1b1430; font-size: 17px; font-weight: 800; line-height: 1.35; }
+.rpg .msg { font-size: 17px; font-weight: 800; color: #b8401a; }
+.rpg .seguir { font-size: 12px; color: #7a1f3d; }
+
+/* Reto de términos semejantes — diseño/8_cambios_entrevista/01 y 07 */
+.rpg .panel { transition: left .25s ease, width .25s ease; }
+.rpg .panel.con-ejemplo { left: 20px; width: 836px; }
+.rpg .ficha { display: inline-flex; align-items: center; justify-content: center; min-width: 52px; height: 66px; padding: 0 12px; border: 4px solid #1b1430; box-shadow: 0 5px 0 #1b1430; font-size: 40px; font-weight: 900; line-height: 1; }
+.rpg .ficha-x { background: #d4e3fb; color: #2a5aa8; }
+.rpg .ficha-n { background: #fde6a6; color: #8a5a00; }
+.rpg .ficha-op { font-size: 40px; font-weight: 900; color: #1b1430; }
+.rpg .grado-reto { position: absolute; right: 20px; top: -21px; padding: 6px 12px; background: #157a4f; color: #fff; border: 3px solid #1b1430; font-family: 'Press Start 2P'; font-size: 12px; }
+.rpg .grado-reto:empty { display: none; }
+.rpg .paso-chip { padding: 6px 10px; background: #f3e8d2; border: 3px solid #1b1430; font-size: 16px; font-weight: 800; color: #1b1430; }
+.rpg .ver-ejemplo { position: absolute; right: 16px; top: 16px; height: 40px; font-size: 12px; padding: 0 14px; gap: 8px; box-shadow: 0 0 0 3px #f2b632, inset -4px -4px 0 #1d2b58, inset 4px 4px 0 #4a5fa3; }
+.libro { font-family: 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; font-size: 15px; }
+.rpg .panel-ejemplo { position: absolute; left: 880px; top: 76px; width: 466px; padding: 12px 14px; display: flex; flex-direction: column; gap: 9px; background: #fdf3df; color: #1b1430; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #2c6fb5, 0 8px 0 #1b1430; pointer-events: auto; animation: aparecerEj .25s ease-out; }
+@keyframes aparecerEj { from { transform: translateX(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.rpg .ej-cabecera { display: flex; align-items: center; gap: 10px; padding: 4px 4px 0; }
+.rpg .ej-chip { padding: 6px 10px; background: #2c6fb5; color: #fff; border: 3px solid #1b1430; font-family: 'Press Start 2P'; font-size: 11px; white-space: nowrap; }
+.rpg .ej-nota { flex: 1; font-size: 15px; font-weight: 800; color: #4e1027; line-height: 1.2; }
+.rpg .ej-cerrar { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: #4e1027; color: #fff; border: 3px solid #1b1430; font-size: 16px; font-weight: 900; box-sizing: border-box; }
+.rpg .ej-ecuacion { padding: 8px; background: #1b1430; color: #f2b632; text-align: center; font-size: 26px; font-weight: 900; }
+.rpg .ej-pasos { display: flex; flex-direction: column; gap: 8px; }
+.rpg .ej-paso { display: flex; flex-direction: column; gap: 2px; padding: 7px 12px; background: #fff; border: 3px solid #1b1430; }
+.rpg .ej-texto { font-size: 15px; font-weight: 800; color: #4e1027; }
+.rpg .ej-texto b { color: #7a1f3d; margin-right: 4px; }
+.rpg .ej-calculo { font-size: 24px; font-weight: 900; color: #1b1430; }
+.rpg .ej-paso.final { background: #e3f6ea; border-color: #157a4f; }
+.rpg .ej-paso.final .ej-calculo { color: #157a4f; }
+.rpg .ej-paso.oculto { padding: 9px 12px; background: #f6ecd6; border: 3px dashed #d8c9a8; color: #b9a78a; font-size: 15px; font-weight: 800; }
+.rpg .ej-pie { display: flex; align-items: center; gap: 8px; padding: 0 4px 2px; }
+.rpg .ej-contador { font-size: 11px; color: #7a1f3d; }
+.rpg .ej-cuadros { display: flex; gap: 3px; flex: 1; }
+.rpg .ej-cuadros i { width: 12px; height: 12px; border: 2px solid #1b1430; background: #fff; }
+.rpg .ej-cuadros i.lleno { background: #2c6fb5; }
+.rpg .ej-siguiente { height: 40px; font-size: 11px; padding: 0 12px; }
+
+/* Zona del Mercado v2 — diseño/2_mundo1_mercado/11b, 19 y 20 */
+.rpg .bang.consejo { color: #2c6fb5; }
+.rpg .resp-bloqueo { justify-content: flex-end; border-left: none; align-items: flex-end; padding-bottom: 6px; }
+.rpg .chip-bloqueo { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #4e1027; color: #fff; border: 3px solid #1b1430; font-size: 17px; font-weight: 900; white-space: nowrap; }
+.rpg .capa-mapa { position: absolute; inset: 0; z-index: 40; background: #1b1430; pointer-events: auto; }
+.rpg .mapa-cabecera { position: absolute; left: 0; top: 0; width: 1366px; height: 56px; padding: 0 16px; display: flex; align-items: center; gap: 18px; background: #7a1f3d; border-bottom: 4px solid #1b1430; box-shadow: inset 0 -4px 0 #f2b632; }
+.rpg .mapa-marco { position: absolute; left: 90px; top: 66px; width: 1186px; height: 692px; overflow: visible; border: 4px solid #f2b632; box-sizing: content-box; margin: -4px; }
+.rpg .etiqueta-mapa { position: absolute; transform: translateX(-50%); padding: 3px 8px; background: rgba(78, 16, 39, .88); color: #fff; font-size: 15px; font-weight: 800; white-space: nowrap; }
+.rpg .cartel-mapa { position: absolute; transform: translateX(-50%); padding: 4px 10px; background: #f2b632; color: #7a1f3d; border: 3px solid #7a1f3d; font-size: 11px; white-space: nowrap; }
+
+/* colores de texto usados en los diálogos */
+.c-guinda { color: #7a1f3d; }
+.c-verde { color: #157a4f; }
+.c-verde-claro { color: #1fa36b; }
+.c-oro { color: #f2b632; }
+.c-celeste { color: #8cc8ff; }
+.c-naranja { color: #ff9f43; }
+.c-azul { color: #2c3e7a; }
+.c-crema { color: #ffe9b8; }
+.c-azul-bus { color: #2c6fb5; }
+
+/* animaciones */
+@keyframes caer { from { transform: translateY(-40px) rotate(0deg); opacity: 1; } to { transform: translateY(340px) rotate(540deg); opacity: 0; } }
+@keyframes subir { from { transform: translateY(20px); opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } to { transform: translateY(-30px); opacity: 0; } }
+@keyframes aparecer { from { transform: translateX(-50%) scale(.6); opacity: 0; } to { transform: translateX(-50%) scale(1); opacity: 1; } }
+@keyframes saltito { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes latido { 0%, 100% { margin-top: 0; } 50% { margin-top: -5px; } }
+@keyframes temblor { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+@keyframes volar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+.rpg .conf.anim { animation: caer 1.8s ease-in forwards; }
+.rpg .puntos-anim { animation: subir 1.8s ease-out forwards; }
+.rpg .banner.anim { animation: aparecer .25s ease-out; }
+.rpg .feliz { animation: saltito .5s ease-in-out 3; }
+.rpg .bang { animation: latido 1s ease-in-out infinite; }
+.rpg .temblor { animation: temblor .25s linear 2; }
+.rpg .volando { animation: volar 2.4s ease-in-out infinite; }
+@keyframes arrancar { 0% { transform: translateX(0); } 15% { transform: translateX(-4px); } 100% { transform: translateX(36px); } }
+.rpg .bus-arranca { animation: arrancar 1.4s ease-in .2s forwards; }
+
+/* Inicio nuevo — diseño/8_cambios_entrevista/00_inicio_nuevo.png */
+@keyframes rebote { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.inicio .pj-inicio { position: absolute; top: 256px; width: 96px; height: 132px; image-rendering: pixelated; animation: rebote 1.4s ease-in-out infinite; }
+.inicio .tarjeta-mundo { position: relative; flex: none; width: 240px; box-sizing: border-box; background: #fff8ec; border: 4px solid #1b1430; box-shadow: 0 6px 0 #1b1430; }
+.inicio .tarjeta-mundo.cerrada { filter: grayscale(1) brightness(.85); }
+.inicio .tm-imagen { position: relative; height: 116px; overflow: hidden; border-bottom: 4px solid #1b1430; }
+.inicio .tm-imagen > img:first-child { width: 232px; height: 116px; object-fit: cover; image-rendering: pixelated; display: block; }
+.inicio .tm-grado { position: absolute; left: 8px; top: 8px; padding: 5px 9px; border: 3px solid #1b1430; font-family: 'Press Start 2P'; font-size: 12px; }
+.inicio .tm-candado { position: absolute; left: 50%; top: 50%; width: 46px; transform: translate(-50%, -40%); image-rendering: pixelated; }
+.inicio .tm-texto { display: flex; flex-direction: column; gap: 5px; padding: 9px 12px 10px; }
+.inicio .flecha-mundo { flex: none; width: 22px; height: 26px; display: flex; justify-content: center; }
+.inicio .flecha-mundo::before { content: ''; border-left: 14px solid #f2b632; border-top: 11px solid transparent; border-bottom: 11px solid transparent; filter: drop-shadow(2px 2px 0 #1b1430); }
+
+/* ¿Quién juega? con personajes — diseño/1_flujo_de_menus/02_quien_juega.png */
+.key-mini { display: inline-block; padding: 1px 6px; margin-right: 4px; background: #fff8ec; color: #1b1430; border: 2px solid #1b1430; font-size: 12px; font-weight: 900; }
+.jg-personajes { display: flex; gap: 16px; padding: 12px 0 2px; }
+.tarjeta-pj { position: relative; flex: 1; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; padding-bottom: 10px; box-sizing: border-box; background: #fff8ec; border: 4px solid #1b1430; box-shadow: 0 6px 0 #1b1430; }
+.tarjeta-pj img { width: 96px; height: 132px; image-rendering: pixelated; }
+.tarjeta-pj.elegido { background: #f2b632; box-shadow: 0 0 0 4px #fff8ec, 0 0 0 8px #1b1430, 0 10px 0 4px #1b1430; }
+.pj-elegido { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); padding: 4px 8px; background: #157a4f; color: #fff; border: 3px solid #1b1430; font-family: 'Press Start 2P'; font-size: 10px; white-space: nowrap; }
+.jg-vista { position: relative; height: 62px; margin-top: 4px; display: flex; align-items: flex-end; gap: 14px; padding: 0 14px 4px; border: 4px solid #1b1430; background: linear-gradient(#62b04d 0 55%, #d8b47a 55% 100%); }
+.jg-vista-texto { align-self: center; margin-right: 50px; padding: 4px 8px; background: #2a1d33; color: #fff; font-size: 15px; font-weight: 800; }
+.jg-vista-ecu { width: 32px; image-rendering: pixelated; }
+.jg-vista-pj { width: 40px; image-rendering: pixelated; }
+.jg-vista-nombre { align-self: center; padding: 3px 8px; background: #f2b632; color: #1b1430; border: 3px solid #1b1430; font-size: 15px; font-weight: 900; }
+.fila-estudiante { display: flex; align-items: center; gap: 12px; height: 72px; flex: none; padding: 0 14px 0 12px; box-sizing: border-box; background: #4e1027; color: #fff; border: 3px solid #1b1430; }
+.fila-estudiante.elegida { background: #fff8ec; color: #1b1430; border: 4px solid #f2b632; box-shadow: 0 0 0 4px #1b1430; }
+.fe-foto { width: 50px; height: 58px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; background: #3f9a48; border: 3px solid #1b1430; box-sizing: border-box; flex: none; }
+.fe-foto img { width: 40px; image-rendering: pixelated; }
+.fe-detalle { font-size: 15px; font-weight: 700; color: #f6d78a; }
+.fila-estudiante.elegida .fe-detalle { color: #4e1027; }
+
+/* Press Start 2P en cualquier pantalla (no solo en las RPG) */
+.px { font-family: 'Press Start 2P', monospace; }
+/* ajustes del panel de ejemplo para que no tape el diálogo (termina antes de y = 460) */
+.rpg .panel-ejemplo { gap: 7px; padding: 10px 14px; }
+.rpg .ej-ecuacion { padding: 5px 8px; font-size: 24px; }
+.rpg .ej-paso { padding: 5px 12px; gap: 0; }
+.rpg .ej-calculo { font-size: 22px; }
+.rpg .ej-paso.oculto { flex-direction: row; gap: 6px; padding: 7px 12px; }
+
+/* Reto con paréntesis — diseño/8_cambios_entrevista/02_m2_reto_parentesis.png */
+.rpg .ficha-paren { font-size: 84px; font-weight: 300; line-height: 1; color: #1b1430; margin: 0 -2px; transform: translateY(-4px); }
+.rpg .fila-buses { position: absolute; left: 0; right: 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.rpg .bus-par { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.rpg .bus-par img { width: 118px; image-rendering: pixelated; }
+.rpg .etiqueta-bus { position: static; transform: none; font-size: 17px; color: #2a5aa8; }
+.rpg .ficha-chica { height: 46px; min-width: 40px; font-size: 26px; padding: 0 10px; }
+.rpg .op-chica { font-size: 30px; }
+
+/* Mundo 3 · paréntesis en ambos lados (diseño 8_cambios_entrevista/03) */
+.rpg .ficha-ambos { min-width: 50px; height: 62px; padding: 0 10px; font-size: 36px; }
+.rpg .ficha-paren.ambos { font-size: 74px; margin: 0 -3px; }
+.rpg .ficha-op.ambos { font-size: 34px; margin: 0 2px; }
+.rpg .tarjeta-lado { width: 300px; padding: 8px 12px; display: flex; flex-direction: column; align-items: center; gap: 5px; background: #fff8ec; border: 4px solid #1b1430; }
+.rpg .tarjeta-lado img { width: 44px; image-rendering: pixelated; }
+.rpg .tarjeta-lado span { font-size: 18px; font-weight: 800; color: #1b1430; }
+.rpg .tarjeta-lado b { padding: 8px 14px; border: 4px solid #1b1430; font-size: 30px; font-weight: 900; color: #1b1430; white-space: nowrap; }
+/* qué significa x: debajo de las dos tarjetas, centrado y sin tocar ningún borde */
+.rpg .significado-x { margin-top: 8px; padding: 0 16px; font-size: 17px; font-weight: 800; color: #4e1027; text-align: center; white-space: nowrap; }
+
+/* Mundo 3 · mundo abierto (diseño/4_mundo3_puerto/301, 302, 304, 309) */
+.rpg .slot-objeto { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #4e1027; border: 3px solid #1b1430; box-sizing: border-box; }
+.rpg .slot-objeto img { width: 34px; image-rendering: pixelated; opacity: .22; filter: grayscale(1); }
+.rpg .slot-objeto.tiene { background: #fff8ec; box-shadow: 0 0 0 3px #f2b632; }
+.rpg .slot-objeto.tiene img { opacity: 1; filter: none; }
+.rpg .mapa-abierto { position: absolute; left: 43px; top: 60px; width: 1280px; height: 708px; overflow: hidden; }
+.rpg .mapa-abierto > img { position: absolute; left: 0; top: 0; }
+.rpg .brillo-mapa { position: absolute; transform: translate(-50%, -50%); width: 34px; height: 34px; border: 3px dashed #f2b632; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.rpg .brillo-mapa img { width: 24px; image-rendering: pixelated; }
+.rpg .barra-misiones { position: absolute; left: 18px; top: 650px; width: 1330px; height: 108px; padding: 8px 10px 8px 46px; display: flex; gap: 10px; background: #7a1f3d; border: 4px solid #f2b632; box-sizing: border-box; }
+.rpg .titulo-misiones { position: absolute; left: 6px; top: 50%; transform: translate(0, -50%) rotate(-90deg); transform-origin: center; width: 30px; font-size: 10px; color: #f2b632; white-space: nowrap; display: flex; justify-content: center; }
+.rpg .tarjeta-mision { flex: 1; display: flex; align-items: center; gap: 12px; padding: 0 12px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; border-left-width: 10px; font-size: 16px; line-height: 1.2; }
+.rpg .capa-objeto { position: absolute; inset: 0; z-index: 45; pointer-events: auto; }
+.rpg .ventana-objeto { position: absolute; left: 385px; top: 142px; width: 596px; padding: 22px 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; background: #7a1f3d; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #f2b632, 0 8px 0 #1b1430; text-align: center; }
+.rpg .ventana-objeto h1 { margin: 0; font-size: 22px; color: #f2b632; text-shadow: 3px 3px 0 #1b1430; }
+.rpg .ventana-objeto p { margin: 0; font-size: 19px; font-weight: 800; line-height: 1.4; color: #fff; }
+.rpg .marco-objeto { width: 164px; height: 164px; display: flex; align-items: center; justify-content: center; background: #f2b632; border: 4px solid #1b1430; }
+.rpg .marco-objeto img { width: 140px; image-rendering: pixelated; }
+.rpg .chip-guardado { padding: 8px 16px; background: #157a4f; border: 3px solid #1b1430; font-size: 17px; font-weight: 900; }
+.rpg .oscuridad { position: absolute; inset: 0; pointer-events: none; }
+
+/* Mundo 4 · fracciones de verdad (diseño 8_cambios_entrevista/04): numerador arriba, raya, denominador abajo */
+.rpg .ecuacion-frac { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 0 16px; }
+.rpg .frac { display: inline-flex; flex-direction: column; align-items: center; margin: 0 4px; }
+.rpg .frac-num { display: flex; align-items: center; gap: 2px; padding: 0 6px 12px; }
+.rpg .frac-den { align-self: stretch; display: flex; justify-content: center; padding-top: 14px; border-top: 6px solid #1b1430; }
+.rpg .ficha-frac { min-width: 46px; height: 54px; padding: 0 9px; font-size: 32px; box-shadow: 0 4px 0 #1b1430; }
+.rpg .ficha-paren.frac-p { font-size: 62px; margin: 0 -1px; transform: translateY(-3px); }
+.rpg .ficha-op.frac-o { font-size: 32px; margin: 0 4px; }
+.rpg .ficha-op.igual-frac { font-size: 48px; margin: 0 8px; }
+.rpg .frac-t { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; margin: 0 4px; line-height: 1.15; }
+.rpg .frac-t > span:first-child { padding: 0 4px 2px; border-bottom: 3px solid currentColor; }
+.rpg .frac-t > span:last-child { padding-top: 2px; }
+
+/* Mundo 5 · fracción sobre fracción (diseños 9_mundo5_feria/503–512 y 8_cambios_entrevista/05):
+   fracción grande (raya gruesa) con fracciones chicas (raya doble) arriba y/o abajo */
+.rpg .ff-zona { position: absolute; left: 0; right: 0; top: 54px; bottom: 66px; display: flex; align-items: center; justify-content: center; }
+.rpg .ff-ecuacion { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 16px; }
+.rpg .ff-ficha { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; height: 38px; padding: 0 7px; border: 3px solid #1b1430; box-shadow: 0 4px 0 #1b1430; font-size: 24px; font-weight: 900; line-height: 1; box-sizing: border-box; }
+.rpg .ff-x { background: #d4e3fb; color: #2a5aa8; }
+.rpg .ff-n { background: #fde6a6; color: #8a5a00; }
+.rpg .ff-op { font-size: 28px; font-weight: 900; color: #1b1430; margin: 0 3px; }
+.rpg .ff-paren { font-size: 48px; font-weight: 300; line-height: 1; color: #1b1430; margin: 0 -1px; transform: translateY(-3px); }
+.rpg .ff-frac { display: inline-flex; flex-direction: column; align-items: center; margin: 0 3px; }
+.rpg .ff-arriba { display: flex; align-items: center; gap: 2px; padding: 0 4px 5px; }
+.rpg .ff-abajo { align-self: stretch; display: flex; justify-content: center; align-items: center; padding-top: 6px; border-top: 7px double #1b1430; }
+.rpg .ff-frac.ff-grande > .ff-arriba { padding: 0 8px 7px; }
+.rpg .ff-frac.ff-grande > .ff-abajo { padding-top: 8px; border-top: 5px solid #1b1430; }
+.rpg .ff-frac.ff-media > .ff-abajo { border-top: 5px solid #1b1430; }
+.rpg .ff-medio { display: inline-flex; align-items: center; gap: 2px; }
+.rpg .ff-medio .ff-ficha { min-width: 48px; height: 56px; padding: 0 10px; font-size: 34px; box-shadow: 0 5px 0 #1b1430; }
+.rpg .ff-medio .ff-paren { font-size: 70px; }
+.rpg .ff-medio .ff-op { font-size: 34px; }
+.rpg .ff-medio .ff-frac.ff-media .ff-ficha { min-width: 42px; height: 46px; font-size: 28px; }
+.rpg .ff-medio .ff-frac.ff-media .ff-paren { font-size: 56px; }
+.rpg .ff-igual { font-size: 46px; font-weight: 900; color: #1b1430; margin: 0 8px; }
+.rpg .ff-igual.ok { color: #157a4f; }
+.rpg .ff-igual.mal { color: #e8572a; }
+.rpg .ff-marca { font-size: 44px; font-weight: 900; color: #157a4f; margin-left: 8px; }
+.rpg .ff-pie { position: absolute; left: 22px; bottom: 20px; right: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; }
+.rpg .ff-chip { font-size: 15px; padding: 6px 9px; white-space: nowrap; }
+.rpg .panel.con-ejemplo .ff-chip { font-size: 14px; padding: 5px 7px; }
+/* «Ver ejemplo» del Mundo 5: fracción grande con fracciones chicas adentro */
+.rpg .frac-t.frac-grande > span:first-child { display: inline-flex; align-items: center; gap: 4px; padding: 0 8px 4px; border-bottom-width: 4px; }
+.rpg .frac-t.frac-grande > span:last-child { padding-top: 4px; }
+.rpg .frac-t.frac-grande .frac-t { font-size: .82em; }
+
+/* Final del juego (diseño 9_mundo5_feria/515): vecinos que saltan, confeti que cae sin parar y panel de resultados */
+.rpg .pj-final { position: absolute; width: 64px; height: 88px; image-rendering: pixelated; animation: rebote 1.2s ease-in-out infinite; }
+.rpg .conf-final { animation: caer 3.2s ease-in infinite; }
+.rpg .panel-final { position: absolute; left: 18px; top: 604px; width: 1330px; height: 150px; box-sizing: border-box; padding: 14px 20px; display: flex; flex-direction: column; gap: 12px; background: #7a1f3d; border: 4px solid #1b1430; box-shadow: inset 0 0 0 4px #f2b632, 0 6px 0 #1b1430; color: #fff; }
+.rpg .dato-final { min-width: 100px; padding: 6px 12px; display: flex; flex-direction: column; gap: 6px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; }
+.rpg .dato-final > span { font-size: 15px; font-weight: 800; color: #4e1027; white-space: nowrap; }
+.rpg .dato-final > b { font-size: 16px; white-space: nowrap; }
