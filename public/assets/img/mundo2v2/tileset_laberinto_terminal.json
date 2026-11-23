@@ -1,0 +1,11 @@
+{
+ "tile_px_juego": 64,
+ "tileset_laberinto_terminal": [
+  "anden .",
+  "techo R",
+  "banca n",
+  "poste # (muro de 1 tile)",
+  "bandera B"
+ ],
+ "buses_muro_terminal": "cada fila es un bus horizontal de 4 tiles (256x64) que se usa como muro en tramos de 4 #; 6 colores"
+}

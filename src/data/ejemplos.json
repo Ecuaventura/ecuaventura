@@ -1,0 +1,28 @@
+{
+  "_ayuda": "Un ejemplo por tema (por mundo), con números distintos a los retos. Cada paso: «texto: cálculo». El generador nunca da un reto igual al ejemplo de su mundo. «Ver ejemplo» no resta puntos.",
+  "1": {
+    "tema": "Términos semejantes",
+    "ecuacion": "2 + x + 2x + 1 = 9",
+    "pasos": ["Junto las x y los números: 3x + 3 = 9", "Paso el 3 restando: 3x = 9 − 3 = 6", "Divido entre 3: x = 2"]
+  },
+  "2": {
+    "tema": "Paréntesis",
+    "ecuacion": "3(x + 2) = 18",
+    "pasos": ["Multiplico el paréntesis: 3x + 6 = 18", "Paso el 6 restando: 3x = 12", "Divido entre 3: x = 4"]
+  },
+  "3": {
+    "tema": "Paréntesis en ambos lados",
+    "ecuacion": "2(x + 3) = x + 10",
+    "pasos": ["Quito el paréntesis: 2x + 6 = x + 10", "Las x a un lado y los números al otro: 2x − x = 10 − 6", "Resultado: x = 4"]
+  },
+  "4": {
+    "tema": "Fracciones y paréntesis",
+    "ecuacion": "(x + 1)/2 = (x + 4)/3",
+    "pasos": ["Multiplico en cruz: 3(x + 1) = 2(x + 4)", "Quito paréntesis: 3x + 3 = 2x + 8", "Despejo: x = 5"]
+  },
+  "5": {
+    "tema": "Fracción sobre fracción",
+    "ecuacion": "(x/3 + 1) ÷ (1/2) = 6",
+    "pasos": ["Paso 1/2 multiplicando: x/3 + 1 = 6 · 1/2 = 3", "Paso el 1 restando: x/3 = 2", "Multiplico por 3: x = 6"]
+  }
+}

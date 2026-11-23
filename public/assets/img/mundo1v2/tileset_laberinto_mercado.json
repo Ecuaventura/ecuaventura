@@ -1,0 +1,14 @@
+{
+ "tile_px_original": 16,
+ "tile_px_juego": 64,
+ "orden": [
+  "suelo .",
+  "techo R",
+  "puesto # (toldo guinda)",
+  "puesto # (naranja)",
+  "puesto # (verde)",
+  "puesto # (azul)",
+  "canasta n",
+  "bandera B"
+ ]
+}

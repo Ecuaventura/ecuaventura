@@ -1,0 +1,492 @@
+{
+ "tile_px": 16,
+ "escala_juego": 4,
+ "zona": {
+  "ancho": 48,
+  "alto": 28,
+  "leyenda": {},
+  "suelo": [
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "gggggggggggggggggggggggggggggggggggggggggggggggg",
+   "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+   "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+   "cccccccccccccccccccccccccccccccccccccccccccccccc",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "aaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "llllllllllllllllllllzzllllllllllllllllllllllllll",
+   "aaaaaaaaaaaaaaaaaaaazzaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",
+   "ggfggggggggggfgggggggg....gggggggggggggggggfgggg",
+   "ggggggggggggffgggggggg....gggggggggggggggggggggg",
+   "gggggggggggfggggfggggg....gfggggggfggggggggggggg",
+   "fggggggggfgggggggggggg....gggggggggggggggggggggg"
+  ],
+  "objetos": [
+   {
+    "tipo": "terminal_bldg",
+    "x": 10.0,
+    "y": 2.0
+   },
+   {
+    "tipo": "shop",
+    "x": 0.19,
+    "y": 3.19
+   },
+   {
+    "tipo": "shop",
+    "x": 38.62,
+    "y": 3.19
+   },
+   {
+    "tipo": "shop",
+    "x": 43.0,
+    "y": 3.19
+   },
+   {
+    "tipo": "shop",
+    "x": 5.0,
+    "y": 3.19
+   },
+   {
+    "tipo": "bay_lines",
+    "x": 10.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bay_number",
+    "x": 10.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bus_top_v",
+    "x": 10.12,
+    "y": 11.69
+   },
+   {
+    "tipo": "bay_lines",
+    "x": 16.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bay_number",
+    "x": 16.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bus_top_v",
+    "x": 16.12,
+    "y": 11.69
+   },
+   {
+    "tipo": "bay_lines",
+    "x": 22.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bay_number",
+    "x": 22.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bus_top_v",
+    "x": 22.12,
+    "y": 11.69
+   },
+   {
+    "tipo": "bay_lines",
+    "x": 28.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bay_number",
+    "x": 28.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "bus_top_v",
+    "x": 28.12,
+    "y": 11.69
+   },
+   {
+    "tipo": "exit_arch",
+    "x": 42.38,
+    "y": 13.38
+   },
+   {
+    "tipo": "taxi",
+    "x": 2.0,
+    "y": 12.19
+   },
+   {
+    "tipo": "taxi",
+    "x": 4.19,
+    "y": 12.19
+   },
+   {
+    "tipo": "tree",
+    "x": 0.5,
+    "y": -0.38
+   },
+   {
+    "tipo": "tree",
+    "x": 3.5,
+    "y": 0.19
+   },
+   {
+    "tipo": "tree",
+    "x": 7.0,
+    "y": -0.62
+   },
+   {
+    "tipo": "tree",
+    "x": 10.0,
+    "y": 0.0
+   },
+   {
+    "tipo": "tree",
+    "x": 35.0,
+    "y": -0.62
+   },
+   {
+    "tipo": "tree",
+    "x": 39.0,
+    "y": 0.19
+   },
+   {
+    "tipo": "tree",
+    "x": 42.5,
+    "y": -0.5
+   },
+   {
+    "tipo": "tree",
+    "x": 46.0,
+    "y": 0.12
+   },
+   {
+    "tipo": "tree",
+    "x": 13.0,
+    "y": -1.0
+   },
+   {
+    "tipo": "tree",
+    "x": 31.0,
+    "y": -1.0
+   },
+   {
+    "tipo": "taxi",
+    "x": 2.0,
+    "y": 16.62
+   },
+   {
+    "tipo": "bus_top_h",
+    "x": 34.0,
+    "y": 19.0
+   },
+   {
+    "tipo": "bus_top_h",
+    "x": 6.0,
+    "y": 19.38
+   },
+   {
+    "tipo": "board",
+    "x": 21.62,
+    "y": 7.62
+   },
+   {
+    "tipo": "luggage_cart",
+    "x": 13.0,
+    "y": 8.19
+   },
+   {
+    "tipo": "luggage_cart",
+    "x": 34.0,
+    "y": 8.62
+   },
+   {
+    "tipo": "suitcase",
+    "x": 18.0,
+    "y": 8.38
+   },
+   {
+    "tipo": "suitcase",
+    "x": 30.5,
+    "y": 8.19
+   },
+   {
+    "tipo": "suitcase",
+    "x": 31.19,
+    "y": 8.5
+   },
+   {
+    "tipo": "bench",
+    "x": 7.0,
+    "y": 8.62
+   },
+   {
+    "tipo": "bench",
+    "x": 37.0,
+    "y": 8.62
+   },
+   {
+    "tipo": "lamp",
+    "x": 4.0,
+    "y": 7.0
+   },
+   {
+    "tipo": "lamp",
+    "x": 12.0,
+    "y": 7.0
+   },
+   {
+    "tipo": "lamp",
+    "x": 36.0,
+    "y": 7.0
+   },
+   {
+    "tipo": "lamp",
+    "x": 44.0,
+    "y": 7.0
+   },
+   {
+    "tipo": "bin_",
+    "x": 26.38,
+    "y": 8.38
+   },
+   {
+    "tipo": "bin_",
+    "x": 9.38,
+    "y": 8.38
+   },
+   {
+    "tipo": "anticuchos",
+    "x": 3.0,
+    "y": 23.19
+   },
+   {
+    "tipo": "newspaper",
+    "x": 40.0,
+    "y": 22.62
+   },
+   {
+    "tipo": "stop_shelter",
+    "x": 27.0,
+    "y": 22.38
+   },
+   {
+    "tipo": "tree",
+    "x": 0.0,
+    "y": 23.81
+   },
+   {
+    "tipo": "tree",
+    "x": 8.0,
+    "y": 24.19
+   },
+   {
+    "tipo": "tree",
+    "x": 14.0,
+    "y": 23.81
+   },
+   {
+    "tipo": "tree",
+    "x": 19.0,
+    "y": 24.38
+   },
+   {
+    "tipo": "tree",
+    "x": 33.0,
+    "y": 24.19
+   },
+   {
+    "tipo": "tree",
+    "x": 38.0,
+    "y": 23.62
+   },
+   {
+    "tipo": "tree",
+    "x": 45.0,
+    "y": 24.0
+   },
+   {
+    "tipo": "flowerbed",
+    "x": 11.0,
+    "y": 25.62
+   },
+   {
+    "tipo": "flowerbed",
+    "x": 30.0,
+    "y": 25.38
+   },
+   {
+    "tipo": "bench",
+    "x": 25.38,
+    "y": 25.38
+   },
+   {
+    "tipo": "bench",
+    "x": 6.0,
+    "y": 26.0
+   },
+   {
+    "tipo": "pigeon",
+    "x": 17.0,
+    "y": 9.19
+   },
+   {
+    "tipo": "pigeon",
+    "x": 29.0,
+    "y": 9.38
+   },
+   {
+    "tipo": "pigeon",
+    "x": 24.62,
+    "y": 25.19
+   },
+   {
+    "tipo": "dog",
+    "x": 35.38,
+    "y": 24.62
+   },
+   {
+    "tipo": "cone",
+    "x": 40.0,
+    "y": 11.38
+   },
+   {
+    "tipo": "cone",
+    "x": 40.0,
+    "y": 15.62
+   }
+  ],
+  "andenes_niveles": {
+   "6": [
+    11,
+    17
+   ],
+   "7": [
+    17,
+    17
+   ],
+   "8": [
+    23,
+    17
+   ],
+   "9": [
+    29,
+    17
+   ],
+   "10": [
+    45,
+    17
+   ]
+  },
+  "npc": {
+   "jhon": [
+    17.2,
+    16.4
+   ],
+   "marina": [
+    4.6,
+    21.6
+   ],
+   "julia": [
+    20.4,
+    7.6
+   ],
+   "teofilo": [
+    34.6,
+    17.2
+   ],
+   "pasajero1": [
+    14.2,
+    8.0
+   ],
+   "pasajera2": [
+    31.6,
+    7.8
+   ],
+   "canillita": [
+    41.6,
+    24.4
+   ],
+   "taxista": [
+    6.6,
+    13.2
+   ]
+  }
+ },
+ "laberinto_ejemplo_nivel7": {
+  "leyenda": {
+   "R": "techo de la terminal (no caminable)",
+   "#": "bus estacionado o baranda (no caminable)",
+   "n": "banca (no caminable)",
+   ".": "andén",
+   "o": "paso que bloquea un vecino",
+   "B": "bandera/meta"
+  },
+  "mapa": [
+   "RRRRRRRRRRRRRRRRRRRRRR",
+   "#....B...............#",
+   "######o###############",
+   "#....................#",
+   "#.nnnn......nnnn.....#",
+   "#....................#",
+   "###############o######",
+   "#....................#",
+   "#####o################",
+   "#....................#",
+   "#..nnnn.......nnnn...#",
+   "######################"
+  ],
+  "vecinos": {
+   "julia": [
+    6,
+    1.6
+   ],
+   "marina": [
+    15,
+    5.6
+   ],
+   "jhon": [
+    5,
+    7.6
+   ]
+  }
+ },
+ "camaras_plantillas": {
+  "zona": [
+   9.0,
+   7.5
+  ],
+  "zona_bloq": [
+   13.0,
+   9.5
+  ],
+  "salida": [
+   26.0,
+   10.0
+  ],
+  "entrada": [
+   13.0,
+   2.5
+  ],
+  "fin": [
+   13.0,
+   12.0
+  ]
+ }
+}
