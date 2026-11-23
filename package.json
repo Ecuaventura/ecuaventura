@@ -1,0 +1,83 @@
+
+{
+  "name": "ecuaventura",
+  "version": "1.0.1",
+  "description": "Videojuego para aprender ecuaciones de primer grado (1.° a 5.° de secundaria)",
+  "author": "Equipo EcuAventura – UNAMBA",
+  "homepage": "https://github.com/Ecuaventura/ecuaventura",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ecuaventura/ecuaventura.git"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "validar-niveles": "node herramientas/validarNiveles.mjs",
+    "probar-ejercicios": "node herramientas/probarEjercicios.mjs",
+    "electron:dev": "vite build && electron .",
+    "dist": "vite build && electron-builder --win --x64"
+  },
+  "dependencies": {
+    "phaser": "3.90.0"
+  },
+  "devDependencies": {
+    "electron": "45.2.3",
+    "electron-builder": "26.18.0",
+    "vite": "^8.3.5"
+  },
+  "productName": "EcuAventura",
+  "main": "electron/main.js",
+  "build": {
+    "appId": "pe.edu.unamba.ecuaventura",
+    "productName": "EcuAventura",
+    "copyright": "Equipo EcuAventura – UNAMBA",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "EcuAventura",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico",
+      "uninstallDisplayName": "EcuAventura",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "artifactName": "${productName} Setup ${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "${productName} ${version} portable.${ext}"
+    }
+  }
+}
