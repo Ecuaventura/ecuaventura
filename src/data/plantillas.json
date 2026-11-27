@@ -1,5 +1,1286 @@
 {
   "_ayuda": "Problemas de la vida real (deben ser revisados por el cliente). tipo: x+a=b, x-a=b, ax=b, x+a=b, x-a=b o ax=b (Mundo 1 anterior; el Mundo 2 arma sus historias en historias.json). rangos: se elige primero la solución. visual: lo que dibuja el panel (icono, chips; repetir=true repite el ícono de x a veces; d/pieD = lado derecho). {v} = número escrito por el alumno.",
+  "_ayudaAlgebraicas": "Versión 2.0 · Estructuras de ecuaciones por mundo (las usa src/logic/plantillas.js). id: único. mundo: 1–5. nivelMinimo: nivel DENTRO del mundo (1–5) desde el que sale (niveles 1–2: las 2 más simples, 3: +2 intermedias, 4: +las más complejas, 5: cualquiera). forma: la ecuación con parámetros de una letra (x = incógnita; ab = a·b; / fracción apilada; ÷ fracción sobre fracción; ( ) [ ] se respetan). rangos: valores posibles de x y de cada parámetro (enteros ≥ 1; los signos los pone la forma). calcula: parámetro que se despeja para que la solución sea x (entera); «e/f» = el lado derecho es la fracción e/f. estrategia: tipo de pista (agrupar, distributiva, signos, mcm, invertir). pasos: chips del panel ({mcm} {div} {inv} {dens}). Opcionales: gruposPositivos (lo de cada paréntesis da > 0), distintos y coprimos (pares de parámetros). Toda plantilla necesita su ejemplo en ejemplos.json. Tras cambiar algo: npm run probar-ejercicios y npm run validar-niveles.",
+  "algebraicas": [
+    {
+      "id": "m1_suma",
+      "mundo": 1,
+      "nivelMinimo": 4,
+      "nombre": "Suma de términos",
+      "titulo": "RETO · SUMA DE TERMINOS",
+      "forma": "ax + bx + c + dx + e = f + gx + h",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          3
+        ],
+        "b": [
+          1,
+          4
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          1,
+          3
+        ],
+        "e": [
+          1,
+          9
+        ],
+        "f": [
+          1,
+          30
+        ],
+        "g": [
+          1,
+          3
+        ],
+        "h": [
+          1,
+          60
+        ]
+      },
+      "calcula": "h",
+      "estrategia": "agrupar",
+      "pasos": [
+        "1. Junta términos semejantes",
+        "2. Las x a un lado, los números al otro",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m1_ambos_lados",
+      "mundo": 1,
+      "nivelMinimo": 1,
+      "nombre": "Incógnita en ambos lados",
+      "titulo": "RETO · INCOGNITA EN AMBOS LADOS",
+      "forma": "ax + b = cx + d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          9
+        ],
+        "b": [
+          1,
+          30
+        ],
+        "c": [
+          1,
+          8
+        ],
+        "d": [
+          1,
+          99
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "agrupar",
+      "pasos": [
+        "1. Junta términos semejantes",
+        "2. Las x a un lado, los números al otro",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m1_varios",
+      "mundo": 1,
+      "nivelMinimo": 3,
+      "nombre": "Varios términos",
+      "titulo": "RETO · VARIOS TERMINOS",
+      "forma": "ax + b + cx = d + ex",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          6
+        ],
+        "b": [
+          1,
+          30
+        ],
+        "c": [
+          1,
+          6
+        ],
+        "d": [
+          1,
+          99
+        ],
+        "e": [
+          1,
+          6
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "agrupar",
+      "pasos": [
+        "1. Junta términos semejantes",
+        "2. Las x a un lado, los números al otro",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m1_resta_suma",
+      "mundo": 1,
+      "nivelMinimo": 1,
+      "nombre": "Resta y suma",
+      "titulo": "RETO · RESTA Y SUMA",
+      "forma": "ax − b = cx + d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          9
+        ],
+        "b": [
+          1,
+          20
+        ],
+        "c": [
+          1,
+          8
+        ],
+        "d": [
+          1,
+          99
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "agrupar",
+      "pasos": [
+        "1. Junta términos semejantes",
+        "2. Las x a un lado, los números al otro",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m1_agrupados",
+      "mundo": 1,
+      "nivelMinimo": 3,
+      "nombre": "Términos agrupados",
+      "titulo": "RETO · TERMINOS AGRUPADOS",
+      "forma": "x + a + x + b = cx + d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          20
+        ],
+        "b": [
+          1,
+          20
+        ],
+        "c": [
+          1,
+          5
+        ],
+        "d": [
+          1,
+          99
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "agrupar",
+      "pasos": [
+        "1. Junta términos semejantes",
+        "2. Las x a un lado, los números al otro",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m1_miembros",
+      "mundo": 1,
+      "nivelMinimo": 4,
+      "nombre": "Incógnitas en ambos miembros",
+      "titulo": "RETO · X EN AMBOS MIEMBROS",
+      "forma": "ax + b = cx + dx + e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          3,
+          12
+        ],
+        "b": [
+          1,
+          30
+        ],
+        "c": [
+          1,
+          5
+        ],
+        "d": [
+          1,
+          5
+        ],
+        "e": [
+          1,
+          99
+        ]
+      },
+      "calcula": "e",
+      "estrategia": "agrupar",
+      "pasos": [
+        "1. Junta términos semejantes",
+        "2. Las x a un lado, los números al otro",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m2_ambos_miembros",
+      "mundo": 2,
+      "nivelMinimo": 4,
+      "nombre": "Paréntesis en ambos miembros",
+      "titulo": "RETO · PARENTESIS EN AMBOS MIEMBROS",
+      "forma": "a + bx = x + c(x + d) + e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          99
+        ],
+        "b": [
+          2,
+          9
+        ],
+        "c": [
+          2,
+          5
+        ],
+        "d": [
+          1,
+          9
+        ],
+        "e": [
+          1,
+          20
+        ]
+      },
+      "calcula": "a",
+      "estrategia": "distributiva",
+      "pasos": [
+        "1. Aplica la distributiva",
+        "2. Junta términos semejantes",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m2_distribucion",
+      "mundo": 2,
+      "nivelMinimo": 1,
+      "nombre": "Distribución y reducción",
+      "titulo": "RETO · DISTRIBUCION Y REDUCCION",
+      "forma": "ax + b(x + c) = d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          6
+        ],
+        "b": [
+          2,
+          6
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          1,
+          200
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "distributiva",
+      "pasos": [
+        "1. Aplica la distributiva",
+        "2. Junta términos semejantes",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m2_resta",
+      "mundo": 2,
+      "nivelMinimo": 1,
+      "nombre": "Paréntesis con resta",
+      "titulo": "RETO · PARENTESIS CON RESTA",
+      "forma": "ax − b(c − x) = d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          6
+        ],
+        "b": [
+          2,
+          5
+        ],
+        "c": [
+          1,
+          12
+        ],
+        "d": [
+          1,
+          200
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "distributiva",
+      "pasos": [
+        "1. Aplica la distributiva",
+        "2. Junta términos semejantes",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m2_dos_parentesis",
+      "mundo": 2,
+      "nivelMinimo": 3,
+      "nombre": "Dos paréntesis",
+      "titulo": "RETO · DOS PARENTESIS",
+      "forma": "a(x + b) = c(x − d) + e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          2,
+          6
+        ],
+        "d": [
+          1,
+          9
+        ],
+        "e": [
+          1,
+          99
+        ]
+      },
+      "calcula": "e",
+      "estrategia": "distributiva",
+      "pasos": [
+        "1. Aplica la distributiva",
+        "2. Junta términos semejantes",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m2_incognitas",
+      "mundo": 2,
+      "nivelMinimo": 3,
+      "nombre": "Incógnitas en ambos lados",
+      "titulo": "RETO · INCOGNITAS EN AMBOS LADOS",
+      "forma": "a(x + b) + x = c(x + d) + e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          2,
+          6
+        ],
+        "d": [
+          1,
+          9
+        ],
+        "e": [
+          1,
+          99
+        ]
+      },
+      "calcula": "e",
+      "estrategia": "distributiva",
+      "pasos": [
+        "1. Aplica la distributiva",
+        "2. Junta términos semejantes",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m2_negativos",
+      "mundo": 2,
+      "nivelMinimo": 4,
+      "nombre": "Signos negativos",
+      "titulo": "RETO · SIGNOS NEGATIVOS",
+      "forma": "a − b(x − c) = d(x + e) − f",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          30
+        ],
+        "b": [
+          2,
+          5
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          2,
+          5
+        ],
+        "e": [
+          1,
+          9
+        ],
+        "f": [
+          1,
+          99
+        ]
+      },
+      "calcula": "f",
+      "estrategia": "distributiva",
+      "pasos": [
+        "1. Aplica la distributiva",
+        "2. Junta términos semejantes",
+        "3. Despeja x"
+      ]
+    },
+    {
+      "id": "m3_menos_parentesis",
+      "mundo": 3,
+      "nivelMinimo": 3,
+      "nombre": "Menos delante del paréntesis",
+      "titulo": "RETO · MENOS DELANTE DEL PARENTESIS",
+      "forma": "−a(x − b) + cx = d − (x + e)",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          1,
+          99
+        ],
+        "e": [
+          1,
+          9
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "signos",
+      "pasos": [
+        "1. Quita paréntesis (cuida el −)",
+        "2. Las x a un lado",
+        "3. Los números al otro"
+      ]
+    },
+    {
+      "id": "m3_tres_parentesis",
+      "mundo": 3,
+      "nivelMinimo": 4,
+      "nombre": "Tres paréntesis",
+      "titulo": "RETO · TRES PARENTESIS",
+      "forma": "a(bx − c) − d(x + e) = f(x + g)",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          4
+        ],
+        "b": [
+          2,
+          4
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          2,
+          5
+        ],
+        "e": [
+          1,
+          9
+        ],
+        "f": [
+          2,
+          5
+        ],
+        "g": [
+          1,
+          20
+        ]
+      },
+      "calcula": "g",
+      "estrategia": "signos",
+      "pasos": [
+        "1. Quita paréntesis (cuida el −)",
+        "2. Las x a un lado",
+        "3. Los números al otro"
+      ]
+    },
+    {
+      "id": "m3_parentesis_restando",
+      "mundo": 3,
+      "nivelMinimo": 1,
+      "nombre": "Paréntesis restando",
+      "titulo": "RETO · PARENTESIS RESTANDO",
+      "forma": "a(x + b) − (x − c) = d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          7
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          1,
+          200
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "signos",
+      "pasos": [
+        "1. Quita paréntesis (cuida el −)",
+        "2. Las x a un lado",
+        "3. Los números al otro"
+      ]
+    },
+    {
+      "id": "m3_resta_grupo",
+      "mundo": 3,
+      "nivelMinimo": 3,
+      "nombre": "Restar un grupo",
+      "titulo": "RETO · RESTAR UN GRUPO",
+      "forma": "a − (bx − c) = d(x − e)",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          99
+        ],
+        "b": [
+          2,
+          6
+        ],
+        "c": [
+          1,
+          9
+        ],
+        "d": [
+          2,
+          6
+        ],
+        "e": [
+          1,
+          9
+        ]
+      },
+      "calcula": "a",
+      "estrategia": "signos",
+      "pasos": [
+        "1. Quita paréntesis (cuida el −)",
+        "2. Las x a un lado",
+        "3. Los números al otro"
+      ]
+    },
+    {
+      "id": "m3_tres_grupos",
+      "mundo": 3,
+      "nivelMinimo": 4,
+      "nombre": "Suma y resta de grupos",
+      "titulo": "RETO · SUMA Y RESTA DE GRUPOS",
+      "forma": "a(x − b) + c(x + d) − e(x − f) = g",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          2,
+          6
+        ],
+        "d": [
+          1,
+          9
+        ],
+        "e": [
+          1,
+          5
+        ],
+        "f": [
+          1,
+          9
+        ],
+        "g": [
+          1,
+          200
+        ]
+      },
+      "calcula": "g",
+      "estrategia": "signos",
+      "pasos": [
+        "1. Quita paréntesis (cuida el −)",
+        "2. Las x a un lado",
+        "3. Los números al otro"
+      ]
+    },
+    {
+      "id": "m3_negativo_invertido",
+      "mundo": 3,
+      "nivelMinimo": 1,
+      "nombre": "Negativo con la x al final",
+      "titulo": "RETO · NEGATIVO CON X AL FINAL",
+      "forma": "−a(b − x) = c(x − d) − e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          7
+        ],
+        "b": [
+          1,
+          12
+        ],
+        "c": [
+          2,
+          7
+        ],
+        "d": [
+          1,
+          9
+        ],
+        "e": [
+          1,
+          99
+        ]
+      },
+      "calcula": "e",
+      "estrategia": "signos",
+      "pasos": [
+        "1. Quita paréntesis (cuida el −)",
+        "2. Las x a un lado",
+        "3. Los números al otro"
+      ]
+    },
+    {
+      "id": "m4_x_entre",
+      "mundo": 4,
+      "nivelMinimo": 1,
+      "nombre": "x entre un número",
+      "titulo": "RETO · X ENTRE UN NUMERO",
+      "forma": "x/a + b = c",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          9
+        ],
+        "b": [
+          1,
+          20
+        ],
+        "c": [
+          1,
+          40
+        ]
+      },
+      "calcula": "c",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Junta términos",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true
+    },
+    {
+      "id": "m4_suma_entre",
+      "mundo": 4,
+      "nivelMinimo": 1,
+      "nombre": "Suma entre un número",
+      "titulo": "RETO · SUMA ENTRE UN NUMERO",
+      "forma": "(x + a)/b = c",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          20
+        ],
+        "b": [
+          2,
+          9
+        ],
+        "c": [
+          1,
+          40
+        ]
+      },
+      "calcula": "c",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Junta términos",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true
+    },
+    {
+      "id": "m4_dos_fracciones",
+      "mundo": 4,
+      "nivelMinimo": 3,
+      "nombre": "Dos fracciones con x",
+      "titulo": "RETO · DOS FRACCIONES CON X",
+      "forma": "x/a + x/b = c",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          2,
+          6
+        ],
+        "c": [
+          1,
+          40
+        ]
+      },
+      "calcula": "c",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Junta términos",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "distintos": [
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    {
+      "id": "m4_cruz",
+      "mundo": 4,
+      "nivelMinimo": 4,
+      "nombre": "Fracción igual a fracción",
+      "titulo": "RETO · FRACCION IGUAL A FRACCION",
+      "forma": "(ax − b)/c = (x + d)/e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          1,
+          20
+        ],
+        "c": [
+          2,
+          6
+        ],
+        "d": [
+          1,
+          30
+        ],
+        "e": [
+          2,
+          6
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Quita paréntesis",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "coprimos": [
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "id": "m4_x_dos_lados",
+      "mundo": 4,
+      "nivelMinimo": 3,
+      "nombre": "Fracciones de x en dos lados",
+      "titulo": "RETO · FRACCIONES EN DOS LADOS",
+      "forma": "x/a − b = x/c + d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          6
+        ],
+        "b": [
+          1,
+          20
+        ],
+        "c": [
+          2,
+          6
+        ],
+        "d": [
+          1,
+          30
+        ]
+      },
+      "calcula": "d",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Junta términos",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true
+    },
+    {
+      "id": "m4_mixta",
+      "mundo": 4,
+      "nivelMinimo": 4,
+      "nombre": "Fracción con resta y x",
+      "titulo": "RETO · FRACCION CON RESTA",
+      "forma": "(x − a)/b + c = x/d",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          19
+        ],
+        "b": [
+          2,
+          6
+        ],
+        "c": [
+          1,
+          30
+        ],
+        "d": [
+          2,
+          6
+        ]
+      },
+      "calcula": "c",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Quita paréntesis",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "distintos": [
+        [
+          "b",
+          "d"
+        ]
+      ]
+    },
+    {
+      "id": "m5_par_menos_frac",
+      "mundo": 5,
+      "nivelMinimo": 3,
+      "nombre": "Fracciones con paréntesis",
+      "titulo": "RETO · FRACCIONES CON PARENTESIS",
+      "forma": "a(x + b)/c − (x − d)/e = f",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          2,
+          7
+        ],
+        "d": [
+          1,
+          19
+        ],
+        "e": [
+          2,
+          6
+        ],
+        "f": [
+          1,
+          60
+        ]
+      },
+      "calcula": "f",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Quita paréntesis",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "coprimos": [
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "id": "m5_sobre_numero",
+      "mundo": 5,
+      "nivelMinimo": 1,
+      "nombre": "Fracción sobre fracción",
+      "titulo": "RETO · FRACCION SOBRE FRACCION",
+      "forma": "(x/a + b) ÷ (c/d) = e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          1,
+          9
+        ],
+        "c": [
+          1,
+          5
+        ],
+        "d": [
+          2,
+          6
+        ],
+        "e": [
+          1,
+          60
+        ]
+      },
+      "calcula": "e",
+      "estrategia": "invertir",
+      "pasos": [
+        "1. ÷ {div} = · {inv}",
+        "2. Quita las fracciones",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "coprimos": [
+        [
+          "c",
+          "d"
+        ]
+      ]
+    },
+    {
+      "id": "m5_grupo_sobre_frac",
+      "mundo": 5,
+      "nivelMinimo": 1,
+      "nombre": "Grupo sobre fracción",
+      "titulo": "RETO · GRUPO SOBRE FRACCION",
+      "forma": "((x + a)/b) ÷ (c/d) = e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          9
+        ],
+        "b": [
+          2,
+          6
+        ],
+        "c": [
+          1,
+          5
+        ],
+        "d": [
+          2,
+          6
+        ],
+        "e": [
+          1,
+          60
+        ]
+      },
+      "calcula": "e",
+      "estrategia": "invertir",
+      "pasos": [
+        "1. ÷ {div} = · {inv}",
+        "2. Quita las fracciones",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "coprimos": [
+        [
+          "c",
+          "d"
+        ]
+      ]
+    },
+    {
+      "id": "m5_dos_frac_par",
+      "mundo": 5,
+      "nivelMinimo": 3,
+      "nombre": "Suma de fracciones con paréntesis",
+      "titulo": "RETO · SUMA DE FRACCIONES",
+      "forma": "a(x − b)/c + (x + d)/e = f",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          1,
+          19
+        ],
+        "c": [
+          2,
+          7
+        ],
+        "d": [
+          1,
+          9
+        ],
+        "e": [
+          2,
+          6
+        ],
+        "f": [
+          1,
+          60
+        ]
+      },
+      "calcula": "f",
+      "estrategia": "mcm",
+      "pasos": [
+        "1. Multiplica todo por {mcm} (mcm)",
+        "2. Quita paréntesis",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "coprimos": [
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "id": "m5_resta_sobre",
+      "mundo": 5,
+      "nivelMinimo": 4,
+      "nombre": "Resta sobre fracción",
+      "titulo": "RETO · RESTA SOBRE FRACCION",
+      "forma": "(x/a − b) ÷ (c/d) = x/e",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          2,
+          5
+        ],
+        "b": [
+          1,
+          20
+        ],
+        "c": [
+          1,
+          5
+        ],
+        "d": [
+          2,
+          6
+        ],
+        "e": [
+          2,
+          6
+        ]
+      },
+      "calcula": "b",
+      "estrategia": "invertir",
+      "pasos": [
+        "1. ÷ {div} = · {inv}",
+        "2. Quita las fracciones",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true,
+      "coprimos": [
+        [
+          "c",
+          "d"
+        ]
+      ]
+    },
+    {
+      "id": "m5_x_abajo",
+      "mundo": 5,
+      "nivelMinimo": 4,
+      "nombre": "Fracción con x sobre fracción con x",
+      "titulo": "RETO · X ARRIBA Y ABAJO",
+      "forma": "((x + a)/b) ÷ ((x − c)/d) = e/f",
+      "rangos": {
+        "x": [
+          1,
+          20
+        ],
+        "a": [
+          1,
+          9
+        ],
+        "b": [
+          2,
+          6
+        ],
+        "c": [
+          1,
+          19
+        ],
+        "d": [
+          2,
+          6
+        ],
+        "e": [
+          1,
+          99
+        ],
+        "f": [
+          2,
+          99
+        ]
+      },
+      "calcula": "e/f",
+      "estrategia": "invertir",
+      "pasos": [
+        "1. Pasa {div} multiplicando",
+        "2. Quita las fracciones",
+        "3. Despeja x"
+      ],
+      "gruposPositivos": true
+    }
+  ],
   "plantillas": {
     "carmen_naranjas": {
       "tipo": "ax=b",

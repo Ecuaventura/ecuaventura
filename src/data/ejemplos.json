@@ -1,28 +1,527 @@
 {
-  "_ayuda": "Un ejemplo por tema (por mundo), con números distintos a los retos. Cada paso: «texto: cálculo». El generador nunca da un reto igual al ejemplo de su mundo. «Ver ejemplo» no resta puntos.",
-  "1": {
-    "tema": "Términos semejantes",
-    "ecuacion": "2 + x + 2x + 1 = 9",
-    "pasos": ["Junto las x y los números: 3x + 3 = 9", "Paso el 3 restando: 3x = 9 − 3 = 6", "Divido entre 3: x = 2"]
+  "_ayuda": "Un ejemplo resuelto por plantilla (clave = id de plantillas.json → algebraicas), con otros números. valores: los parámetros; ecuacion y x: solo para leer (se calculan). Cada paso: «texto: cálculo» (3 o 4 pasos). El generador nunca da un reto igual a su ejemplo. «Ver ejemplo» no resta puntos. Para agregar ejemplos de plantillas nuevas: npm run generar-ejemplos.",
+  "m1_suma": {
+    "tema": "Suma de términos",
+    "ecuacion": "x + 2x + 1 + 3x + 3 = 9 + x + 5",
+    "x": 2,
+    "valores": {
+      "a": 1,
+      "b": 2,
+      "c": 1,
+      "d": 3,
+      "e": 3,
+      "f": 9,
+      "g": 1,
+      "h": 5
+    },
+    "pasos": [
+      "Junto términos semejantes: 6x + 4 = x + 14",
+      "Las x a la izquierda y los números al otro: 6x − x = 14 − 4",
+      "Divido entre 5: x = 10 ÷ 5 = 2"
+    ]
   },
-  "2": {
-    "tema": "Paréntesis",
-    "ecuacion": "3(x + 2) = 18",
-    "pasos": ["Multiplico el paréntesis: 3x + 6 = 18", "Paso el 6 restando: 3x = 12", "Divido entre 3: x = 4"]
+  "m1_ambos_lados": {
+    "tema": "Incógnita en ambos lados",
+    "ecuacion": "3x + 2 = x + 6",
+    "x": 2,
+    "valores": {
+      "a": 3,
+      "b": 2,
+      "c": 1,
+      "d": 6
+    },
+    "pasos": [
+      "Las x a la izquierda y los números al otro: 3x − x = 6 − 2",
+      "Divido entre 2: x = 4 ÷ 2 = 2"
+    ]
   },
-  "3": {
-    "tema": "Paréntesis en ambos lados",
-    "ecuacion": "2(x + 3) = x + 10",
-    "pasos": ["Quito el paréntesis: 2x + 6 = x + 10", "Las x a un lado y los números al otro: 2x − x = 10 − 6", "Resultado: x = 4"]
+  "m1_varios": {
+    "tema": "Varios términos",
+    "ecuacion": "x + 3 + 4x = 7 + 3x",
+    "x": 2,
+    "valores": {
+      "a": 1,
+      "b": 3,
+      "c": 4,
+      "e": 3,
+      "d": 7
+    },
+    "pasos": [
+      "Junto términos semejantes: 5x + 3 = 3x + 7",
+      "Las x a la izquierda y los números al otro: 5x − 3x = 7 − 3",
+      "Divido entre 2: x = 4 ÷ 2 = 2"
+    ]
   },
-  "4": {
-    "tema": "Fracciones y paréntesis",
-    "ecuacion": "(x + 1)/2 = (x + 4)/3",
-    "pasos": ["Multiplico en cruz: 3(x + 1) = 2(x + 4)", "Quito paréntesis: 3x + 3 = 2x + 8", "Despejo: x = 5"]
+  "m1_resta_suma": {
+    "tema": "Resta y suma",
+    "ecuacion": "4x − 1 = x + 5",
+    "x": 2,
+    "valores": {
+      "a": 4,
+      "b": 1,
+      "c": 1,
+      "d": 5
+    },
+    "pasos": [
+      "Las x a la izquierda y los números al otro: 4x − x = 5 + 1",
+      "Divido entre 3: x = 6 ÷ 3 = 2"
+    ]
   },
-  "5": {
+  "m1_agrupados": {
+    "tema": "Términos agrupados",
+    "ecuacion": "x + 9 + x + 1 = 5x + 4",
+    "x": 2,
+    "valores": {
+      "a": 9,
+      "b": 1,
+      "c": 5,
+      "d": 4
+    },
+    "pasos": [
+      "Junto términos semejantes: 2x + 10 = 5x + 4",
+      "Las x a la derecha y los números al otro: 5x − 2x = 10 − 4",
+      "Divido entre 3: x = 6 ÷ 3 = 2"
+    ]
+  },
+  "m1_miembros": {
+    "tema": "Incógnitas en ambos miembros",
+    "ecuacion": "3x + 9 = 2x + 2x + 7",
+    "x": 2,
+    "valores": {
+      "a": 3,
+      "b": 9,
+      "c": 2,
+      "d": 2,
+      "e": 7
+    },
+    "pasos": [
+      "Junto términos semejantes: 3x + 9 = 4x + 7",
+      "Las x a la derecha y los números al otro: 4x − 3x = 9 − 7",
+      "Resultado: x = 2"
+    ]
+  },
+  "m2_ambos_miembros": {
+    "tema": "Paréntesis en ambos miembros",
+    "ecuacion": "1 + 8x = x + 5(x + 1) + 6",
+    "x": 5,
+    "valores": {
+      "b": 8,
+      "c": 5,
+      "d": 1,
+      "e": 6,
+      "a": 1
+    },
+    "pasos": [
+      "Aplico la distributiva: 1 + 8x = x + 5x + 5 + 6",
+      "Junto términos semejantes: 8x + 1 = 6x + 11",
+      "Las x a la izquierda y los números al otro: 8x − 6x = 11 − 1",
+      "Divido entre 2: x = 10 ÷ 2 = 5"
+    ]
+  },
+  "m2_distribucion": {
+    "tema": "Distribución y reducción",
+    "ecuacion": "2x + 4(x + 1) = 16",
+    "x": 2,
+    "valores": {
+      "a": 2,
+      "b": 4,
+      "c": 1,
+      "d": 16
+    },
+    "pasos": [
+      "Aplico la distributiva: 2x + 4x + 4 = 16",
+      "Junto términos semejantes: 6x + 4 = 16",
+      "Las x a la izquierda y los números al otro: 6x = 16 − 4",
+      "Divido entre 6: x = 12 ÷ 6 = 2"
+    ]
+  },
+  "m2_resta": {
+    "tema": "Paréntesis con resta",
+    "ecuacion": "x − 2(1 − x) = 4",
+    "x": 2,
+    "valores": {
+      "a": 1,
+      "b": 2,
+      "c": 1,
+      "d": 4
+    },
+    "pasos": [
+      "Aplico la distributiva: x − 2 + 2x = 4",
+      "Junto términos semejantes: 3x − 2 = 4",
+      "Las x a la izquierda y los números al otro: 3x = 4 + 2",
+      "Divido entre 3: x = 6 ÷ 3 = 2"
+    ]
+  },
+  "m2_dos_parentesis": {
+    "tema": "Dos paréntesis",
+    "ecuacion": "2(x + 1) = 5(x − 2) + 6",
+    "x": 2,
+    "valores": {
+      "a": 2,
+      "b": 1,
+      "c": 5,
+      "d": 2,
+      "e": 6
+    },
+    "pasos": [
+      "Aplico la distributiva: 2x + 2 = 5x − 10 + 6",
+      "Junto términos semejantes: 2x + 2 = 5x − 4",
+      "Las x a la derecha y los números al otro: 5x − 2x = 2 + 4",
+      "Divido entre 3: x = 6 ÷ 3 = 2"
+    ]
+  },
+  "m2_incognitas": {
+    "tema": "Incógnitas en ambos lados",
+    "ecuacion": "3(x + 2) + x = 2(x + 1) + 8",
+    "x": 2,
+    "valores": {
+      "a": 3,
+      "b": 2,
+      "c": 2,
+      "d": 1,
+      "e": 8
+    },
+    "pasos": [
+      "Aplico la distributiva: 3x + 6 + x = 2x + 2 + 8",
+      "Junto términos semejantes: 4x + 6 = 2x + 10",
+      "Las x a la izquierda y los números al otro: 4x − 2x = 10 − 6",
+      "Divido entre 2: x = 4 ÷ 2 = 2"
+    ]
+  },
+  "m2_negativos": {
+    "tema": "Signos negativos",
+    "ecuacion": "6 − 5(x − 3) = 2(x + 1) − 2",
+    "x": 3,
+    "valores": {
+      "a": 6,
+      "b": 5,
+      "c": 3,
+      "d": 2,
+      "e": 1,
+      "f": 2
+    },
+    "pasos": [
+      "Aplico la distributiva: 6 − 5x + 15 = 2x + 2 − 2",
+      "Junto términos semejantes: −5x + 21 = 2x",
+      "Las x a la derecha y los números al otro: 2x + 5x = 21",
+      "Divido entre 7: x = 21 ÷ 7 = 3"
+    ]
+  },
+  "m3_menos_parentesis": {
+    "tema": "Menos delante del paréntesis",
+    "ecuacion": "−2(x − 1) + 2x = 7 − (x + 2)",
+    "x": 3,
+    "valores": {
+      "a": 2,
+      "b": 1,
+      "c": 2,
+      "e": 2,
+      "d": 7
+    },
+    "pasos": [
+      "Quito los paréntesis cuidando los signos: −2x + 2 + 2x = 7 − x − 2",
+      "Junto términos semejantes: 2 = −x + 5",
+      "Las x a la izquierda y los números al otro: x = 5 − 2",
+      "Resultado: x = 3"
+    ]
+  },
+  "m3_tres_parentesis": {
+    "tema": "Tres paréntesis",
+    "ecuacion": "3(3x − 1) − 2(x + 4) = 2(x + 2)",
+    "x": 3,
+    "valores": {
+      "a": 3,
+      "b": 3,
+      "c": 1,
+      "d": 2,
+      "e": 4,
+      "f": 2,
+      "g": 2
+    },
+    "pasos": [
+      "Quito los paréntesis cuidando los signos: 9x − 3 − 2x − 8 = 2x + 4",
+      "Junto términos semejantes: 7x − 11 = 2x + 4",
+      "Las x a la izquierda y los números al otro: 7x − 2x = 4 + 11",
+      "Divido entre 5: x = 15 ÷ 5 = 3"
+    ]
+  },
+  "m3_parentesis_restando": {
+    "tema": "Paréntesis restando",
+    "ecuacion": "2(x + 3) − (x − 2) = 10",
+    "x": 2,
+    "valores": {
+      "a": 2,
+      "b": 3,
+      "c": 2,
+      "d": 10
+    },
+    "pasos": [
+      "Quito los paréntesis cuidando los signos: 2x + 6 − x + 2 = 10",
+      "Junto términos semejantes: x + 8 = 10",
+      "Las x a la izquierda y los números al otro: x = 10 − 8",
+      "Resultado: x = 2"
+    ]
+  },
+  "m3_resta_grupo": {
+    "tema": "Restar un grupo",
+    "ecuacion": "3 − (2x − 1) = 4(x − 2)",
+    "x": 2,
+    "valores": {
+      "b": 2,
+      "c": 1,
+      "d": 4,
+      "e": 2,
+      "a": 3
+    },
+    "pasos": [
+      "Quito los paréntesis cuidando los signos: 3 − 2x + 1 = 4x − 8",
+      "Junto términos semejantes: −2x + 4 = 4x − 8",
+      "Las x a la derecha y los números al otro: 4x + 2x = 4 + 8",
+      "Divido entre 6: x = 12 ÷ 6 = 2"
+    ]
+  },
+  "m3_tres_grupos": {
+    "tema": "Suma y resta de grupos",
+    "ecuacion": "6(x − 4) + 3(x + 2) − 2(x − 2) = 7",
+    "x": 3,
+    "valores": {
+      "a": 6,
+      "b": 4,
+      "c": 3,
+      "d": 2,
+      "e": 2,
+      "f": 2,
+      "g": 7
+    },
+    "pasos": [
+      "Quito los paréntesis cuidando los signos: 6x − 24 + 3x + 6 − 2x + 4 = 7",
+      "Junto términos semejantes: 7x − 14 = 7",
+      "Las x a la izquierda y los números al otro: 7x = 7 + 14",
+      "Divido entre 7: x = 21 ÷ 7 = 3"
+    ]
+  },
+  "m3_negativo_invertido": {
+    "tema": "Negativo con la x al final",
+    "ecuacion": "−4(3 − x) = 3(x − 2) − 4",
+    "x": 2,
+    "valores": {
+      "a": 4,
+      "b": 3,
+      "c": 3,
+      "d": 2,
+      "e": 4
+    },
+    "pasos": [
+      "Quito los paréntesis cuidando los signos: −12 + 4x = 3x − 6 − 4",
+      "Junto términos semejantes: 4x − 12 = 3x − 10",
+      "Las x a la izquierda y los números al otro: 4x − 3x = −10 + 12",
+      "Resultado: x = 2"
+    ]
+  },
+  "m4_x_entre": {
+    "tema": "x entre un número",
+    "ecuacion": "x/2 + 2 = 3",
+    "x": 2,
+    "valores": {
+      "a": 2,
+      "b": 2,
+      "c": 3
+    },
+    "pasos": [
+      "Multiplico todo por 2 (mcm de 2): x + 4 = 6",
+      "Las x a la izquierda y los números al otro: x = 6 − 4",
+      "Resultado: x = 2"
+    ]
+  },
+  "m4_suma_entre": {
+    "tema": "Suma entre un número",
+    "ecuacion": "(x + 1)/3 = 1",
+    "x": 2,
+    "valores": {
+      "a": 1,
+      "b": 3,
+      "c": 1
+    },
+    "pasos": [
+      "Multiplico todo por 3 (mcm de 3): x + 1 = 3",
+      "Las x a la izquierda y los números al otro: x = 3 − 1",
+      "Resultado: x = 2"
+    ]
+  },
+  "m4_dos_fracciones": {
+    "tema": "Dos fracciones con x",
+    "ecuacion": "x/4 + x/2 = 3",
+    "x": 4,
+    "valores": {
+      "a": 4,
+      "b": 2,
+      "c": 3
+    },
+    "pasos": [
+      "Multiplico todo por 4 (mcm de 2, 4): x + 2x = 12",
+      "Junto términos semejantes: 3x = 12",
+      "Divido entre 3: x = 12 ÷ 3 = 4"
+    ]
+  },
+  "m4_cruz": {
+    "tema": "Fracción igual a fracción",
+    "ecuacion": "(5x − 4)/3 = (x + 2)/2",
+    "x": 2,
+    "valores": {
+      "a": 5,
+      "b": 4,
+      "c": 3,
+      "e": 2,
+      "d": 2
+    },
+    "pasos": [
+      "Multiplico todo por 6 (mcm de 2, 3): 10x − 8 = 3x + 6",
+      "Las x a la izquierda y los números al otro: 10x − 3x = 6 + 8",
+      "Divido entre 7: x = 14 ÷ 7 = 2"
+    ]
+  },
+  "m4_x_dos_lados": {
+    "tema": "Fracciones de x en dos lados",
+    "ecuacion": "x/2 − 1 = x/6 + 1",
+    "x": 6,
+    "valores": {
+      "a": 2,
+      "b": 1,
+      "c": 6,
+      "d": 1
+    },
+    "pasos": [
+      "Multiplico todo por 6 (mcm de 2, 6): 3x − 6 = x + 6",
+      "Las x a la izquierda y los números al otro: 3x − x = 6 + 6",
+      "Divido entre 2: x = 12 ÷ 2 = 6"
+    ]
+  },
+  "m4_mixta": {
+    "tema": "Fracción con resta y x",
+    "ecuacion": "(x − 1)/3 + 1 = x/2",
+    "x": 4,
+    "valores": {
+      "a": 1,
+      "b": 3,
+      "d": 2,
+      "c": 1
+    },
+    "pasos": [
+      "Multiplico todo por 6 (mcm de 2, 3): 2x − 2 + 6 = 3x",
+      "Junto términos semejantes: 2x + 4 = 3x",
+      "Las x a la derecha y los números al otro: 3x − 2x = 4",
+      "Resultado: x = 4"
+    ]
+  },
+  "m5_par_menos_frac": {
+    "tema": "Fracciones con paréntesis",
+    "ecuacion": "2(x + 2)/3 − (x − 2)/2 = 3",
+    "x": 4,
+    "valores": {
+      "a": 2,
+      "b": 2,
+      "c": 3,
+      "d": 2,
+      "e": 2,
+      "f": 3
+    },
+    "pasos": [
+      "Multiplico todo por 6 (mcm de 2, 3): 4x + 8 − 3x + 6 = 18",
+      "Junto términos semejantes: x + 14 = 18",
+      "Las x a la izquierda y los números al otro: x = 18 − 14",
+      "Resultado: x = 4"
+    ]
+  },
+  "m5_sobre_numero": {
     "tema": "Fracción sobre fracción",
-    "ecuacion": "(x/3 + 1) ÷ (1/2) = 6",
-    "pasos": ["Paso 1/2 multiplicando: x/3 + 1 = 6 · 1/2 = 3", "Paso el 1 restando: x/3 = 2", "Multiplico por 3: x = 6"]
+    "ecuacion": "(x/2 + 1) ÷ (1/2) = 4",
+    "x": 2,
+    "valores": {
+      "a": 2,
+      "b": 1,
+      "c": 1,
+      "d": 2,
+      "e": 4
+    },
+    "pasos": [
+      "Dividir entre 1/2 es multiplicar por 2: (x/2 + 1) · 2 = 4",
+      "Quito los paréntesis: x + 2 = 4",
+      "Las x a la izquierda y los números al otro: x = 4 − 2",
+      "Resultado: x = 2"
+    ]
+  },
+  "m5_grupo_sobre_frac": {
+    "tema": "Grupo sobre fracción",
+    "ecuacion": "((x + 3)/5) ÷ (1/3) = 3",
+    "x": 2,
+    "valores": {
+      "a": 3,
+      "b": 5,
+      "c": 1,
+      "d": 3,
+      "e": 3
+    },
+    "pasos": [
+      "Dividir entre 1/3 es multiplicar por 3: ((x + 3)/5) · 3 = 3",
+      "Multiplico todo por 5: 3x + 9 = 15",
+      "Las x a la izquierda y los números al otro: 3x = 15 − 9",
+      "Divido entre 3: x = 6 ÷ 3 = 2"
+    ]
+  },
+  "m5_dos_frac_par": {
+    "tema": "Suma de fracciones con paréntesis",
+    "ecuacion": "3(x − 1)/4 + (x + 1)/2 = 6",
+    "x": 5,
+    "valores": {
+      "a": 3,
+      "b": 1,
+      "c": 4,
+      "d": 1,
+      "e": 2,
+      "f": 6
+    },
+    "pasos": [
+      "Multiplico todo por 4 (mcm de 2, 4): 3x − 3 + 2x + 2 = 24",
+      "Junto términos semejantes: 5x − 1 = 24",
+      "Las x a la izquierda y los números al otro: 5x = 24 + 1",
+      "Divido entre 5: x = 25 ÷ 5 = 5"
+    ]
+  },
+  "m5_resta_sobre": {
+    "tema": "Resta sobre fracción",
+    "ecuacion": "(x/2 − 1) ÷ (1/2) = x/2",
+    "x": 4,
+    "valores": {
+      "a": 2,
+      "c": 1,
+      "d": 2,
+      "e": 2,
+      "b": 1
+    },
+    "pasos": [
+      "Dividir entre 1/2 es multiplicar por 2: (x/2 − 1) · 2 = x/2",
+      "Multiplico todo por 2: 2x − 4 = x",
+      "Las x a la izquierda y los números al otro: 2x − x = 4",
+      "Resultado: x = 4"
+    ]
+  },
+  "m5_x_abajo": {
+    "tema": "Fracción con x sobre fracción con x",
+    "ecuacion": "((x + 4)/3) ÷ ((x − 1)/2) = 3/2",
+    "x": 5,
+    "valores": {
+      "a": 4,
+      "b": 3,
+      "c": 1,
+      "d": 2,
+      "e": 3,
+      "f": 2
+    },
+    "pasos": [
+      "Paso (x − 1)/2 multiplicando al otro lado: (x + 4)/3 = 3/2 · (x − 1)/2",
+      "Multiplico todo por 12: 4x + 16 = 9x − 9",
+      "Las x a la derecha y los números al otro: 9x − 4x = 16 + 9",
+      "Divido entre 5: x = 25 ÷ 5 = 5"
+    ]
   }
 }
