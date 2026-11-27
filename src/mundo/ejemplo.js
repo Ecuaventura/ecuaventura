@@ -1,38 +1,61 @@
 // Botón «VER EJEMPLO» y panel de ejemplo paso a paso — diseño: diseño/8_cambios_entrevista/07_m1_reto_con_ejemplo.png
-// Un ejemplo por tema (src/data/ejemplos.json), con otros números. NO resta puntos y no toca el reto.
+// Versión 2.0: un ejemplo por PLANTILLA (src/data/ejemplos.json, clave = id de la plantilla), así el ejemplo
+// siempre es del mismo tipo que el reto, con otros números. NO resta puntos y no toca el reto.
 
 import { crearElemento, mostrar } from './interfazRPG.js';
+import { ajustarAncho } from './panelesReto.js';
+import { ecuacionConValores, clavePlantilla, plantillasDelMundo, arbolDe } from '../logic/plantillas.js';
 import EJEMPLOS from '../data/ejemplos.json';
 
-export function ejemploDeMundo(idMundo) {
-  return EJEMPLOS[idMundo] || null;
+export function ejemploDePlantilla(idPlantilla) {
+  const e = EJEMPLOS[idPlantilla];
+  return e && e.valores ? { ...e, ec: ecuacionConValores(idPlantilla, e.valores) } : null;
 }
 
-// Clave del ejemplo para que el generador nunca dé la misma ecuación
-export function claveEjemplo(idMundo) {
-  const e = ejemploDeMundo(idMundo);
-  return e ? e.ecuacion.replace(/\s+/g, '') : null;
+// Claves de los ejemplos de un mundo, para que el generador nunca dé la misma ecuación
+export function clavesEjemplos(idMundo) {
+  return plantillasDelMundo(idMundo).map((t) => ejemploDePlantilla(t.id)).filter(Boolean).map((e) => clavePlantilla(e.ec));
 }
 
-// Fracciones escritas «2(x + 1)/3» → numerador arriba, raya y denominador abajo (Mundo 4)
-export function fraccionesApiladas(texto) {
-  return texto.replace(/(\d*\([^()]*\))\/(\d+)/g, '<span class="frac-t"><span>$1</span><span>$2</span></span>');
+// Ecuación en una línea con las fracciones apiladas (numerador, raya, denominador);
+// la división entre una fracción se dibuja como fracción grande (sin «÷»), igual que en el panel del reto.
+const sinGrupo = (n) => (n.k === 'g' ? sinGrupo(n.e) : n);
+const apilar = (arriba, abajo, grande = false) => `<span class="frac-t${grande ? ' frac-grande' : ''}"><span>${arriba}</span><span>${abajo}</span></span>`;
+function htmlTexto(nodo, P) {
+  const w = (m) => htmlTexto(m, P);
+  switch (nodo.k) {
+    case 'n': return String(nodo.v);
+    case 'p': return String(P[nodo.id]);
+    case 'x': return 'x';
+    case 'g': return nodo.c === '[' ? `[${w(nodo.e)}]` : `(${w(nodo.e)})`;
+    case 's': return nodo.t.map((t, i) => (i === 0 ? (t.neg ? '−' : '') : ` ${t.neg ? '−' : '+'} `) + w(t.e)).join('');
+    case 'm': {
+      if (nodo.a.k === 'n' || nodo.a.k === 'p') {
+        const k = nodo.a.k === 'n' ? nodo.a.v : P[nodo.a.id];
+        return k === 1 ? w(nodo.b) : `${k}${w(nodo.b)}`;
+      }
+      return `${w(nodo.a)}·${w(nodo.b)}`;
+    }
+    case 'f': return apilar(w(nodo.a), w(nodo.b));
+    case 'e': return apilar(w(sinGrupo(nodo.a)), w(sinGrupo(nodo.b)), true);
+    default: return '';
+  }
 }
 
-// Fracción sobre fracción «(x/3 + 1) ÷ (1/2) = 6» → fracción grande con «x/3 + 1» arriba y «1/2» abajo,
-// y las fracciones chicas también apiladas (Mundo 5). Sin «÷», como el Mundo 4.
-export function ecuacionApilada(texto) {
-  const chica = (t) => t.replace(/(\w+)\/(\d+)/g, '<span class="frac-t"><span>$1</span><span>$2</span></span>');
-  const conDivision = texto.replace(/\(([^()]*)\) ÷ \(([^()]*)\)/g, (_, arriba, abajo) => `<span class="frac-t frac-grande"><span>${chica(arriba)}</span><span>${chica(abajo)}</span></span>`);
-  return conDivision === texto ? fraccionesApiladas(texto) : conDivision;
+export function ecuacionApilada(ec) {
+  const arbol = arbolDe(ec.plantilla);
+  return `${htmlTexto(arbol.izq, ec.p)} = ${htmlTexto(arbol.der, ec.p)}`;
 }
 
 // HTML del botón (va dentro del panel del reto, arriba a la derecha)
 export const BOTON_EJEMPLO = '<button type="button" class="boton btn azul ver-ejemplo" data-r="ejemplo"><span class="libro">📖</span> VER EJEMPLO</button>';
 
+// el panel empieza en y = 76 y debe terminar antes del diálogo (y = 460)
+const ALTO_MAXIMO = 380;
+
 export class PanelEjemplo {
-  constructor(capa, panelReto, idMundo) {
-    this.ejemplo = ejemploDeMundo(idMundo);
+  constructor(capa, panelReto, idPlantilla) {
+    this.ejemplo = idPlantilla ? ejemploDePlantilla(idPlantilla) : null;
     this.panelReto = panelReto;
     this.capa = capa;
     this.el = null;
@@ -54,12 +77,13 @@ export class PanelEjemplo {
     this.panelReto.classList.add('con-ejemplo');
     this.el = crearElemento(this.capa, `<section class="panel-ejemplo">
 <div class="ej-cabecera"><span class="ej-chip"><span class="libro">📖</span> EJEMPLO</span><span class="ej-nota">Otros números · no resta puntos</span><button type="button" class="boton ej-cerrar" aria-label="Cerrar ejemplo">✕</button></div>
-<div class="ej-ecuacion">${ecuacionApilada(this.ejemplo.ecuacion)}</div>
+<div class="ej-ecuacion"><span class="ej-linea" style="display:inline-block;white-space:nowrap">${ecuacionApilada(this.ejemplo.ec)}</span></div>
 <div class="ej-pasos"></div>
 <div class="ej-pie"><span class="px ej-contador"></span><span class="ej-cuadros"></span><button type="button" class="boton btn azul ej-siguiente">SIGUIENTE PASO ▶</button></div>
 </section>`);
     this.el.querySelector('.ej-cerrar').addEventListener('click', (e) => { e.currentTarget.blur(); this.cerrar(); });
     this.el.querySelector('.ej-siguiente').addEventListener('click', (e) => { e.currentTarget.blur(); this.siguiente(); });
+    ajustarAncho(this.el.querySelector('.ej-linea'));
     this.dibujar();
   }
 
@@ -91,5 +115,10 @@ export class PanelEjemplo {
     const boton = this.el.querySelector('.ej-siguiente');
     boton.textContent = this.mostrados >= total ? 'VER DE NUEVO ↺' : 'SIGUIENTE PASO ▶';
     mostrar(boton, true);
+    // con 4 pasos el panel se compacta; si aún no entra sobre el diálogo (y = 460), se achica
+    this.el.classList.toggle('ej-cuatro', total > 3);
+    this.el.style.zoom = '1';
+    const alto = this.el.offsetHeight;
+    if (alto > ALTO_MAXIMO) this.el.style.zoom = (ALTO_MAXIMO / alto).toFixed(3);
   }
 }

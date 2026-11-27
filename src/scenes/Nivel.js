@@ -3,15 +3,11 @@ import { crearPantalla, conectarBotones, confirmar, escribirTexto, rellenar, rut
 import { MapaRPG, Personaje, ControlMovimiento, pasoJugador, estaJunto, crearJugador, CUADRO } from '../mundo/mapaRPG.js';
 import { calcularRetirada } from '../mundo/reglasMapa.js';
 import { crearElemento, colocar, colocarEnMundo, colocarAviso, mostrar, htmlChip, htmlDialogo, apartarAyuda } from '../mundo/interfazRPG.js';
-import { BOTON_EJEMPLO, PanelEjemplo, claveEjemplo } from '../mundo/ejemplo.js';
+import { BOTON_EJEMPLO, PanelEjemplo, clavesEjemplos } from '../mundo/ejemplo.js';
 import { armarHistoria } from '../logic/historias.js';
-import { valor as valorTerminos, juntarX as juntarXTexto } from '../logic/terminos.js';
-import { expandir } from '../logic/parentesis.js';
-import { reducirLado, quitarParentesis, valorLado, ladosVisibles } from '../logic/ambosLados.js';
-import { datosPista as datosPistaFracciones } from '../logic/fracciones.js';
-import { datosPistaFraccionFraccion } from '../logic/fraccionFraccion.js';
+import { elegirPlantillas, nivelEnMundo, lineasPistaPlantilla } from '../logic/plantillas.js';
 import { PANELES, panelVidaReal } from '../mundo/panelesReto.js';
-import { generarEcuacion, generarVarias, mezclar, evaluarIzquierda, textoComprobacion, formatoNumero, claveEcuacion, TIPOS_CON_FORMA } from '../logic/generadorEcuaciones.js';
+import { generarEcuacion, generarVarias, mezclar, evaluarIzquierda, textoComprobacion, formatoNumero, claveEcuacion, TIPOS_CON_PLANTILLA } from '../logic/generadorEcuaciones.js';
 import { leerNumero, esCorrecta } from '../logic/validacion.js';
 import { PUNTOS, puntosReto, bonoRacha, calcularEstrellas, formatoTiempo } from '../logic/puntaje.js';
 import * as almacen from '../db/almacen.js';
@@ -73,15 +69,14 @@ export default class Nivel extends Phaser.Scene {
 
   // ------------------------------------------------------------------ retos
   crearRetos(vecinos) {
-    if (TIPOS_CON_FORMA.includes(this.nivel.tipo)) {
-      // nunca la misma ecuación que ya vio este estudiante en el nivel ni la del «Ver ejemplo»
+    if (TIPOS_CON_PLANTILLA.includes(this.nivel.tipo)) {
+      // nunca la misma ecuación que ya vio este estudiante en el nivel ni la de un «Ver ejemplo»
       const evitar = almacen.ecuacionesMostradas(this.estudiante.id, this.nivel.id);
-      const ejemplo = claveEjemplo(this.mundo.id);
-      if (ejemplo) evitar.add(ejemplo);
-      // varias formas en un nivel (p. ej. nivel 9): cada una sale al menos una vez, en orden al azar
-      const formas = this.nivel.formas || [this.nivel.forma];
-      const porReto = mezclar(vecinos.map((_, i) => formas[i % formas.length]));
-      const ecuaciones = generarVarias(vecinos.map(() => this.nivel.tipo), porReto.map((forma) => ({ ...this.nivel.rangos, forma })), evitar);
+      clavesEjemplos(this.mundo.id).forEach((clave) => evitar.add(clave));
+      // plantillas algebraicas del nivel (plantillas.json → algebraicas): una por reto y distintas entre sí
+      // mientras alcancen (niveles 1–2: 2 plantillas; 3: 4; 4 y 5: las 6 del mundo)
+      const porReto = elegirPlantillas(this.mundo.id, nivelEnMundo(this.nivel), vecinos.length);
+      const ecuaciones = generarVarias(vecinos.map(() => this.nivel.tipo), porReto.map((plantilla) => ({ plantilla })), evitar);
       almacen.registrarEcuaciones(this.estudiante.id, this.nivel.id, ecuaciones.map(claveEcuacion));
       return ecuaciones.map((ecuacion, i) => {
         const def = PERSONAJES.vecinos[vecinos[i].personaje];
@@ -361,7 +356,10 @@ export default class Nivel extends Phaser.Scene {
 
   // ------------------------------------------------------------------ reto
   valoresTexto(v) {
-    const { a, b, c, d, x } = v.reto.ecuacion;
+    // las ecuaciones de plantilla guardan sus números en p (a, b, c…); d es el valor de cada lado
+    const ec = v.reto.ecuacion;
+    const { a, b, c } = ec.p || ec;
+    const { d, x } = ec;
     return {
       nombre: this.estudiante.nombre,
       vecino: v.def.nombre,
@@ -387,7 +385,8 @@ export default class Nivel extends Phaser.Scene {
     };
     r.campo = r.dlg.querySelector('.inp');
     r.msg = r.dlg.querySelector('.msg');
-    r.ejemplo = new PanelEjemplo(this.capaReto, r.panel, this.mundo.id);
+    // «Ver ejemplo» de la misma plantilla que el reto (ejemplos.json)
+    r.ejemplo = new PanelEjemplo(this.capaReto, r.panel, v.reto.ecuacion.plantilla);
     this.retoAbierto = r;
 
     r.campo.addEventListener('keydown', (e) => {
@@ -633,7 +632,9 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
     }
     r.modo = r.modo === 'error' ? 'error' : 'pista';
     this.hablante(PERSONAJES.ecu);
-    const lineas = this.lineasPista(r.vecino).map((l) => `<span>${l}</span>`).join('');
+    // las pistas de las plantillas traen las cuentas del reto: letra un poco más chica para que entren
+    const estilo = reto.conHistoria ? ' style="font-size:20px;line-height:1.3"' : '';
+    const lineas = this.lineasPista(r.vecino).map((l) => `<span${estilo}>${l}</span>`).join('');
     this.escribir(`<span class="px" style="font-size:14px;color:#2c3e7a">PISTA DE ECU · -${PUNTOS.descuentoPista} PTS</span>${lineas}<span style="font-size:18px;color:#4e1027;font-weight:700">${this.textos.pistaCierre}</span>`);
   }
 
@@ -641,10 +642,8 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
   lineasPista(v) {
     const reto = v.reto;
     const ec = reto.ecuacion;
-    if (reto.conHistoria && ec.tipo === 'ambos') return this.lineasPistaAmbos(reto);
-    if (reto.conHistoria && ec.tipo === 'fracciones') return this.lineasPistaFracciones(reto);
-    if (reto.conHistoria && ec.tipo === 'fraccionFraccion') return this.lineasPistaFraccionFraccion(reto);
-    if (reto.conHistoria) return ec.tipo === 'parentesis' ? this.lineasPistaParentesis(reto) : this.lineasPistaTerminos(reto);
+    // los 5 mundos: pista según la estrategia de la plantilla (pistas.json → plantillas)
+    if (reto.conHistoria) return lineasPistaPlantilla(ec, PISTAS.plantillas, reto.ultima, formatoNumero);
     const base = { a: formatoNumero(ec.a), b: formatoNumero(ec.b), c: formatoNumero(ec.c ?? ec.d), d: formatoNumero(ec.d) };
     if (reto.vidaReal) {
       const [plantea, orienta] = reto.plantilla.pista.map((l) => rellenar(l, base));
@@ -659,98 +658,6 @@ ${CONFETI.map(([x, y, c, g], i) => `<span class="conf anim" style="left:${x}px;t
     const estados = PISTAS.estados[lado < ec.d ? 'liviano' : 'pesado'];
     const val = { ...base, ...estados, r: formatoNumero(reto.ultima), lado: formatoNumero(lado) };
     return [rellenar(p.conRespuesta, val), rellenar(p.paso, val)];
-  }
-
-  // Pista de paréntesis: con los números del reto del alumno, nunca da x
-  lineasPistaParentesis(reto) {
-    const ec = reto.ecuacion;
-    const p = PISTAS.parentesis;
-    const num = ec.a * ec.b + ec.c;   // número que queda junto a las x al quitar el paréntesis
-    const coef = ec.a * ec.k;
-    const val = {
-      expansion: expandir(ec),
-      junta: ec.c ? rellenar(p.junta, { ab: ec.a * ec.b, signo: ec.c < 0 ? '−' : '+', c: Math.abs(ec.c), n: num }) : '',
-      n: Math.abs(num),
-      como: num > 0 ? 'restando' : 'sumando',
-      coefx: `${coef}x`,
-      coef,
-      d: ec.d
-    };
-    const lineas = [];
-    if (reto.ultima !== null) {
-      const lado = evaluarIzquierda(ec, reto.ultima);
-      lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), lado: formatoNumero(lado), d: ec.d, estadoNumero: lado < ec.d ? 'pequeño' : 'grande' }));
-    }
-    lineas.push(rellenar(p.pasos, val));
-    return lineas;
-  }
-
-  // Pista de paréntesis en ambos lados (Mundo 3): con los números del reto, nunca da x
-  lineasPistaAmbos(reto) {
-    const ec = reto.ecuacion;
-    const p = PISTAS.ambos;
-    const [ladoA, ladoB] = ladosVisibles(ec);
-    const a = reducirLado(ladoA);
-    const b = reducirLado(ladoB);
-    // las x van al lado que tiene más x (así el coeficiente queda positivo)
-    const [conX, sinX, lado] = a.A > b.A ? [a, b, 'izquierda'] : [b, a, 'derecha'];
-    const xs = (n) => (n === 1 ? 'x' : `${n}x`);
-    const restaX = sinX.A === 0 ? xs(conX.A) : `${xs(conX.A)} ${sinX.A < 0 ? '+' : '−'} ${xs(Math.abs(sinX.A))}`;
-    const nums = `${formatoNumero(sinX.B)} ${conX.B < 0 ? '+' : '−'} ${Math.abs(conX.B)}`;
-    const lineas = [];
-    if (reto.ultima !== null) {
-      lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), L: formatoNumero(valorLado(ladoA, reto.ultima)), R: formatoNumero(valorLado(ladoB, reto.ultima)) }));
-    }
-    lineas.push(rellenar(p.quitar, { expansion: `${quitarParentesis(ladoA)} = ${quitarParentesis(ladoB)}` }));
-    lineas.push(rellenar(p.juntar, { lado, xs: restaX, nums, coefx: xs(conX.A - sinX.A) }));
-    return lineas;
-  }
-
-  // Pista de fracciones y paréntesis (Mundo 4): quitar denominadores, quitar paréntesis y juntar,
-  // con los números del reto; nunca da x
-  lineasPistaFracciones(reto) {
-    const p = PISTAS.fracciones;
-    const datos = datosPistaFracciones(reto.ecuacion, reto.ultima);
-    const lineas = [];
-    if (reto.ultima !== null) lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), L: formatoNumero(datos.L), R: formatoNumero(datos.R) }));
-    lineas.push(rellenar(p.quitar, datos));
-    lineas.push(`${datos.mismo ? '' : `${rellenar(p.parentesis, datos)} `}${rellenar(p.juntar, datos)}`);
-    return lineas;
-  }
-
-  // Pista de fracción sobre fracción (Mundo 5, diseño 505): dividir entre una fracción es multiplicar por
-  // la invertida; luego quitar la fracción de x y despejar, con los números del reto. Nunca da x.
-  lineasPistaFraccionFraccion(reto) {
-    const p = PISTAS.fraccionFraccion;
-    const datos = datosPistaFraccionFraccion(reto.ecuacion, reto.ultima);
-    const lineas = [];
-    if (reto.ultima !== null) lineas.push(rellenar(p.conRespuesta, { r: formatoNumero(reto.ultima), L: datos.L, R: datos.R }));
-    for (const linea of p.formas[datos.clave]) lineas.push(rellenar(linea, datos));
-    return lineas;
-  }
-
-  // Pista de términos semejantes: usa los números del reto del alumno, nunca da x
-  lineasPistaTerminos(reto) {
-    const ec = reto.ecuacion;
-    const p = PISTAS.terminos;
-    const nums = ec.ladoX.filter((t) => !t.x);
-    const val = {
-      juntaX: juntarXTexto(ec),
-      coef: ec.a === 1 ? 'x' : `${ec.a}x`,
-      numsIzq: nums.length ? nums.map((t, i) => (i === 0 ? (t.c < 0 ? '−' : '') : (t.c < 0 ? ' − ' : ' + ')) + Math.abs(t.c)).join('') : '',
-      izq: formatoNumero(valorTerminos(nums, 0)),
-      numsDer: ec.otro.map((t) => t.c).join(' + '),
-      d: formatoNumero(ec.d),
-      a: formatoNumero(ec.a)
-    };
-    const lineas = [];
-    if (reto.ultima !== null) {
-      const lado = evaluarIzquierda(ec, reto.ultima);
-      lineas.push(rellenar(p.conRespuesta, { ...val, r: formatoNumero(reto.ultima), lado: formatoNumero(lado), estadoNumero: lado < ec.d ? 'pequeño' : 'grande' }));
-    }
-    if (nums.length) lineas.push(rellenar(ec.otro.length > 1 ? p.numerosDosLados : p.numeros, val));
-    else lineas.push(rellenar(p.dividir, val));
-    return lineas;
   }
 
   cerrarReto() {
