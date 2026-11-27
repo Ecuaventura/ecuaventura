@@ -327,3 +327,22 @@ html, body {
 .rpg .dato-final { min-width: 100px; padding: 6px 12px; display: flex; flex-direction: column; gap: 6px; background: #fff8ec; color: #1b1430; border: 3px solid #1b1430; }
 .rpg .dato-final > span { font-size: 15px; font-weight: 800; color: #4e1027; white-space: nowrap; }
 .rpg .dato-final > b { font-size: 16px; white-space: nowrap; }
+
+/* Versión 2.0 · panel de reto para cualquier plantilla (src/mundo/panelesReto.js → panelPlantilla).
+   La ecuación, la fila de buses y el resultado van en columna dentro de .pl-zona; si algo no entra,
+   ajustarPanel() lo achica con zoom. */
+.rpg .pl-zona { position: absolute; left: 14px; right: 14px; top: 62px; bottom: 74px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
+.rpg .pl-zona > * { flex: none; }
+.rpg .pl-ec { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 6px; white-space: nowrap; flex-wrap: nowrap; }
+.rpg .pl-res { position: static; font-size: 24px; padding: 4px 14px; }
+.rpg .pl-buses { position: static; gap: 10px; }
+.rpg .pl-buses .bus-par img { width: 104px; }
+.rpg .pl-pie { position: absolute; left: 24px; bottom: 22px; display: flex; align-items: center; gap: 10px; flex-wrap: nowrap; white-space: nowrap; transform-origin: left bottom; }
+.rpg .panel .pl-pie[style*="space-between"] { right: 24px; }
+/* «Ver ejemplo» con 4 pasos (versión 2.0): más compacto para no tapar el diálogo */
+.rpg .panel-ejemplo.ej-cuatro .ej-pasos { gap: 5px; }
+.rpg .panel-ejemplo.ej-cuatro .ej-paso { padding: 3px 10px; }
+.rpg .panel-ejemplo.ej-cuatro .ej-texto { font-size: 14px; }
+.rpg .panel-ejemplo.ej-cuatro .ej-calculo { font-size: 19px; }
+/* vida real del Puerto (diseño 313) con plantillas largas: la tarjeta crece y el panel la achica si hace falta */
+.rpg .pl-ec .tarjeta-lado { width: auto; min-width: 240px; box-sizing: border-box; }

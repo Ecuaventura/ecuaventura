@@ -1,5 +1,5 @@
 {
-  "_ayuda": "Cada nivel: mapa (ver mapas.json), inicio y ecu (cuadro [columna, fila]), meta, tipo de ecuación, rangos y vecinos ordenados desde el inicio. orden 'secuencial' = solo el primer vecino sin ayudar tiene '!'; 'libre' = todos los disponibles. requiereTodos = el vecino habla solo cuando los demás ya fueron ayudados. Al ser ayudado, el vecino sigue las reglas de los mapas (CLAUDE.md): pierde la colisión, da un paso atrás hacia su puesto o, si no hay puesto, se aleja y se desvanece. Comprobar con npm run validar-niveles.",
+  "_ayuda": "Cada nivel: mapa (ver mapas.json), inicio y ecu (cuadro [columna, fila]), meta, tipo de ecuación y vecinos ordenados desde el inicio. Versión 2.0: las ecuaciones de los 5 mundos salen de plantillas.json → algebraicas según el nivel dentro del mundo (numero − 5·(mundo − 1)); ya no hay forma ni rangos por nivel. orden 'secuencial' = solo el primer vecino sin ayudar tiene '!'; 'libre' = todos los disponibles. requiereTodos = el vecino habla solo cuando los demás ya fueron ayudados. Al ser ayudado, el vecino sigue las reglas de los mapas (CLAUDE.md): pierde la colisión, da un paso atrás hacia su puesto o, si no hay puesto, se aleja y se desvanece. Comprobar con npm run validar-niveles.",
   "niveles": [
     {
       "id": 1,
@@ -8,12 +8,6 @@
       "esRetoMundo": false,
       "tipo": "terminos",
       "etiquetaTipo": "Términos semejantes",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "mapa": "pasillos_1",
       "inicio": [
         12,
@@ -60,8 +54,6 @@
         "retrato": "retrato_don_lucho",
         "texto": "Primer reto: en el <b class=\"c-oro\">puesto guinda</b> se juntan las x…"
       },
-      "forma": "n1",
-      "ejemploForma": "x + 2x = 9",
       "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
     },
     {
@@ -71,12 +63,6 @@
       "esRetoMundo": false,
       "tipo": "terminos",
       "etiquetaTipo": "Términos semejantes",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "mapa": "pasillos_2",
       "inicio": [
         5,
@@ -123,8 +109,6 @@
         "retrato": "retrato_carmen",
         "texto": "Próximo: en el <b class=\"c-celeste\">puesto azul</b> se juntan x y números…"
       },
-      "forma": "n2",
-      "ejemploForma": "x + 3x + 2 = 14",
       "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
     },
     {
@@ -134,12 +118,6 @@
       "esRetoMundo": false,
       "tipo": "terminos",
       "etiquetaTipo": "Términos semejantes",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "mapa": "pasillos_3",
       "inicio": [
         12,
@@ -186,8 +164,6 @@
         "retrato": "retrato_dona_rosa",
         "texto": "Próximo: en el <b class=\"c-naranja\">puesto naranja</b> hay números a los dos lados…"
       },
-      "forma": "n3",
-      "ejemploForma": "3 + x + 4x − 1 = 2 + 10",
       "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
     },
     {
@@ -197,12 +173,6 @@
       "esRetoMundo": false,
       "tipo": "terminos",
       "etiquetaTipo": "Términos semejantes",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "mapa": "pasillos_4",
       "inicio": [
         17,
@@ -249,8 +219,6 @@
         "retrato": "retrato_carmen",
         "texto": "Próximo: en el <b class=\"c-verde-claro\">puesto verde</b> también se restan x…"
       },
-      "forma": "n4",
-      "ejemploForma": "5x − 2x + 4 = 19",
       "etiquetaHud": "Mundo 1 · 1.° de secundaria · Términos semejantes"
     },
     {
@@ -326,15 +294,7 @@
         "retrato": "retrato_don_lucho",
         "texto": "Próximo: el <b class=\"c-oro\">reto del mercado</b>. Don Lucho te espera en la salida con problemas de la vida real…"
       },
-      "forma": "n3",
-      "ejemploForma": "vida real",
       "etiquetaHud": "Mundo 1 · 1.° de secundaria · Reto de la vida real",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "vidaReal": true
     },
     {
@@ -390,14 +350,7 @@
         "retrato": "retrato_jhon",
         "texto": "Próximo: en el <b class=\"c-celeste\">andén azul</b> los buses llevan grupos iguales con paréntesis…"
       },
-      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
-      "forma": "mas"
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis"
     },
     {
       "id": 7,
@@ -452,14 +405,7 @@
         "retrato": "retrato_jhon",
         "texto": "Próximo: en el <b class=\"c-naranja\">andén naranja</b> se resta dentro del paréntesis…"
       },
-      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
-      "forma": "menos"
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis"
     },
     {
       "id": 8,
@@ -514,14 +460,7 @@
         "retrato": "retrato_julia",
         "texto": "Próximo: en el <b class=\"c-verde-claro\">andén verde</b> hay un número fuera del paréntesis…"
       },
-      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
-      "forma": "masC"
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis"
     },
     {
       "id": 9,
@@ -576,17 +515,7 @@
         "retrato": "retrato_teofilo",
         "texto": "Próximo: en el <b class=\"c-crema\">andén guinda</b> se mezclan los paréntesis…"
       },
-      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis",
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
-      "formas": [
-        "menosC",
-        "k"
-      ]
+      "etiquetaHud": "Mundo 2 · 2.° de secundaria · Paréntesis"
     },
     {
       "id": 10,
@@ -654,13 +583,6 @@
         "retrato": "retrato_teofilo",
         "texto": "Próximo: el <b class=\"c-oro\">reto de la terminal</b>. Don Teófilo te espera en la salida con pasajes y maletas…"
       },
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
-      "forma": "masC",
       "vidaReal": true,
       "bloqueos": [
         [
@@ -679,21 +601,14 @@
       "numero": 11,
       "esRetoMundo": false,
       "tipo": "ambos",
-      "etiquetaTipo": "Paréntesis en ambos lados",
-      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis en ambos lados",
+      "etiquetaTipo": "Paréntesis con signos negativos",
+      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis con signos negativos",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
-      "forma": "parX",
       "mapa": "zona_puerto",
       "inicio": [
         21,
@@ -728,21 +643,14 @@
       "numero": 12,
       "esRetoMundo": false,
       "tipo": "ambos",
-      "etiquetaTipo": "Paréntesis en ambos lados",
-      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis en ambos lados",
+      "etiquetaTipo": "Paréntesis con signos negativos",
+      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis con signos negativos",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
-      "forma": "dosPar",
       "mapa": "zona_puerto",
       "inicio": [
         57,
@@ -778,21 +686,14 @@
       "numero": 13,
       "esRetoMundo": false,
       "tipo": "ambos",
-      "etiquetaTipo": "Paréntesis en ambos lados",
-      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis en ambos lados",
+      "etiquetaTipo": "Paréntesis con signos negativos",
+      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis con signos negativos",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
-      "forma": "parE",
       "mapa": "cueva_puerto",
       "inicio": [
         15,
@@ -828,21 +729,14 @@
       "numero": 14,
       "esRetoMundo": false,
       "tipo": "ambos",
-      "etiquetaTipo": "Paréntesis en ambos lados",
-      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis en ambos lados",
+      "etiquetaTipo": "Paréntesis con signos negativos",
+      "etiquetaHud": "Mundo 3 · 3.° de secundaria · Paréntesis con signos negativos",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
-      "forma": "menos",
       "mapa": "almacen_elena",
       "inicio": [
         9,
@@ -878,25 +772,15 @@
       "numero": 15,
       "esRetoMundo": true,
       "tipo": "ambos",
-      "etiquetaTipo": "Paréntesis en ambos lados",
+      "etiquetaTipo": "Paréntesis con signos negativos",
       "etiquetaHud": "Mundo 3 · 3.° de secundaria · Reto de la vida real",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          12
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 180
       },
       "vidaReal": true,
-      "formas": [
-        "dosPar",
-        "dosParMas"
-      ],
       "mapa": "zona_puerto",
       "inicio": [
         66,
@@ -929,23 +813,16 @@
       "mundo": 4,
       "esRetoMundo": false,
       "tipo": "fracciones",
-      "etiquetaTipo": "Fracciones y paréntesis",
-      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones y paréntesis",
+      "etiquetaTipo": "Fracciones con denominador numérico",
+      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones con denominador numérico",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 16,
       "numero": 16,
-      "forma": "simple",
       "mapa": "zona_obra",
       "inicio": [
         32,
@@ -978,23 +855,16 @@
       "mundo": 4,
       "esRetoMundo": false,
       "tipo": "fracciones",
-      "etiquetaTipo": "Fracciones y paréntesis",
-      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones y paréntesis",
+      "etiquetaTipo": "Fracciones con denominador numérico",
+      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones con denominador numérico",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 17,
       "numero": 17,
-      "forma": "par",
       "mapa": "zona_obra",
       "inicio": [
         36,
@@ -1028,23 +898,16 @@
       "mundo": 4,
       "esRetoMundo": false,
       "tipo": "fracciones",
-      "etiquetaTipo": "Fracciones y paréntesis",
-      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones y paréntesis",
+      "etiquetaTipo": "Fracciones con denominador numérico",
+      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones con denominador numérico",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 18,
       "numero": 18,
-      "forma": "dosFrac",
       "mapa": "taller_sofia",
       "inicio": [
         8,
@@ -1078,23 +941,16 @@
       "mundo": 4,
       "esRetoMundo": false,
       "tipo": "fracciones",
-      "etiquetaTipo": "Fracciones y paréntesis",
-      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones y paréntesis",
+      "etiquetaTipo": "Fracciones con denominador numérico",
+      "etiquetaHud": "Mundo 4 · 4.° de secundaria · Fracciones con denominador numérico",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 19,
       "numero": 19,
-      "forma": "parDos",
       "mapa": "tunel_cantera",
       "inicio": [
         17,
@@ -1128,16 +984,10 @@
       "mundo": 4,
       "esRetoMundo": true,
       "tipo": "fracciones",
-      "etiquetaTipo": "Fracciones y paréntesis",
+      "etiquetaTipo": "Fracciones con denominador numérico",
       "etiquetaHud": "Mundo 4 · 4.° de secundaria · Desafío final",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 180
@@ -1145,7 +995,6 @@
       "id": 20,
       "numero": 20,
       "vidaReal": true,
-      "forma": "final",
       "tituloHud": "NIVEL 20 · DESAFIO FINAL",
       "tarjeta": {
         "imagen": "obj_llave_grua",
@@ -1187,19 +1036,12 @@
       "etiquetaHud": "Mundo 5 · 5.° de secundaria · Fracción sobre fracción",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 21,
       "numero": 21,
-      "forma": "sobreNumero",
       "mapa": "zona_feria",
       "inicio": [
         17,
@@ -1237,20 +1079,12 @@
       "etiquetaHud": "Mundo 5 · 5.° de secundaria · Fracción sobre fracción",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 22,
       "numero": 22,
-      "forma": "sobreParen",
-      "tituloReto": "RETO · FRACCION Y PARENTESIS",
       "mapa": "zona_feria",
       "inicio": [
         25,
@@ -1289,19 +1123,12 @@
       "etiquetaHud": "Mundo 5 · 5.° de secundaria · Fracción sobre fracción",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 23,
       "numero": 23,
-      "forma": "sobreFrac",
       "mapa": "zona_feria",
       "inicio": [
         21,
@@ -1340,19 +1167,12 @@
       "etiquetaHud": "Mundo 5 · 5.° de secundaria · Fracción sobre fracción",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 120
       },
       "id": 24,
       "numero": 24,
-      "forma": "simplifica",
       "mapa": "carpa_tombola",
       "inicio": [
         7,
@@ -1391,19 +1211,12 @@
       "etiquetaHud": "Mundo 5 · 5.° de secundaria · todo lo aprendido",
       "mision": true,
       "retos": 3,
-      "rangos": {
-        "x": [
-          1,
-          15
-        ]
-      },
       "estrellas": {
         "erroresMax": 3,
         "tiempoMax": 180
       },
       "id": 25,
       "numero": 25,
-      "forma": "final",
       "tituloHud": "NIVEL 25 · RETO FINAL",
       "retoFinal": true,
       "tituloReto": "RETO FINAL · TODO LO QUE APRENDISTE",

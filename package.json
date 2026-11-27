@@ -1,7 +1,7 @@
 
 {
   "name": "ecuaventura",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Videojuego para aprender ecuaciones de primer grado (1.° a 5.° de secundaria)",
   "author": "Equipo EcuAventura – UNAMBA",
   "homepage": "https://github.com/Ecuaventura/ecuaventura",
@@ -17,6 +17,7 @@
     "preview": "vite preview",
     "validar-niveles": "node herramientas/validarNiveles.mjs",
     "probar-ejercicios": "node herramientas/probarEjercicios.mjs",
+    "generar-ejemplos": "node herramientas/generarEjemplos.mjs",
     "electron:dev": "vite build && electron .",
     "dist": "vite build && electron-builder --win --x64"
   },
