@@ -5,10 +5,8 @@
 
 import { readFileSync } from 'node:fs';
 import { crearCuadricula, calcularRetirada, alcanzables, caminoHasta, cuadrosJunto } from '../src/mundo/reglasMapa.js';
-import { generarEcuacion, evaluarIzquierda, textoEcuacion, TIPOS_CON_FORMA } from '../src/logic/generadorEcuaciones.js';
-import { valorLado } from '../src/logic/ambosLados.js';
-import { valorLado as valorLadoFracciones, fraccionesExactas } from '../src/logic/fracciones.js';
-import { divisionesExactas, unaSolucion, ladoDerecho, textoFraccionFraccion } from '../src/logic/fraccionFraccion.js';
+import { generarEcuacion, evaluarIzquierda, textoEcuacion, TIPOS_CON_PLANTILLA } from '../src/logic/generadorEcuaciones.js';
+import { plantillasDelNivel, nivelEnMundo, revisarEcuacion, datosAlgebra, generarDesdePlantilla } from '../src/logic/plantillas.js';
 
 const leer = (nombre) => JSON.parse(readFileSync(new URL(`../src/data/${nombre}.json`, import.meta.url), 'utf8'));
 const NIVELES = leer('niveles').niveles;
@@ -19,9 +17,11 @@ const DIALOGOS = leer('dialogos');
 const PLANTILLAS = leer('plantillas').plantillas;
 const PISTAS = leer('pistas');
 const HISTORIAS = leer('historias');
+const EJEMPLOS = leer('ejemplos');
 const IMAGENES = new Set(Object.values(leer('recursos').imagenes).flat());
 
 // Genera muchas ecuaciones y revisa que la solución sea entera y positiva y que cumpla la ecuación
+// (tipos sencillos de los problemas de vida real antiguos)
 function validarGenerador(tipo, rangos, mundo, donde) {
   const errores = [];
   if (!PISTAS[tipo]) errores.push(`${donde}: faltan pistas del tipo ${tipo} en pistas.json`);
@@ -32,19 +32,34 @@ function validarGenerador(tipo, rangos, mundo, donde) {
       !Number.isInteger(ec.x) || ec.x <= 0 ? `solución no entera o no positiva (x = ${ec.x})`
         : Math.abs(evaluarIzquierda(ec, ec.x) - ec.d) > 1e-9 ? `x = ${ec.x} no cumple la ecuación`
           : ec.d <= 0 ? `lado derecho no positivo (${ec.d})`
-            // paréntesis en ambos lados: con otro número los lados ya no son iguales (una sola solución)
-            : ec.tipo === 'ambos' && valorLado(ec.izq, ec.x + 1) === valorLado(ec.der, ec.x + 1) ? `${textoEcuacion(ec)} tiene infinitas soluciones`
-              : ec.tipo === 'ambos' && Math.abs(valorLado(ec.der, ec.x) - ec.d) > 1e-9 ? `el lado derecho no da ${ec.d}`
-                // fracciones: una sola solución, cada fracción da exacto y ningún denominador es 0 o 1
-                : ec.tipo === 'fracciones' && Math.abs(valorLadoFracciones(ec.izq, ec.x + 1) - valorLadoFracciones(ec.der, ec.x + 1)) < 1e-9 ? `${textoEcuacion(ec)} no tiene una sola solución`
-                  : ec.tipo === 'fracciones' && Math.abs(valorLadoFracciones(ec.der, ec.x) - ec.d) > 1e-9 ? `el lado derecho no da ${ec.d}`
-                    : ec.tipo === 'fracciones' && !fraccionesExactas(ec) ? `${textoEcuacion(ec)}: alguna división no da exacto (o divide entre 0 o 1)`
-                      // fracción sobre fracción: una sola solución, divisiones exactas, nunca entre 0
-                      : ec.tipo === 'fraccionFraccion' && !unaSolucion(ec) ? `${textoFraccionFraccion(ec)} no tiene una sola solución`
-                        : ec.tipo === 'fraccionFraccion' && Math.abs(ladoDerecho(ec, ec.x) - ec.d) > 1e-9 ? `el lado derecho no da ${ec.d}`
-                          : ec.tipo === 'fraccionFraccion' && !divisionesExactas(ec) ? `${textoFraccionFraccion(ec)}: alguna división no da exacto (o divide entre 0)`
-                            : null;
+            : null;
     if (problema) { errores.push(`${donde} (${tipo}): ${problema}`); break; }
+  }
+  return errores;
+}
+
+// Versión 2.0: cada plantilla del nivel genera 300 ecuaciones y todas deben pasar revisarEcuacion
+// (solución entera positiva que cumple, divisiones exactas, solución única, texto bien escrito);
+// además deben existir su pista (estrategia), su ejemplo y su título.
+function validarPlantillas(nivel, mundo) {
+  const errores = [];
+  const lista = plantillasDelNivel(nivel.mundo, nivelEnMundo(nivel));
+  if (!lista.length) errores.push(`no hay plantillas para el nivel ${nivelEnMundo(nivel)} del mundo ${nivel.mundo}`);
+  const cantidad = nivel.mision ? (nivel.retos || 3) : nivel.vecinos.length;
+  if (lista.length < Math.min(3, cantidad) && nivelEnMundo(nivel) > 2) errores.push(`solo ${lista.length} plantillas: los ${cantidad} retos no pueden tener estructuras distintas`);
+  for (const t of lista) {
+    if (!EJEMPLOS[t.id]) errores.push(`la plantilla ${t.id} no tiene ejemplo en ejemplos.json (npm run generar-ejemplos)`);
+    if (!t.titulo) errores.push(`la plantilla ${t.id} no tiene título`);
+    for (let i = 0; i < 300; i++) {
+      let ec;
+      try { ec = generarDesdePlantilla(t.id); } catch (e) { errores.push(`${t.id}: ${e.message}`); break; }
+      const problemas = revisarEcuacion(ec);
+      if (problemas.length) { errores.push(`${t.id}: ${textoEcuacion(ec)} → ${problemas[0]}`); break; }
+      if (i === 0) {
+        const estrategia = datosAlgebra(ec).estrategia;
+        if (!PISTAS.plantillas?.estrategias?.[estrategia]) errores.push(`${t.id}: falta la pista de la estrategia «${estrategia}» en pistas.json → plantillas`);
+      }
+    }
   }
   return errores;
 }
@@ -83,21 +98,21 @@ function validarNivel(nivel) {
   if (nivel.tipo !== 'vida-real') {
     const tipos = nivel.tipo === 'mezcla' ? nivel.tipos : [nivel.tipo];
     for (const tipo of tipos) {
-      if (TIPOS_CON_FORMA.includes(tipo)) {
-        const temas = ['parentesis', 'ambos', 'fracciones', 'fraccionFraccion'].includes(tipo) ? HISTORIAS[tipo].temas : HISTORIAS.temas;
+      if (TIPOS_CON_PLANTILLA.includes(tipo)) {
+        // historias por mundo (historias.json → mundos): cada tema del vecino debe existir
+        const temas = HISTORIAS.mundos?.[nivel.mundo]?.temas || {};
         for (const v of vecinos) {
           for (const tema of PERSONAJES[v.personaje].temas || []) {
-            if (!temas[tema]) errores.push(`el tema ${tema} de ${v.nombre} no está en historias.json`);
-            // Mundo 5: cada historia está escrita para una forma
-            else if (temas[tema].forma && !(nivel.formas || [nivel.forma]).includes(temas[tema].forma)) errores.push(`el tema ${tema} de ${v.nombre} es de la forma ${temas[tema].forma}, no de la del nivel`);
+            if (!temas[tema]) errores.push(`el tema ${tema} de ${v.nombre} no está en historias.json → mundos.${nivel.mundo}`);
           }
           if (!PERSONAJES[v.personaje].temas) errores.push(`${v.nombre} no tiene temas de historia (personajes.json)`);
           for (const otro of PERSONAJES[v.personaje].otros || []) if (!PERSONAJES[otro]) errores.push(`${v.nombre}: el personaje "${otro}" de 'otros' no existe`);
         }
-      } else if (!DIALOGOS.retos[tipo]) errores.push(`faltan textos del tipo ${tipo} en dialogos.json`);
-      if (TIPOS_CON_FORMA.includes(tipo)) {
-        for (const forma of nivel.formas || [nivel.forma]) errores.push(...validarGenerador(tipo, { ...nivel.rangos, forma }, mundo, `nivel ${nivel.id} (${forma})`));
-      } else errores.push(...validarGenerador(tipo, nivel.rangos[tipo] || nivel.rangos, mundo, `nivel ${nivel.id}`));
+        errores.push(...validarPlantillas(nivel, mundo));
+      } else {
+        if (!DIALOGOS.retos[tipo]) errores.push(`faltan textos del tipo ${tipo} en dialogos.json`);
+        errores.push(...validarGenerador(tipo, nivel.rangos[tipo] || nivel.rangos, mundo, `nivel ${nivel.id}`));
+      }
     }
   }
   if (errores.length) return { errores, pasos };
